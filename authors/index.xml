@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Matthew B. Platt</title>
+    <link>/authors/</link>
+    <description>Recent content in Authors on Matthew B. Platt</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright> &amp;copy; Matthew Platt, {year}</copyright>
+    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/authors/admin/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/admin/</guid>
+      <description>&lt;p&gt;I am an associate professor in the Political Science Department at Morehouse College. I teach courses in American Politics, Congress, and undegraduate research methods. Thank you for stopping by my website.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Manu O. Platt</title>
+      <link>/authors/manu-o.-platt/</link>
+      <pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/manu-o.-platt/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

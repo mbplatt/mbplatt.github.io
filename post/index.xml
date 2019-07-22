@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Matthew B. Platt</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Matthew B. Platt</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright> &amp;copy; Matthew Platt, {year}</copyright>
+    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Perhaps at some point there will be something</title>
+      <link>/post/writing/</link>
+      <pubDate>Sun, 21 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/writing/</guid>
+      <description>&lt;p&gt;A day may come when I write beautifully about my teaching, when I share brief assessments of some pedagogical innovation that might not be fully allowed by IRB, but it is not this day.&lt;/p&gt;
+
+&lt;p&gt;An hour of profound insights and witty commentary, when I engage in some form of punditry based on my research,  but it is not this day!&lt;/p&gt;
+
+&lt;p&gt;Today we make &lt;a href=&#34;https://www.youtube.com/watch?v=OA8wkz0uGLE&#34; target=&#34;_blank&#34;&gt;Tolkien references&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
