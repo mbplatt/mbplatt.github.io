@@ -7,10 +7,23 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright> &amp;copy; Matthew Platt, {year}</copyright>
-    <lastBuildDate>Sun, 21 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Let&#39;s see if this works</title>
+      <link>/post/let-s-see-if-this-works/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/let-s-see-if-this-works/</guid>
+      <description>
+
+
+&lt;p&gt;This is a test page to see if anything ever works.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Perhaps at some point there will be something</title>
