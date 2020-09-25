@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.1 Arithmetic | PSC 253 Minimal Manual</title>
+  <title>1.3 Creating a Vector | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.1 Arithmetic | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="1.3 Creating a Vector | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.1 Arithmetic | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="1.3 Creating a Vector | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="basic.html"/>
-<link rel="next" href="object.html"/>
+<link rel="prev" href="object.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -108,15 +108,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="basic.html"><a href="basic.html"><i class="fa fa-check"></i><b>1</b> R Basics</a><ul>
-<li class="chapter" data-level="1.1" data-path="arithmetic.html"><a href="arithmetic.html"><i class="fa fa-check"></i><b>1.1</b> Arithmetic</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="arithmetic.html"><a href="arithmetic.html#problem"><i class="fa fa-check"></i><b>1.1.1</b> Problem</a></li>
-<li class="chapter" data-level="1.1.2" data-path="arithmetic.html"><a href="arithmetic.html#solution"><i class="fa fa-check"></i><b>1.1.2</b> Solution</a></li>
-<li class="chapter" data-level="1.1.3" data-path="arithmetic.html"><a href="arithmetic.html#troubleshooting"><i class="fa fa-check"></i><b>1.1.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="1.1" data-path="calculate.html"><a href="calculate.html"><i class="fa fa-check"></i><b>1.1</b> Use R as a Calculator</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="calculate.html"><a href="calculate.html#problem"><i class="fa fa-check"></i><b>1.1.1</b> Problem</a></li>
+<li class="chapter" data-level="1.1.2" data-path="calculate.html"><a href="calculate.html#solution"><i class="fa fa-check"></i><b>1.1.2</b> Solution</a></li>
+<li class="chapter" data-level="1.1.3" data-path="calculate.html"><a href="calculate.html#troubleshooting"><i class="fa fa-check"></i><b>1.1.3</b> Troubleshooting</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="object.html"><a href="object.html"><i class="fa fa-check"></i><b>1.2</b> Creating an Object</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="object.html"><a href="object.html#problem-1"><i class="fa fa-check"></i><b>1.2.1</b> Problem</a></li>
 <li class="chapter" data-level="1.2.2" data-path="object.html"><a href="object.html#solution-1"><i class="fa fa-check"></i><b>1.2.2</b> Solution</a></li>
 <li class="chapter" data-level="1.2.3" data-path="object.html"><a href="object.html#troubleshooting-1"><i class="fa fa-check"></i><b>1.2.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="creating-a-vector.html"><a href="creating-a-vector.html"><i class="fa fa-check"></i><b>1.3</b> Creating a Vector</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="creating-a-vector.html"><a href="creating-a-vector.html#problem-2"><i class="fa fa-check"></i><b>1.3.1</b> Problem</a></li>
+<li class="chapter" data-level="1.3.2" data-path="creating-a-vector.html"><a href="creating-a-vector.html#solution-2"><i class="fa fa-check"></i><b>1.3.2</b> Solution</a></li>
+<li class="chapter" data-level="1.3.3" data-path="creating-a-vector.html"><a href="creating-a-vector.html#troubleshooting-2"><i class="fa fa-check"></i><b>1.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -139,56 +144,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arithmetic" class="section level2">
-<h2><span class="header-section-number">1.1</span> Arithmetic</h2>
-<div id="problem" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Problem</h3>
-<p>You want to add, subtract, multiply, divide, use exponents, and take square roots</p>
+<div id="creating-a-vector" class="section level2">
+<h2><span class="header-section-number">1.3</span> Creating a Vector</h2>
+<p>A vector is a list of numbers or characters. We will create vectors for a variety of reasons in this course.</p>
+<div id="problem-2" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Problem</h3>
+<p>You want to create a vector.</p>
 </div>
-<div id="solution" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> Solution</h3>
-<p>Use <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication and <code>/</code> for division.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># addition</span>
-<span class="dv">43</span> +<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<pre><code>## [1] 48</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># subtraction</span>
-<span class="dv">43</span> -<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<pre><code>## [1] 38</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># multiplication</span>
-<span class="dv">43</span> *<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<pre><code>## [1] 215</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># division</span>
-<span class="dv">43</span>/<span class="dv">5</span></code></pre></div>
-<pre><code>## [1] 8.6</code></pre>
-<p>For exponents, we raise <code>X</code> to the power of <code>y</code> by using <code>^</code>. That is <code>X^y</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># raise 43 to the power of 5</span>
-<span class="dv">43</span> ^<span class="st"> </span><span class="dv">5</span></code></pre></div>
-<pre><code>## [1] 147008443</code></pre>
-<p>Take the square root of some number <code>x</code> by using the function <code>sqrt()</code>. That is <code>sqrt(x)</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># take the square root of 43</span>
-<span class="kw">sqrt</span>(<span class="dv">43</span>)</code></pre></div>
-<pre><code>## [1] 6.557439</code></pre>
+<div id="solution-2" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Solution</h3>
+<p>Use the function <code>c()</code> to create a list by separating the entries with a comma.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a vector called &#39;prime&#39;</span>
+prime &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)
+
+prime</code></pre></div>
+<pre><code>## [1] 1 3 5 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a vector called &quot;first_name&quot;</span>
+first_name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Matthew&quot;</span>, <span class="st">&quot;Mosi&quot;</span>, <span class="st">&quot;Manu&quot;</span>, <span class="st">&quot;Ekundayo&quot;</span>, <span class="st">&quot;Kwasi&quot;</span>)
+
+first_name</code></pre></div>
+<pre><code>## [1] &quot;Matthew&quot;  &quot;Mosi&quot;     &quot;Manu&quot;     &quot;Ekundayo&quot; &quot;Kwasi&quot;</code></pre>
 </div>
-<div id="troubleshooting" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> Troubleshooting</h3>
+<div id="troubleshooting-2" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> Troubleshooting</h3>
 <ul>
-<li>Keep in mind that R follows the order of operations, 2 + 2 * 2 is equal to 6 and not 8.</li>
+<li>As the name of a function, <code>c()</code> is case sensitive. Use the lowercase <code>c</code>.</li>
+<li>Make sure that all elements are separated by a comma.</li>
+<li>Vectors are typically assigned to some object.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># correct</span>
-<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># incorrect</span>
-(<span class="dv">2</span> +<span class="st"> </span><span class="dv">2</span>) *<span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>## [1] 8</code></pre>
+
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="basic.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="object.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="object.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

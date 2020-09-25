@@ -133,11 +133,11 @@ Scope and Methods in Political Science taught at Morehouse College. It
 is intended to cover all of the main analytical tasks that the course
 requires.
 
-\chapter{Using R as a Calculator}\label{calculate}
+\chapter{R Basics}\label{basic}
 
 At is most basic functionality, R is a calculator.
 
-\section{Arithmetic}\label{arithmetic}
+\section{Use R as a Calculator}\label{calculate}
 
 \subsection{Problem}\label{problem}
 
@@ -207,7 +207,7 @@ For exponents, we raise \texttt{X} to the power of \texttt{y} by using
 ## [1] 147008443
 \end{verbatim}
 
-Take the square roots of some number \texttt{x} by using the function
+Take the square root of some number \texttt{x} by using the function
 \texttt{sqrt()}. That is \texttt{sqrt(x)}.
 
 \begin{Shaded}
@@ -319,27 +319,63 @@ Type the name of an object in order to see what it contains.
 \item
   Text needs to be in quotation marks in order to be assigned to an
   object.
+\item
+  Object names are case sensitive \texttt{Myobject} is not the same as
+  \texttt{myobject}
 \end{itemize}
 
-\chapter{Literature}\label{literature}
+\section{Creating a Vector}\label{creating-a-vector}
 
-Here is a review of existing methods.
+A vector is a list of numbers or characters. We will create vectors for
+a variety of reasons in this course.
 
-\chapter{Methods}\label{methods}
+\subsection{Problem}\label{problem-2}
 
-We describe our methods in this chapter.
+You want to create a vector.
 
-\chapter{Applications}\label{applications}
+\subsection{Solution}\label{solution-2}
 
-Some \emph{significant} applications are demonstrated in this chapter.
+Use the function \texttt{c()} to create a list by separating the entries
+with a comma.
 
-\section{Example one}\label{example-one}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create a vector called 'prime'}
+\NormalTok{prime <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{)}
 
-\section{Example two}\label{example-two}
+\NormalTok{prime}
+\end{Highlighting}
+\end{Shaded}
 
-\chapter{Final Words}\label{final-words}
+\begin{verbatim}
+## [1] 1 3 5 7
+\end{verbatim}
 
-We have finished a nice book.
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create a vector called "first_name"}
+\NormalTok{first_name <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Matthew"}\NormalTok{, }\StringTok{"Mosi"}\NormalTok{, }\StringTok{"Manu"}\NormalTok{, }\StringTok{"Ekundayo"}\NormalTok{, }\StringTok{"Kwasi"}\NormalTok{)}
+
+\NormalTok{first_name}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Matthew"  "Mosi"     "Manu"     "Ekundayo" "Kwasi"
+\end{verbatim}
+
+\subsection{Troubleshooting}\label{troubleshooting-2}
+
+\begin{itemize}
+\tightlist
+\item
+  As the name of a function, \texttt{c()} is case sensitive. Use the
+  lowercase \texttt{c}.
+\item
+  Make sure that all elements are separated by a comma.
+\item
+  Vectors are typically assigned to some object.
+\end{itemize}
 
 \bibliography{book.bib,packages.bib}
 
