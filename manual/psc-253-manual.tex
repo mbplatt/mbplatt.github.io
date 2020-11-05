@@ -110,7 +110,7 @@
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2020-09-24}
+\date{2020-11-03}
 
 \begin{document}
 \maketitle
@@ -324,7 +324,7 @@ Type the name of an object in order to see what it contains.
   \texttt{myobject}
 \end{itemize}
 
-\section{Creating a Vector}\label{creating-a-vector}
+\section{Creating a Vector}\label{vector}
 
 A vector is a list of numbers or characters. We will create vectors for
 a variety of reasons in this course.
@@ -375,6 +375,191 @@ with a comma.
   Make sure that all elements are separated by a comma.
 \item
   Vectors are typically assigned to some object.
+\end{itemize}
+
+\section{Indexing}\label{indexing}
+
+We can use indexing to pull out specific sets of observations from a
+vector or dataset.
+
+\subsection{Problem}\label{problem-3}
+
+You want to select a specific one observation based on its position
+within a vector or matrix.
+
+\subsection{Solution}\label{solution-3}
+
+We index by using the brackets \texttt{{[}x,\ y{]}} after an object
+where x is the row and y is the column.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# we have a vector}
+\NormalTok{prime <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+
+\CommentTok{# we want the number 3, which is the second observation in the vector}
+\NormalTok{prime[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# we have a matrix}
+\NormalTok{yup <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(prime,}\DecValTok{2}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{14}\NormalTok{), }\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{, }\DataTypeTok{byrow =} \NormalTok{T)}
+\NormalTok{yup}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    3    5    7
+## [2,]    2    6   10   14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We want the observation in the first row and fourth column}
+\NormalTok{yup[}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7
+\end{verbatim}
+
+\subsection{Problem}\label{problem-4}
+
+You want to select an entire row or column.
+
+\subsection{Solution}\label{solution-4}
+
+You can select an entire row by leaving the column index position blank
+\texttt{yup{[}2,\ {]}}. You can select an entire column by leaving the
+row index position blank \texttt{yup{[}\ ,\ 2{]}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We have our matrix}
+\NormalTok{yup}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    3    5    7
+## [2,]    2    6   10   14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We want the second row}
+\NormalTok{yup[}\DecValTok{1}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 3 5 7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We want the third column}
+\NormalTok{yup[ , }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  5 10
+\end{verbatim}
+
+\chapter{Bivariate Comparisons}\label{bivariate-comparisons}
+
+\section{Crosstab}\label{crosstab}
+
+\subsection{Problem}\label{problem-5}
+
+You want to make a crosstab.
+
+\subsection{Solution}\label{solution-5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the \texttt{poliscidata} package.
+\item
+  In order to create a crosstab in R, we use the function called
+  \texttt{xtp()}.\\
+\item
+  The function follows the following template:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{xtp}\NormalTok{(}\DataTypeTok{data =} \NormalTok{your data, }\DataTypeTok{y =} \NormalTok{dependent variable, }\DataTypeTok{x =} \NormalTok{independent variable, }\DataTypeTok{w =} \NormalTok{weights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Specify the dataset, the dependent variable, the independent variable,
+  and the weights (if applicable)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a crosstab where the dependent variable is "envjob_3", the independent variable is "pid_3", and the weights are "wt".}
+\CommentTok{# The dataset is "nes", which is found in the "poliscidata" package.}
+\KeywordTok{xtp}\NormalTok{(}\DataTypeTok{data =} \NormalTok{nes, }\DataTypeTok{y =} \NormalTok{envjob_3, }\DataTypeTok{x =} \NormalTok{pid_3, }\DataTypeTok{w =} \NormalTok{wt)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\begin{verbatim}
+##    Cell Contents 
+## |-------------------------|
+## |                   Count | 
+## |          Column Percent | 
+## |-------------------------|
+## 
+## ============================================
+##             pid_3
+## envjob_3       Dem      Ind      Rep   Total
+## --------------------------------------------
+## Envir        1005      721      212    1938 
+##             59.82%   38.25%   15.30%        
+## --------------------------------------------
+## Mid           508      749      525    1782 
+##             30.24%   39.73%   37.88%        
+## --------------------------------------------
+## Jobs          167      415      649    1231 
+##              9.94%   22.02%   46.83%        
+## --------------------------------------------
+## Total        1680     1885     1386    4951 
+##             33.93%   38.07%   27.99%        
+## ============================================
+\end{verbatim}
+
+\subsection{Troubleshooting}\label{troubleshooting-3}
+
+\begin{itemize}
+\item
+  Make sure that the \texttt{poliscidata} package is loaded. Use
+  \texttt{library(poliscidata)} to load.
+\item
+  The arguments for the independent and dependent variables are just the
+  variable names. They do not follow the template of
+  \texttt{data\$variable}.
+\item
+  Crosstabs are used when both the independent and dependent variables
+  are categorical. Avoid making a crosstab with numeric data.
 \end{itemize}
 
 \bibliography{book.bib,packages.bib}

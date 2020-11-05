@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Creating an Object | PSC 253 Minimal Manual</title>
+  <title>3.2 Create a Numeric Variable | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.21.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Creating an Object | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.2 Create a Numeric Variable | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Creating an Object | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.2 Create a Numeric Variable | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="calculate.html"/>
-<link rel="next" href="vector.html"/>
+<link rel="prev" href="factor.html"/>
+<link rel="next" href="subset.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -217,37 +217,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="object" class="section level2">
-<h2><span class="header-section-number">1.2</span> Creating an Object</h2>
-<div id="problem-1" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Problem</h3>
-<p>You want to create an object to hold a number</p>
+<div id="numeric" class="section level2">
+<h2><span class="header-section-number">3.2</span> Create a Numeric Variable</h2>
+<div id="problem-9" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Problem</h3>
+<p>You want to transform an existing variable into a numeric variable.</p>
 </div>
-<div id="solution-1" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Solution</h3>
-<p>To create an object:</p>
+<div id="solution-9" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Solution</h3>
 <ol style="list-style-type: decimal">
-<li>type in a name for the object, like <code>newobject</code> then</li>
-<li>use the assignment operator <code>&lt;-</code>,</li>
-<li>input a number, mathematical expression, dataset, or text on the right side of <code>&lt;-</code> that you want assigned to the <code>newobject</code></li>
+<li>Decide on what to name the numeric variable. It could be the same name as the old variable.</li>
+<li>Use <code>as.numeric()</code> to assign the old variable values to the new variable.</li>
+<li>It would follow the general template below.</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># assigning the number 4 to a new object named &quot;myobject&quot;</span></a>
-<a class="sourceLine" id="cb17-2" title="2">myobject &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb17-3" title="3"></a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="co"># assigning the text &quot;hallelujah hollaback&quot; to a new object named &quot;second_object&quot;</span></a>
-<a class="sourceLine" id="cb17-5" title="5">second_object &lt;-<span class="st"> &quot;hallelujah hollaback&quot;</span></a></code></pre></div>
-<p>Type the name of an object in order to see what it contains.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">myobject</a></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">second_object</a></code></pre></div>
-<pre><code>## [1] &quot;hallelujah hollaback&quot;</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">data<span class="op">$</span>newvariable &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data<span class="op">$</span>oldvariable)</a></code></pre></div>
+<p>Here is an example that converts the seven-point party identification scale into a numeric variable.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1"><span class="co"># frequency table of the original variable `pid_x`</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="kw">freq</span>(nes<span class="op">$</span>pid_x)</a></code></pre></div>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre><code>## nes$pid_x 
+##        Frequency  Percent Valid Percent
+## StrDem      1485  25.1014         25.20
+## WkDem        873  14.7566         14.82
+## IndDem       747  12.6268         12.68
+## Ind          792  13.3874         13.44
+## IndRep       610  10.3110         10.35
+## WkRep        623  10.5308         10.57
+## StrRep       762  12.8803         12.93
+## NA&#39;s          24   0.4057              
+## Total       5916 100.0000        100.00</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co"># make `pid_x` numeric</span></a>
+<a class="sourceLine" id="cb57-2" title="2">nes<span class="op">$</span>pid7 &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(nes<span class="op">$</span>pid_x)</a>
+<a class="sourceLine" id="cb57-3" title="3"></a>
+<a class="sourceLine" id="cb57-4" title="4"><span class="co"># frequency table of the new variable `pid7`</span></a>
+<a class="sourceLine" id="cb57-5" title="5"><span class="kw">freq</span>(nes<span class="op">$</span>pid7)</a></code></pre></div>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<pre><code>## nes$pid7 
+##       Frequency  Percent Valid Percent
+## 1          1485  25.1014         25.20
+## 2           873  14.7566         14.82
+## 3           747  12.6268         12.68
+## 4           792  13.3874         13.44
+## 5           610  10.3110         10.35
+## 6           623  10.5308         10.57
+## 7           762  12.8803         12.93
+## NA&#39;s         24   0.4057              
+## Total      5916 100.0000        100.00</code></pre>
 </div>
-<div id="troubleshooting-1" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Troubleshooting</h3>
+<div id="troubleshooting-7" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Troubleshooting</h3>
 <ul>
-<li>There cannot be any spaces in the name of an object. Instead you could use dots, dashes, underscores, or capitalization to distinguish between words: <code>small.data</code>, <code>big-data</code>, <code>bigger_data</code>, <code>mediumData</code>.</li>
-<li>Text needs to be in quotation marks in order to be assigned to an object.</li>
-<li>Object names are case sensitive <code>Myobject</code> is not the same as <code>myobject</code></li>
+<li>Have not come across any problems yet.</li>
 </ul>
 </div>
 </div>
@@ -256,8 +276,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="calculate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vector.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="factor.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="subset.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -288,7 +308,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-basics.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-wrangle.Rmd",
 "text": "Edit"
 },
 "history": {

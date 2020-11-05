@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Creating an Object | PSC 253 Minimal Manual</title>
+  <title>3.4 Summarize Data Using Means | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.21.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Creating an Object | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.4 Summarize Data Using Means | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Creating an Object | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.4 Summarize Data Using Means | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="calculate.html"/>
-<link rel="next" href="vector.html"/>
+<link rel="prev" href="subset.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -217,47 +217,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="object" class="section level2">
-<h2><span class="header-section-number">1.2</span> Creating an Object</h2>
-<div id="problem-1" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Problem</h3>
-<p>You want to create an object to hold a number</p>
+<div id="sum" class="section level2">
+<h2><span class="header-section-number">3.4</span> Summarize Data Using Means</h2>
+<div id="problem-11" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Problem</h3>
+<p>You want to make a summary dataset that shows the mean of one variable for each value of some other variable.</p>
 </div>
-<div id="solution-1" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Solution</h3>
-<p>To create an object:</p>
+<div id="solution-10" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Solution</h3>
 <ol style="list-style-type: decimal">
-<li>type in a name for the object, like <code>newobject</code> then</li>
-<li>use the assignment operator <code>&lt;-</code>,</li>
-<li>input a number, mathematical expression, dataset, or text on the right side of <code>&lt;-</code> that you want assigned to the <code>newobject</code></li>
+<li>Assign the old data to a new data object.</li>
+<li>Use the pipe <code>%&gt;%</code> at the end of the line of code.</li>
+<li>Use <code>group_by()</code>. The argument is the variable that you want to use to find the means of some other variable.</li>
+<li>Use the pipe <code>%&gt;%</code> at the end of the line of code.</li>
+<li>Use <code>summarise()</code>.</li>
+<li>Create a name for the summary variable.</li>
+<li>Set the summary variable as being equal to the mean of the variable that you want to take the mean of.</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># assigning the number 4 to a new object named &quot;myobject&quot;</span></a>
-<a class="sourceLine" id="cb17-2" title="2">myobject &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb17-3" title="3"></a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="co"># assigning the text &quot;hallelujah hollaback&quot; to a new object named &quot;second_object&quot;</span></a>
-<a class="sourceLine" id="cb17-5" title="5">second_object &lt;-<span class="st"> &quot;hallelujah hollaback&quot;</span></a></code></pre></div>
-<p>Type the name of an object in order to see what it contains.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">myobject</a></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">second_object</a></code></pre></div>
-<pre><code>## [1] &quot;hallelujah hollaback&quot;</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">newdata &lt;-<span class="st"> </span>old_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb69-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(group_variable) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb69-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">summary_variable =</span> <span class="kw">mean</span>(mean_variable))</a></code></pre></div>
+<p>Here we calculate the mean feelings towards Obama, <code>obama_therm</code>, by party identification, <code>pid_x</code>.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="co"># assign old data to a new data object</span></a>
+<a class="sourceLine" id="cb70-2" title="2">partymeans &lt;-<span class="st"> </span>nes <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb70-3" title="3"><span class="st">  </span></a>
+<a class="sourceLine" id="cb70-4" title="4"><span class="st">  </span><span class="co"># use group_by() to group the data by pid_x</span></a>
+<a class="sourceLine" id="cb70-5" title="5"><span class="st">  </span><span class="kw">group_by</span>(pid_x) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb70-6" title="6"><span class="st">  </span></a>
+<a class="sourceLine" id="cb70-7" title="7"><span class="st">  </span><span class="co"># calculate the means of obama_therm</span></a>
+<a class="sourceLine" id="cb70-8" title="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">average =</span> <span class="kw">wtd.mean</span>(obama_therm, <span class="dt">na.rm =</span> T,</a>
+<a class="sourceLine" id="cb70-9" title="9">                               <span class="dt">weights =</span> wt))</a></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co"># show the summary dataset</span></a>
+<a class="sourceLine" id="cb72-2" title="2">partymeans</a></code></pre></div>
+<pre><code>## # A tibble: 8 x 2
+##   pid_x  average
+##   &lt;fct&gt;    &lt;dbl&gt;
+## 1 StrDem    90.1
+## 2 WkDem     74.2
+## 3 IndDem    75.2
+## 4 Ind       53.3
+## 5 IndRep    32.8
+## 6 WkRep     36.7
+## 7 StrRep    17.6
+## 8 &lt;NA&gt;      61.0</code></pre>
 </div>
-<div id="troubleshooting-1" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Troubleshooting</h3>
+<div id="troubleshooting-9" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Troubleshooting</h3>
 <ul>
-<li>There cannot be any spaces in the name of an object. Instead you could use dots, dashes, underscores, or capitalization to distinguish between words: <code>small.data</code>, <code>big-data</code>, <code>bigger_data</code>, <code>mediumData</code>.</li>
-<li>Text needs to be in quotation marks in order to be assigned to an object.</li>
-<li>Object names are case sensitive <code>Myobject</code> is not the same as <code>myobject</code></li>
+<li>For survey data use <code>wtd.mean()</code>. Use <code>mean()</code> for non-survey data.</li>
 </ul>
+
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="calculate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vector.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="subset.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -288,7 +308,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-basics.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-wrangle.Rmd",
 "text": "Edit"
 },
 "history": {
