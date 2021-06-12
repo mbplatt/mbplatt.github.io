@@ -1,250 +1,209 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/example/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/example/</loc>
+    <loc>https://mbplatt.github.io/courses/example/python/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/courses/example/visualization/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/courses/example/stats/</loc>
+    <lastmod>2021-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/talk/example-talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/let-s-see-if-this-works/</loc>
-    <lastmod>2020-03-18T16:59:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-03-18T16:59:03-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/categories/</loc>
+    <lastmod>2021-06-12T13:40:59-04:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/</loc>
+    <lastmod>2021-06-12T13:40:59-04:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/category/r/</loc>
+    <lastmod>2021-06-12T13:40:59-04:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/the-same-but-different/</loc>
+    <lastmod>2021-06-12T13:40:59-04:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/hi-hugo/</loc>
+    <lastmod>2021-06-09T14:05:18-04:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication-type/2/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/assessment/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/authors/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/curriculum/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2021-senior-seminar/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication_types/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/senior-capstone/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tags/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/undergraduate-research/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/courses/</loc>
+    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/courses/example/</loc>
+    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/academic/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/category/demo/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/getting-started/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/%E5%90%B3%E6%81%A9%E9%81%94/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/category/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/2020-12-01-r-rmarkdown/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/plot/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/r-markdown/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/regression/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2020-broadening-pipeline/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/claire-l.-adida/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/david-a.-lake/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/fatemeh-shafiei/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/mentoring/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/anti-lynching/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/2/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/bill-sponsorship/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/black-politics/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/2020-hoodies-on-floor/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2020-hoodies-on-floor/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/police-brutality/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/representation/</loc>
     <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/anti-lynching/</loc>
-    <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/bill-sponsorship/</loc>
-    <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/black-politics/</loc>
-    <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/police-brutality/</loc>
-    <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/representation/</loc>
-    <lastmod>2020-01-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/cv/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/cv/</loc>
     <lastmod>2019-07-21T19:04:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/writing/</loc>
-    <lastmod>2019-07-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/slides/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/writing-technical-content/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/post/jupyter/</loc>
+    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mbplatt.github.io/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/slides/example/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/home/</loc>
-    <lastmod>2019-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2017-paradox-of-ambition/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2017-paradox-of-ambition/</loc>
     <lastmod>2017-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/deep-learning/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/demo/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/project/external-project/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/project/external-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/internal-project/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/project/internal-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/2016-innovation-inevitability-credibility/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/agenda-setting/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/agenda-setting/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2016-innovation-inevitability-credibility/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/segregation/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/segregation/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/2015-vra-legacy/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2015-vra-legacy/</loc>
     <lastmod>2015-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/voting-rights-act/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/voting-rights-act/</loc>
     <lastmod>2015-12-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/2013-grid-to-gridlock/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/biomedical-research/</loc>
     <lastmod>2013-11-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/hiv/aids/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2013-grid-to-gridlock/</loc>
     <lastmod>2013-11-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/authors/manu-o.-platt/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/manu-o.-platt/</loc>
     <lastmod>2013-11-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/biomedical-research/</loc>
-    <lastmod>2013-11-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/2008-participation-for-what/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/publication/2008-participation-for-what/</loc>
     <lastmod>2008-02-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/political-participation/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/political-participation/</loc>
     <lastmod>2008-02-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url><url>
+    <loc>https://mbplatt.github.io/admin/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/tag/hiv/aids/</loc>
+  </url><url>
+    <loc>https://mbplatt.github.io/author/%E5%90%B3%E6%81%A9%E9%81%94/</loc>
   </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/courses/</loc>
-  </url>
-  
 </urlset>

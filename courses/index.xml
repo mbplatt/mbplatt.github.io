@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Courses on Matthew B. Platt</title>
-    <link>/courses/</link>
-    <description>Recent content in Courses on Matthew B. Platt</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
-    <language>en-us</language>
-    <copyright> &amp;copy; Matthew Platt, {year}</copyright>
-    
-	    <atom:link href="/courses/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>Courses | Matthew B. Platt</title>
+    <link>https://mbplatt.github.io/courses/</link>
+      <atom:link href="https://mbplatt.github.io/courses/index.xml" rel="self" type="application/rss+xml" />
+    <description>Courses</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright> © Matthew Platt, 2021</copyright><lastBuildDate>Sun, 24 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://mbplatt.github.io/media/icon_hu421ae2136390f46fe0b07fd802b2a0cd_251077_512x512_fill_lanczos_center_2.png</url>
+      <title>Courses</title>
+      <link>https://mbplatt.github.io/courses/</link>
+    </image>
     
   </channel>
 </rss>

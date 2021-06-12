@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manu O. Platt | Matthew B. Platt</title>
+    <link>https://mbplatt.github.io/author/manu-o.-platt/</link>
+      <atom:link href="https://mbplatt.github.io/author/manu-o.-platt/index.xml" rel="self" type="application/rss+xml" />
+    <description>Manu O. Platt</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright> © Matthew Platt, 2021</copyright><lastBuildDate>Wed, 27 Nov 2013 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://mbplatt.github.io/media/icon_hu421ae2136390f46fe0b07fd802b2a0cd_251077_512x512_fill_lanczos_center_2.png</url>
+      <title>Manu O. Platt</title>
+      <link>https://mbplatt.github.io/author/manu-o.-platt/</link>
+    </image>
+    
+    <item>
+      <title>From GRID to gridlock: the relationship between scientific biomedical breakthroughs and HIV/AIDS policy in the US Congress</title>
+      <link>https://mbplatt.github.io/publication/2013-grid-to-gridlock/</link>
+      <pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>https://mbplatt.github.io/publication/2013-grid-to-gridlock/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

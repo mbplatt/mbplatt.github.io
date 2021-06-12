@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>agenda setting | Matthew B. Platt</title>
+    <link>https://mbplatt.github.io/tag/agenda-setting/</link>
+      <atom:link href="https://mbplatt.github.io/tag/agenda-setting/index.xml" rel="self" type="application/rss+xml" />
+    <description>agenda setting</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright> © Matthew Platt, 2021</copyright><lastBuildDate>Fri, 01 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://mbplatt.github.io/media/icon_hu421ae2136390f46fe0b07fd802b2a0cd_251077_512x512_fill_lanczos_center_2.png</url>
+      <title>agenda setting</title>
+      <link>https://mbplatt.github.io/tag/agenda-setting/</link>
+    </image>
+    
+    <item>
+      <title>Innovation, Inevitability, and Credibility: Tracking the Origins of Black Civil Rights Issues</title>
+      <link>https://mbplatt.github.io/publication/2016-innovation-inevitability-credibility/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://mbplatt.github.io/publication/2016-innovation-inevitability-credibility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>An Examination of Black Representation and the Legacy of the Voting Rights Act</title>
+      <link>https://mbplatt.github.io/publication/2015-vra-legacy/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>https://mbplatt.github.io/publication/2015-vra-legacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>From GRID to gridlock: the relationship between scientific biomedical breakthroughs and HIV/AIDS policy in the US Congress</title>
+      <link>https://mbplatt.github.io/publication/2013-grid-to-gridlock/</link>
+      <pubDate>Wed, 27 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>https://mbplatt.github.io/publication/2013-grid-to-gridlock/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

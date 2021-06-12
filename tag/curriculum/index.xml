@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>curriculum | Matthew B. Platt</title>
+    <link>https://mbplatt.github.io/tag/curriculum/</link>
+      <atom:link href="https://mbplatt.github.io/tag/curriculum/index.xml" rel="self" type="application/rss+xml" />
+    <description>curriculum</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright> © Matthew Platt, 2021</copyright><lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://mbplatt.github.io/media/icon_hu421ae2136390f46fe0b07fd802b2a0cd_251077_512x512_fill_lanczos_center_2.png</url>
+      <title>curriculum</title>
+      <link>https://mbplatt.github.io/tag/curriculum/</link>
+    </image>
+    
+    <item>
+      <title>Examining Senior Seminar and Curricular Reform at an HBCU</title>
+      <link>https://mbplatt.github.io/publication/2021-senior-seminar/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://mbplatt.github.io/publication/2021-senior-seminar/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

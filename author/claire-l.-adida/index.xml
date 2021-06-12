@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claire L. Adida | Matthew B. Platt</title>
+    <link>https://mbplatt.github.io/author/claire-l.-adida/</link>
+      <atom:link href="https://mbplatt.github.io/author/claire-l.-adida/index.xml" rel="self" type="application/rss+xml" />
+    <description>Claire L. Adida</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright> © Matthew Platt, 2021</copyright><lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://mbplatt.github.io/media/icon_hu421ae2136390f46fe0b07fd802b2a0cd_251077_512x512_fill_lanczos_center_2.png</url>
+      <title>Claire L. Adida</title>
+      <link>https://mbplatt.github.io/author/claire-l.-adida/</link>
+    </image>
+    
+    <item>
+      <title>Broadening the PhD Pipeline: A Summer Research Program for HBCU Students</title>
+      <link>https://mbplatt.github.io/publication/2020-broadening-pipeline/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://mbplatt.github.io/publication/2020-broadening-pipeline/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
