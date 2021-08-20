@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.4 Indexing | PSC 253 Minimal Manual</title>
+  <title>1.8 Using relative file paths | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.4 Indexing | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="1.8 Using relative file paths | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.4 Indexing | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="1.8 Using relative file paths | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="vector.html"/>
-<link rel="next" href="project.html"/>
+<link rel="prev" href="loadpack.html"/>
+<link rel="next" href="csv-load.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -276,50 +276,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="index" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Indexing</h2>
-<p>We can use indexing to pull out specific sets of observations from a vector or dataset.</p>
-<div id="problem-3" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Problem</h3>
-<p>You want to select a specific one observation based on its position within a vector or matrix.</p>
+<div id="relative-path" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Using relative file paths</h2>
+<p>Whenever we load data or save data we will need to specify a file path – where the file is located on the computer. Obviously, the file path on your computer will not be the same as the path on someone else’s computer. We want our code to be able to run on any computer, so we create <em>relative</em> file paths. That is, we specify where the file is located relative to the <a href="project.html#project">project folder</a>.</p>
+<div id="problem-8" class="section level3" number="1.8.1">
+<h3><span class="header-section-number">1.8.1</span> Problem</h3>
+<p>You want to create a file path relative to the project folder.</p>
 </div>
-<div id="solution-3" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> Solution</h3>
-<p>We index by using the brackets <code>[x, y]</code> after an object where x is the row and y is the column.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="index.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we have a vector</span></span>
-<span id="cb26-2"><a href="index.html#cb26-2" aria-hidden="true" tabindex="-1"></a>prime <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb26-3"><a href="index.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="index.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># we want the number 3, which is the second observation in the vector</span></span>
-<span id="cb26-5"><a href="index.html#cb26-5" aria-hidden="true" tabindex="-1"></a>prime[<span class="dv">2</span>]</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="index.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we have a matrix</span></span>
-<span id="cb28-2"><a href="index.html#cb28-2" aria-hidden="true" tabindex="-1"></a>yup <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(prime,<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">14</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">byrow =</span> T)</span>
-<span id="cb28-3"><a href="index.html#cb28-3" aria-hidden="true" tabindex="-1"></a>yup</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    1    3    5    7
-## [2,]    2    6   10   14</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="index.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want the observation in the first row and fourth column</span></span>
-<span id="cb30-2"><a href="index.html#cb30-2" aria-hidden="true" tabindex="-1"></a>yup[<span class="dv">1</span>, <span class="dv">4</span>]</span></code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<div id="solution-8" class="section level3" number="1.8.2">
+<h3><span class="header-section-number">1.8.2</span> Solution</h3>
+<ol style="list-style-type: decimal">
+<li>You need to already have a project folder. See Section <a href="project.html#project">1.5</a>.</li>
+<li>Load the “here” package</li>
+<li>The function <code>here()</code> automatically sets the relative point of the file path as the location of your <code>.Rproj</code> file.</li>
+<li>You can then provide the file path as the argument to <code>here()</code>.</li>
+</ol>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="relative-path.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a path to the &quot;images&quot; folder in this project.</span></span>
+<span id="cb40-2"><a href="relative-path.html#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="relative-path.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<pre><code>## here() starts at E:/OneDrive/R Code/PSC 253 Manual</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="relative-path.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">&quot;images&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;E:/OneDrive/R Code/PSC 253 Manual/images&quot;</code></pre>
+<p>For example, we have a project folder named “hypothesis_test_lab.” Figure <a href="relative-path.html#fig:here-example">1.1</a> shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the “Data” folder there are two more folders called <code>Analysis_Data</code> and <code>Original_Data</code>.</p>
+<div class="figure"><span id="fig:here-example"></span>
+<img src="images/here_example1.png" alt="A screen shot of the hypothesis_test_lab project folder." width="856" />
+<p class="caption">
+Figure 1.1: A screen shot of the hypothesis_test_lab project folder.
+</p>
 </div>
-<div id="problem-4" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> Problem</h3>
-<p>You want to select an entire row or column.</p>
+<p>We will use the <code>here()</code> function to load a data file that is found within the <code>Analysis_Data</code> folder.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="relative-path.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loading &quot;analysis1.RData&quot; file</span></span>
+<span id="cb44-2"><a href="relative-path.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="relative-path.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">here</span>(<span class="st">&quot;Data/Analysis_Data/analysis1.RData&quot;</span>))</span></code></pre></div>
 </div>
-<div id="solution-4" class="section level3" number="1.4.4">
-<h3><span class="header-section-number">1.4.4</span> Solution</h3>
-<p>You can select an entire row by leaving the column index position blank <code>yup[2, ]</code>. You can select an entire column by leaving the row index position blank <code>yup[ , 2]</code>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="index.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We have our matrix</span></span>
-<span id="cb32-2"><a href="index.html#cb32-2" aria-hidden="true" tabindex="-1"></a>yup</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    1    3    5    7
-## [2,]    2    6   10   14</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="index.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want the second row</span></span>
-<span id="cb34-2"><a href="index.html#cb34-2" aria-hidden="true" tabindex="-1"></a>yup[<span class="dv">1</span>, ]</span></code></pre></div>
-<pre><code>## [1] 1 3 5 7</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="index.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want the third column</span></span>
-<span id="cb36-2"><a href="index.html#cb36-2" aria-hidden="true" tabindex="-1"></a>yup[ , <span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1]  5 10</code></pre>
+<div id="troubleshooting-6" class="section level3" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> Troubleshooting</h3>
+<ul>
+<li>Remember to use forward slashes <code>/</code> and quotation marks when writing the relative path for <code>here()</code>.</li>
+<li>The use of <code>here()</code> is a new function introduced in Fall 2021. Code from prior versions of the course that used relative paths may need to be revised if you want to use the <code>here()</code> function.</li>
+<li>Your first code chunk should load the <code>here</code> package – <code>library(here)</code>.</li>
+</ul>
 </div>
 </div>
             </section>
@@ -327,8 +323,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="vector.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loadpack.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="csv-load.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
