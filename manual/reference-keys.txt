@@ -12,7 +12,7 @@ vector
 problem-2
 solution-2
 troubleshooting-2
-index
+indexing
 problem-3
 solution-3
 problem-4
