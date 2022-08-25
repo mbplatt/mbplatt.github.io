@@ -6,8 +6,8 @@
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -33,14 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={PSC 253 Minimal Manual},
-  pdfauthor={Matthew B. Platt},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -116,15 +108,23 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={PSC 253 Minimal Manual},
+  pdfauthor={Matthew B. Platt},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2021-08-20}
+\date{2022-08-24}
 
 \begin{document}
 \maketitle
@@ -669,7 +669,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## here() starts at E:/OneDrive/R Code/PSC 253 Manual
+## here() starts at C:/Users/matth/OneDrive/R Code/PSC 253 Manual
 \end{verbatim}
 
 \begin{Shaded}
@@ -679,14 +679,14 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "E:/OneDrive/R Code/PSC 253 Manual/images"
+## [1] "C:/Users/matth/OneDrive/R Code/PSC 253 Manual/images"
 \end{verbatim}
 
-For example, we have a project folder named ``hypothesis\_test\_lab''. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
+For example, we have a project folder named \texttt{hypothesis\_test\_lab}. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
 
-\textbackslash begin\{figure\}
-\includegraphics[width=11.89in]{images/here_example1} \textbackslash caption\{A screen shot of the hypothesis\_test\_lab project folder.\}\label{fig:here-example}
-\textbackslash end\{figure\}
+\begin{figure}
+\includegraphics[width=11.89in]{images/here_example1} \caption{A screen shot of the hypothesistestlab project folder.}\label{fig:here-example}
+\end{figure}
 
 We will use the \texttt{here()} function to load a data file that is found within the \texttt{Analysis\_Data} folder.
 
@@ -835,19 +835,149 @@ If I were loading a dta file named ``congbills.dta'' and assigning it to an obje
   Using \texttt{read\_dta()} requires the \texttt{haven} package.
 \end{itemize}
 
+\hypertarget{organizing-for-reproducibility}{%
+\chapter{Organizing for Reproducibility}\label{organizing-for-reproducibility}}
+
+\hypertarget{tiercreate}{%
+\section{Create TIER Folders}\label{tiercreate}}
+
+\hypertarget{problem-11}{%
+\subsection{Problem}\label{problem-11}}
+
+You want to create folders in accordance with \href{https://www.projecttier.org/tier-protocol/protocol-4-0/}{Project TIER's protocol}.
+
+\hypertarget{solution-11}{%
+\subsection{Solution}\label{solution-11}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  You should have already \protect\hyperlink{project}{created a project}.
+\end{enumerate}
+
+\includegraphics[width=7.99in]{images/projdirectory2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  In the Files, Plots, Packages, Help, Viewer pane there is a button that says ``New Folder.''
+\end{enumerate}
+
+\includegraphics[width=7.85in]{images/newfolder}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Click that button to create three folders named ``Data'', ``Documents'', and ``Script''. When you are finished the project folder should look like this:
+\end{enumerate}
+
+\includegraphics[width=7.93in]{images/tiermain}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Inside the ``Data'' folder, create two folders named ``Input\_Data'' and ``Analysis\_Data''.
+\end{enumerate}
+
+\includegraphics[width=7.96in]{images/tierdata}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Inside the ``Scripts'' folder, create three folders named ``Processing'', ``Data\_Appendix'', and ``Analysis''.
+\end{enumerate}
+
+\includegraphics[width=7.97in]{images/tierscripts}
+
+\hypertarget{troubleshooting-9}{%
+\subsection{Troubleshooting}\label{troubleshooting-9}}
+
+\begin{itemize}
+\tightlist
+\item
+  The actual names of the folder are not important. However, you should be consistent with how you name the folders across projects. That will help you to remember the role that each folder serves.
+\item
+  Keep in mind that you will use these folder names in your \protect\hyperlink{relative-path}{relative paths}.
+\end{itemize}
+
+\hypertarget{tierpopulate}{%
+\section{Populate TIER Folders}\label{tierpopulate}}
+
+\hypertarget{problem-12}{%
+\subsection{Problem}\label{problem-12}}
+
+You want to put files into their appropriate TIER folder.
+
+\hypertarget{solution-12}{%
+\subsection{Solution}\label{solution-12}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  You have already \protect\hyperlink{project}{created a project folder}.
+\item
+  You have already \protect\hyperlink{tiercreate}{created TIER folders} inside of the project folder.
+\item
+  Now we are ready to describe what goes into each of these folders. We will start with the ``Data'' folder.
+\end{enumerate}
+
+Inside of the ``Data'' folder there are two subfolders -- ``Input\_Data'' and ``Analysis Data''. The ``Input\_Data'' folder is where you place the unprocessed, original version of a dataset. Also, you should create a subfolder inside of the ``Input\_Data'' folder that is called ``Metadata''. Any codebooks that are associated with your dataset should be placed inside of the ``Metadata'' folder.
+
+\includegraphics[width=7.86in]{images/tierinput}
+
+You do not place anything inside of the ``Analysis\_Data'' folder. This folder will be populated when the input data is processed.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Inside of the ``Scripts'' folder there are three subfolders -- ``Processing'', ``Analysis'', and ``Data\_Appendix''. The ``Processing'' folder should have one file named \texttt{processing.rmd}. This file is used to transform the input data into the form that you will use for the data analysis.
+\end{enumerate}
+
+\includegraphics[width=18.58in]{images/tierprocessing}
+
+The ``Data\_Appendix'' folder should have one filed named \texttt{data-appendix.rmd}. This file creates the Data Appendix, which serves as a codebook and provides descriptive statistics for the variables that are used in the actual data analysis.
+
+\includegraphics[width=18.69in]{images/data-appendix}
+
+Lastly, the ``Analysis'' folder should have one file named \texttt{analysis.rmd}. For the final data project, this file will contain all of the data analysis that you were required to perform as part of that project. For the weekly labs, the \texttt{analysis.rmd} provides sample code for any analysis that you will be required to perform in the lab report.
+
+\includegraphics[width=18.67in]{images/tieranalysis}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  The ``Documents'' folder contains the finished version of your work -- the lab report, the research paper, or the final poster. This folder may also contain any supplementary files or folders that are necessary for that final product. For example, files for the Morehouse logo that appears on the final data project poster are located inside of the ``Documents'' folder.
+\end{enumerate}
+
+\includegraphics[width=18.92in]{images/labreport}
+
 \hypertarget{bivariate-comparisons}{%
 \chapter{Bivariate Comparisons}\label{bivariate-comparisons}}
 
 \hypertarget{crosstab}{%
 \section{Crosstab}\label{crosstab}}
 
-\hypertarget{problem-11}{%
-\subsection{Problem}\label{problem-11}}
+\hypertarget{problem-13}{%
+\subsection{Problem}\label{problem-13}}
 
 You want to make a crosstab.
 
-\hypertarget{solution-11}{%
-\subsection{Solution}\label{solution-11}}
+\hypertarget{solution-13}{%
+\subsection{Solution}\label{solution-13}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -881,7 +1011,7 @@ You want to make a crosstab.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-26-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-36-1.pdf}
 
 \begin{verbatim}
 ##    Cell Contents 
@@ -908,8 +1038,8 @@ You want to make a crosstab.
 ## ============================================
 \end{verbatim}
 
-\hypertarget{troubleshooting-9}{%
-\subsection{Troubleshooting}\label{troubleshooting-9}}
+\hypertarget{troubleshooting-10}{%
+\subsection{Troubleshooting}\label{troubleshooting-10}}
 
 \begin{itemize}
 \tightlist
@@ -924,13 +1054,13 @@ You want to make a crosstab.
 \hypertarget{compmeans}{%
 \section{Comparison of Means}\label{compmeans}}
 
-\hypertarget{problem-12}{%
-\subsection{Problem}\label{problem-12}}
+\hypertarget{problem-14}{%
+\subsection{Problem}\label{problem-14}}
 
 You want to make a comparison of means table.
 
-\hypertarget{solution-12}{%
-\subsection{Solution}\label{solution-12}}
+\hypertarget{solution-14}{%
+\subsection{Solution}\label{solution-14}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -963,7 +1093,7 @@ Here is a comparison of means table for feelings towards Obama \texttt{obama\_th
 ## Warning in descr::compmeans(...): 442 rows with missing values dropped
 \end{verbatim}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-28-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-38-1.pdf}
 
 \begin{verbatim}
 ## Mean value of "nes$obama_therm" according to "nes$pid_x"
@@ -978,8 +1108,8 @@ Here is a comparison of means table for feelings towards Obama \texttt{obama\_th
 ## Total  60.72470 5474  34.64432
 \end{verbatim}
 
-\hypertarget{troubleshooting-10}{%
-\subsection{Troubleshooting}\label{troubleshooting-10}}
+\hypertarget{troubleshooting-11}{%
+\subsection{Troubleshooting}\label{troubleshooting-11}}
 
 \begin{itemize}
 \tightlist
@@ -994,13 +1124,13 @@ Here is a comparison of means table for feelings towards Obama \texttt{obama\_th
 \hypertarget{barchart}{%
 \section{Make a Bar Chart}\label{barchart}}
 
-\hypertarget{problem-13}{%
-\subsection{Problem}\label{problem-13}}
+\hypertarget{problem-15}{%
+\subsection{Problem}\label{problem-15}}
 
 Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
 
-\hypertarget{solution-13}{%
-\subsection{Solution}\label{solution-13}}
+\hypertarget{solution-15}{%
+\subsection{Solution}\label{solution-15}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1051,10 +1181,10 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-30-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-40-1.pdf}
 
-\hypertarget{troubleshooting-11}{%
-\subsection{Troubleshooting}\label{troubleshooting-11}}
+\hypertarget{troubleshooting-12}{%
+\subsection{Troubleshooting}\label{troubleshooting-12}}
 
 \begin{itemize}
 \tightlist
@@ -1069,16 +1199,66 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 \hypertarget{data-wrangling}{%
 \chapter{Data Wrangling}\label{data-wrangling}}
 
+\hypertarget{missing}{%
+\section{Label Missing Observations in a Dataset}\label{missing}}
+
+Sometimes we will work with survey data that has observations with numeric codes that are not aligned with a response of interest. For example, the numeric code -9 might signify that a person did not actually answer the survey question. We want to label this particular observation as ``missing''.
+
+\hypertarget{problem-16}{%
+\subsection{Problem}\label{problem-16}}
+
+You want to label missing observations.
+
+\hypertarget{solution-16}{%
+\subsection{Solution}\label{solution-16}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  These instructions begin with the premise that you already know which variable values correspond to missing values.The codebook should indicate which codes correspond to missing data.
+\item
+  Use indexing to isolate the observations that have missing values.
+\item
+  Assign those observations a value of \texttt{NA}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dataset}\SpecialCharTok{$}\NormalTok{variable[dataset}\SpecialCharTok{$}\NormalTok{variable }\SpecialCharTok{==}\NormalTok{ missing\_value] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\end{Highlighting}
+\end{Shaded}
+
+Here we are looking at the variable \texttt{hillary\_therm} in the \texttt{anes} dataset, and we label all observations that take the value -9 as missing.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# labeling {-}9 as missing}
+\NormalTok{anes}\SpecialCharTok{$}\NormalTok{hillary\_therm[anes}\SpecialCharTok{$}\NormalTok{hillary\_therm }\SpecialCharTok{==} \SpecialCharTok{{-}}\DecValTok{9}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{troubleshooting-13}{%
+\subsection{Troubleshooting}\label{troubleshooting-13}}
+
+\begin{itemize}
+\tightlist
+\item
+  In order to label the missing observations you have to first understand what all of the values of the variable are and/or should be. That information comes from the codebook for the data. For example, if you know that a variable is supposed to take values from 0 to 10, then a value of -99 is probably a code for a missing observation.
+\item
+  You will generally want to look at a frequency table prior to labeling the missing values and after labeling the missing values. That will indicate whether you have done it correctly.
+\end{itemize}
+
 \hypertarget{factor}{%
 \section{Create a Factor Variable}\label{factor}}
 
-\hypertarget{problem-14}{%
-\subsection{Problem}\label{problem-14}}
+\hypertarget{problem-17}{%
+\subsection{Problem}\label{problem-17}}
 
 You want to transform a variable into a factor.
 
-\hypertarget{solution-14}{%
-\subsection{Solution}\label{solution-14}}
+\hypertarget{solution-17}{%
+\subsection{Solution}\label{solution-17}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1116,7 +1296,7 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-32-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-44-1.pdf}
 
 \begin{verbatim}
 ## nes$obama_vote 
@@ -1140,7 +1320,7 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-32-2.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-44-2.pdf}
 
 \begin{verbatim}
 ## nes$obamafct 
@@ -1151,8 +1331,8 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 ## Total                       5916  100.00         100.0
 \end{verbatim}
 
-\hypertarget{troubleshooting-12}{%
-\subsection{Troubleshooting}\label{troubleshooting-12}}
+\hypertarget{troubleshooting-14}{%
+\subsection{Troubleshooting}\label{troubleshooting-14}}
 
 \begin{itemize}
 \item
@@ -1164,13 +1344,13 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 \hypertarget{numeric}{%
 \section{Create a Numeric Variable}\label{numeric}}
 
-\hypertarget{problem-15}{%
-\subsection{Problem}\label{problem-15}}
+\hypertarget{problem-18}{%
+\subsection{Problem}\label{problem-18}}
 
 You want to transform an existing variable into a numeric variable.
 
-\hypertarget{solution-15}{%
-\subsection{Solution}\label{solution-15}}
+\hypertarget{solution-18}{%
+\subsection{Solution}\label{solution-18}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1198,7 +1378,7 @@ Here is an example that converts the seven-point party identification scale into
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-34-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-46-1.pdf}
 
 \begin{verbatim}
 ## nes$pid_x 
@@ -1224,7 +1404,7 @@ Here is an example that converts the seven-point party identification scale into
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-34-2.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-46-2.pdf}
 
 \begin{verbatim}
 ## nes$pid7 
@@ -1240,8 +1420,8 @@ Here is an example that converts the seven-point party identification scale into
 ## Total      5916 100.0000        100.00
 \end{verbatim}
 
-\hypertarget{troubleshooting-13}{%
-\subsection{Troubleshooting}\label{troubleshooting-13}}
+\hypertarget{troubleshooting-15}{%
+\subsection{Troubleshooting}\label{troubleshooting-15}}
 
 \begin{itemize}
 \tightlist
@@ -1249,16 +1429,131 @@ Here is an example that converts the seven-point party identification scale into
   Have not come across any problems yet.
 \end{itemize}
 
-\hypertarget{subset}{%
-\section{Create a Subset of Data}\label{subset}}
+\hypertarget{ordinal}{%
+\section{Create an Ordinal Variable}\label{ordinal}}
 
-\hypertarget{problem-16}{%
-\subsection{Problem}\label{problem-16}}
+\hypertarget{problem-19}{%
+\subsection{Problem}\label{problem-19}}
 
-You want to create a subset of your data based on some criteria.
+You want to transform an existing variable into an ordinal variable.
+
+\hypertarget{solution-19}{%
+\subsection{Solution}\label{solution-19}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Decide on what to name the ordinal variable. It could be the same name as the old variable. However, this could become confusing in your code.
+\item
+  Use \texttt{as.ordered()} to assign the old variable values to the new variable.
+\item
+  Use \texttt{levels()} to assign labels to the values of the variable.
+\item
+  The levels should be provided as a list in \texttt{c()} with the names of the levels in quotation marks.
+\item
+  It would follow the general template below.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# define the variable as ordinal}
+
+\NormalTok{data}\SpecialCharTok{$}\NormalTok{newvariable }\OtherTok{\textless{}{-}} \FunctionTok{as.ordered}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{oldvariable)}
+
+\CommentTok{\# add the levels}
+
+\FunctionTok{levels}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{newvariable) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"label1"}\NormalTok{, }\StringTok{"label2"}\NormalTok{, }\StringTok{"labelk"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# the frequency table for the old variable}
+\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-48-1.pdf}
+
+\begin{verbatim}
+## nes$abort4 
+##            Frequency  Percent Valid Percent
+## Never            672  11.3590         11.47
+## Some conds      1607  27.1636         27.44
+## More conds       898  15.1792         15.33
+## Always          2680  45.3009         45.76
+## NA's              59   0.9973              
+## Total           5916 100.0000        100.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# call the new variable \textasciigrave{}abort4\textasciigrave{}}
+\NormalTok{nes}\SpecialCharTok{$}\NormalTok{abort4 }\OtherTok{\textless{}{-}} \FunctionTok{as.ordered}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4)}
+
+\CommentTok{\# assign the levels}
+\FunctionTok{levels}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"never"}\NormalTok{, }\StringTok{"some conditions"}\NormalTok{, }\StringTok{"more conditions"}\NormalTok{, }\StringTok{"always"}\NormalTok{)}
+
+\CommentTok{\# the frequency table for the new variable}
+\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-48-2.pdf}
+
+\begin{verbatim}
+## nes$abort4 
+##                 Frequency  Percent Valid Percent Cum Percent
+## never                 672  11.3590         11.47       11.47
+## some conditions      1607  27.1636         27.44       38.91
+## more conditions       898  15.1792         15.33       54.24
+## always               2680  45.3009         45.76      100.00
+## NA's                   59   0.9973                          
+## Total                5916 100.0000        100.00
+\end{verbatim}
+
+\hypertarget{troubleshooting-16}{%
+\subsection{Troubleshooting}\label{troubleshooting-16}}
+
+\begin{itemize}
+\tightlist
+\item
+  There has to be a level provided for each value of the variable. That is why this process should occur after a variable has been cleaned.
+\item
+  The key reason for treating a variable as ordinal rather than nominal in R is to calculate the ``cumulative percent'' column in a frequency table.
+\end{itemize}
+
+\hypertarget{add_variable}{%
+\section{Add a New Variable to a Dataset}\label{add_variable}}
+
+\hypertarget{problem-20}{%
+\subsection{Problem}\label{problem-20}}
+
+You want to add a variable to a dataset.
 
 \hypertarget{solution---basic}{%
 \subsection{Solution - Basic}\label{solution---basic}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Provide a name for the
+\end{enumerate}
+
+\hypertarget{subset}{%
+\section{Create a Subset of Data}\label{subset}}
+
+\hypertarget{problem-21}{%
+\subsection{Problem}\label{problem-21}}
+
+You want to create a subset of your data based on some criteria.
+
+\hypertarget{solution---basic-1}{%
+\subsection{Solution - Basic}\label{solution---basic-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1288,7 +1583,7 @@ Here we create a subset that only includes people who voted for Obama.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-36-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-50-1.pdf}
 
 \begin{verbatim}
 ## nes$obama_vote 
@@ -1309,7 +1604,7 @@ Here we create a subset that only includes people who voted for Obama.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-36-2.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-50-2.pdf}
 
 \begin{verbatim}
 ## ovoters$obama_vote 
@@ -1354,7 +1649,7 @@ Here we create a subset that only includes people who voted for Obama.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-38-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-52-1.pdf}
 
 \begin{verbatim}
 ## nes$obama_vote 
@@ -1376,7 +1671,7 @@ Here we create a subset that only includes people who voted for Obama.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-38-2.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-52-2.pdf}
 
 \begin{verbatim}
 ## obamites$obama_vote 
@@ -1385,8 +1680,8 @@ Here we create a subset that only includes people who voted for Obama.
 ## Total      2496     100
 \end{verbatim}
 
-\hypertarget{troubleshooting-14}{%
-\subsection{Troubleshooting}\label{troubleshooting-14}}
+\hypertarget{troubleshooting-17}{%
+\subsection{Troubleshooting}\label{troubleshooting-17}}
 
 \begin{itemize}
 \tightlist
@@ -1401,13 +1696,13 @@ Here we create a subset that only includes people who voted for Obama.
 \hypertarget{sum}{%
 \section{Summarize Data Using Means}\label{sum}}
 
-\hypertarget{problem-17}{%
-\subsection{Problem}\label{problem-17}}
+\hypertarget{problem-22}{%
+\subsection{Problem}\label{problem-22}}
 
 You want to make a summary dataset that shows the mean of one variable for each value of some other variable.
 
-\hypertarget{solution-16}{%
-\subsection{Solution}\label{solution-16}}
+\hypertarget{solution-20}{%
+\subsection{Solution}\label{solution-20}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1469,27 +1764,14 @@ Here we calculate the mean feelings towards Obama, \texttt{obama\_therm}, by par
 ## 8 <NA>      61.0
 \end{verbatim}
 
-\hypertarget{troubleshooting-15}{%
-\subsection{Troubleshooting}\label{troubleshooting-15}}
+\hypertarget{troubleshooting-18}{%
+\subsection{Troubleshooting}\label{troubleshooting-18}}
 
 \begin{itemize}
 \tightlist
 \item
   For survey data use \texttt{wtd.mean()}. Use \texttt{mean()} for non-survey data.
 \end{itemize}
-
-\hypertarget{missing}{%
-\section{Label Missing Observations in a Dataset}\label{missing}}
-
-Sometimes we will work with survey data that has observations with numeric codes that are not aligned with a response of interest. For example, the numeric code -9 might signify that a person did not actually answer the survey question. We want to label this particular observation as ``missing''.
-
-\hypertarget{problem-18}{%
-\subsection{Problem}\label{problem-18}}
-
-You want to label missing observations.
-
-\hypertarget{solution-17}{%
-\subsection{Solution}\label{solution-17}}
 
   \bibliography{book.bib,packages.bib}
 

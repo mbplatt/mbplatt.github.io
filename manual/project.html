@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.5 Creating a Project | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.5 Creating a Project | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2021-08-20" />
+<meta name="date" content="2022-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="installpack.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -202,58 +201,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.3" data-path="dta-load.html"><a href="dta-load.html#troubleshooting-8"><i class="fa fa-check"></i><b>1.10.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="bivariate-comparisons.html"><a href="bivariate-comparisons.html"><i class="fa fa-check"></i><b>2</b> Bivariate Comparisons</a>
+<li class="chapter" data-level="2" data-path="organizing-for-reproducibility.html"><a href="organizing-for-reproducibility.html"><i class="fa fa-check"></i><b>2</b> Organizing for Reproducibility</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="crosstab.html"><a href="crosstab.html"><i class="fa fa-check"></i><b>2.1</b> Crosstab</a>
+<li class="chapter" data-level="2.1" data-path="tiercreate.html"><a href="tiercreate.html"><i class="fa fa-check"></i><b>2.1</b> Create TIER Folders</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="crosstab.html"><a href="crosstab.html#problem-11"><i class="fa fa-check"></i><b>2.1.1</b> Problem</a></li>
-<li class="chapter" data-level="2.1.2" data-path="crosstab.html"><a href="crosstab.html#solution-11"><i class="fa fa-check"></i><b>2.1.2</b> Solution</a></li>
-<li class="chapter" data-level="2.1.3" data-path="crosstab.html"><a href="crosstab.html#troubleshooting-9"><i class="fa fa-check"></i><b>2.1.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="2.1.1" data-path="tiercreate.html"><a href="tiercreate.html#problem-11"><i class="fa fa-check"></i><b>2.1.1</b> Problem</a></li>
+<li class="chapter" data-level="2.1.2" data-path="tiercreate.html"><a href="tiercreate.html#solution-11"><i class="fa fa-check"></i><b>2.1.2</b> Solution</a></li>
+<li class="chapter" data-level="2.1.3" data-path="tiercreate.html"><a href="tiercreate.html#troubleshooting-9"><i class="fa fa-check"></i><b>2.1.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="compmeans.html"><a href="compmeans.html"><i class="fa fa-check"></i><b>2.2</b> Comparison of Means</a>
+<li class="chapter" data-level="2.2" data-path="tierpopulate.html"><a href="tierpopulate.html"><i class="fa fa-check"></i><b>2.2</b> Populate TIER Folders</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="compmeans.html"><a href="compmeans.html#problem-12"><i class="fa fa-check"></i><b>2.2.1</b> Problem</a></li>
-<li class="chapter" data-level="2.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-12"><i class="fa fa-check"></i><b>2.2.2</b> Solution</a></li>
-<li class="chapter" data-level="2.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-10"><i class="fa fa-check"></i><b>2.2.3</b> Troubleshooting</a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>2.3</b> Make a Bar Chart</a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="barchart.html"><a href="barchart.html#problem-13"><i class="fa fa-check"></i><b>2.3.1</b> Problem</a></li>
-<li class="chapter" data-level="2.3.2" data-path="barchart.html"><a href="barchart.html#solution-13"><i class="fa fa-check"></i><b>2.3.2</b> Solution</a></li>
-<li class="chapter" data-level="2.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-11"><i class="fa fa-check"></i><b>2.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="2.2.1" data-path="tierpopulate.html"><a href="tierpopulate.html#problem-12"><i class="fa fa-check"></i><b>2.2.1</b> Problem</a></li>
+<li class="chapter" data-level="2.2.2" data-path="tierpopulate.html"><a href="tierpopulate.html#solution-12"><i class="fa fa-check"></i><b>2.2.2</b> Solution</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
+<li class="chapter" data-level="3" data-path="bivariate-comparisons.html"><a href="bivariate-comparisons.html"><i class="fa fa-check"></i><b>3</b> Bivariate Comparisons</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>3.1</b> Create a Factor Variable</a>
+<li class="chapter" data-level="3.1" data-path="crosstab.html"><a href="crosstab.html"><i class="fa fa-check"></i><b>3.1</b> Crosstab</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="factor.html"><a href="factor.html#problem-14"><i class="fa fa-check"></i><b>3.1.1</b> Problem</a></li>
-<li class="chapter" data-level="3.1.2" data-path="factor.html"><a href="factor.html#solution-14"><i class="fa fa-check"></i><b>3.1.2</b> Solution</a></li>
-<li class="chapter" data-level="3.1.3" data-path="factor.html"><a href="factor.html#troubleshooting-12"><i class="fa fa-check"></i><b>3.1.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.1.1" data-path="crosstab.html"><a href="crosstab.html#problem-13"><i class="fa fa-check"></i><b>3.1.1</b> Problem</a></li>
+<li class="chapter" data-level="3.1.2" data-path="crosstab.html"><a href="crosstab.html#solution-13"><i class="fa fa-check"></i><b>3.1.2</b> Solution</a></li>
+<li class="chapter" data-level="3.1.3" data-path="crosstab.html"><a href="crosstab.html#troubleshooting-10"><i class="fa fa-check"></i><b>3.1.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="numeric.html"><a href="numeric.html"><i class="fa fa-check"></i><b>3.2</b> Create a Numeric Variable</a>
+<li class="chapter" data-level="3.2" data-path="compmeans.html"><a href="compmeans.html"><i class="fa fa-check"></i><b>3.2</b> Comparison of Means</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="numeric.html"><a href="numeric.html#problem-15"><i class="fa fa-check"></i><b>3.2.1</b> Problem</a></li>
-<li class="chapter" data-level="3.2.2" data-path="numeric.html"><a href="numeric.html#solution-15"><i class="fa fa-check"></i><b>3.2.2</b> Solution</a></li>
-<li class="chapter" data-level="3.2.3" data-path="numeric.html"><a href="numeric.html#troubleshooting-13"><i class="fa fa-check"></i><b>3.2.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.2.1" data-path="compmeans.html"><a href="compmeans.html#problem-14"><i class="fa fa-check"></i><b>3.2.1</b> Problem</a></li>
+<li class="chapter" data-level="3.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-14"><i class="fa fa-check"></i><b>3.2.2</b> Solution</a></li>
+<li class="chapter" data-level="3.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-11"><i class="fa fa-check"></i><b>3.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="subset.html"><a href="subset.html"><i class="fa fa-check"></i><b>3.3</b> Create a Subset of Data</a>
+<li class="chapter" data-level="3.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>3.3</b> Make a Bar Chart</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="subset.html"><a href="subset.html#problem-16"><i class="fa fa-check"></i><b>3.3.1</b> Problem</a></li>
-<li class="chapter" data-level="3.3.2" data-path="subset.html"><a href="subset.html#solution---basic"><i class="fa fa-check"></i><b>3.3.2</b> Solution - Basic</a></li>
-<li class="chapter" data-level="3.3.3" data-path="subset.html"><a href="subset.html#solution---tidyverse"><i class="fa fa-check"></i><b>3.3.3</b> Solution - Tidyverse</a></li>
-<li class="chapter" data-level="3.3.4" data-path="subset.html"><a href="subset.html#troubleshooting-14"><i class="fa fa-check"></i><b>3.3.4</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.3.1" data-path="barchart.html"><a href="barchart.html#problem-15"><i class="fa fa-check"></i><b>3.3.1</b> Problem</a></li>
+<li class="chapter" data-level="3.3.2" data-path="barchart.html"><a href="barchart.html#solution-15"><i class="fa fa-check"></i><b>3.3.2</b> Solution</a></li>
+<li class="chapter" data-level="3.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-12"><i class="fa fa-check"></i><b>3.3.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="sum.html"><a href="sum.html"><i class="fa fa-check"></i><b>3.4</b> Summarize Data Using Means</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="sum.html"><a href="sum.html#problem-17"><i class="fa fa-check"></i><b>3.4.1</b> Problem</a></li>
-<li class="chapter" data-level="3.4.2" data-path="sum.html"><a href="sum.html#solution-16"><i class="fa fa-check"></i><b>3.4.2</b> Solution</a></li>
-<li class="chapter" data-level="3.4.3" data-path="sum.html"><a href="sum.html#troubleshooting-15"><i class="fa fa-check"></i><b>3.4.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="missing.html"><a href="missing.html"><i class="fa fa-check"></i><b>3.5</b> Label Missing Observations in a Dataset</a>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="missing.html"><a href="missing.html#problem-18"><i class="fa fa-check"></i><b>3.5.1</b> Problem</a></li>
-<li class="chapter" data-level="3.5.2" data-path="missing.html"><a href="missing.html#solution-17"><i class="fa fa-check"></i><b>3.5.2</b> Solution</a></li>
+<li class="chapter" data-level="4.1" data-path="missing.html"><a href="missing.html"><i class="fa fa-check"></i><b>4.1</b> Label Missing Observations in a Dataset</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="missing.html"><a href="missing.html#problem-16"><i class="fa fa-check"></i><b>4.1.1</b> Problem</a></li>
+<li class="chapter" data-level="4.1.2" data-path="missing.html"><a href="missing.html#solution-16"><i class="fa fa-check"></i><b>4.1.2</b> Solution</a></li>
+<li class="chapter" data-level="4.1.3" data-path="missing.html"><a href="missing.html#troubleshooting-13"><i class="fa fa-check"></i><b>4.1.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="factor.html"><a href="factor.html"><i class="fa fa-check"></i><b>4.2</b> Create a Factor Variable</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="factor.html"><a href="factor.html#problem-17"><i class="fa fa-check"></i><b>4.2.1</b> Problem</a></li>
+<li class="chapter" data-level="4.2.2" data-path="factor.html"><a href="factor.html#solution-17"><i class="fa fa-check"></i><b>4.2.2</b> Solution</a></li>
+<li class="chapter" data-level="4.2.3" data-path="factor.html"><a href="factor.html#troubleshooting-14"><i class="fa fa-check"></i><b>4.2.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="numeric.html"><a href="numeric.html"><i class="fa fa-check"></i><b>4.3</b> Create a Numeric Variable</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="numeric.html"><a href="numeric.html#problem-18"><i class="fa fa-check"></i><b>4.3.1</b> Problem</a></li>
+<li class="chapter" data-level="4.3.2" data-path="numeric.html"><a href="numeric.html#solution-18"><i class="fa fa-check"></i><b>4.3.2</b> Solution</a></li>
+<li class="chapter" data-level="4.3.3" data-path="numeric.html"><a href="numeric.html#troubleshooting-15"><i class="fa fa-check"></i><b>4.3.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ordinal.html"><a href="ordinal.html"><i class="fa fa-check"></i><b>4.4</b> Create an Ordinal Variable</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="ordinal.html"><a href="ordinal.html#problem-19"><i class="fa fa-check"></i><b>4.4.1</b> Problem</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ordinal.html"><a href="ordinal.html#solution-19"><i class="fa fa-check"></i><b>4.4.2</b> Solution</a></li>
+<li class="chapter" data-level="4.4.3" data-path="ordinal.html"><a href="ordinal.html#troubleshooting-16"><i class="fa fa-check"></i><b>4.4.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="add_variable.html"><a href="add_variable.html"><i class="fa fa-check"></i><b>4.5</b> Add a New Variable to a Dataset</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="add_variable.html"><a href="add_variable.html#problem-20"><i class="fa fa-check"></i><b>4.5.1</b> Problem</a></li>
+<li class="chapter" data-level="4.5.2" data-path="add_variable.html"><a href="add_variable.html#solution---basic"><i class="fa fa-check"></i><b>4.5.2</b> Solution - Basic</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="subset.html"><a href="subset.html"><i class="fa fa-check"></i><b>4.6</b> Create a Subset of Data</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="subset.html"><a href="subset.html#problem-21"><i class="fa fa-check"></i><b>4.6.1</b> Problem</a></li>
+<li class="chapter" data-level="4.6.2" data-path="subset.html"><a href="subset.html#solution---basic-1"><i class="fa fa-check"></i><b>4.6.2</b> Solution - Basic</a></li>
+<li class="chapter" data-level="4.6.3" data-path="subset.html"><a href="subset.html#solution---tidyverse"><i class="fa fa-check"></i><b>4.6.3</b> Solution - Tidyverse</a></li>
+<li class="chapter" data-level="4.6.4" data-path="subset.html"><a href="subset.html#troubleshooting-17"><i class="fa fa-check"></i><b>4.6.4</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="sum.html"><a href="sum.html"><i class="fa fa-check"></i><b>4.7</b> Summarize Data Using Means</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="sum.html"><a href="sum.html#problem-22"><i class="fa fa-check"></i><b>4.7.1</b> Problem</a></li>
+<li class="chapter" data-level="4.7.2" data-path="sum.html"><a href="sum.html#solution-20"><i class="fa fa-check"></i><b>4.7.2</b> Solution</a></li>
+<li class="chapter" data-level="4.7.3" data-path="sum.html"><a href="sum.html#troubleshooting-18"><i class="fa fa-check"></i><b>4.7.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -276,33 +301,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="project" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Creating a Project</h2>
+<div id="project" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Creating a Project<a href="project.html#project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Creating a project creates a folder on your computer that Rstudio and R will treat as the default directory for your code. That is, whenever you tell R to look for something on your computer, it will begin by looking in the project folder.</p>
-<div id="problem-5" class="section level3" number="1.5.1">
-<h3><span class="header-section-number">1.5.1</span> Problem</h3>
+<div id="problem-5" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Problem<a href="project.html#problem-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You want to create a new project.</p>
 </div>
-<div id="solution-5" class="section level3" number="1.5.2">
-<h3><span class="header-section-number">1.5.2</span> Solution</h3>
-<p>There are multiple ways to create a new project. You can go to the menu bar and select “File,” then “New Project”:</p>
+<div id="solution-5" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Solution<a href="project.html#solution-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are multiple ways to create a new project. You can go to the menu bar and select “File”, then “New Project”:</p>
 <p><img src="images/projectfile.png" width="683" /></p>
 <p>You can click the “create project” icon on the toolbar:</p>
 <p><img src="images/projectbar.png" width="158" /></p>
 <p>Or you can select “New Project” from the project menu at the top left of Rstudio:</p>
 <p><img src="images/projectmenu.png" width="404" /></p>
-<p>When you select “New Project,” the below dialogue box appears. Select “New Directory”:</p>
+<p>When you select “New Project”, the below dialogue box appears. Select “New Directory”:</p>
 <p><img src="images/projoption1.png" width="262" /></p>
-<p>Then select “New project,”</p>
+<p>Then select “New project”,</p>
 <p><img src="images/projoption2.png" width="262" /></p>
 <p>enter a name for the project, and browse to where you want the directory located on your computer.</p>
 <p><img src="images/projdirectory.png" width="250" /></p>
 <p>Complete the process by clicking “Create Project.”</p>
 </div>
-<div id="troubleshooting-3" class="section level3" number="1.5.3">
-<h3><span class="header-section-number">1.5.3</span> Troubleshooting</h3>
+<div id="troubleshooting-3" class="section level3 hasAnchor" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> Troubleshooting<a href="project.html#troubleshooting-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>You need to know where your project folders are on your computer. I recommend that you create a master folder called “PSC 253,” and then have all of your project folders inside of that master folder.</li>
+<li>You need to know where your project folders are on your computer. I recommend that you create a master folder called “PSC 253”, and then have all of your project folders inside of that master folder.</li>
 <li>We will use separate projects for each lab assignment and for the Data Project assignment.</li>
 <li>Avoid having multiple project folders for the same assignment. It will cause confusion when you are trying to submit the correct project folder for your assignment.</li>
 </ul>
@@ -318,7 +343,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -358,6 +382,10 @@ gitbook.start({
 "text": null
 },
 "download": ["psc-253-manual.pdf", "psc-253-manual.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
