@@ -124,7 +124,7 @@
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2022-08-24}
+\date{2022-08-25}
 
 \begin{document}
 \maketitle
@@ -138,6 +138,8 @@
 \addcontentsline{toc}{chapter}{Preface}
 
 This book is a supplement to the book, \href{http://qss.princeton.press/}{Quantitative Social Science: An Introduction}, by Kosuke Imai. It also relies heavily on the work of \href{https://jrnold.github.io/qss-tidy/}{Jeffrey Arnold}, who translated the Imai code into tidyverse code.
+
+This manual is also a supplement to the book \href{https://us.sagepub.com/en-us/nam/an-r-companion-to-political-analysis/book244716}{An R Companion to Political Analysis} by Philip Pollock III and Barry Edwards.
 
 I aspire for this text to act as a minimal manual for the course PSC 253 Scope and Methods in Political Science taught at Morehouse College. It is intended to cover all of the main analytical tasks that the course requires.
 
@@ -383,8 +385,8 @@ Use the function \texttt{c()} to create a list by separating the entries with a 
   Vectors are typically assigned to some object.
 \end{itemize}
 
-\hypertarget{index}{%
-\section{Indexing}\label{index}}
+\hypertarget{indexing}{%
+\section{Indexing}\label{indexing}}
 
 We can use indexing to pull out specific sets of observations from a vector or dataset.
 
@@ -669,7 +671,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## here() starts at C:/Users/matth/OneDrive/R Code/PSC 253 Manual
+## here() starts at E:/OneDrive/R Code/PSC 253 Manual
 \end{verbatim}
 
 \begin{Shaded}
@@ -679,7 +681,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "C:/Users/matth/OneDrive/R Code/PSC 253 Manual/images"
+## [1] "E:/OneDrive/R Code/PSC 253 Manual/images"
 \end{verbatim}
 
 For example, we have a project folder named \texttt{hypothesis\_test\_lab}. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
@@ -965,19 +967,66 @@ Lastly, the ``Analysis'' folder should have one file named \texttt{analysis.rmd}
 
 \includegraphics[width=18.92in]{images/labreport}
 
+\hypertarget{troubleshooting-10}{%
+\subsection{Troubleshooting}\label{troubleshooting-10}}
+
+\begin{itemize}
+\tightlist
+\item
+  Do not confuse the ``Analysis'' subfolder in ``Scripts'' with the ``Analysis\_Data'' subfolder in ``Data''.
+\item
+  Keep in mind that the actions described above do not have to take place within Rstudio. You can simply use the Explorer or Finder windows on your computer to achieve the same ends.
+\end{itemize}
+
+\hypertarget{sequence}{%
+\section{Knitting Files in Sequence}\label{sequence}}
+
+\hypertarget{problem-13}{%
+\subsection{Problem}\label{problem-13}}
+
+You want to knit your \texttt{.Rmd} files in correct order to produce the finalized report or paper.
+
+\hypertarget{solution-13}{%
+\subsection{Solution}\label{solution-13}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Only the \texttt{processing.Rmd} file should work with your input data, so it is always knit first.
+\item
+  The processing script creates a file called ``analysis.RData''. This is the analysis data that will be loaded by all of the other scripts.
+\item
+  Knit the \texttt{data-appendix.Rmd} so that you can become familiar with the variables that you are analyzing.
+\item
+  Knit the \texttt{analysis.Rmd} third. It will serve as a guide/template to help you complete the lab resort.
+\item
+  Knit the final report.
+\end{enumerate}
+
+\hypertarget{troubleshotting}{%
+\subsection{Troubleshotting}\label{troubleshotting}}
+
+\begin{itemize}
+\tightlist
+\item
+  If there is a knitting error about loading data for the analysis or data-appendix script, then check to make sure that you have successfully knitted the processing script. Look in the ``Analysis\_Data'' folder to make sure that the ``analysis.RData'' has been created.
+\item
+  The relative file paths assume that you are working within the project folder. Look in the top right corner to make sure that it shows that you are working in the appropriate project.
+\end{itemize}
+
 \hypertarget{bivariate-comparisons}{%
 \chapter{Bivariate Comparisons}\label{bivariate-comparisons}}
 
 \hypertarget{crosstab}{%
 \section{Crosstab}\label{crosstab}}
 
-\hypertarget{problem-13}{%
-\subsection{Problem}\label{problem-13}}
+\hypertarget{problem-14}{%
+\subsection{Problem}\label{problem-14}}
 
 You want to make a crosstab.
 
-\hypertarget{solution-13}{%
-\subsection{Solution}\label{solution-13}}
+\hypertarget{solution-14}{%
+\subsection{Solution}\label{solution-14}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1038,8 +1087,8 @@ You want to make a crosstab.
 ## ============================================
 \end{verbatim}
 
-\hypertarget{troubleshooting-10}{%
-\subsection{Troubleshooting}\label{troubleshooting-10}}
+\hypertarget{troubleshooting-11}{%
+\subsection{Troubleshooting}\label{troubleshooting-11}}
 
 \begin{itemize}
 \tightlist
@@ -1054,13 +1103,13 @@ You want to make a crosstab.
 \hypertarget{compmeans}{%
 \section{Comparison of Means}\label{compmeans}}
 
-\hypertarget{problem-14}{%
-\subsection{Problem}\label{problem-14}}
+\hypertarget{problem-15}{%
+\subsection{Problem}\label{problem-15}}
 
 You want to make a comparison of means table.
 
-\hypertarget{solution-14}{%
-\subsection{Solution}\label{solution-14}}
+\hypertarget{solution-15}{%
+\subsection{Solution}\label{solution-15}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1108,8 +1157,8 @@ Here is a comparison of means table for feelings towards Obama \texttt{obama\_th
 ## Total  60.72470 5474  34.64432
 \end{verbatim}
 
-\hypertarget{troubleshooting-11}{%
-\subsection{Troubleshooting}\label{troubleshooting-11}}
+\hypertarget{troubleshooting-12}{%
+\subsection{Troubleshooting}\label{troubleshooting-12}}
 
 \begin{itemize}
 \tightlist
@@ -1124,13 +1173,13 @@ Here is a comparison of means table for feelings towards Obama \texttt{obama\_th
 \hypertarget{barchart}{%
 \section{Make a Bar Chart}\label{barchart}}
 
-\hypertarget{problem-15}{%
-\subsection{Problem}\label{problem-15}}
+\hypertarget{problem-16}{%
+\subsection{Problem}\label{problem-16}}
 
 Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
 
-\hypertarget{solution-15}{%
-\subsection{Solution}\label{solution-15}}
+\hypertarget{solution-16}{%
+\subsection{Solution}\label{solution-16}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1183,8 +1232,8 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 
 \includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-40-1.pdf}
 
-\hypertarget{troubleshooting-12}{%
-\subsection{Troubleshooting}\label{troubleshooting-12}}
+\hypertarget{troubleshooting-13}{%
+\subsection{Troubleshooting}\label{troubleshooting-13}}
 
 \begin{itemize}
 \tightlist
@@ -1204,13 +1253,13 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 
 Sometimes we will work with survey data that has observations with numeric codes that are not aligned with a response of interest. For example, the numeric code -9 might signify that a person did not actually answer the survey question. We want to label this particular observation as ``missing''.
 
-\hypertarget{problem-16}{%
-\subsection{Problem}\label{problem-16}}
+\hypertarget{problem-17}{%
+\subsection{Problem}\label{problem-17}}
 
 You want to label missing observations.
 
-\hypertarget{solution-16}{%
-\subsection{Solution}\label{solution-16}}
+\hypertarget{solution-17}{%
+\subsection{Solution}\label{solution-17}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1238,8 +1287,8 @@ Here we are looking at the variable \texttt{hillary\_therm} in the \texttt{anes}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{troubleshooting-13}{%
-\subsection{Troubleshooting}\label{troubleshooting-13}}
+\hypertarget{troubleshooting-14}{%
+\subsection{Troubleshooting}\label{troubleshooting-14}}
 
 \begin{itemize}
 \tightlist
@@ -1252,13 +1301,13 @@ Here we are looking at the variable \texttt{hillary\_therm} in the \texttt{anes}
 \hypertarget{factor}{%
 \section{Create a Factor Variable}\label{factor}}
 
-\hypertarget{problem-17}{%
-\subsection{Problem}\label{problem-17}}
+\hypertarget{problem-18}{%
+\subsection{Problem}\label{problem-18}}
 
 You want to transform a variable into a factor.
 
-\hypertarget{solution-17}{%
-\subsection{Solution}\label{solution-17}}
+\hypertarget{solution-18}{%
+\subsection{Solution}\label{solution-18}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1331,8 +1380,8 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 ## Total                       5916  100.00         100.0
 \end{verbatim}
 
-\hypertarget{troubleshooting-14}{%
-\subsection{Troubleshooting}\label{troubleshooting-14}}
+\hypertarget{troubleshooting-15}{%
+\subsection{Troubleshooting}\label{troubleshooting-15}}
 
 \begin{itemize}
 \item
@@ -1344,13 +1393,13 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 \hypertarget{numeric}{%
 \section{Create a Numeric Variable}\label{numeric}}
 
-\hypertarget{problem-18}{%
-\subsection{Problem}\label{problem-18}}
+\hypertarget{problem-19}{%
+\subsection{Problem}\label{problem-19}}
 
 You want to transform an existing variable into a numeric variable.
 
-\hypertarget{solution-18}{%
-\subsection{Solution}\label{solution-18}}
+\hypertarget{solution-19}{%
+\subsection{Solution}\label{solution-19}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1420,8 +1469,8 @@ Here is an example that converts the seven-point party identification scale into
 ## Total      5916 100.0000        100.00
 \end{verbatim}
 
-\hypertarget{troubleshooting-15}{%
-\subsection{Troubleshooting}\label{troubleshooting-15}}
+\hypertarget{troubleshooting-16}{%
+\subsection{Troubleshooting}\label{troubleshooting-16}}
 
 \begin{itemize}
 \tightlist
@@ -1432,13 +1481,13 @@ Here is an example that converts the seven-point party identification scale into
 \hypertarget{ordinal}{%
 \section{Create an Ordinal Variable}\label{ordinal}}
 
-\hypertarget{problem-19}{%
-\subsection{Problem}\label{problem-19}}
+\hypertarget{problem-20}{%
+\subsection{Problem}\label{problem-20}}
 
 You want to transform an existing variable into an ordinal variable.
 
-\hypertarget{solution-19}{%
-\subsection{Solution}\label{solution-19}}
+\hypertarget{solution-20}{%
+\subsection{Solution}\label{solution-20}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1515,8 +1564,8 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
 ## Total                5916 100.0000        100.00
 \end{verbatim}
 
-\hypertarget{troubleshooting-16}{%
-\subsection{Troubleshooting}\label{troubleshooting-16}}
+\hypertarget{troubleshooting-17}{%
+\subsection{Troubleshooting}\label{troubleshooting-17}}
 
 \begin{itemize}
 \tightlist
@@ -1529,8 +1578,8 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
 \hypertarget{add_variable}{%
 \section{Add a New Variable to a Dataset}\label{add_variable}}
 
-\hypertarget{problem-20}{%
-\subsection{Problem}\label{problem-20}}
+\hypertarget{problem-21}{%
+\subsection{Problem}\label{problem-21}}
 
 You want to add a variable to a dataset.
 
@@ -1547,8 +1596,8 @@ You want to add a variable to a dataset.
 \hypertarget{subset}{%
 \section{Create a Subset of Data}\label{subset}}
 
-\hypertarget{problem-21}{%
-\subsection{Problem}\label{problem-21}}
+\hypertarget{problem-22}{%
+\subsection{Problem}\label{problem-22}}
 
 You want to create a subset of your data based on some criteria.
 
@@ -1680,8 +1729,8 @@ Here we create a subset that only includes people who voted for Obama.
 ## Total      2496     100
 \end{verbatim}
 
-\hypertarget{troubleshooting-17}{%
-\subsection{Troubleshooting}\label{troubleshooting-17}}
+\hypertarget{troubleshooting-18}{%
+\subsection{Troubleshooting}\label{troubleshooting-18}}
 
 \begin{itemize}
 \tightlist
@@ -1696,13 +1745,13 @@ Here we create a subset that only includes people who voted for Obama.
 \hypertarget{sum}{%
 \section{Summarize Data Using Means}\label{sum}}
 
-\hypertarget{problem-22}{%
-\subsection{Problem}\label{problem-22}}
+\hypertarget{problem-23}{%
+\subsection{Problem}\label{problem-23}}
 
 You want to make a summary dataset that shows the mean of one variable for each value of some other variable.
 
-\hypertarget{solution-20}{%
-\subsection{Solution}\label{solution-20}}
+\hypertarget{solution-21}{%
+\subsection{Solution}\label{solution-21}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1764,8 +1813,8 @@ Here we calculate the mean feelings towards Obama, \texttt{obama\_therm}, by par
 ## 8 <NA>      61.0
 \end{verbatim}
 
-\hypertarget{troubleshooting-18}{%
-\subsection{Troubleshooting}\label{troubleshooting-18}}
+\hypertarget{troubleshooting-19}{%
+\subsection{Troubleshooting}\label{troubleshooting-19}}
 
 \begin{itemize}
 \tightlist

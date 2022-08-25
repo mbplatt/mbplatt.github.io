@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.5 Add a New Variable to a Dataset | PSC 253 Minimal Manual</title>
+  <title>2.3 Knitting Files in Sequence | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.5 Add a New Variable to a Dataset | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="2.3 Knitting Files in Sequence | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.5 Add a New Variable to a Dataset | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="2.3 Knitting Files in Sequence | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ordinal.html"/>
-<link rel="next" href="subset.html"/>
+<link rel="prev" href="tierpopulate.html"/>
+<link rel="next" href="bivariate-comparisons.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -308,26 +308,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="add_variable" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Add a New Variable to a Dataset<a href="add_variable.html#add_variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="problem-21" class="section level3 hasAnchor" number="4.5.1">
-<h3><span class="header-section-number">4.5.1</span> Problem<a href="add_variable.html#problem-21" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You want to add a variable to a dataset.</p>
+<div id="sequence" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Knitting Files in Sequence<a href="sequence.html#sequence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problem-13" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Problem<a href="sequence.html#problem-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to knit your <code>.Rmd</code> files in correct order to produce the finalized report or paper.</p>
 </div>
-<div id="solution---basic" class="section level3 hasAnchor" number="4.5.2">
-<h3><span class="header-section-number">4.5.2</span> Solution - Basic<a href="add_variable.html#solution---basic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solution-13" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Solution<a href="sequence.html#solution-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Provide a name for the</li>
+<li><p>Only the <code>processing.Rmd</code> file should work with your input data, so it is always knit first.</p></li>
+<li><p>The processing script creates a file called “analysis.RData”. This is the analysis data that will be loaded by all of the other scripts.</p></li>
+<li><p>Knit the <code>data-appendix.Rmd</code> so that you can become familiar with the variables that you are analyzing.</p></li>
+<li><p>Knit the <code>analysis.Rmd</code> third. It will serve as a guide/template to help you complete the lab resort.</p></li>
+<li><p>Knit the final report.</p></li>
 </ol>
 </div>
+<div id="troubleshotting" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Troubleshotting<a href="sequence.html#troubleshotting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>If there is a knitting error about loading data for the analysis or data-appendix script, then check to make sure that you have successfully knitted the processing script. Look in the “Analysis_Data” folder to make sure that the “analysis.RData” has been created.</li>
+<li>The relative file paths assume that you are working within the project folder. Look in the top right corner to make sure that it shows that you are working in the appropriate project.</li>
+</ul>
+
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="ordinal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="subset.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tierpopulate.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bivariate-comparisons.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -358,7 +371,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-wrangle.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-tier.Rmd",
 "text": "Edit"
 },
 "history": {
