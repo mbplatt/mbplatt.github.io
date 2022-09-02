@@ -124,7 +124,7 @@
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2022-08-25}
+\date{2022-09-01}
 
 \begin{document}
 \maketitle
@@ -671,7 +671,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## here() starts at E:/OneDrive/R Code/PSC 253 Manual
+## here() starts at C:/Users/matth/OneDrive/R Code/PSC 253 Manual
 \end{verbatim}
 
 \begin{Shaded}
@@ -681,7 +681,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "E:/OneDrive/R Code/PSC 253 Manual/images"
+## [1] "C:/Users/matth/OneDrive/R Code/PSC 253 Manual/images"
 \end{verbatim}
 
 For example, we have a project folder named \texttt{hypothesis\_test\_lab}. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
@@ -1014,252 +1014,23 @@ You want to knit your \texttt{.Rmd} files in correct order to produce the finali
   The relative file paths assume that you are working within the project folder. Look in the top right corner to make sure that it shows that you are working in the appropriate project.
 \end{itemize}
 
-\hypertarget{bivariate-comparisons}{%
-\chapter{Bivariate Comparisons}\label{bivariate-comparisons}}
+\hypertarget{processing-data}{%
+\chapter{Processing Data}\label{processing-data}}
 
-\hypertarget{crosstab}{%
-\section{Crosstab}\label{crosstab}}
-
-\hypertarget{problem-14}{%
-\subsection{Problem}\label{problem-14}}
-
-You want to make a crosstab.
-
-\hypertarget{solution-14}{%
-\subsection{Solution}\label{solution-14}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Load the \texttt{poliscidata} package.
-\item
-  In order to create a crosstab in R, we use the function called \texttt{xtp()}.\\
-\item
-  The function follows the following template:
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{xtp}\NormalTok{(}\AttributeTok{data =}\NormalTok{ your data, }\AttributeTok{y =}\NormalTok{ dependent variable, }\AttributeTok{x =}\NormalTok{ independent variable, }\AttributeTok{w =}\NormalTok{ weights)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Specify the dataset, the dependent variable, the independent variable, and the weights (if applicable)
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create a crosstab where the dependent variable is "envjob\_3", the independent variable is "pid\_3", and the weights are "wt".}
-\CommentTok{\# The dataset is "nes", which is found in the "poliscidata" package.}
-\FunctionTok{xtp}\NormalTok{(}\AttributeTok{data =}\NormalTok{ nes, }\AttributeTok{y =}\NormalTok{ envjob\_3, }\AttributeTok{x =}\NormalTok{ pid\_3, }\AttributeTok{w =}\NormalTok{ wt)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-36-1.pdf}
-
-\begin{verbatim}
-##    Cell Contents 
-## |-------------------------|
-## |                   Count | 
-## |          Column Percent | 
-## |-------------------------|
-## 
-## ============================================
-##             pid_3
-## envjob_3       Dem      Ind      Rep   Total
-## --------------------------------------------
-## Envir        1005      721      212    1938 
-##             59.82%   38.25%   15.30%        
-## --------------------------------------------
-## Mid           508      749      525    1782 
-##             30.24%   39.73%   37.88%        
-## --------------------------------------------
-## Jobs          167      415      649    1231 
-##              9.94%   22.02%   46.83%        
-## --------------------------------------------
-## Total        1680     1885     1386    4951 
-##             33.93%   38.07%   27.99%        
-## ============================================
-\end{verbatim}
-
-\hypertarget{troubleshooting-11}{%
-\subsection{Troubleshooting}\label{troubleshooting-11}}
-
-\begin{itemize}
-\tightlist
-\item
-  Make sure that the \texttt{poliscidata} package is loaded. Use \texttt{library(poliscidata)} to load.
-\item
-  The arguments for the independent and dependent variables are just the variable names. They do not follow the template of \texttt{data\$variable}.
-\item
-  Crosstabs are used when both the independent and dependent variables are categorical. Avoid making a crosstab with numeric data.
-\end{itemize}
-
-\hypertarget{compmeans}{%
-\section{Comparison of Means}\label{compmeans}}
-
-\hypertarget{problem-15}{%
-\subsection{Problem}\label{problem-15}}
-
-You want to make a comparison of means table.
-
-\hypertarget{solution-15}{%
-\subsection{Solution}\label{solution-15}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Load the \texttt{poliscidata} package.
-\item
-  In order to create a comparison of means table in R, we use the function called \texttt{compmeans()}.\\
-\item
-  The function follows the following template:
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{compmeans}\NormalTok{(}\AttributeTok{x =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{dependent, }\AttributeTok{f =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{independent)}
-\end{Highlighting}
-\end{Shaded}
-
-Here is a comparison of means table for feelings towards Obama \texttt{obama\_therm} by party identification \texttt{pid\_x}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# create the comparison of means table}
-\FunctionTok{compmeans}\NormalTok{(}\AttributeTok{x =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{obama\_therm, }\AttributeTok{f =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{pid\_x, }
-          \AttributeTok{weights =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{wt)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning in descr::compmeans(...): 442 rows with missing values dropped
-\end{verbatim}
-
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-38-1.pdf}
-
-\begin{verbatim}
-## Mean value of "nes$obama_therm" according to "nes$pid_x"
-##            Mean    N Std. Dev.
-## StrDem 91.12934 1384  14.19526
-## WkDem  75.39237  813  22.08436
-## IndDem 76.11223  695  20.22679
-## Ind    54.56354  724  29.85396
-## IndRep 32.15929  565  27.71165
-## WkRep  36.67241  580  27.85999
-## StrRep 18.44039  713  22.65842
-## Total  60.72470 5474  34.64432
-\end{verbatim}
-
-\hypertarget{troubleshooting-12}{%
-\subsection{Troubleshooting}\label{troubleshooting-12}}
-
-\begin{itemize}
-\tightlist
-\item
-  Make sure \texttt{poliscidata} is loaded.
-\item
-  Keep in mind that the variables follow the pattern of \texttt{data\$variable}.
-\item
-  You only need to specify the weights argument if you have survey data with survey weights.
-\end{itemize}
-
-\hypertarget{barchart}{%
-\section{Make a Bar Chart}\label{barchart}}
-
-\hypertarget{problem-16}{%
-\subsection{Problem}\label{problem-16}}
-
-Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
-
-\hypertarget{solution-16}{%
-\subsection{Solution}\label{solution-16}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Create a summary dataset to plot (see \ref{sum}).
-\item
-  Use \texttt{ggplot()} for the data and the mapping.
-\item
-  The data is the summary dataset, \texttt{data\ =\ sum\_data}
-\item
-  The mapping is \texttt{mapping\ =\ aes(x\ =\ independent,\ y\ =\ dependent)}
-\item
-  If you want to color the bars, add \texttt{fill\ =\ independent} to the mapping.
-\item
-  Use a \texttt{+} at the end of the line of code.
-\item
-  Use \texttt{geom\_col()} to make the bar shapes.
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ sum\_data, }
-             \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ independent, }\AttributeTok{y =}\NormalTok{ dependent)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_col}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-Plot the mean feelings towards Obama \texttt{obama\_therm} by party identification \texttt{pid\_x}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# create the summary dataset}
-\NormalTok{partymeans }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(pid\_x) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average =} \FunctionTok{wtd.mean}\NormalTok{(obama\_therm, }\AttributeTok{na.rm =}\NormalTok{ T,}
-                               \AttributeTok{weights =}\NormalTok{ wt))}
-
-\CommentTok{\# specify the data and mapping}
-\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ partymeans,}
-             \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pid\_x, }\AttributeTok{y =}\NormalTok{ average)) }\SpecialCharTok{+}
-  
-  \CommentTok{\# add the bar shape}
-  \FunctionTok{geom\_col}\NormalTok{()}
-
-\CommentTok{\# print the plot}
-\NormalTok{p1}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-40-1.pdf}
-
-\hypertarget{troubleshooting-13}{%
-\subsection{Troubleshooting}\label{troubleshooting-13}}
-
-\begin{itemize}
-\tightlist
-\item
-  Make sure that you use the summary dataset instead of the larger dataset.
-\item
-  If there are errors in making the summary dataset, then there will be problems in the plot.
-\item
-  You need to load the \texttt{tidyverse} package.
-\end{itemize}
-
-\hypertarget{data-wrangling}{%
-\chapter{Data Wrangling}\label{data-wrangling}}
+Most of the time, we need to make some changes to a dataset to prepare it for analysis. This could involve adding new variables, ``cleaning'' existing variables, changing the level of measurement for a variable, altering the labels of a variable, or even combining multiple datasets. We refer to these kinds of changes as ``processing'' the data. This section is about the common tools that are used for data processing in this course.
 
 \hypertarget{missing}{%
 \section{Label Missing Observations in a Dataset}\label{missing}}
 
 Sometimes we will work with survey data that has observations with numeric codes that are not aligned with a response of interest. For example, the numeric code -9 might signify that a person did not actually answer the survey question. We want to label this particular observation as ``missing''.
 
-\hypertarget{problem-17}{%
-\subsection{Problem}\label{problem-17}}
+\hypertarget{problem-14}{%
+\subsection{Problem}\label{problem-14}}
 
 You want to label missing observations.
 
-\hypertarget{solution-17}{%
-\subsection{Solution}\label{solution-17}}
+\hypertarget{solution-14}{%
+\subsection{Solution}\label{solution-14}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1287,8 +1058,8 @@ Here we are looking at the variable \texttt{hillary\_therm} in the \texttt{anes}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{troubleshooting-14}{%
-\subsection{Troubleshooting}\label{troubleshooting-14}}
+\hypertarget{troubleshooting-11}{%
+\subsection{Troubleshooting}\label{troubleshooting-11}}
 
 \begin{itemize}
 \tightlist
@@ -1298,16 +1069,154 @@ Here we are looking at the variable \texttt{hillary\_therm} in the \texttt{anes}
   You will generally want to look at a frequency table prior to labeling the missing values and after labeling the missing values. That will indicate whether you have done it correctly.
 \end{itemize}
 
+\hypertarget{add-variable}{%
+\section{Add a New Variable to a Dataset}\label{add-variable}}
+
+When we want to make a change to a variable, it is a good practice to create a new variable rather than changing the existing variable.
+
+\hypertarget{problem-15}{%
+\subsection{Problem}\label{problem-15}}
+
+You want to add a variable to a dataset.
+
+\hypertarget{solution---basic}{%
+\subsection{Solution - Basic}\label{solution---basic}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Provide a name for the new variable.
+\item
+  Use the \texttt{\$} operator to create the variable in the data \texttt{data\$new\_variable\_name}.
+\item
+  Assign values to the new variable. Often we are assigning the new variable the values of the old variable as a preliminary step to some other kind of transformation/processing. \texttt{data\$new\_variable\ \textless{}-\ data\$old\_variable}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign an old variable to a new variable name}
+\NormalTok{dataset}\SpecialCharTok{$}\NormalTok{new\_variable }\OtherTok{\textless{}{-}}\NormalTok{ dataset}\SpecialCharTok{$}\NormalTok{old\_variable}
+\end{Highlighting}
+\end{Shaded}
+
+Below we assign the values of the variable \texttt{ft\_hclinton} to a new variable called \texttt{hillary\_therm}. The dataset is named ``nes''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nes}\SpecialCharTok{$}\NormalTok{hillary\_therm }\OtherTok{\textless{}{-}}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{ft\_hclinton}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{solution---tidyverse}{%
+\subsection{Solution - tidyverse}\label{solution---tidyverse}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Assign the dataset to itself.
+\item
+  Use the pipe operator \texttt{\%\textgreater{}\%} at the end of that line of code.
+\item
+  Use the \texttt{mutate()} function.
+\item
+  The argument for the function is setting the name of the new variable and then assigning it values using an equal sign.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# use mutate to turn an old variable into a new variable}
+
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{new\_variable =}\NormalTok{ old\_variable)}
+\end{Highlighting}
+\end{Shaded}
+
+Below we assign the values of the variable \texttt{ft\_hclinton} to a new variable called \texttt{hillary\_therm}. The dataset is named ``nes''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign data to itself}
+\NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \CommentTok{\# use mutate() to assign values to the new variable}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hillary\_therm =}\NormalTok{ ft\_hclinton)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{troubleshooting-12}{%
+\subsection{Troubleshooting}\label{troubleshooting-12}}
+
+\begin{itemize}
+\tightlist
+\item
+  No common mistakes yet.
+\end{itemize}
+
+\hypertarget{additive}{%
+\section{Create an Additive Index}\label{additive}}
+
+\hypertarget{problem-16}{%
+\subsection{Problem}\label{problem-16}}
+
+You want to make some arithmetic adjustment to a variable.
+
+\hypertarget{solution-15}{%
+\subsection{Solution}\label{solution-15}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  You have already \protect\hyperlink{add-variable}{added a variable to a dataset}
+\item
+  Inside your \texttt{mutate()} function add, subtract, multiply, or divide variables by other variables or by constants.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign dataset to itself}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ datasets }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \CommentTok{\# use mutate() with some arithmetic in the argument}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{new\_variable =}\NormalTok{ old\_variable }\SpecialCharTok{+}\NormalTok{ some\_number)}
+\end{Highlighting}
+\end{Shaded}
+
+Below we create a variable \texttt{avg\_demfeel} that is the average feeling thermometer of \texttt{obama\_therm}, \texttt{ft\_dem}, and \texttt{ft\_hclinton}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign dataset to itself}
+\NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \CommentTok{\# use mutate() to add the three variables and divide to get the average}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{avg\_demfeel =}\NormalTok{ (obama\_therm }\SpecialCharTok{+}\NormalTok{ ft\_dem }\SpecialCharTok{+}\NormalTok{ ft\_hclinton)}\SpecialCharTok{/}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{troubleshooting-13}{%
+\subsection{Troubleshooting}\label{troubleshooting-13}}
+
+\begin{itemize}
+\tightlist
+\item
+  It may be helpful to test out your math problem first to make sure it gives you the results you are looking for.
+\end{itemize}
+
 \hypertarget{factor}{%
 \section{Create a Factor Variable}\label{factor}}
 
-\hypertarget{problem-18}{%
-\subsection{Problem}\label{problem-18}}
+In R, nominal level variables are called ``factors.'' This section explains how to create a factor.
+
+\hypertarget{problem-17}{%
+\subsection{Problem}\label{problem-17}}
 
 You want to transform a variable into a factor.
 
-\hypertarget{solution-18}{%
-\subsection{Solution}\label{solution-18}}
+\hypertarget{solution-16}{%
+\subsection{Solution}\label{solution-16}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1315,7 +1224,7 @@ You want to transform a variable into a factor.
 \item
   Decide on what to name the factor variable.
 \item
-  Use \texttt{as.factor()} to assign the old variable values to the new variable.
+  Use \texttt{as.factor()} to assign the old variable values to the new variable. See Section \ref{add-variable}.
 \item
   Use \texttt{levels()} to assign labels to the values of the variable.
 \item
@@ -1380,8 +1289,8 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 ## Total                       5916  100.00         100.0
 \end{verbatim}
 
-\hypertarget{troubleshooting-15}{%
-\subsection{Troubleshooting}\label{troubleshooting-15}}
+\hypertarget{troubleshooting-14}{%
+\subsection{Troubleshooting}\label{troubleshooting-14}}
 
 \begin{itemize}
 \item
@@ -1393,13 +1302,15 @@ Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable
 \hypertarget{numeric}{%
 \section{Create a Numeric Variable}\label{numeric}}
 
-\hypertarget{problem-19}{%
-\subsection{Problem}\label{problem-19}}
+Interval level variables are classified as ``numeric''.
+
+\hypertarget{problem-18}{%
+\subsection{Problem}\label{problem-18}}
 
 You want to transform an existing variable into a numeric variable.
 
-\hypertarget{solution-19}{%
-\subsection{Solution}\label{solution-19}}
+\hypertarget{solution-17}{%
+\subsection{Solution}\label{solution-17}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1469,8 +1380,8 @@ Here is an example that converts the seven-point party identification scale into
 ## Total      5916 100.0000        100.00
 \end{verbatim}
 
-\hypertarget{troubleshooting-16}{%
-\subsection{Troubleshooting}\label{troubleshooting-16}}
+\hypertarget{troubleshooting-15}{%
+\subsection{Troubleshooting}\label{troubleshooting-15}}
 
 \begin{itemize}
 \tightlist
@@ -1481,13 +1392,13 @@ Here is an example that converts the seven-point party identification scale into
 \hypertarget{ordinal}{%
 \section{Create an Ordinal Variable}\label{ordinal}}
 
-\hypertarget{problem-20}{%
-\subsection{Problem}\label{problem-20}}
+\hypertarget{problem-19}{%
+\subsection{Problem}\label{problem-19}}
 
 You want to transform an existing variable into an ordinal variable.
 
-\hypertarget{solution-20}{%
-\subsection{Solution}\label{solution-20}}
+\hypertarget{solution-18}{%
+\subsection{Solution}\label{solution-18}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1564,8 +1475,8 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
 ## Total                5916 100.0000        100.00
 \end{verbatim}
 
-\hypertarget{troubleshooting-17}{%
-\subsection{Troubleshooting}\label{troubleshooting-17}}
+\hypertarget{troubleshooting-16}{%
+\subsection{Troubleshooting}\label{troubleshooting-16}}
 
 \begin{itemize}
 \tightlist
@@ -1575,29 +1486,11 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
   The key reason for treating a variable as ordinal rather than nominal in R is to calculate the ``cumulative percent'' column in a frequency table.
 \end{itemize}
 
-\hypertarget{add_variable}{%
-\section{Add a New Variable to a Dataset}\label{add_variable}}
-
-\hypertarget{problem-21}{%
-\subsection{Problem}\label{problem-21}}
-
-You want to add a variable to a dataset.
-
-\hypertarget{solution---basic}{%
-\subsection{Solution - Basic}\label{solution---basic}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Provide a name for the
-\end{enumerate}
-
 \hypertarget{subset}{%
 \section{Create a Subset of Data}\label{subset}}
 
-\hypertarget{problem-22}{%
-\subsection{Problem}\label{problem-22}}
+\hypertarget{problem-20}{%
+\subsection{Problem}\label{problem-20}}
 
 You want to create a subset of your data based on some criteria.
 
@@ -1662,8 +1555,8 @@ Here we create a subset that only includes people who voted for Obama.
 ## Total      2496     100
 \end{verbatim}
 
-\hypertarget{solution---tidyverse}{%
-\subsection{Solution - Tidyverse}\label{solution---tidyverse}}
+\hypertarget{solution---tidyverse-1}{%
+\subsection{Solution - Tidyverse}\label{solution---tidyverse-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1729,8 +1622,8 @@ Here we create a subset that only includes people who voted for Obama.
 ## Total      2496     100
 \end{verbatim}
 
-\hypertarget{troubleshooting-18}{%
-\subsection{Troubleshooting}\label{troubleshooting-18}}
+\hypertarget{troubleshooting-17}{%
+\subsection{Troubleshooting}\label{troubleshooting-17}}
 
 \begin{itemize}
 \tightlist
@@ -1745,13 +1638,13 @@ Here we create a subset that only includes people who voted for Obama.
 \hypertarget{sum}{%
 \section{Summarize Data Using Means}\label{sum}}
 
-\hypertarget{problem-23}{%
-\subsection{Problem}\label{problem-23}}
+\hypertarget{problem-21}{%
+\subsection{Problem}\label{problem-21}}
 
 You want to make a summary dataset that shows the mean of one variable for each value of some other variable.
 
-\hypertarget{solution-21}{%
-\subsection{Solution}\label{solution-21}}
+\hypertarget{solution-19}{%
+\subsection{Solution}\label{solution-19}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1813,13 +1706,244 @@ Here we calculate the mean feelings towards Obama, \texttt{obama\_therm}, by par
 ## 8 <NA>      61.0
 \end{verbatim}
 
+\hypertarget{troubleshooting-18}{%
+\subsection{Troubleshooting}\label{troubleshooting-18}}
+
+\begin{itemize}
+\tightlist
+\item
+  For survey data use \texttt{wtd.mean()}. Use \texttt{mean()} for non-survey data.
+\end{itemize}
+
+\hypertarget{bivariate-comparisons}{%
+\chapter{Bivariate Comparisons}\label{bivariate-comparisons}}
+
+\hypertarget{crosstab}{%
+\section{Crosstab}\label{crosstab}}
+
+\hypertarget{problem-22}{%
+\subsection{Problem}\label{problem-22}}
+
+You want to make a crosstab.
+
+\hypertarget{solution-20}{%
+\subsection{Solution}\label{solution-20}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the \texttt{poliscidata} package.
+\item
+  In order to create a crosstab in R, we use the function called \texttt{xtp()}.\\
+\item
+  The function follows the following template:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{xtp}\NormalTok{(}\AttributeTok{data =}\NormalTok{ your data, }\AttributeTok{y =}\NormalTok{ dependent variable, }\AttributeTok{x =}\NormalTok{ independent variable, }\AttributeTok{w =}\NormalTok{ weights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Specify the dataset, the dependent variable, the independent variable, and the weights (if applicable)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a crosstab where the dependent variable is "envjob\_3", the independent variable is "pid\_3", and the weights are "wt".}
+\CommentTok{\# The dataset is "nes", which is found in the "poliscidata" package.}
+\FunctionTok{xtp}\NormalTok{(}\AttributeTok{data =}\NormalTok{ nes, }\AttributeTok{y =}\NormalTok{ envjob\_3, }\AttributeTok{x =}\NormalTok{ pid\_3, }\AttributeTok{w =}\NormalTok{ wt)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-56-1.pdf}
+
+\begin{verbatim}
+##    Cell Contents 
+## |-------------------------|
+## |                   Count | 
+## |          Column Percent | 
+## |-------------------------|
+## 
+## ============================================
+##             pid_3
+## envjob_3       Dem      Ind      Rep   Total
+## --------------------------------------------
+## Envir        1005      721      212    1938 
+##             59.82%   38.25%   15.30%        
+## --------------------------------------------
+## Mid           508      749      525    1782 
+##             30.24%   39.73%   37.88%        
+## --------------------------------------------
+## Jobs          167      415      649    1231 
+##              9.94%   22.02%   46.83%        
+## --------------------------------------------
+## Total        1680     1885     1386    4951 
+##             33.93%   38.07%   27.99%        
+## ============================================
+\end{verbatim}
+
 \hypertarget{troubleshooting-19}{%
 \subsection{Troubleshooting}\label{troubleshooting-19}}
 
 \begin{itemize}
 \tightlist
 \item
-  For survey data use \texttt{wtd.mean()}. Use \texttt{mean()} for non-survey data.
+  Make sure that the \texttt{poliscidata} package is loaded. Use \texttt{library(poliscidata)} to load.
+\item
+  The arguments for the independent and dependent variables are just the variable names. They do not follow the template of \texttt{data\$variable}.
+\item
+  Crosstabs are used when both the independent and dependent variables are categorical. Avoid making a crosstab with numeric data.
+\end{itemize}
+
+\hypertarget{compmeans}{%
+\section{Comparison of Means}\label{compmeans}}
+
+\hypertarget{problem-23}{%
+\subsection{Problem}\label{problem-23}}
+
+You want to make a comparison of means table.
+
+\hypertarget{solution-21}{%
+\subsection{Solution}\label{solution-21}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the \texttt{poliscidata} package.
+\item
+  In order to create a comparison of means table in R, we use the function called \texttt{compmeans()}.\\
+\item
+  The function follows the following template:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{compmeans}\NormalTok{(}\AttributeTok{x =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{dependent, }\AttributeTok{f =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{independent)}
+\end{Highlighting}
+\end{Shaded}
+
+Here is a comparison of means table for feelings towards Obama \texttt{obama\_therm} by party identification \texttt{pid\_x}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create the comparison of means table}
+\FunctionTok{compmeans}\NormalTok{(}\AttributeTok{x =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{obama\_therm, }\AttributeTok{f =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{pid\_x, }
+          \AttributeTok{weights =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{wt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in descr::compmeans(...): 442 rows with missing values dropped
+\end{verbatim}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-58-1.pdf}
+
+\begin{verbatim}
+## Mean value of "nes$obama_therm" according to "nes$pid_x"
+##            Mean    N Std. Dev.
+## StrDem 91.12934 1384  14.19526
+## WkDem  75.39237  813  22.08436
+## IndDem 76.11223  695  20.22679
+## Ind    54.56354  724  29.85396
+## IndRep 32.15929  565  27.71165
+## WkRep  36.67241  580  27.85999
+## StrRep 18.44039  713  22.65842
+## Total  60.72470 5474  34.64432
+\end{verbatim}
+
+\hypertarget{troubleshooting-20}{%
+\subsection{Troubleshooting}\label{troubleshooting-20}}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure \texttt{poliscidata} is loaded.
+\item
+  Keep in mind that the variables follow the pattern of \texttt{data\$variable}.
+\item
+  You only need to specify the weights argument if you have survey data with survey weights.
+\end{itemize}
+
+\hypertarget{barchart}{%
+\section{Make a Bar Chart}\label{barchart}}
+
+\hypertarget{problem-24}{%
+\subsection{Problem}\label{problem-24}}
+
+Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
+
+\hypertarget{solution-22}{%
+\subsection{Solution}\label{solution-22}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a summary dataset to plot (see \ref{sum}).
+\item
+  Use \texttt{ggplot()} for the data and the mapping.
+\item
+  The data is the summary dataset, \texttt{data\ =\ sum\_data}
+\item
+  The mapping is \texttt{mapping\ =\ aes(x\ =\ independent,\ y\ =\ dependent)}
+\item
+  If you want to color the bars, add \texttt{fill\ =\ independent} to the mapping.
+\item
+  Use a \texttt{+} at the end of the line of code.
+\item
+  Use \texttt{geom\_col()} to make the bar shapes.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ sum\_data, }
+             \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ independent, }\AttributeTok{y =}\NormalTok{ dependent)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_col}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Plot the mean feelings towards Obama \texttt{obama\_therm} by party identification \texttt{pid\_x}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create the summary dataset}
+\NormalTok{partymeans }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(pid\_x) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average =} \FunctionTok{wtd.mean}\NormalTok{(obama\_therm, }\AttributeTok{na.rm =}\NormalTok{ T,}
+                               \AttributeTok{weights =}\NormalTok{ wt))}
+
+\CommentTok{\# specify the data and mapping}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ partymeans,}
+             \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pid\_x, }\AttributeTok{y =}\NormalTok{ average)) }\SpecialCharTok{+}
+  
+  \CommentTok{\# add the bar shape}
+  \FunctionTok{geom\_col}\NormalTok{()}
+
+\CommentTok{\# print the plot}
+\NormalTok{p1}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-60-1.pdf}
+
+\hypertarget{troubleshooting-21}{%
+\subsection{Troubleshooting}\label{troubleshooting-21}}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure that you use the summary dataset instead of the larger dataset.
+\item
+  If there are errors in making the summary dataset, then there will be problems in the plot.
+\item
+  You need to load the \texttt{tidyverse} package.
 \end{itemize}
 
   \bibliography{book.bib,packages.bib}
