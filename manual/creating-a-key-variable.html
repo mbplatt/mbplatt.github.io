@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PSC 253 Minimal Manual</title>
+  <title>3.14 Creating a ‘Key’ Variable | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.14 Creating a ‘Key’ Variable | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.14 Creating a ‘Key’ Variable | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic.html"/>
+<link rel="prev" href="pivot_long.html"/>
+<link rel="next" href="descriptive-statistics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,25 +364,133 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PSC 253 Minimal Manual</h1>
-<p class="author"><em>Matthew B. Platt</em></p>
-<p class="date"><em>2024-07-25</em></p>
+<div id="creating-a-key-variable" class="section level2 hasAnchor" number="3.14">
+<h2><span class="header-section-number">3.14</span> Creating a ‘Key’ Variable<a href="creating-a-key-variable.html#creating-a-key-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is often helpful to have a variable that uniquely identifies each of your observations. This kind of ‘id’ or ‘key’ variable is particularly useful when pivoting or merging datasets.</p>
+<div id="problem-27" class="section level3 hasAnchor" number="3.14.1">
+<h3><span class="header-section-number">3.14.1</span> Problem<a href="creating-a-key-variable.html#problem-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to create a ‘key’ variable that uniquely identifies all of your observations.</p>
 </div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is a supplement to the book, <a href="http://qss.princeton.press/">Quantitative Social Science: An Introduction</a>, by Kosuke Imai. It also relies heavily on the work of <a href="https://jrnold.github.io/qss-tidy/">Jeffrey Arnold</a>, who translated the Imai code into tidyverse code.</p>
-<p>This manual is also a supplement to the book <a href="https://us.sagepub.com/en-us/nam/an-r-companion-to-political-analysis/book244716">An R Companion to Political Analysis</a> by Philip Pollock III and Barry Edwards.</p>
-<p>I aspire for this text to act as a minimal manual for the course PSC 253 Scope and Methods in Political Science taught at Morehouse College. It is intended to cover all of the main analytical tasks that the course requires.</p>
+<div id="solution-26" class="section level3 hasAnchor" number="3.14.2">
+<h3><span class="header-section-number">3.14.2</span> Solution<a href="creating-a-key-variable.html#solution-26" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Assign the dataset to itself.</li>
+<li>Use the pipe operator <code>|&gt;</code> at the end of that line of code.</li>
+<li>Use the <code>mutate()</code> function.</li>
+<li>Create a name for the new variable. Something simple like <code>key</code> or <code>id</code> works.</li>
+<li>Set the new variable equal to the function <code>paste()</code>.</li>
+<li>Inside the <code>paste()</code> list the variables that will be used to create the unique identifier. Each variable should be separated by a comma.</li>
+<li>Add a comma after the last variable listed and then press return.</li>
+<li>Set the argument <code>sep</code> equal to “-”.</li>
+</ol>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="creating-a-key-variable.html#cb95-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb95-2"><a href="creating-a-key-variable.html#cb95-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
+<span id="cb95-3"><a href="creating-a-key-variable.html#cb95-3" tabindex="-1"></a>  </span>
+<span id="cb95-4"><a href="creating-a-key-variable.html#cb95-4" tabindex="-1"></a>  <span class="co"># use mutate to create `key` set to `paste()`</span></span>
+<span id="cb95-5"><a href="creating-a-key-variable.html#cb95-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
+<span id="cb95-6"><a href="creating-a-key-variable.html#cb95-6" tabindex="-1"></a>    </span>
+<span id="cb95-7"><a href="creating-a-key-variable.html#cb95-7" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
+<span id="cb95-8"><a href="creating-a-key-variable.html#cb95-8" tabindex="-1"></a>    first_variable,</span>
+<span id="cb95-9"><a href="creating-a-key-variable.html#cb95-9" tabindex="-1"></a>    second_variable,</span>
+<span id="cb95-10"><a href="creating-a-key-variable.html#cb95-10" tabindex="-1"></a>    </span>
+<span id="cb95-11"><a href="creating-a-key-variable.html#cb95-11" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
+<span id="cb95-12"><a href="creating-a-key-variable.html#cb95-12" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
+<span id="cb95-13"><a href="creating-a-key-variable.html#cb95-13" tabindex="-1"></a>  ))</span></code></pre></div>
+<p>Look at the <code>city_year</code> data we created in the <a href="pivot_long.html#pivot_long">long pivot example</a>.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="creating-a-key-variable.html#cb96-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_year)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">city</th>
+<th align="left">year</th>
+<th align="right">turnout</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="left">1981</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td align="left">Atlanta</td>
+<td align="left">1999</td>
+<td align="right">45</td>
+</tr>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="left">2003</td>
+<td align="right">47</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="left">1981</td>
+<td align="right">78</td>
+</tr>
+<tr class="odd">
+<td align="left">Dover</td>
+<td align="left">1999</td>
+<td align="right">81</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="left">2003</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="left">1981</td>
+<td align="right">37</td>
+</tr>
+<tr class="even">
+<td align="left">Rochester</td>
+<td align="left">1999</td>
+<td align="right">47</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="left">2003</td>
+<td align="right">57</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that the combination of <code>city</code> and <code>year</code> are what would create a unique identifier for each observation in the dataset. The code below creates that key variable.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="creating-a-key-variable.html#cb97-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb97-2"><a href="creating-a-key-variable.html#cb97-2" tabindex="-1"></a>city_year <span class="ot">&lt;-</span> city_year <span class="sc">|&gt;</span></span>
+<span id="cb97-3"><a href="creating-a-key-variable.html#cb97-3" tabindex="-1"></a>  </span>
+<span id="cb97-4"><a href="creating-a-key-variable.html#cb97-4" tabindex="-1"></a>  <span class="co"># use mutate to create `key` set to `paste()`</span></span>
+<span id="cb97-5"><a href="creating-a-key-variable.html#cb97-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
+<span id="cb97-6"><a href="creating-a-key-variable.html#cb97-6" tabindex="-1"></a>    </span>
+<span id="cb97-7"><a href="creating-a-key-variable.html#cb97-7" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
+<span id="cb97-8"><a href="creating-a-key-variable.html#cb97-8" tabindex="-1"></a>    city,</span>
+<span id="cb97-9"><a href="creating-a-key-variable.html#cb97-9" tabindex="-1"></a>    year,</span>
+<span id="cb97-10"><a href="creating-a-key-variable.html#cb97-10" tabindex="-1"></a>    </span>
+<span id="cb97-11"><a href="creating-a-key-variable.html#cb97-11" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
+<span id="cb97-12"><a href="creating-a-key-variable.html#cb97-12" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
+<span id="cb97-13"><a href="creating-a-key-variable.html#cb97-13" tabindex="-1"></a>  ))</span>
+<span id="cb97-14"><a href="creating-a-key-variable.html#cb97-14" tabindex="-1"></a></span>
+<span id="cb97-15"><a href="creating-a-key-variable.html#cb97-15" tabindex="-1"></a><span class="co"># check our work -- the number of unique values in `key` should equal the</span></span>
+<span id="cb97-16"><a href="creating-a-key-variable.html#cb97-16" tabindex="-1"></a><span class="co"># total number of observations</span></span>
+<span id="cb97-17"><a href="creating-a-key-variable.html#cb97-17" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(city_year<span class="sc">$</span>key)) <span class="sc">==</span> <span class="fu">nrow</span>(city_year)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="troubleshooting-24" class="section level3 hasAnchor" number="3.14.3">
+<h3><span class="header-section-number">3.14.3</span> Troubleshooting<a href="creating-a-key-variable.html#troubleshooting-24" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>There are times when the length of a ‘key’ variable will not be equal to the total number of observations. For example, this will not be true for data that requires a wide pivot. In those circumstances you may want to create the key variable first, and then use the key variable for the <code>id_cols</code> argument in <code>pivot_wider()</code>.</li>
+<li>There is nothing special about using the dash, “-”, as the separator. You can substitute another symbol if you prefer. Just make sure that the symbol is in quotation marks.</li>
+</ul>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pivot_long.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="descriptive-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,7 +521,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-processing.Rmd",
 "text": "Edit"
 },
 "history": {

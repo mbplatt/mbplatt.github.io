@@ -5,16 +5,19 @@
 \documentclass[
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -44,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -58,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -67,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -115,7 +118,7 @@
 \bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={PSC 253 Minimal Manual},
   pdfauthor={Matthew B. Platt},
@@ -124,7 +127,7 @@
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2022-09-01}
+\date{2024-07-25}
 
 \begin{document}
 \maketitle
@@ -499,27 +502,27 @@ You want to create a new project.
 
 There are multiple ways to create a new project. You can go to the menu bar and select ``File'', then ``New Project'':
 
-\includegraphics[width=18.97in]{images/projectfile}
+\includegraphics{images/projectfile.png}
 
 You can click the ``create project'' icon on the toolbar:
 
-\includegraphics[width=4.39in]{images/projectbar}
+\includegraphics{images/projectbar.png}
 
 Or you can select ``New Project'' from the project menu at the top left of Rstudio:
 
-\includegraphics[width=11.21in]{images/projectmenu}
+\includegraphics{images/projectmenu.png}
 
 When you select ``New Project'', the below dialogue box appears. Select ``New Directory'':
 
-\includegraphics[width=7.26in]{images/projoption1}
+\includegraphics{images/projoption1.png}
 
 Then select ``New project'',
 
-\includegraphics[width=7.26in]{images/projoption2}
+\includegraphics{images/projoption2.png}
 
 enter a name for the project, and browse to where you want the directory located on your computer.
 
-\includegraphics[width=6.96in]{images/projdirectory}
+\includegraphics{images/projdirectory.png}
 
 Complete the process by clicking ``Create Project.''
 
@@ -558,9 +561,9 @@ You want to install a package.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# installing the poliscidata package}
+\CommentTok{\# installing the RCPA3 package}
 
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"poliscidata"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"RCPA3"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -617,9 +620,9 @@ The function we use to load packages is \texttt{library()}. Its main argument is
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# load the poliscidata package}
+\CommentTok{\# load the RCPA3 package}
 
-\FunctionTok{library}\NormalTok{(poliscidata)}
+\FunctionTok{library}\NormalTok{(RCPA3)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -671,7 +674,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## here() starts at C:/Users/matth/OneDrive/R Code/PSC 253 Manual
+## here() starts at E:/OneDrive/R Code/PSC 253 Manual
 \end{verbatim}
 
 \begin{Shaded}
@@ -681,13 +684,15 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "C:/Users/matth/OneDrive/R Code/PSC 253 Manual/images"
+## [1] "E:/OneDrive/R Code/PSC 253 Manual/images"
 \end{verbatim}
 
 For example, we have a project folder named \texttt{hypothesis\_test\_lab}. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
 
 \begin{figure}
-\includegraphics[width=11.89in]{images/here_example1} \caption{A screen shot of the hypothesistestlab project folder.}\label{fig:here-example}
+\centering
+\includegraphics{images/here_example1.png}
+\caption{\label{fig:here-example}A screen shot of the hypothesistestlab project folder.}
 \end{figure}
 
 We will use the \texttt{here()} function to load a data file that is found within the \texttt{Analysis\_Data} folder.
@@ -818,7 +823,7 @@ If I were loading a dta file named ``congbills.dta'' and assigning it to an obje
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Loading the csv file "congbills.csv" into R as an object called "bills"}
+\CommentTok{\# Loading the dta file "congbills.dta" into R as an object called "bills"}
 
 \NormalTok{bills }\OtherTok{\textless{}{-}} \FunctionTok{read\_dta}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"Data/Original\_Data/congbills.dta"}\NormalTok{))}
 \end{Highlighting}
@@ -858,7 +863,7 @@ You want to create folders in accordance with \href{https://www.projecttier.org/
   You should have already \protect\hyperlink{project}{created a project}.
 \end{enumerate}
 
-\includegraphics[width=7.99in]{images/projdirectory2}
+\includegraphics{images/projdirectory2.png}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -868,7 +873,7 @@ You want to create folders in accordance with \href{https://www.projecttier.org/
   In the Files, Plots, Packages, Help, Viewer pane there is a button that says ``New Folder.''
 \end{enumerate}
 
-\includegraphics[width=7.85in]{images/newfolder}
+\includegraphics{images/newfolder.png}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -878,7 +883,7 @@ You want to create folders in accordance with \href{https://www.projecttier.org/
   Click that button to create three folders named ``Data'', ``Documents'', and ``Script''. When you are finished the project folder should look like this:
 \end{enumerate}
 
-\includegraphics[width=7.93in]{images/tiermain}
+\includegraphics{images/tiermain.png}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -888,7 +893,7 @@ You want to create folders in accordance with \href{https://www.projecttier.org/
   Inside the ``Data'' folder, create two folders named ``Input\_Data'' and ``Analysis\_Data''.
 \end{enumerate}
 
-\includegraphics[width=7.96in]{images/tierdata}
+\includegraphics{images/tierdata.png}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -898,7 +903,7 @@ You want to create folders in accordance with \href{https://www.projecttier.org/
   Inside the ``Scripts'' folder, create three folders named ``Processing'', ``Data\_Appendix'', and ``Analysis''.
 \end{enumerate}
 
-\includegraphics[width=7.97in]{images/tierscripts}
+\includegraphics{images/tierscripts.png}
 
 \hypertarget{troubleshooting-9}{%
 \subsection{Troubleshooting}\label{troubleshooting-9}}
@@ -935,7 +940,7 @@ You want to put files into their appropriate TIER folder.
 
 Inside of the ``Data'' folder there are two subfolders -- ``Input\_Data'' and ``Analysis Data''. The ``Input\_Data'' folder is where you place the unprocessed, original version of a dataset. Also, you should create a subfolder inside of the ``Input\_Data'' folder that is called ``Metadata''. Any codebooks that are associated with your dataset should be placed inside of the ``Metadata'' folder.
 
-\includegraphics[width=7.86in]{images/tierinput}
+\includegraphics{images/tierinput.png}
 
 You do not place anything inside of the ``Analysis\_Data'' folder. This folder will be populated when the input data is processed.
 
@@ -947,15 +952,15 @@ You do not place anything inside of the ``Analysis\_Data'' folder. This folder w
   Inside of the ``Scripts'' folder there are three subfolders -- ``Processing'', ``Analysis'', and ``Data\_Appendix''. The ``Processing'' folder should have one file named \texttt{processing.rmd}. This file is used to transform the input data into the form that you will use for the data analysis.
 \end{enumerate}
 
-\includegraphics[width=18.58in]{images/tierprocessing}
+\includegraphics{images/tierprocessing.png}
 
 The ``Data\_Appendix'' folder should have one filed named \texttt{data-appendix.rmd}. This file creates the Data Appendix, which serves as a codebook and provides descriptive statistics for the variables that are used in the actual data analysis.
 
-\includegraphics[width=18.69in]{images/data-appendix}
+\includegraphics{images/data-appendix.png}
 
 Lastly, the ``Analysis'' folder should have one file named \texttt{analysis.rmd}. For the final data project, this file will contain all of the data analysis that you were required to perform as part of that project. For the weekly labs, the \texttt{analysis.rmd} provides sample code for any analysis that you will be required to perform in the lab report.
 
-\includegraphics[width=18.67in]{images/tieranalysis}
+\includegraphics{images/tieranalysis.png}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -965,7 +970,7 @@ Lastly, the ``Analysis'' folder should have one file named \texttt{analysis.rmd}
   The ``Documents'' folder contains the finished version of your work -- the lab report, the research paper, or the final poster. This folder may also contain any supplementary files or folders that are necessary for that final product. For example, files for the Morehouse logo that appears on the final data project poster are located inside of the ``Documents'' folder.
 \end{enumerate}
 
-\includegraphics[width=18.92in]{images/labreport}
+\includegraphics{images/labreport.png}
 
 \hypertarget{troubleshooting-10}{%
 \subsection{Troubleshooting}\label{troubleshooting-10}}
@@ -1100,11 +1105,11 @@ You want to add a variable to a dataset.
 \end{Highlighting}
 \end{Shaded}
 
-Below we assign the values of the variable \texttt{ft\_hclinton} to a new variable called \texttt{hillary\_therm}. The dataset is named ``nes''.
+Below we assign the values of the variable \texttt{ft.dem} to a new variable called \texttt{dem\_therm}. The dataset is named ``nes''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{nes}\SpecialCharTok{$}\NormalTok{hillary\_therm }\OtherTok{\textless{}{-}}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{ft\_hclinton}
+\NormalTok{nes}\SpecialCharTok{$}\NormalTok{dem\_therm }\OtherTok{\textless{}{-}}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{ft.dem}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1133,7 +1138,7 @@ Below we assign the values of the variable \texttt{ft\_hclinton} to a new variab
 \end{Highlighting}
 \end{Shaded}
 
-Below we assign the values of the variable \texttt{ft\_hclinton} to a new variable called \texttt{hillary\_therm}. The dataset is named ``nes''.
+Below we assign the values of the variable \texttt{ft.dem} to a new variable called \texttt{dem\_therm}. The dataset is named ``nes''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1141,7 +1146,7 @@ Below we assign the values of the variable \texttt{ft\_hclinton} to a new variab
 \NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
   
   \CommentTok{\# use mutate() to assign values to the new variable}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hillary\_therm =}\NormalTok{ ft\_hclinton)}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dem\_therm =}\NormalTok{ ft.dem)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1184,7 +1189,7 @@ You want to make some arithmetic adjustment to a variable.
 \end{Highlighting}
 \end{Shaded}
 
-Below we create a variable \texttt{avg\_demfeel} that is the average feeling thermometer of \texttt{obama\_therm}, \texttt{ft\_dem}, and \texttt{ft\_hclinton}.
+Below we create a variable \texttt{avg\_demfeel} that is the average feeling thermometer of \texttt{ft.obama}, \texttt{ft.dem}, and \texttt{ft.biden.pre}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1192,7 +1197,7 @@ Below we create a variable \texttt{avg\_demfeel} that is the average feeling the
 \NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
   
   \CommentTok{\# use mutate() to add the three variables and divide to get the average}
-  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{avg\_demfeel =}\NormalTok{ (obama\_therm }\SpecialCharTok{+}\NormalTok{ ft\_dem }\SpecialCharTok{+}\NormalTok{ ft\_hclinton)}\SpecialCharTok{/}\DecValTok{3}\NormalTok{)}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{avg\_demfeel =}\NormalTok{ (ft.obama }\SpecialCharTok{+}\NormalTok{ ft.dem }\SpecialCharTok{+}\NormalTok{ ft.biden.pre)}\SpecialCharTok{/}\DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1245,48 +1250,56 @@ You want to transform a variable into a factor.
 \end{Highlighting}
 \end{Shaded}
 
-Transform \texttt{obama\_vote} in the \texttt{nes} from a numeric dummy variable into a factor.
+Transform \texttt{battleground2020} in the \texttt{states} from a numeric dummy variable into a factor.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# the frequency table for the old variable}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obama\_vote)}
+\FunctionTok{freqC}\NormalTok{(states}\SpecialCharTok{$}\NormalTok{battleground2020, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-44-1.pdf}
-
 \begin{verbatim}
-## nes$obama_vote 
-##       Frequency Percent Valid Percent
-## 0          1692   28.60          40.4
-## 1          2496   42.19          59.6
-## NA's       1728   29.21              
-## Total      5916  100.00         100.0
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-44}Frequency Distribution of states$battleground2020 (Battleground in 2020 election? )
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 0               37     74.00
+## 1               13     26.00
+## Total           50    100.00
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# call the new variable \textasciigrave{}obamafct\textasciigrave{}}
-\NormalTok{nes}\SpecialCharTok{$}\NormalTok{obamafct }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obama\_vote)}
+\CommentTok{\# call the new variable \textasciigrave{}battlefact\textasciigrave{}}
+\NormalTok{states}\SpecialCharTok{$}\NormalTok{battlefact }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(states}\SpecialCharTok{$}\NormalTok{battleground2020)}
 
 \CommentTok{\# assign the levels}
-\FunctionTok{levels}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obamafct) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"did not vote for Obama"}\NormalTok{, }\StringTok{"voted for Obama"}\NormalTok{)}
+\FunctionTok{levels}\NormalTok{(states}\SpecialCharTok{$}\NormalTok{battlefact) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"not a battleground"}\NormalTok{, }\StringTok{"battleground"}\NormalTok{)}
 
 \CommentTok{\# the frequency table for the new variable}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obamafct)}
+\FunctionTok{freqC}\NormalTok{(states}\SpecialCharTok{$}\NormalTok{battlefact, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-44-2.pdf}
-
 \begin{verbatim}
-## nes$obamafct 
-##                        Frequency Percent Valid Percent
-## did not vote for Obama      1692   28.60          40.4
-## voted for Obama             2496   42.19          59.6
-## NA's                        1728   29.21              
-## Total                       5916  100.00         100.0
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-44}Frequency Distribution of states$battlefact
+## 
+##                       Frequency   Percent
+## -------------------  ----------  --------
+## not a battleground           37     74.00
+## battleground                 13     26.00
+## Total                        50    100.00
 \end{verbatim}
 
 \hypertarget{troubleshooting-14}{%
@@ -1333,51 +1346,59 @@ Here is an example that converts the seven-point party identification scale into
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# frequency table of the original variable \textasciigrave{}pid\_x\textasciigrave{}}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{pid\_x)}
+\CommentTok{\# frequency table of the original variable \textasciigrave{}partyid7\textasciigrave{}}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{partyid7, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-46-1.pdf}
-
 \begin{verbatim}
-## nes$pid_x 
-##        Frequency  Percent Valid Percent
-## StrDem      1485  25.1014         25.20
-## WkDem        873  14.7566         14.82
-## IndDem       747  12.6268         12.68
-## Ind          792  13.3874         13.44
-## IndRep       610  10.3110         10.35
-## WkRep        623  10.5308         10.57
-## StrRep       762  12.8803         12.93
-## NA's          24   0.4057              
-## Total       5916 100.0000        100.00
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-46}Frequency Distribution of nes$partyid7 (PRE: SUMMARY: Party ID)
+## 
+##                                  Frequency   Percent   Cum.Percent
+## ------------------------------  ----------  --------  ------------
+## 1. Strong Democrat                    1961     23.78         23.78
+## 2. Not very strong Democrat            900     10.92         34.70
+## 3. Independent-Democrat                975     11.83         46.53
+## 4. Independent                         968     11.74         58.27
+## 5. Independent-Republican              879     10.66         68.93
+## 6. Not very strong Republican          832     10.09         79.02
+## 7. Strong Republican                  1730     20.98        100.00
+## Total                                 8245    100.00            NA
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# make \textasciigrave{}pid\_x\textasciigrave{} numeric}
-\NormalTok{nes}\SpecialCharTok{$}\NormalTok{pid7 }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{pid\_x)}
+\CommentTok{\# make \textasciigrave{}partyid7\textasciigrave{} numeric}
+\NormalTok{nes}\SpecialCharTok{$}\NormalTok{pid7 }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{partyid7)}
 
 \CommentTok{\# frequency table of the new variable \textasciigrave{}pid7\textasciigrave{}}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{pid7)}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{pid7, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-46-2.pdf}
-
 \begin{verbatim}
-## nes$pid7 
-##       Frequency  Percent Valid Percent
-## 1          1485  25.1014         25.20
-## 2           873  14.7566         14.82
-## 3           747  12.6268         12.68
-## 4           792  13.3874         13.44
-## 5           610  10.3110         10.35
-## 6           623  10.5308         10.57
-## 7           762  12.8803         12.93
-## NA's         24   0.4057              
-## Total      5916 100.0000        100.00
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-46}Frequency Distribution of nes$pid7
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 1             1961     23.78
+## 2              900     10.92
+## 3              975     11.83
+## 4              968     11.74
+## 5              879     10.66
+## 6              832     10.09
+## 7             1730     20.98
+## Total         8245    100.00
 \end{verbatim}
 
 \hypertarget{troubleshooting-15}{%
@@ -1432,21 +1453,25 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# the frequency table for the old variable}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4)}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-48-1.pdf}
-
 \begin{verbatim}
-## nes$abort4 
-##            Frequency  Percent Valid Percent
-## Never            672  11.3590         11.47
-## Some conds      1607  27.1636         27.44
-## More conds       898  15.1792         15.33
-## Always          2680  45.3009         45.76
-## NA's              59   0.9973              
-## Total           5916 100.0000        100.00
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-48}Frequency Distribution of nes$abort4
+## 
+##                                 Frequency   Percent
+## -----------------------------  ----------  --------
+## never                                 870     11.01
+## rape, incest, life of mother         1916     24.25
+## yes with limits                      1097     13.89
+## always                               4017     50.85
+## Total                                7900    100.00
 \end{verbatim}
 
 \begin{Shaded}
@@ -1458,21 +1483,25 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
 \FunctionTok{levels}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"never"}\NormalTok{, }\StringTok{"some conditions"}\NormalTok{, }\StringTok{"more conditions"}\NormalTok{, }\StringTok{"always"}\NormalTok{)}
 
 \CommentTok{\# the frequency table for the new variable}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4)}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{abort4, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-48-2.pdf}
-
 \begin{verbatim}
-## nes$abort4 
-##                 Frequency  Percent Valid Percent Cum Percent
-## never                 672  11.3590         11.47       11.47
-## some conditions      1607  27.1636         27.44       38.91
-## more conditions       898  15.1792         15.33       54.24
-## always               2680  45.3009         45.76      100.00
-## NA's                   59   0.9973                          
-## Total                5916 100.0000        100.00
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-48}Frequency Distribution of nes$abort4
+## 
+##                    Frequency   Percent   Cum.Percent
+## ----------------  ----------  --------  ------------
+## never                    870     11.01         11.01
+## some conditions         1916     24.25         35.27
+## more conditions         1097     13.89         49.15
+## always                  4017     50.85        100.00
+## Total                   7900    100.00            NA
 \end{verbatim}
 
 \hypertarget{troubleshooting-16}{%
@@ -1486,77 +1515,97 @@ Transform \texttt{abort4} in the \texttt{nes} from a factor into an ordinal vari
   The key reason for treating a variable as ordinal rather than nominal in R is to calculate the ``cumulative percent'' column in a frequency table.
 \end{itemize}
 
-\hypertarget{subset}{%
-\section{Create a Subset of Data}\label{subset}}
+\hypertarget{indicator}{%
+\section{Create an Indicator/Dummy Variable}\label{indicator}}
+
+An indicator variable (also known as a dummy variable) is a conversion of an existing variable such that it takes the value of 1 when the existing variable meets some criteria and the value of 0 otherwise. For example, if we want to plot the proportion of observations who voted for Joe Biden in 2020, then we would first make an indicator variable out of the nominal variable \texttt{presvote2020}.
 
 \hypertarget{problem-20}{%
 \subsection{Problem}\label{problem-20}}
 
-You want to create a subset of your data based on some criteria.
+You want to create an indicator/dummy variable.
 
-\hypertarget{solution---basic-1}{%
-\subsection{Solution - Basic}\label{solution---basic-1}}
+\hypertarget{solution-19}{%
+\subsection{Solution}\label{solution-19}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Provide a name for the subset of data you are creating.
+  Assign the dataset to itself.
 \item
-  Use \texttt{subset()}. The main arguments are the data object that is being subsetted, the criteria for determining which observations to include in the subset, and the selection of columns for inclusion in the new data object.
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
 \item
-  The criteria use relational logic such as \texttt{==}, \texttt{\textgreater{}}, \texttt{!=}, etc.
+  Use the \texttt{mutate()} function.
 \item
-  Follow the template below.
+  Create a name for the indicator variable.
+\item
+  Set the indicator variable as being equal to a numeric version of whether the old variable satisfies some criteria.
 \end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{newdata }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(old\_data, criteria, }\AttributeTok{select =} \FunctionTok{c}\NormalTok{(list of columns))}
+\CommentTok{\# assign the dataset to itself}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use mutate() to create the indicator variable}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{indicator\_variable =} \FunctionTok{as.numeric}\NormalTok{(some\_criteria))}
 \end{Highlighting}
 \end{Shaded}
 
-Here we create a subset that only includes people who voted for Obama.
+Here we create an indicator variable called \texttt{biden\_vote} that takes a value of 1 for all observations in which \texttt{presvote2020} was equal to Joe Biden.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# frequency of \textasciigrave{}obama\_vote\textasciigrave{} in full dataset}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obama\_vote)}
+\CommentTok{\# assign the dataset to itself}
+\NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{|\textgreater{}}
+
+  \CommentTok{\#use mutate() to create the indicator variable}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{biden\_vote =} \FunctionTok{as.numeric}\NormalTok{(presvote2020 }\SpecialCharTok{==} \StringTok{"1. Joe Biden"}\NormalTok{))}
+
+\CommentTok{\# check the new variable}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{biden\_vote, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-50-1.pdf}
-
 \begin{verbatim}
-## nes$obama_vote 
-##       Frequency Percent Valid Percent
-## 0          1692   28.60          40.4
-## 1          2496   42.19          59.6
-## NA's       1728   29.21              
-## Total      5916  100.00         100.0
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-50}Frequency Distribution of nes$biden_vote
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 0             2740     43.65
+## 1             3537     56.35
+## Total         6277    100.00
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# create a subset of \textasciigrave{}nes\textasciigrave{} data that only includes Obama voters}
-\NormalTok{ovoters }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(nes, obama\_vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
+\hypertarget{troubleshooting-17}{%
+\subsection{Troubleshooting}\label{troubleshooting-17}}
 
-\CommentTok{\# frequency of a \textasciigrave{}obama\_vote\textasciigrave{} in subset}
-\FunctionTok{freq}\NormalTok{(ovoters}\SpecialCharTok{$}\NormalTok{obama\_vote)}
-\end{Highlighting}
-\end{Shaded}
+\begin{itemize}
+\tightlist
+\item
+  The criteria is written as variable, logical operator, and value of the variable.
+\item
+  The values of categorical variables must be in quotation marks.
+\item
+  The most common error is that the value of the old variable is not written correctly. If the above example did not include the ``1.'' in front of ``Joe Biden'', then the indicator variable would have returned values of 0 for all of the observations.
+\end{itemize}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-50-2.pdf}
+\hypertarget{filter}{%
+\section{Filter your Data}\label{filter}}
 
-\begin{verbatim}
-## ovoters$obama_vote 
-##       Frequency Percent
-## 1          2496     100
-## Total      2496     100
-\end{verbatim}
+\hypertarget{problem-21}{%
+\subsection{Problem}\label{problem-21}}
 
-\hypertarget{solution---tidyverse-1}{%
-\subsection{Solution - Tidyverse}\label{solution---tidyverse-1}}
+You want to create a subset of your data based on some criteria.
+
+\hypertarget{solution-20}{%
+\subsection{Solution}\label{solution-20}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1570,7 +1619,32 @@ Here we create a subset that only includes people who voted for Obama.
 \item
   Use \texttt{filter()}. The pipe inherits the dataset from the prior step, so the only argument is the criteria for the subset.
 \item
-  The criteria use relational logic such as \texttt{==}, \texttt{\textgreater{}}, \texttt{!=}, etc.
+  The criteria use relational logic:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{==} equal to
+\item
+  \texttt{\textgreater{}} greater than
+\item
+  \texttt{\textless{}} less than
+\item
+  \texttt{\textgreater{}=} greater than or equal to
+\item
+  \texttt{\textless{}=} less than or equal to
+\item
+  \texttt{!=} not equal to
+\item
+  \texttt{\textbar{}} or, if there are multiple criteria
+\item
+  \texttt{\&} and, if there are multiple criteria
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Follow the template below.
 \end{enumerate}
@@ -1582,53 +1656,60 @@ Here we create a subset that only includes people who voted for Obama.
 \end{Highlighting}
 \end{Shaded}
 
-Here we create a subset that only includes people who voted for Obama.
+Here we create a subset that only includes people who voted for Biden
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# frequency of \textasciigrave{}obama\_vote\textasciigrave{} in full dataset}
-\FunctionTok{freq}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obama\_vote)}
+\CommentTok{\# frequency of \textasciigrave{}biden\_vote\textasciigrave{} in full dataset}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{biden\_vote, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-52-1.pdf}
-
 \begin{verbatim}
-## nes$obama_vote 
-##       Frequency Percent Valid Percent
-## 0          1692   28.60          40.4
-## 1          2496   42.19          59.6
-## NA's       1728   29.21              
-## Total      5916  100.00         100.0
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-52}Frequency Distribution of nes$biden_vote
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 0             2740     43.65
+## 1             3537     56.35
+## Total         6277    100.00
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# create a subset of \textasciigrave{}nes\textasciigrave{} data that only includes Obama voters}
-\NormalTok{obamites }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(obama\_vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
+\CommentTok{\# create a subset of \textasciigrave{}nes\textasciigrave{} data that only includes Biden voters}
+\NormalTok{bidenites }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(biden\_vote }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
 
-\CommentTok{\# frequency of a \textasciigrave{}obama\_vote\textasciigrave{} in subset}
-\FunctionTok{freq}\NormalTok{(obamites}\SpecialCharTok{$}\NormalTok{obama\_vote)}
+\CommentTok{\# frequency of a \textasciigrave{}biden\_vote\textasciigrave{} in subset}
+\FunctionTok{freqC}\NormalTok{(bidenites}\SpecialCharTok{$}\NormalTok{biden\_vote, }\AttributeTok{plot =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-52-2.pdf}
-
 \begin{verbatim}
-## obamites$obama_vote 
-##       Frequency Percent
-## 1          2496     100
-## Total      2496     100
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-52}Frequency Distribution of bidenites$biden_vote
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 1             3537    100.00
+## Total         3537    100.00
 \end{verbatim}
 
-\hypertarget{troubleshooting-17}{%
-\subsection{Troubleshooting}\label{troubleshooting-17}}
+\hypertarget{troubleshooting-18}{%
+\subsection{Troubleshooting}\label{troubleshooting-18}}
 
 \begin{itemize}
 \tightlist
-\item
-  Make sure that your subset is assigned to something.
 \item
   The criteria is written as variable, logical operator, and value of the variable.
 \item
@@ -1638,13 +1719,13 @@ Here we create a subset that only includes people who voted for Obama.
 \hypertarget{sum}{%
 \section{Summarize Data Using Means}\label{sum}}
 
-\hypertarget{problem-21}{%
-\subsection{Problem}\label{problem-21}}
+\hypertarget{problem-22}{%
+\subsection{Problem}\label{problem-22}}
 
 You want to make a summary dataset that shows the mean of one variable for each value of some other variable.
 
-\hypertarget{solution-19}{%
-\subsection{Solution}\label{solution-19}}
+\hypertarget{solution-21}{%
+\subsection{Solution}\label{solution-21}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1673,19 +1754,19 @@ You want to make a summary dataset that shows the mean of one variable for each 
 \end{Highlighting}
 \end{Shaded}
 
-Here we calculate the mean feelings towards Obama, \texttt{obama\_therm}, by party identification, \texttt{pid\_x}.
+Here we calculate the mean feelings towards Obama, \texttt{ft.obama}, by party identification, \texttt{partyid7}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# assign old data to a new data object}
 \NormalTok{partymeans }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
   
-  \CommentTok{\# use group\_by() to group the data by pid\_x}
-  \FunctionTok{group\_by}\NormalTok{(pid\_x) }\SpecialCharTok{\%\textgreater{}\%}
+  \CommentTok{\# use group\_by() to group the data by partyid7}
+  \FunctionTok{group\_by}\NormalTok{(partyid7) }\SpecialCharTok{\%\textgreater{}\%}
   
-  \CommentTok{\# calculate the means of obama\_therm}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average =} \FunctionTok{wtd.mean}\NormalTok{(obama\_therm, }\AttributeTok{na.rm =}\NormalTok{ T,}
-                               \AttributeTok{weights =}\NormalTok{ wt))}
+  \CommentTok{\# calculate the means of ft.obama}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average =} \FunctionTok{wtd.mean}\NormalTok{(ft.obama, }\AttributeTok{na.rm =}\NormalTok{ T,}
+                               \AttributeTok{w =}\NormalTok{ wt))}
 
 \CommentTok{\# show the summary dataset}
 \NormalTok{partymeans}
@@ -1694,98 +1775,16 @@ Here we calculate the mean feelings towards Obama, \texttt{obama\_therm}, by par
 
 \begin{verbatim}
 ## # A tibble: 8 x 2
-##   pid_x  average
-##   <fct>    <dbl>
-## 1 StrDem    90.1
-## 2 WkDem     74.2
-## 3 IndDem    75.2
-## 4 Ind       53.3
-## 5 IndRep    32.8
-## 6 WkRep     36.7
-## 7 StrRep    17.6
-## 8 <NA>      61.0
-\end{verbatim}
-
-\hypertarget{troubleshooting-18}{%
-\subsection{Troubleshooting}\label{troubleshooting-18}}
-
-\begin{itemize}
-\tightlist
-\item
-  For survey data use \texttt{wtd.mean()}. Use \texttt{mean()} for non-survey data.
-\end{itemize}
-
-\hypertarget{bivariate-comparisons}{%
-\chapter{Bivariate Comparisons}\label{bivariate-comparisons}}
-
-\hypertarget{crosstab}{%
-\section{Crosstab}\label{crosstab}}
-
-\hypertarget{problem-22}{%
-\subsection{Problem}\label{problem-22}}
-
-You want to make a crosstab.
-
-\hypertarget{solution-20}{%
-\subsection{Solution}\label{solution-20}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Load the \texttt{poliscidata} package.
-\item
-  In order to create a crosstab in R, we use the function called \texttt{xtp()}.\\
-\item
-  The function follows the following template:
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{xtp}\NormalTok{(}\AttributeTok{data =}\NormalTok{ your data, }\AttributeTok{y =}\NormalTok{ dependent variable, }\AttributeTok{x =}\NormalTok{ independent variable, }\AttributeTok{w =}\NormalTok{ weights)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Specify the dataset, the dependent variable, the independent variable, and the weights (if applicable)
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create a crosstab where the dependent variable is "envjob\_3", the independent variable is "pid\_3", and the weights are "wt".}
-\CommentTok{\# The dataset is "nes", which is found in the "poliscidata" package.}
-\FunctionTok{xtp}\NormalTok{(}\AttributeTok{data =}\NormalTok{ nes, }\AttributeTok{y =}\NormalTok{ envjob\_3, }\AttributeTok{x =}\NormalTok{ pid\_3, }\AttributeTok{w =}\NormalTok{ wt)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-56-1.pdf}
-
-\begin{verbatim}
-##    Cell Contents 
-## |-------------------------|
-## |                   Count | 
-## |          Column Percent | 
-## |-------------------------|
-## 
-## ============================================
-##             pid_3
-## envjob_3       Dem      Ind      Rep   Total
-## --------------------------------------------
-## Envir        1005      721      212    1938 
-##             59.82%   38.25%   15.30%        
-## --------------------------------------------
-## Mid           508      749      525    1782 
-##             30.24%   39.73%   37.88%        
-## --------------------------------------------
-## Jobs          167      415      649    1231 
-##              9.94%   22.02%   46.83%        
-## --------------------------------------------
-## Total        1680     1885     1386    4951 
-##             33.93%   38.07%   27.99%        
-## ============================================
+##   partyid7                      average
+##   <ord>                           <dbl>
+## 1 1. Strong Democrat               93.3
+## 2 2. Not very strong Democrat      83.0
+## 3 3. Independent-Democrat          82.0
+## 4 4. Independent                   63.0
+## 5 5. Independent-Republican        37.7
+## 6 6. Not very strong Republican    44.2
+## 7 7. Strong Republican             18.4
+## 8 <NA>                             77.9
 \end{verbatim}
 
 \hypertarget{troubleshooting-19}{%
@@ -1794,90 +1793,18 @@ You want to make a crosstab.
 \begin{itemize}
 \tightlist
 \item
-  Make sure that the \texttt{poliscidata} package is loaded. Use \texttt{library(poliscidata)} to load.
-\item
-  The arguments for the independent and dependent variables are just the variable names. They do not follow the template of \texttt{data\$variable}.
-\item
-  Crosstabs are used when both the independent and dependent variables are categorical. Avoid making a crosstab with numeric data.
+  For survey data use \texttt{wtd.mean()}. Use \texttt{mean()} for non-survey data.
 \end{itemize}
 
-\hypertarget{compmeans}{%
-\section{Comparison of Means}\label{compmeans}}
+\hypertarget{transform_nom}{%
+\section{Transform an interval variable into a nominal variable}\label{transform_nom}}
+
+Many of the tools we use to analyze the relationship between two variables require that the independent variable is nominal or ordinal. In those cases, it can be useful to transform an interval independent variable into a nominal or ordinal version.
 
 \hypertarget{problem-23}{%
 \subsection{Problem}\label{problem-23}}
 
-You want to make a comparison of means table.
-
-\hypertarget{solution-21}{%
-\subsection{Solution}\label{solution-21}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Load the \texttt{poliscidata} package.
-\item
-  In order to create a comparison of means table in R, we use the function called \texttt{compmeans()}.\\
-\item
-  The function follows the following template:
-\end{enumerate}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{compmeans}\NormalTok{(}\AttributeTok{x =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{dependent, }\AttributeTok{f =}\NormalTok{ data}\SpecialCharTok{$}\NormalTok{independent)}
-\end{Highlighting}
-\end{Shaded}
-
-Here is a comparison of means table for feelings towards Obama \texttt{obama\_therm} by party identification \texttt{pid\_x}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# create the comparison of means table}
-\FunctionTok{compmeans}\NormalTok{(}\AttributeTok{x =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{obama\_therm, }\AttributeTok{f =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{pid\_x, }
-          \AttributeTok{weights =}\NormalTok{ nes}\SpecialCharTok{$}\NormalTok{wt)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning in descr::compmeans(...): 442 rows with missing values dropped
-\end{verbatim}
-
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-58-1.pdf}
-
-\begin{verbatim}
-## Mean value of "nes$obama_therm" according to "nes$pid_x"
-##            Mean    N Std. Dev.
-## StrDem 91.12934 1384  14.19526
-## WkDem  75.39237  813  22.08436
-## IndDem 76.11223  695  20.22679
-## Ind    54.56354  724  29.85396
-## IndRep 32.15929  565  27.71165
-## WkRep  36.67241  580  27.85999
-## StrRep 18.44039  713  22.65842
-## Total  60.72470 5474  34.64432
-\end{verbatim}
-
-\hypertarget{troubleshooting-20}{%
-\subsection{Troubleshooting}\label{troubleshooting-20}}
-
-\begin{itemize}
-\tightlist
-\item
-  Make sure \texttt{poliscidata} is loaded.
-\item
-  Keep in mind that the variables follow the pattern of \texttt{data\$variable}.
-\item
-  You only need to specify the weights argument if you have survey data with survey weights.
-\end{itemize}
-
-\hypertarget{barchart}{%
-\section{Make a Bar Chart}\label{barchart}}
-
-\hypertarget{problem-24}{%
-\subsection{Problem}\label{problem-24}}
-
-Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
+You want to transform an interval variable into a nominal variable.
 
 \hypertarget{solution-22}{%
 \subsection{Solution}\label{solution-22}}
@@ -1886,7 +1813,889 @@ Make a barchart that plots the mean of a dependent variable (Y) by an independen
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Create a summary dataset to plot (see \ref{sum}).
+  Assign the dataset to itself.
+\item
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
+\item
+  Use the \texttt{mutate()} function.
+\item
+  Create a name for the new nominal variable.
+\item
+  Set the nominal variable as being equal to a \texttt{factor()} of whether the old variable is greater than some value. The choice of value is up to the researcher, but it should make sense as a way to divide the original variable between ``high'' and ``low''.
+\item
+  Place a comma at the end of your criteria, and press return.
+\item
+  Use the argument \texttt{labels\ =} to assign levels to the values of the variable.
+\item
+  The levels should be provided as a list in \texttt{c()} with the names of the levels in quotation marks.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign the dataset to itself}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use mutate to create the nominal variable}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{new\_nominal =} \FunctionTok{factor}\NormalTok{(}
+    
+    \CommentTok{\# the criteria for determining high vs. low values}
+\NormalTok{    old\_interval }\SpecialCharTok{\textgreater{}}\NormalTok{ some\_value,}
+    
+    \CommentTok{\# assign the levels to the new variable}
+    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"low"}\NormalTok{, }\StringTok{"high"}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we transform the Obama feeling thermometer, \texttt{ft.obama}, into a nominal variable, \texttt{high\_obama}. The interval variable \texttt{ft.obama} ranges from 0 to 100, so we set 60 and above as the value for ``high''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{high\_obama =} \FunctionTok{factor}\NormalTok{(ft.obama }\SpecialCharTok{\textgreater{}} \DecValTok{60}\NormalTok{,}
+                             \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"cool Obama feelings"}\NormalTok{,}
+                                        \StringTok{"warm Obama feelings"}\NormalTok{)))}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{high\_obama, }\AttributeTok{plot =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-56}Frequency Distribution of nes$high_obama
+## 
+##                        Frequency   Percent
+## --------------------  ----------  --------
+## cool Obama feelings         3653     44.74
+## warm Obama feelings         4512     55.26
+## Total                       8165    100.00
+\end{verbatim}
+
+\hypertarget{troubleshooting-20}{%
+\subsection{Troubleshooting}\label{troubleshooting-20}}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure that you have the correct number of closing parentheses. Following the template above, there should be three parentheses at the end.
+\item
+  Remember that we are converting an interval variable, so the value of that variable should be a number without quotation marks.
+\end{itemize}
+
+\hypertarget{transform_ord}{%
+\section{Transform an interval variable into an ordinal variable}\label{transform_ord}}
+
+Many of the tools we use to analyze the relationship between two variables require that the independent variable is ordinal. In those cases, it can be useful to transform an interval independent variable into an ordinal version.
+
+\hypertarget{problem-24}{%
+\subsection{Problem}\label{problem-24}}
+
+You want to transform an interval variable into an ordinal variable.
+
+\hypertarget{solution-23}{%
+\subsection{Solution}\label{solution-23}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Assign the dataset to itself.
+\item
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
+\item
+  Use the \texttt{mutate()} function.
+\item
+  Create a name for the new ordinal variable.
+\item
+  Set the ordinal variable as being equal to a factor
+\item
+  Inside the \texttt{factor()} function, use the function \texttt{transformC()}. This function will take four arguments.Each argument is separated by a comma.
+\item
+  The first argument for \texttt{transformC()} is set type equal to `cut'.
+\item
+  The second argument is set x equal to the name of interval variable.
+\item
+  The third argument is set cutpoints equal to a list of the values you want to use to split the interval variable into ordinal categories.
+\item
+  Alternatively, the third argument is set groups equal to the number of ordinal categories you want.
+\item
+  The fourth argument is set confirm equal to F.
+\item
+  Close the parentheses to indicate that this is the end of the \texttt{transformC()} function, type a comma, and press return.
+\item
+  Use the argument \texttt{labels\ =} to assign levels to the values of the variable.
+\item
+  The levels should be provided as a list in \texttt{c()} with the names of the levels in quotation marks. Some variation of ``low'', ``medium'', ``high'' would make sense for an ordinal variable with three categories.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign dataset to itself}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use \textasciigrave{}mutate()\textasciigrave{} to create a new variable as a factor}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{new\_ordinal =} \FunctionTok{factor}\NormalTok{(}
+    
+    \CommentTok{\# Use transformC() to create the ordinal variable}
+    \FunctionTok{transformC}\NormalTok{(}\AttributeTok{type =} \StringTok{\textquotesingle{}cut\textquotesingle{}}\NormalTok{,}
+               
+               \CommentTok{\# second argument x = interval\_variable}
+               \AttributeTok{x =}\NormalTok{ old\_interval,}
+               
+               \CommentTok{\# third argument set cutpoints}
+               \AttributeTok{cutpoints =} \FunctionTok{c}\NormalTok{(value1, value2),}
+               
+               \CommentTok{\# fourth argument confirm = F}
+               \AttributeTok{confirm =}\NormalTok{ F),}
+    
+    \CommentTok{\# assign levels}
+    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"low"}\NormalTok{, }\StringTok{"medium"}\NormalTok{, }\StringTok{"high"}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we transform the Obama feeling thermometer, \texttt{ft.obama}, into a ordinal variable, \texttt{obama\_ord}. The interval variable \texttt{ft.obama} ranges from 0 to 100 and is supposed to act as thermometer, so we set the cutpoints at 40 and 60. Values below 40 are ``cold'', values between 40 and 60 are ``mid'', and values above 60 are ``warm''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign dataset to itself}
+\NormalTok{nes }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use \textasciigrave{}mutate()\textasciigrave{} to create a new variable as a factor}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{obama\_ord =} \FunctionTok{factor}\NormalTok{(}
+    
+    \CommentTok{\# Use transformC() to create the ordinal variable}
+    \FunctionTok{transformC}\NormalTok{(}\AttributeTok{type =} \StringTok{\textquotesingle{}cut\textquotesingle{}}\NormalTok{,}
+               
+               \CommentTok{\# second argument x = interval\_variable}
+               \AttributeTok{x =}\NormalTok{ ft.obama,}
+               
+               \CommentTok{\# third argument set cutpoints}
+               \AttributeTok{cutpoints =} \FunctionTok{c}\NormalTok{(}\DecValTok{40}\NormalTok{, }\DecValTok{60}\NormalTok{),}
+               
+               \CommentTok{\# fourth argument confirm = F}
+               \AttributeTok{confirm =}\NormalTok{ F),}
+    
+    \CommentTok{\# assign levels}
+    \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"cold"}\NormalTok{, }\StringTok{"mid"}\NormalTok{, }\StringTok{"warm"}\NormalTok{)))}
+
+\CommentTok{\# check our work}
+\FunctionTok{freqC}\NormalTok{(nes}\SpecialCharTok{$}\NormalTok{obama\_ord, }\AttributeTok{plot =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-58}Frequency Distribution of nes$obama_ord
+## 
+##          Frequency   Percent   Cum.Percent
+## ------  ----------  --------  ------------
+## cold          2290     28.05         28.05
+## mid            891     10.91         38.96
+## warm          4984     61.04        100.00
+## Total         8165    100.00            NA
+\end{verbatim}
+
+\hypertarget{troubleshooting-21}{%
+\subsection{Troubleshooting}\label{troubleshooting-21}}
+
+\begin{itemize}
+\item
+  One reason to use cutpoints instead of groups is that it is not clear how to discover where the cutpoints are are when you only use groups. With the `groups' argument, \texttt{transformC()} will try to make the categories have roughly equivalent numbers of observations, and that may not always make sense for the actual data.
+\item
+  Be careful about syntax errors like missing commas and parentheses. This code uses functions inside of functions, so make sure that you have the right parentheses in the right places.
+\end{itemize}
+
+\hypertarget{pivot_wide}{%
+\section{Pivot a Dataframe Wide}\label{pivot_wide}}
+
+Data that we collect out in the wild is not always organized around our chosen unit of analysis. Look at the data below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(urban)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|r}
+\hline
+city & type & value\\
+\hline
+Atlanta & voting & 43\\
+\hline
+Atlanta & protests & 12\\
+\hline
+Dover & voting & 78\\
+\hline
+Dover & protests & 29\\
+\hline
+Rochester & voting & 37\\
+\hline
+Rochester & protests & 52\\
+\hline
+\end{tabular}
+
+Here, each row represents a city and a type of political participation. This is not what we want. We want the unit of analysis to be cities, so each row should just represent one city, with different columns for the different types of participation. Pivoting data is one way to reorganize a dataset so that the rows of the data match the unit of analysis. A ``wide'' pivot is when we turn the values of a variable into columns of the dataset.
+
+\hypertarget{problem-25}{%
+\subsection{Problem}\label{problem-25}}
+
+You want to do a ``wide'' pivot that reorganizes a dataset by making separate columns for the values of a variable.
+
+\hypertarget{solution-24}{%
+\subsection{Solution}\label{solution-24}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new data object.
+\item
+  Assign the old dataset to the new object.
+\item
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
+\item
+  Use the \texttt{pivot\_wider()} function, specifying at least two arguments.
+\item
+  The first argument, \texttt{names\_from}, is to provide the name of the variable whose values are being converted into columns.
+\item
+  The second argument, \texttt{values\_from}, provides the values that will be used to populate the new columns.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign the old dataset to a new object}
+\NormalTok{new\_data }\OtherTok{\textless{}{-}}\NormalTok{ old\_data }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use pivot\_wider()}
+  \FunctionTok{pivot\_wider}\NormalTok{(}
+    
+    \CommentTok{\# use \textasciigrave{}names\_from\textasciigrave{} to specify the variable that is being turned into columns}
+    \AttributeTok{names\_from =}\NormalTok{ some\_variable,}
+    
+    \CommentTok{\# use \textasciigrave{}values\_from\textasciigrave{} to specify the variable that provides values for the columns}
+    \AttributeTok{values\_from =}\NormalTok{ some\_other\_variable}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we perform a wide pivot on the \texttt{urban} dataset to make cities into the unit of analysis. Specifically, we will create separate columns for each type of political participation -- voting and protests.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign the old dataset to a new object}
+\NormalTok{city\_part }\OtherTok{\textless{}{-}}\NormalTok{ urban }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use pivot\_wider()}
+  \FunctionTok{pivot\_wider}\NormalTok{(}
+    
+    \CommentTok{\# use \textasciigrave{}names\_from\textasciigrave{} to specify the variable that is being turned into columns}
+    \AttributeTok{names\_from =}\NormalTok{ type,}
+    
+    \CommentTok{\# use \textasciigrave{}values\_from\textasciigrave{} to specify the variable that provides values for the columns}
+    \AttributeTok{values\_from =}\NormalTok{ value}
+\NormalTok{  )}
+
+\CommentTok{\# look at the data}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(city\_part)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r}
+\hline
+city & voting & protests\\
+\hline
+Atlanta & 43 & 12\\
+\hline
+Dover & 78 & 29\\
+\hline
+Rochester & 37 & 52\\
+\hline
+\end{tabular}
+
+\hypertarget{troubleshooting-22}{%
+\subsection{Troubleshooting}\label{troubleshooting-22}}
+
+\begin{itemize}
+\tightlist
+\item
+  In more complicated datasets, it will probably be necessary to use the \texttt{id\_cols} argument in \texttt{pivot\_wider()} to specify the variable that identifies all of the unique observations in a dataset.
+\end{itemize}
+
+\hypertarget{pivot_long}{%
+\section{Pivot a Dataframe Long}\label{pivot_long}}
+
+Data that we collect out in the wild is not always organized around our chosen unit of analysis. Look at the data below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(urban2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r}
+\hline
+city & 1981 & 1999 & 2003\\
+\hline
+Atlanta & 43 & 45 & 47\\
+\hline
+Dover & 78 & 81 & 84\\
+\hline
+Rochester & 37 & 47 & 57\\
+\hline
+\end{tabular}
+
+Here we have the voter turnout data for three cities in 1981, 1999, and 2003. The unit of analysis cities. In this case, we are interested in how cities perform over time, so we want the unit of analysis to be city-year instead of cities. Pivoting data is one way to reorganize a dataset so that the rows of the data match the unit of analysis. A ``long'' pivot is when we collapse the columns of a dataset into the values of a variable.
+
+\hypertarget{problem-26}{%
+\subsection{Problem}\label{problem-26}}
+
+You want to do a ``long'' pivot that reorganizes your data such that a number of columns are collapsed into the values of two variables.
+
+\hypertarget{solution-25}{%
+\subsection{Solution}\label{solution-25}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new data object.
+\item
+  Assign the old dataset to the new object.
+\item
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
+\item
+  Use the \texttt{pivot\_longer()} function, specifying at least three arguments.
+\item
+  The first argument, \texttt{cols}, is to provide the name of the columns that are being collapsed.
+\item
+  The second argument, \texttt{names\_to}, provides the new name of the variable that will whose values will now be the names of the collapsed columns
+\item
+  The third argument, \texttt{values\_to}, provides the name of the new variable that inherits the values from the collapsed columns.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign the old dataset to a new object}
+\NormalTok{new\_data }\OtherTok{\textless{}{-}}\NormalTok{ old\_data }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use pivot\_longer()}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    
+    \CommentTok{\# use \textasciigrave{}cols\textasciigrave{} to specify the variables that are being collapsed}
+    \AttributeTok{cols =}\NormalTok{ first\_column}\SpecialCharTok{:}\NormalTok{last\_column,}
+    
+    \CommentTok{\# use \textasciigrave{}names\_to\textasciigrave{} to specify the new variable that holds the column names}
+    \AttributeTok{names\_to =}\NormalTok{ variable\_name,}
+    
+    \CommentTok{\# use \textasciigrave{}values\_to\textasciigrave{} to specify the variable that holds the new values}
+    \AttributeTok{values\_to =}\NormalTok{ other\_variable}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we perform a long pivot on the \texttt{urban2} dataset to make city-year into the unit of analysis.Specifically, we will collapse the variable \texttt{1981}, \texttt{1999}, and \texttt{2003} into one new variable called \texttt{year}. The values will be placed in a variable called \texttt{turnout}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign the old dataset to a new object}
+\NormalTok{city\_year }\OtherTok{\textless{}{-}}\NormalTok{ urban2 }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use pivot\_longer()}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    
+    \CommentTok{\# use \textasciigrave{}cols\textasciigrave{} to specify the variables that are being collapsed}
+    \AttributeTok{cols =} \StringTok{\textasciigrave{}}\AttributeTok{1981}\StringTok{\textasciigrave{}}\SpecialCharTok{:}\StringTok{\textasciigrave{}}\AttributeTok{2003}\StringTok{\textasciigrave{}}\NormalTok{,}
+    
+    \CommentTok{\# use \textasciigrave{}names\_to\textasciigrave{} to specify the new variable that holds the column names}
+    \AttributeTok{names\_to =} \StringTok{"year"}\NormalTok{,}
+    
+    \CommentTok{\# use \textasciigrave{}values\_to\textasciigrave{} to specify the variable that holds the new values}
+    \AttributeTok{values\_to =} \StringTok{"turnout"}
+\NormalTok{  )}
+
+\CommentTok{\# look at the data}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(city\_year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|r}
+\hline
+city & year & turnout\\
+\hline
+Atlanta & 1981 & 43\\
+\hline
+Atlanta & 1999 & 45\\
+\hline
+Atlanta & 2003 & 47\\
+\hline
+Dover & 1981 & 78\\
+\hline
+Dover & 1999 & 81\\
+\hline
+Dover & 2003 & 84\\
+\hline
+Rochester & 1981 & 37\\
+\hline
+Rochester & 1999 & 47\\
+\hline
+Rochester & 2003 & 57\\
+\hline
+\end{tabular}
+
+\hypertarget{troubleshooting-23}{%
+\subsection{Troubleshooting}\label{troubleshooting-23}}
+
+\begin{itemize}
+\tightlist
+\item
+  The names of the columns can also be provided as a list using \texttt{c()}.
+\end{itemize}
+
+\hypertarget{creating-a-key-variable}{%
+\section{Creating a `Key' Variable}\label{creating-a-key-variable}}
+
+It is often helpful to have a variable that uniquely identifies each of your observations. This kind of `id' or `key' variable is particularly useful when pivoting or merging datasets.
+
+\hypertarget{problem-27}{%
+\subsection{Problem}\label{problem-27}}
+
+You want to create a `key' variable that uniquely identifies all of your observations.
+
+\hypertarget{solution-26}{%
+\subsection{Solution}\label{solution-26}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Assign the dataset to itself.
+\item
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
+\item
+  Use the \texttt{mutate()} function.
+\item
+  Create a name for the new variable. Something simple like \texttt{key} or \texttt{id} works.
+\item
+  Set the new variable equal to the function \texttt{paste()}.
+\item
+  Inside the \texttt{paste()} list the variables that will be used to create the unique identifier. Each variable should be separated by a comma.
+\item
+  Add a comma after the last variable listed and then press return.
+\item
+  Set the argument \texttt{sep} equal to ``-''.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign dataset to itself}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use mutate to create \textasciigrave{}key\textasciigrave{} set to \textasciigrave{}paste()\textasciigrave{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{key =} \FunctionTok{paste}\NormalTok{(}
+    
+    \CommentTok{\# list the variables that uniquely identify observations}
+\NormalTok{    first\_variable,}
+\NormalTok{    second\_variable,}
+    
+    \CommentTok{\# set a value for the \textasciigrave{}sep\textasciigrave{} argument}
+    \AttributeTok{sep =} \StringTok{"{-}"}
+\NormalTok{  ))}
+\end{Highlighting}
+\end{Shaded}
+
+Look at the \texttt{city\_year} data we created in the \protect\hyperlink{pivot_long}{long pivot example}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(city\_year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|r}
+\hline
+city & year & turnout\\
+\hline
+Atlanta & 1981 & 43\\
+\hline
+Atlanta & 1999 & 45\\
+\hline
+Atlanta & 2003 & 47\\
+\hline
+Dover & 1981 & 78\\
+\hline
+Dover & 1999 & 81\\
+\hline
+Dover & 2003 & 84\\
+\hline
+Rochester & 1981 & 37\\
+\hline
+Rochester & 1999 & 47\\
+\hline
+Rochester & 2003 & 57\\
+\hline
+\end{tabular}
+
+We can see that the combination of \texttt{city} and \texttt{year} are what would create a unique identifier for each observation in the dataset. The code below creates that key variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign dataset to itself}
+\NormalTok{city\_year }\OtherTok{\textless{}{-}}\NormalTok{ city\_year }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# use mutate to create \textasciigrave{}key\textasciigrave{} set to \textasciigrave{}paste()\textasciigrave{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{key =} \FunctionTok{paste}\NormalTok{(}
+    
+    \CommentTok{\# list the variables that uniquely identify observations}
+\NormalTok{    city,}
+\NormalTok{    year,}
+    
+    \CommentTok{\# set a value for the \textasciigrave{}sep\textasciigrave{} argument}
+    \AttributeTok{sep =} \StringTok{"{-}"}
+\NormalTok{  ))}
+
+\CommentTok{\# check our work {-}{-} the number of unique values in \textasciigrave{}key\textasciigrave{} should equal the}
+\CommentTok{\# total number of observations}
+\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(city\_year}\SpecialCharTok{$}\NormalTok{key)) }\SpecialCharTok{==} \FunctionTok{nrow}\NormalTok{(city\_year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\hypertarget{troubleshooting-24}{%
+\subsection{Troubleshooting}\label{troubleshooting-24}}
+
+\begin{itemize}
+\tightlist
+\item
+  There are times when the length of a `key' variable will not be equal to the total number of observations. For example, this will not be true for data that requires a wide pivot. In those circumstances you may want to create the key variable first, and then use the key variable for the \texttt{id\_cols} argument in \texttt{pivot\_wider()}.
+\item
+  There is nothing special about using the dash, ``-'', as the separator. You can substitute another symbol if you prefer. Just make sure that the symbol is in quotation marks.
+\end{itemize}
+
+\hypertarget{descriptive-statistics}{%
+\chapter{Descriptive Statistics}\label{descriptive-statistics}}
+
+We use descriptive statistics to learn about an individual variable. More specifically, we use central tendency and dispersion to describe our data.
+
+\hypertarget{subset}{%
+\section{Making Subsets of Data}\label{subset}}
+
+\hypertarget{problem-28}{%
+\subsection{Problem}\label{problem-28}}
+
+You want to create a smaller version of your dataset - a subset - using some criteria based on your variables.
+
+\hypertarget{solution-27}{%
+\subsection{Solution}\label{solution-27}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Decide on the variable(s) you want to base the subset on.
+\item
+  Create an object that you will assign the subset to
+\item
+  Use the \texttt{subset()} function.
+\item
+  The main arguments for the function are the data that is being subsetted, the criteria being used for the subset, and the columns of the original dataset that you want included in your subset.
+\item
+  The criteria for the subset are specified using logical operators:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{==} equal to
+\item
+  \texttt{\textgreater{}} greater than
+\item
+  \texttt{\textless{}} less than
+\item
+  \texttt{\textgreater{}=} greater than or equal to
+\item
+  \texttt{\textless{}=} less than or equal to
+\item
+  \texttt{!=} not equal to
+\item
+  \texttt{\textbar{}} or, if there are multiple criteria
+\item
+  \texttt{\&} and, if there are multiple criteria
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Generically, we would write something like the following:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# subset where variable is equal to some value}
+\NormalTok{subset\_name }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, variable }\SpecialCharTok{==}\NormalTok{ some value)}
+
+\CommentTok{\# subset where variable is greater than some value}
+\NormalTok{subset\_name }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, variable }\SpecialCharTok{\textgreater{}}\NormalTok{ some value)}
+
+\CommentTok{\# subset with multiple criteria}
+\NormalTok{subset\_name }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, variable }\SpecialCharTok{\textless{}}\NormalTok{ some value }\SpecialCharTok{|}
+\NormalTok{                        othervariable }\SpecialCharTok{!=}\NormalTok{ some value)}
+
+\CommentTok{\# subset with selected columns}
+\NormalTok{subset\_name }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(dataset, variable }\SpecialCharTok{\textless{}=}\NormalTok{ some value,}
+                      \AttributeTok{select =} \FunctionTok{c}\NormalTok{(variable1, variable2, variable3, variable))}
+\end{Highlighting}
+\end{Shaded}
+
+In this example we will create a subset of the \texttt{nes} dataset based on the variable \texttt{black}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# making subset called \textquotesingle{}black.nes\textquotesingle{} from \textquotesingle{}nes\textquotesingle{}}
+\NormalTok{black.nes }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(nes, black }\SpecialCharTok{==} \StringTok{"Yes"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{troubleshooting-25}{%
+\subsection{Troubleshooting}\label{troubleshooting-25}}
+
+\begin{itemize}
+\item
+  If the values of a variable are not numeric, then they will need to be in quotation marks: \texttt{variable\ ==\ "value"}.
+\item
+  Remember that the dataset has already been specified as an argument, so you should not use \texttt{data\$variable} when writing the subset's criteria.
+\end{itemize}
+
+\hypertarget{simple-comparisons}{%
+\chapter{Simple Comparisons}\label{simple-comparisons}}
+
+\hypertarget{crosstab}{%
+\section{Crosstab}\label{crosstab}}
+
+\hypertarget{problem-29}{%
+\subsection{Problem}\label{problem-29}}
+
+You want to make a crosstab.
+
+\hypertarget{solution-28}{%
+\subsection{Solution}\label{solution-28}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the \texttt{RCPA3} package.
+\item
+  In order to create a crosstab in R, we use the function called \texttt{crosstabC()}.\\
+\item
+  The function follows the following template:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# use the function \textasciigrave{}crosstabC()}
+\FunctionTok{crosstabC}\NormalTok{(}
+  
+  \CommentTok{\# set \textasciigrave{}data\textasciigrave{} equal to your dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# \textasciigrave{}dv\textasciigrave{} equal to the name of your dependent variable}
+  \AttributeTok{dv =}\NormalTok{ dependent\_variable, }
+  
+  \CommentTok{\# set \textasciigrave{}iv\textasciigrave{} equal to the name of your independent variable}
+  \AttributeTok{iv =}\NormalTok{ independent\_variable, }
+  
+  \CommentTok{\# if you have survey data, set \textasciigrave{}w\textasciigrave{} equal to the name of your weights variable}
+  \AttributeTok{w =}\NormalTok{ weights)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Specify the dataset, the dependent variable, the independent variable, and the weights (if applicable)
+\end{enumerate}
+
+In this example, we are making a crosstab where the dataset is `nes', the dependent variable is \texttt{abortion.imp}, the independent variable is \texttt{partyid3}, and the weights are called \texttt{wt}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# use the function \textasciigrave{}crosstabC()}
+\FunctionTok{crosstabC}\NormalTok{(}
+  
+  \CommentTok{\# set \textasciigrave{}data\textasciigrave{} equal to your dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# \textasciigrave{}dv\textasciigrave{} equal to the name of your dependent variable}
+  \AttributeTok{dv =}\NormalTok{ abortion.imp, }
+  
+  \CommentTok{\# set \textasciigrave{}iv\textasciigrave{} equal to the name of your independent variable}
+  \AttributeTok{iv =}\NormalTok{ partyid3, }
+  
+  \CommentTok{\# if you have survey data, set \textasciigrave{}w\textasciigrave{} equal to the name of your weights variable}
+  \AttributeTok{w =}\NormalTok{ wt,}
+  \CommentTok{\# do not make the plot}
+  \AttributeTok{plot =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##                          Cross-Tabulation Analysis
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-71}Cross-Tabulation of abortion.imp and partyid3, weighted by wt
+## 
+##                              1. Democrat   2. Independent   3. Republican    Totals
+## --------------------------  ------------  ---------------  --------------  --------
+## % 1. Not at all important           3.59             6.82            3.67      4.70
+## __Count___                        102.67           188.80           95.39    386.86
+## % 2. Not too important             10.31            15.16           14.41     13.23
+## __Count___                        294.64           419.74          374.26   1088.64
+## % 3. Somewhat important            27.28            29.30           25.65     27.44
+## __Count___                        779.82           811.47          666.30   2257.59
+## % 4. Very important                29.00            25.49           26.57     27.05
+## __Count___                        829.02           705.82          690.36   2225.20
+## % 5. Extremely important           29.81            23.24           29.71     27.57
+## __Count___                        852.18           643.61          771.78   2267.58
+## % Totals                          100.00           100.00          100.00    100.00
+## __Count___                       2858.33          2769.44         2598.10   8225.87
+\end{verbatim}
+
+\hypertarget{troubleshooting-26}{%
+\subsection{Troubleshooting}\label{troubleshooting-26}}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure that the \texttt{RCPA3} package is loaded. Use \texttt{library(RCPA3)} to load.
+\item
+  If you specify the data argument, then the arguments for the independent and dependent variables are just the variable names. They do not follow the template of \texttt{data\$variable}.
+\item
+  If you do not specify the data argument, then the arguments for the independent and dependent variables do follow the template of \texttt{data\$variable}.
+\item
+  Crosstabs are used when both the independent and dependent variables are categorical. Avoid making a crosstab with numeric data.
+\end{itemize}
+
+\hypertarget{compmeans}{%
+\section{Comparison of Means}\label{compmeans}}
+
+\hypertarget{problem-30}{%
+\subsection{Problem}\label{problem-30}}
+
+You want to make a comparison of means table.
+
+\hypertarget{solution-29}{%
+\subsection{Solution}\label{solution-29}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the \texttt{RCPA3} package.
+\item
+  In order to create a comparison of means table in R, we use the function called \texttt{compmeansC()}.\\
+\item
+  The function follows the following template:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# use the function \textasciigrave{}compmeansC()}
+\FunctionTok{compmeansC}\NormalTok{(}
+  
+  \CommentTok{\# set \textasciigrave{}data\textasciigrave{} equal to your dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# \textasciigrave{}dv\textasciigrave{} equal to the name of your dependent variable}
+  \AttributeTok{dv =}\NormalTok{ dependent\_variable, }
+  
+  \CommentTok{\# set \textasciigrave{}iv\textasciigrave{} equal to the name of your independent variable}
+  \AttributeTok{iv =}\NormalTok{ independent\_variable, }
+  
+  \CommentTok{\# if you have survey data, set \textasciigrave{}w\textasciigrave{} equal to the name of your weights variable}
+  \AttributeTok{w =}\NormalTok{ weights)}
+\end{Highlighting}
+\end{Shaded}
+
+Here is a comparison of means table for feelings towards Obama \texttt{ft.obama} by party identification \texttt{partyid3}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{compmeansC}\NormalTok{(}
+  
+  \CommentTok{\# set \textasciigrave{}data\textasciigrave{} equal to your dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# \textasciigrave{}dv\textasciigrave{} equal to the name of your dependent variable}
+  \AttributeTok{dv =}\NormalTok{ ft.obama, }
+  
+  \CommentTok{\# set \textasciigrave{}iv\textasciigrave{} equal to the name of your independent variable}
+  \AttributeTok{iv =}\NormalTok{ partyid3, }
+  
+  \CommentTok{\# if you have survey data, set \textasciigrave{}w\textasciigrave{} equal to the name of your weights variable}
+  \AttributeTok{w =}\NormalTok{ wt,}
+  \CommentTok{\# do not make the plot}
+  \AttributeTok{plot =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##                          Mean Comparison Analysis
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-73}Mean Values of ft.obama by partyid3, Weighted by wt
+## 
+##                    Mean         N   St. Dev.
+## ---------------  ------  --------  ---------
+## 1. Democrat       89.90   2839.88      15.45
+## 2. Independent    61.67   2748.29      32.33
+## 3. Republican     26.98   2578.53      28.30
+## Total             60.53   8166.71      36.65
+\end{verbatim}
+
+\hypertarget{troubleshooting-27}{%
+\subsection{Troubleshooting}\label{troubleshooting-27}}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure \texttt{RCPA3} is loaded.
+\item
+  You only need to specify the weights argument if you have survey data with survey weights.
+\end{itemize}
+
+\hypertarget{barchart}{%
+\section{Make a Bar Chart}\label{barchart}}
+
+\hypertarget{problem-31}{%
+\subsection{Problem}\label{problem-31}}
+
+Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
+
+\hypertarget{solution-30}{%
+\subsection{Solution}\label{solution-30}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \protect\hyperlink{sum}{Create a summary dataset} to plot.
 \item
   Use \texttt{ggplot()} for the data and the mapping.
 \item
@@ -1903,9 +2712,29 @@ Make a barchart that plots the mean of a dependent variable (Y) by an independen
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ sum\_data, }
-             \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ independent, }\AttributeTok{y =}\NormalTok{ dependent)) }\SpecialCharTok{+}
+\CommentTok{\# create a plot object set to \textasciigrave{}ggplot()\textasciigrave{}}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# specify the data as the name of your summary data}
+  \AttributeTok{data =}\NormalTok{ sum\_data,}
+  
+  \CommentTok{\# specify the mapping}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set x to the name of the independent variable}
+    \AttributeTok{x =}\NormalTok{ independent,}
+    
+    \CommentTok{\# set y to the name of the dependent variable}
+    \AttributeTok{y =}\NormalTok{ dependent,}
+    
+    \CommentTok{\# set \textasciigrave{}fill\textasciigrave{} to the name of the independent variable}
+    \AttributeTok{fill =}\NormalTok{ independent)) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use \textasciigrave{}geom\_col() to create the bars}
   \FunctionTok{geom\_col}\NormalTok{()}
+
+\CommentTok{\# call the plot using the name of your plot object}
+\NormalTok{p1}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1914,27 +2743,46 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# create the summary dataset}
+\CommentTok{\# assign old data to a new data object}
 \NormalTok{partymeans }\OtherTok{\textless{}{-}}\NormalTok{ nes }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(pid\_x) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average =} \FunctionTok{wtd.mean}\NormalTok{(obama\_therm, }\AttributeTok{na.rm =}\NormalTok{ T,}
-                               \AttributeTok{weights =}\NormalTok{ wt))}
-
-\CommentTok{\# specify the data and mapping}
-\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ partymeans,}
-             \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pid\_x, }\AttributeTok{y =}\NormalTok{ average)) }\SpecialCharTok{+}
   
-  \CommentTok{\# add the bar shape}
+  \CommentTok{\# use group\_by() to group the data by partyid7}
+  \FunctionTok{group\_by}\NormalTok{(partyid7) }\SpecialCharTok{\%\textgreater{}\%}
+  
+  \CommentTok{\# calculate the means of ft.obama}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average =} \FunctionTok{wtd.mean}\NormalTok{(ft.obama, }\AttributeTok{na.rm =}\NormalTok{ T,}
+                               \AttributeTok{w =}\NormalTok{ wt))}
+
+\CommentTok{\# create a plot object set to \textasciigrave{}ggplot()\textasciigrave{}}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# specify the data as the name of your summary data}
+  \AttributeTok{data =}\NormalTok{ partymeans,}
+  
+  \CommentTok{\# specify the mapping}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set x to the name of the independent variable}
+    \AttributeTok{x =}\NormalTok{ partyid7,}
+    
+    \CommentTok{\# set y to the name of the dependent variable}
+    \AttributeTok{y =}\NormalTok{ average,}
+    
+    \CommentTok{\# set \textasciigrave{}fill\textasciigrave{} to the name of the independent variable}
+    \AttributeTok{fill =}\NormalTok{ partyid7)) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use \textasciigrave{}geom\_col() to create the bars}
   \FunctionTok{geom\_col}\NormalTok{()}
 
-\CommentTok{\# print the plot}
+\CommentTok{\# call the plot using the name of your plot object}
 \NormalTok{p1}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-60-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-75-1.pdf}
 
-\hypertarget{troubleshooting-21}{%
-\subsection{Troubleshooting}\label{troubleshooting-21}}
+\hypertarget{troubleshooting-28}{%
+\subsection{Troubleshooting}\label{troubleshooting-28}}
 
 \begin{itemize}
 \tightlist
@@ -1942,6 +2790,8 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
   Make sure that you use the summary dataset instead of the larger dataset.
 \item
   If there are errors in making the summary dataset, then there will be problems in the plot.
+\item
+  Remember that the name of the dependent variable in the plot is the name that you created in the \texttt{summarise()} when creating the summary data.
 \item
   You need to load the \texttt{tidyverse} package.
 \end{itemize}

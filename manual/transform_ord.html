@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PSC 253 Minimal Manual</title>
+  <title>3.11 Transform an interval variable into an ordinal variable | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.11 Transform an interval variable into an ordinal variable | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.11 Transform an interval variable into an ordinal variable | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic.html"/>
+<link rel="prev" href="transform_nom.html"/>
+<link rel="next" href="pivot_wide.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,25 +364,104 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PSC 253 Minimal Manual</h1>
-<p class="author"><em>Matthew B. Platt</em></p>
-<p class="date"><em>2024-07-25</em></p>
+<div id="transform_ord" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> Transform an interval variable into an ordinal variable<a href="transform_ord.html#transform_ord" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many of the tools we use to analyze the relationship between two variables require that the independent variable is ordinal. In those cases, it can be useful to transform an interval independent variable into an ordinal version.</p>
+<div id="problem-24" class="section level3 hasAnchor" number="3.11.1">
+<h3><span class="header-section-number">3.11.1</span> Problem<a href="transform_ord.html#problem-24" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to transform an interval variable into an ordinal variable.</p>
 </div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is a supplement to the book, <a href="http://qss.princeton.press/">Quantitative Social Science: An Introduction</a>, by Kosuke Imai. It also relies heavily on the work of <a href="https://jrnold.github.io/qss-tidy/">Jeffrey Arnold</a>, who translated the Imai code into tidyverse code.</p>
-<p>This manual is also a supplement to the book <a href="https://us.sagepub.com/en-us/nam/an-r-companion-to-political-analysis/book244716">An R Companion to Political Analysis</a> by Philip Pollock III and Barry Edwards.</p>
-<p>I aspire for this text to act as a minimal manual for the course PSC 253 Scope and Methods in Political Science taught at Morehouse College. It is intended to cover all of the main analytical tasks that the course requires.</p>
-
+<div id="solution-23" class="section level3 hasAnchor" number="3.11.2">
+<h3><span class="header-section-number">3.11.2</span> Solution<a href="transform_ord.html#solution-23" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Assign the dataset to itself.</li>
+<li>Use the pipe operator <code>|&gt;</code> at the end of that line of code.</li>
+<li>Use the <code>mutate()</code> function.</li>
+<li>Create a name for the new ordinal variable.</li>
+<li>Set the ordinal variable as being equal to a factor</li>
+<li>Inside the <code>factor()</code> function, use the function <code>transformC()</code>. This function will take four arguments.Each argument is separated by a comma.</li>
+<li>The first argument for <code>transformC()</code> is set type equal to ‘cut’.</li>
+<li>The second argument is set x equal to the name of interval variable.</li>
+<li>The third argument is set cutpoints equal to a list of the values you want to use to split the interval variable into ordinal categories.</li>
+<li>Alternatively, the third argument is set groups equal to the number of ordinal categories you want.</li>
+<li>The fourth argument is set confirm equal to F.</li>
+<li>Close the parentheses to indicate that this is the end of the <code>transformC()</code> function, type a comma, and press return.</li>
+<li>Use the argument <code>labels =</code> to assign levels to the values of the variable.</li>
+<li>The levels should be provided as a list in <code>c()</code> with the names of the levels in quotation marks. Some variation of “low”, “medium”, “high” would make sense for an ordinal variable with three categories.</li>
+</ol>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="transform_ord.html#cb86-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb86-2"><a href="transform_ord.html#cb86-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
+<span id="cb86-3"><a href="transform_ord.html#cb86-3" tabindex="-1"></a>  </span>
+<span id="cb86-4"><a href="transform_ord.html#cb86-4" tabindex="-1"></a>  <span class="co"># use `mutate()` to create a new variable as a factor</span></span>
+<span id="cb86-5"><a href="transform_ord.html#cb86-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_ordinal =</span> <span class="fu">factor</span>(</span>
+<span id="cb86-6"><a href="transform_ord.html#cb86-6" tabindex="-1"></a>    </span>
+<span id="cb86-7"><a href="transform_ord.html#cb86-7" tabindex="-1"></a>    <span class="co"># Use transformC() to create the ordinal variable</span></span>
+<span id="cb86-8"><a href="transform_ord.html#cb86-8" tabindex="-1"></a>    <span class="fu">transformC</span>(<span class="at">type =</span> <span class="st">&#39;cut&#39;</span>,</span>
+<span id="cb86-9"><a href="transform_ord.html#cb86-9" tabindex="-1"></a>               </span>
+<span id="cb86-10"><a href="transform_ord.html#cb86-10" tabindex="-1"></a>               <span class="co"># second argument x = interval_variable</span></span>
+<span id="cb86-11"><a href="transform_ord.html#cb86-11" tabindex="-1"></a>               <span class="at">x =</span> old_interval,</span>
+<span id="cb86-12"><a href="transform_ord.html#cb86-12" tabindex="-1"></a>               </span>
+<span id="cb86-13"><a href="transform_ord.html#cb86-13" tabindex="-1"></a>               <span class="co"># third argument set cutpoints</span></span>
+<span id="cb86-14"><a href="transform_ord.html#cb86-14" tabindex="-1"></a>               <span class="at">cutpoints =</span> <span class="fu">c</span>(value1, value2),</span>
+<span id="cb86-15"><a href="transform_ord.html#cb86-15" tabindex="-1"></a>               </span>
+<span id="cb86-16"><a href="transform_ord.html#cb86-16" tabindex="-1"></a>               <span class="co"># fourth argument confirm = F</span></span>
+<span id="cb86-17"><a href="transform_ord.html#cb86-17" tabindex="-1"></a>               <span class="at">confirm =</span> F),</span>
+<span id="cb86-18"><a href="transform_ord.html#cb86-18" tabindex="-1"></a>    </span>
+<span id="cb86-19"><a href="transform_ord.html#cb86-19" tabindex="-1"></a>    <span class="co"># assign levels</span></span>
+<span id="cb86-20"><a href="transform_ord.html#cb86-20" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;medium&quot;</span>, <span class="st">&quot;high&quot;</span>)))</span></code></pre></div>
+<p>In the example below we transform the Obama feeling thermometer, <code>ft.obama</code>, into a ordinal variable, <code>obama_ord</code>. The interval variable <code>ft.obama</code> ranges from 0 to 100 and is supposed to act as thermometer, so we set the cutpoints at 40 and 60. Values below 40 are “cold”, values between 40 and 60 are “mid”, and values above 60 are “warm”.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="transform_ord.html#cb87-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb87-2"><a href="transform_ord.html#cb87-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">|&gt;</span></span>
+<span id="cb87-3"><a href="transform_ord.html#cb87-3" tabindex="-1"></a>  </span>
+<span id="cb87-4"><a href="transform_ord.html#cb87-4" tabindex="-1"></a>  <span class="co"># use `mutate()` to create a new variable as a factor</span></span>
+<span id="cb87-5"><a href="transform_ord.html#cb87-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">obama_ord =</span> <span class="fu">factor</span>(</span>
+<span id="cb87-6"><a href="transform_ord.html#cb87-6" tabindex="-1"></a>    </span>
+<span id="cb87-7"><a href="transform_ord.html#cb87-7" tabindex="-1"></a>    <span class="co"># Use transformC() to create the ordinal variable</span></span>
+<span id="cb87-8"><a href="transform_ord.html#cb87-8" tabindex="-1"></a>    <span class="fu">transformC</span>(<span class="at">type =</span> <span class="st">&#39;cut&#39;</span>,</span>
+<span id="cb87-9"><a href="transform_ord.html#cb87-9" tabindex="-1"></a>               </span>
+<span id="cb87-10"><a href="transform_ord.html#cb87-10" tabindex="-1"></a>               <span class="co"># second argument x = interval_variable</span></span>
+<span id="cb87-11"><a href="transform_ord.html#cb87-11" tabindex="-1"></a>               <span class="at">x =</span> ft.obama,</span>
+<span id="cb87-12"><a href="transform_ord.html#cb87-12" tabindex="-1"></a>               </span>
+<span id="cb87-13"><a href="transform_ord.html#cb87-13" tabindex="-1"></a>               <span class="co"># third argument set cutpoints</span></span>
+<span id="cb87-14"><a href="transform_ord.html#cb87-14" tabindex="-1"></a>               <span class="at">cutpoints =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">60</span>),</span>
+<span id="cb87-15"><a href="transform_ord.html#cb87-15" tabindex="-1"></a>               </span>
+<span id="cb87-16"><a href="transform_ord.html#cb87-16" tabindex="-1"></a>               <span class="co"># fourth argument confirm = F</span></span>
+<span id="cb87-17"><a href="transform_ord.html#cb87-17" tabindex="-1"></a>               <span class="at">confirm =</span> F),</span>
+<span id="cb87-18"><a href="transform_ord.html#cb87-18" tabindex="-1"></a>    </span>
+<span id="cb87-19"><a href="transform_ord.html#cb87-19" tabindex="-1"></a>    <span class="co"># assign levels</span></span>
+<span id="cb87-20"><a href="transform_ord.html#cb87-20" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;cold&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;warm&quot;</span>)))</span>
+<span id="cb87-21"><a href="transform_ord.html#cb87-21" tabindex="-1"></a></span>
+<span id="cb87-22"><a href="transform_ord.html#cb87-22" tabindex="-1"></a><span class="co"># check our work</span></span>
+<span id="cb87-23"><a href="transform_ord.html#cb87-23" tabindex="-1"></a><span class="fu">freqC</span>(nes<span class="sc">$</span>obama_ord, <span class="at">plot =</span> F)</span></code></pre></div>
+<pre><code>## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: (\#tab:unnamed-chunk-58)Frequency Distribution of nes$obama_ord
+## 
+##          Frequency   Percent   Cum.Percent
+## ------  ----------  --------  ------------
+## cold          2290     28.05         28.05
+## mid            891     10.91         38.96
+## warm          4984     61.04        100.00
+## Total         8165    100.00            NA</code></pre>
+</div>
+<div id="troubleshooting-21" class="section level3 hasAnchor" number="3.11.3">
+<h3><span class="header-section-number">3.11.3</span> Troubleshooting<a href="transform_ord.html#troubleshooting-21" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>One reason to use cutpoints instead of groups is that it is not clear how to discover where the cutpoints are are when you only use groups. With the ‘groups’ argument, <code>transformC()</code> will try to make the categories have roughly equivalent numbers of observations, and that may not always make sense for the actual data.</p></li>
+<li><p>Be careful about syntax errors like missing commas and parentheses. This code uses functions inside of functions, so make sure that you have the right parentheses in the right places.</p></li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transform_nom.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pivot_wide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,7 +492,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-processing.Rmd",
 "text": "Edit"
 },
 "history": {

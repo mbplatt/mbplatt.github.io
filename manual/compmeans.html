@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.2 Comparison of Means | PSC 253 Minimal Manual</title>
+  <title>5.2 Comparison of Means | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.2 Comparison of Means | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="5.2 Comparison of Means | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.2 Comparison of Means | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="5.2 Comparison of Means | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2022-09-01" />
+<meta name="date" content="2024-07-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -261,39 +265,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="ordinal.html"><a href="ordinal.html#solution-18"><i class="fa fa-check"></i><b>3.6.2</b> Solution</a></li>
 <li class="chapter" data-level="3.6.3" data-path="ordinal.html"><a href="ordinal.html#troubleshooting-16"><i class="fa fa-check"></i><b>3.6.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="subset.html"><a href="subset.html"><i class="fa fa-check"></i><b>3.7</b> Create a Subset of Data</a>
+<li class="chapter" data-level="3.7" data-path="indicator.html"><a href="indicator.html"><i class="fa fa-check"></i><b>3.7</b> Create an Indicator/Dummy Variable</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="subset.html"><a href="subset.html#problem-20"><i class="fa fa-check"></i><b>3.7.1</b> Problem</a></li>
-<li class="chapter" data-level="3.7.2" data-path="subset.html"><a href="subset.html#solution---basic-1"><i class="fa fa-check"></i><b>3.7.2</b> Solution - Basic</a></li>
-<li class="chapter" data-level="3.7.3" data-path="subset.html"><a href="subset.html#solution---tidyverse-1"><i class="fa fa-check"></i><b>3.7.3</b> Solution - Tidyverse</a></li>
-<li class="chapter" data-level="3.7.4" data-path="subset.html"><a href="subset.html#troubleshooting-17"><i class="fa fa-check"></i><b>3.7.4</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.7.1" data-path="indicator.html"><a href="indicator.html#problem-20"><i class="fa fa-check"></i><b>3.7.1</b> Problem</a></li>
+<li class="chapter" data-level="3.7.2" data-path="indicator.html"><a href="indicator.html#solution-19"><i class="fa fa-check"></i><b>3.7.2</b> Solution</a></li>
+<li class="chapter" data-level="3.7.3" data-path="indicator.html"><a href="indicator.html#troubleshooting-17"><i class="fa fa-check"></i><b>3.7.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="sum.html"><a href="sum.html"><i class="fa fa-check"></i><b>3.8</b> Summarize Data Using Means</a>
+<li class="chapter" data-level="3.8" data-path="filter.html"><a href="filter.html"><i class="fa fa-check"></i><b>3.8</b> Filter your Data</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="sum.html"><a href="sum.html#problem-21"><i class="fa fa-check"></i><b>3.8.1</b> Problem</a></li>
-<li class="chapter" data-level="3.8.2" data-path="sum.html"><a href="sum.html#solution-19"><i class="fa fa-check"></i><b>3.8.2</b> Solution</a></li>
-<li class="chapter" data-level="3.8.3" data-path="sum.html"><a href="sum.html#troubleshooting-18"><i class="fa fa-check"></i><b>3.8.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.8.1" data-path="filter.html"><a href="filter.html#problem-21"><i class="fa fa-check"></i><b>3.8.1</b> Problem</a></li>
+<li class="chapter" data-level="3.8.2" data-path="filter.html"><a href="filter.html#solution-20"><i class="fa fa-check"></i><b>3.8.2</b> Solution</a></li>
+<li class="chapter" data-level="3.8.3" data-path="filter.html"><a href="filter.html#troubleshooting-18"><i class="fa fa-check"></i><b>3.8.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="sum.html"><a href="sum.html"><i class="fa fa-check"></i><b>3.9</b> Summarize Data Using Means</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="sum.html"><a href="sum.html#problem-22"><i class="fa fa-check"></i><b>3.9.1</b> Problem</a></li>
+<li class="chapter" data-level="3.9.2" data-path="sum.html"><a href="sum.html#solution-21"><i class="fa fa-check"></i><b>3.9.2</b> Solution</a></li>
+<li class="chapter" data-level="3.9.3" data-path="sum.html"><a href="sum.html#troubleshooting-19"><i class="fa fa-check"></i><b>3.9.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="transform_nom.html"><a href="transform_nom.html"><i class="fa fa-check"></i><b>3.10</b> Transform an interval variable into a nominal variable</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="transform_nom.html"><a href="transform_nom.html#problem-23"><i class="fa fa-check"></i><b>3.10.1</b> Problem</a></li>
+<li class="chapter" data-level="3.10.2" data-path="transform_nom.html"><a href="transform_nom.html#solution-22"><i class="fa fa-check"></i><b>3.10.2</b> Solution</a></li>
+<li class="chapter" data-level="3.10.3" data-path="transform_nom.html"><a href="transform_nom.html#troubleshooting-20"><i class="fa fa-check"></i><b>3.10.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="transform_ord.html"><a href="transform_ord.html"><i class="fa fa-check"></i><b>3.11</b> Transform an interval variable into an ordinal variable</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="transform_ord.html"><a href="transform_ord.html#problem-24"><i class="fa fa-check"></i><b>3.11.1</b> Problem</a></li>
+<li class="chapter" data-level="3.11.2" data-path="transform_ord.html"><a href="transform_ord.html#solution-23"><i class="fa fa-check"></i><b>3.11.2</b> Solution</a></li>
+<li class="chapter" data-level="3.11.3" data-path="transform_ord.html"><a href="transform_ord.html#troubleshooting-21"><i class="fa fa-check"></i><b>3.11.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="pivot_wide.html"><a href="pivot_wide.html"><i class="fa fa-check"></i><b>3.12</b> Pivot a Dataframe Wide</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="pivot_wide.html"><a href="pivot_wide.html#problem-25"><i class="fa fa-check"></i><b>3.12.1</b> Problem</a></li>
+<li class="chapter" data-level="3.12.2" data-path="pivot_wide.html"><a href="pivot_wide.html#solution-24"><i class="fa fa-check"></i><b>3.12.2</b> Solution</a></li>
+<li class="chapter" data-level="3.12.3" data-path="pivot_wide.html"><a href="pivot_wide.html#troubleshooting-22"><i class="fa fa-check"></i><b>3.12.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="pivot_long.html"><a href="pivot_long.html"><i class="fa fa-check"></i><b>3.13</b> Pivot a Dataframe Long</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="pivot_long.html"><a href="pivot_long.html#problem-26"><i class="fa fa-check"></i><b>3.13.1</b> Problem</a></li>
+<li class="chapter" data-level="3.13.2" data-path="pivot_long.html"><a href="pivot_long.html#solution-25"><i class="fa fa-check"></i><b>3.13.2</b> Solution</a></li>
+<li class="chapter" data-level="3.13.3" data-path="pivot_long.html"><a href="pivot_long.html#troubleshooting-23"><i class="fa fa-check"></i><b>3.13.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html"><i class="fa fa-check"></i><b>3.14</b> Creating a ‘Key’ Variable</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html#problem-27"><i class="fa fa-check"></i><b>3.14.1</b> Problem</a></li>
+<li class="chapter" data-level="3.14.2" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
+<li class="chapter" data-level="3.14.3" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="bivariate-comparisons.html"><a href="bivariate-comparisons.html"><i class="fa fa-check"></i><b>4</b> Bivariate Comparisons</a>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="crosstab.html"><a href="crosstab.html"><i class="fa fa-check"></i><b>4.1</b> Crosstab</a>
+<li class="chapter" data-level="4.1" data-path="subset.html"><a href="subset.html"><i class="fa fa-check"></i><b>4.1</b> Making Subsets of Data</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="crosstab.html"><a href="crosstab.html#problem-22"><i class="fa fa-check"></i><b>4.1.1</b> Problem</a></li>
-<li class="chapter" data-level="4.1.2" data-path="crosstab.html"><a href="crosstab.html#solution-20"><i class="fa fa-check"></i><b>4.1.2</b> Solution</a></li>
-<li class="chapter" data-level="4.1.3" data-path="crosstab.html"><a href="crosstab.html#troubleshooting-19"><i class="fa fa-check"></i><b>4.1.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="4.1.1" data-path="subset.html"><a href="subset.html#problem-28"><i class="fa fa-check"></i><b>4.1.1</b> Problem</a></li>
+<li class="chapter" data-level="4.1.2" data-path="subset.html"><a href="subset.html#solution-27"><i class="fa fa-check"></i><b>4.1.2</b> Solution</a></li>
+<li class="chapter" data-level="4.1.3" data-path="subset.html"><a href="subset.html#troubleshooting-25"><i class="fa fa-check"></i><b>4.1.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="compmeans.html"><a href="compmeans.html"><i class="fa fa-check"></i><b>4.2</b> Comparison of Means</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="compmeans.html"><a href="compmeans.html#problem-23"><i class="fa fa-check"></i><b>4.2.1</b> Problem</a></li>
-<li class="chapter" data-level="4.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-21"><i class="fa fa-check"></i><b>4.2.2</b> Solution</a></li>
-<li class="chapter" data-level="4.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-20"><i class="fa fa-check"></i><b>4.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>4.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5" data-path="simple-comparisons.html"><a href="simple-comparisons.html"><i class="fa fa-check"></i><b>5</b> Simple Comparisons</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="barchart.html"><a href="barchart.html#problem-24"><i class="fa fa-check"></i><b>4.3.1</b> Problem</a></li>
-<li class="chapter" data-level="4.3.2" data-path="barchart.html"><a href="barchart.html#solution-22"><i class="fa fa-check"></i><b>4.3.2</b> Solution</a></li>
-<li class="chapter" data-level="4.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-21"><i class="fa fa-check"></i><b>4.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.1" data-path="crosstab.html"><a href="crosstab.html"><i class="fa fa-check"></i><b>5.1</b> Crosstab</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="crosstab.html"><a href="crosstab.html#problem-29"><i class="fa fa-check"></i><b>5.1.1</b> Problem</a></li>
+<li class="chapter" data-level="5.1.2" data-path="crosstab.html"><a href="crosstab.html#solution-28"><i class="fa fa-check"></i><b>5.1.2</b> Solution</a></li>
+<li class="chapter" data-level="5.1.3" data-path="crosstab.html"><a href="crosstab.html#troubleshooting-26"><i class="fa fa-check"></i><b>5.1.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="compmeans.html"><a href="compmeans.html"><i class="fa fa-check"></i><b>5.2</b> Comparison of Means</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="compmeans.html"><a href="compmeans.html#problem-30"><i class="fa fa-check"></i><b>5.2.1</b> Problem</a></li>
+<li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-29"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
+<li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-27"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-31"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-30"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-28"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -316,43 +364,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="compmeans" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Comparison of Means<a href="compmeans.html#compmeans" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="problem-23" class="section level3 hasAnchor" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Problem<a href="compmeans.html#problem-23" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="compmeans" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Comparison of Means<a href="compmeans.html#compmeans" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problem-30" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Problem<a href="compmeans.html#problem-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You want to make a comparison of means table.</p>
 </div>
-<div id="solution-21" class="section level3 hasAnchor" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Solution<a href="compmeans.html#solution-21" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solution-29" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Solution<a href="compmeans.html#solution-29" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Load the <code>poliscidata</code> package.</li>
-<li>In order to create a comparison of means table in R, we use the function called <code>compmeans()</code>.<br />
+<li>Load the <code>RCPA3</code> package.</li>
+<li>In order to create a comparison of means table in R, we use the function called <code>compmeansC()</code>.<br />
 </li>
 <li>The function follows the following template:</li>
 </ol>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="compmeans.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compmeans</span>(<span class="at">x =</span> data<span class="sc">$</span>dependent, <span class="at">f =</span> data<span class="sc">$</span>independent)</span></code></pre></div>
-<p>Here is a comparison of means table for feelings towards Obama <code>obama_therm</code> by party identification <code>pid_x</code>.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="compmeans.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the comparison of means table</span></span>
-<span id="cb89-2"><a href="compmeans.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">compmeans</span>(<span class="at">x =</span> nes<span class="sc">$</span>obama_therm, <span class="at">f =</span> nes<span class="sc">$</span>pid_x, </span>
-<span id="cb89-3"><a href="compmeans.html#cb89-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">weights =</span> nes<span class="sc">$</span>wt)</span></code></pre></div>
-<pre><code>## Warning in descr::compmeans(...): 442 rows with missing values dropped</code></pre>
-<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
-<pre><code>## Mean value of &quot;nes$obama_therm&quot; according to &quot;nes$pid_x&quot;
-##            Mean    N Std. Dev.
-## StrDem 91.12934 1384  14.19526
-## WkDem  75.39237  813  22.08436
-## IndDem 76.11223  695  20.22679
-## Ind    54.56354  724  29.85396
-## IndRep 32.15929  565  27.71165
-## WkRep  36.67241  580  27.85999
-## StrRep 18.44039  713  22.65842
-## Total  60.72470 5474  34.64432</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="compmeans.html#cb104-1" tabindex="-1"></a><span class="co"># use the function `compmeansC()</span></span>
+<span id="cb104-2"><a href="compmeans.html#cb104-2" tabindex="-1"></a><span class="fu">compmeansC</span>(</span>
+<span id="cb104-3"><a href="compmeans.html#cb104-3" tabindex="-1"></a>  </span>
+<span id="cb104-4"><a href="compmeans.html#cb104-4" tabindex="-1"></a>  <span class="co"># set `data` equal to your dataset</span></span>
+<span id="cb104-5"><a href="compmeans.html#cb104-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb104-6"><a href="compmeans.html#cb104-6" tabindex="-1"></a>  </span>
+<span id="cb104-7"><a href="compmeans.html#cb104-7" tabindex="-1"></a>  <span class="co"># `dv` equal to the name of your dependent variable</span></span>
+<span id="cb104-8"><a href="compmeans.html#cb104-8" tabindex="-1"></a>  <span class="at">dv =</span> dependent_variable, </span>
+<span id="cb104-9"><a href="compmeans.html#cb104-9" tabindex="-1"></a>  </span>
+<span id="cb104-10"><a href="compmeans.html#cb104-10" tabindex="-1"></a>  <span class="co"># set `iv` equal to the name of your independent variable</span></span>
+<span id="cb104-11"><a href="compmeans.html#cb104-11" tabindex="-1"></a>  <span class="at">iv =</span> independent_variable, </span>
+<span id="cb104-12"><a href="compmeans.html#cb104-12" tabindex="-1"></a>  </span>
+<span id="cb104-13"><a href="compmeans.html#cb104-13" tabindex="-1"></a>  <span class="co"># if you have survey data, set `w` equal to the name of your weights variable</span></span>
+<span id="cb104-14"><a href="compmeans.html#cb104-14" tabindex="-1"></a>  <span class="at">w =</span> weights)</span></code></pre></div>
+<p>Here is a comparison of means table for feelings towards Obama <code>ft.obama</code> by party identification <code>partyid3</code>.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="compmeans.html#cb105-1" tabindex="-1"></a><span class="fu">compmeansC</span>(</span>
+<span id="cb105-2"><a href="compmeans.html#cb105-2" tabindex="-1"></a>  </span>
+<span id="cb105-3"><a href="compmeans.html#cb105-3" tabindex="-1"></a>  <span class="co"># set `data` equal to your dataset</span></span>
+<span id="cb105-4"><a href="compmeans.html#cb105-4" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
+<span id="cb105-5"><a href="compmeans.html#cb105-5" tabindex="-1"></a>  </span>
+<span id="cb105-6"><a href="compmeans.html#cb105-6" tabindex="-1"></a>  <span class="co"># `dv` equal to the name of your dependent variable</span></span>
+<span id="cb105-7"><a href="compmeans.html#cb105-7" tabindex="-1"></a>  <span class="at">dv =</span> ft.obama, </span>
+<span id="cb105-8"><a href="compmeans.html#cb105-8" tabindex="-1"></a>  </span>
+<span id="cb105-9"><a href="compmeans.html#cb105-9" tabindex="-1"></a>  <span class="co"># set `iv` equal to the name of your independent variable</span></span>
+<span id="cb105-10"><a href="compmeans.html#cb105-10" tabindex="-1"></a>  <span class="at">iv =</span> partyid3, </span>
+<span id="cb105-11"><a href="compmeans.html#cb105-11" tabindex="-1"></a>  </span>
+<span id="cb105-12"><a href="compmeans.html#cb105-12" tabindex="-1"></a>  <span class="co"># if you have survey data, set `w` equal to the name of your weights variable</span></span>
+<span id="cb105-13"><a href="compmeans.html#cb105-13" tabindex="-1"></a>  <span class="at">w =</span> wt,</span>
+<span id="cb105-14"><a href="compmeans.html#cb105-14" tabindex="-1"></a>  <span class="co"># do not make the plot</span></span>
+<span id="cb105-15"><a href="compmeans.html#cb105-15" tabindex="-1"></a>  <span class="at">plot =</span> F)</span></code></pre></div>
+<pre><code>## ===========================================================================
+##                          Mean Comparison Analysis
+## ===========================================================================
+## 
+## 
+## Table: (\#tab:unnamed-chunk-73)Mean Values of ft.obama by partyid3, Weighted by wt
+## 
+##                    Mean         N   St. Dev.
+## ---------------  ------  --------  ---------
+## 1. Democrat       89.90   2839.88      15.45
+## 2. Independent    61.67   2748.29      32.33
+## 3. Republican     26.98   2578.53      28.30
+## Total             60.53   8166.71      36.65</code></pre>
 </div>
-<div id="troubleshooting-20" class="section level3 hasAnchor" number="4.2.3">
-<h3><span class="header-section-number">4.2.3</span> Troubleshooting<a href="compmeans.html#troubleshooting-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="troubleshooting-27" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Troubleshooting<a href="compmeans.html#troubleshooting-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Make sure <code>poliscidata</code> is loaded.</li>
-<li>Keep in mind that the variables follow the pattern of <code>data$variable</code>.</li>
+<li>Make sure <code>RCPA3</code> is loaded.</li>
 <li>You only need to specify the weights argument if you have survey data with survey weights.</li>
 </ul>
 </div>

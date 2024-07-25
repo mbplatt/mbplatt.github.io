@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PSC 253 Minimal Manual</title>
+  <title>3.8 Filter your Data | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.8 Filter your Data | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.8 Filter your Data | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic.html"/>
+<link rel="prev" href="indicator.html"/>
+<link rel="next" href="sum.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,25 +364,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PSC 253 Minimal Manual</h1>
-<p class="author"><em>Matthew B. Platt</em></p>
-<p class="date"><em>2024-07-25</em></p>
+<div id="filter" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> Filter your Data<a href="filter.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problem-21" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Problem<a href="filter.html#problem-21" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to create a subset of your data based on some criteria.</p>
 </div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is a supplement to the book, <a href="http://qss.princeton.press/">Quantitative Social Science: An Introduction</a>, by Kosuke Imai. It also relies heavily on the work of <a href="https://jrnold.github.io/qss-tidy/">Jeffrey Arnold</a>, who translated the Imai code into tidyverse code.</p>
-<p>This manual is also a supplement to the book <a href="https://us.sagepub.com/en-us/nam/an-r-companion-to-political-analysis/book244716">An R Companion to Political Analysis</a> by Philip Pollock III and Barry Edwards.</p>
-<p>I aspire for this text to act as a minimal manual for the course PSC 253 Scope and Methods in Political Science taught at Morehouse College. It is intended to cover all of the main analytical tasks that the course requires.</p>
-
+<div id="solution-20" class="section level3 hasAnchor" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Solution<a href="filter.html#solution-20" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Provide a name for the subset of data you are creating.</li>
+<li>Assign the existing dataset to the new data object.</li>
+<li>Use the pipe <code>%&gt;%</code>.</li>
+<li>Use <code>filter()</code>. The pipe inherits the dataset from the prior step, so the only argument is the criteria for the subset.</li>
+<li>The criteria use relational logic:</li>
+</ol>
+<ul>
+<li><code>==</code> equal to</li>
+<li><code>&gt;</code> greater than</li>
+<li><code>&lt;</code> less than</li>
+<li><code>&gt;=</code> greater than or equal to</li>
+<li><code>&lt;=</code> less than or equal to</li>
+<li><code>!=</code> not equal to</li>
+<li><code>|</code> or, if there are multiple criteria</li>
+<li><code>&amp;</code> and, if there are multiple criteria</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Follow the template below.</li>
+</ol>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="filter.html#cb75-1" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> old_data <span class="sc">%&gt;%</span></span>
+<span id="cb75-2"><a href="filter.html#cb75-2" tabindex="-1"></a>  <span class="fu">filter</span>(criteria)</span></code></pre></div>
+<p>Here we create a subset that only includes people who voted for Biden</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="filter.html#cb76-1" tabindex="-1"></a><span class="co"># frequency of `biden_vote` in full dataset</span></span>
+<span id="cb76-2"><a href="filter.html#cb76-2" tabindex="-1"></a><span class="fu">freqC</span>(nes<span class="sc">$</span>biden_vote, <span class="at">plot =</span> F)</span></code></pre></div>
+<pre><code>## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: (\#tab:unnamed-chunk-52)Frequency Distribution of nes$biden_vote
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 0             2740     43.65
+## 1             3537     56.35
+## Total         6277    100.00</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="filter.html#cb78-1" tabindex="-1"></a><span class="co"># create a subset of `nes` data that only includes Biden voters</span></span>
+<span id="cb78-2"><a href="filter.html#cb78-2" tabindex="-1"></a>bidenites <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
+<span id="cb78-3"><a href="filter.html#cb78-3" tabindex="-1"></a>  <span class="fu">filter</span>(biden_vote <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb78-4"><a href="filter.html#cb78-4" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="filter.html#cb78-5" tabindex="-1"></a><span class="co"># frequency of a `biden_vote` in subset</span></span>
+<span id="cb78-6"><a href="filter.html#cb78-6" tabindex="-1"></a><span class="fu">freqC</span>(bidenites<span class="sc">$</span>biden_vote, <span class="at">plot =</span> F)</span></code></pre></div>
+<pre><code>## ===========================================================================
+##           Describing Distribution of Values with Frequency Table
+## ===========================================================================
+## 
+## 
+## Table: (\#tab:unnamed-chunk-52)Frequency Distribution of bidenites$biden_vote
+## 
+##          Frequency   Percent
+## ------  ----------  --------
+## 1             3537    100.00
+## Total         3537    100.00</code></pre>
+</div>
+<div id="troubleshooting-18" class="section level3 hasAnchor" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> Troubleshooting<a href="filter.html#troubleshooting-18" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>The criteria is written as variable, logical operator, and value of the variable.</li>
+<li>The values of categorical variables must be in quotation marks.</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="indicator.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sum.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,7 +472,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-processing.Rmd",
 "text": "Edit"
 },
 "history": {

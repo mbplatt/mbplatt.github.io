@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PSC 253 Minimal Manual</title>
+  <title>3.12 Pivot a Dataframe Wide | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.12 Pivot a Dataframe Wide | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.12 Pivot a Dataframe Wide | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic.html"/>
+<link rel="prev" href="transform_ord.html"/>
+<link rel="next" href="pivot_long.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,25 +364,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PSC 253 Minimal Manual</h1>
-<p class="author"><em>Matthew B. Platt</em></p>
-<p class="date"><em>2024-07-25</em></p>
+<div id="pivot_wide" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> Pivot a Dataframe Wide<a href="pivot_wide.html#pivot_wide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data that we collect out in the wild is not always organized around our chosen unit of analysis. Look at the data below:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="pivot_wide.html#cb89-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(urban)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">city</th>
+<th align="left">type</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="left">voting</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td align="left">Atlanta</td>
+<td align="left">protests</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">Dover</td>
+<td align="left">voting</td>
+<td align="right">78</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="left">protests</td>
+<td align="right">29</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="left">voting</td>
+<td align="right">37</td>
+</tr>
+<tr class="even">
+<td align="left">Rochester</td>
+<td align="left">protests</td>
+<td align="right">52</td>
+</tr>
+</tbody>
+</table>
+<p>Here, each row represents a city and a type of political participation. This is not what we want. We want the unit of analysis to be cities, so each row should just represent one city, with different columns for the different types of participation. Pivoting data is one way to reorganize a dataset so that the rows of the data match the unit of analysis. A “wide” pivot is when we turn the values of a variable into columns of the dataset.</p>
+<div id="problem-25" class="section level3 hasAnchor" number="3.12.1">
+<h3><span class="header-section-number">3.12.1</span> Problem<a href="pivot_wide.html#problem-25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to do a “wide” pivot that reorganizes a dataset by making separate columns for the values of a variable.</p>
 </div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is a supplement to the book, <a href="http://qss.princeton.press/">Quantitative Social Science: An Introduction</a>, by Kosuke Imai. It also relies heavily on the work of <a href="https://jrnold.github.io/qss-tidy/">Jeffrey Arnold</a>, who translated the Imai code into tidyverse code.</p>
-<p>This manual is also a supplement to the book <a href="https://us.sagepub.com/en-us/nam/an-r-companion-to-political-analysis/book244716">An R Companion to Political Analysis</a> by Philip Pollock III and Barry Edwards.</p>
-<p>I aspire for this text to act as a minimal manual for the course PSC 253 Scope and Methods in Political Science taught at Morehouse College. It is intended to cover all of the main analytical tasks that the course requires.</p>
-
+<div id="solution-24" class="section level3 hasAnchor" number="3.12.2">
+<h3><span class="header-section-number">3.12.2</span> Solution<a href="pivot_wide.html#solution-24" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Create a new data object.</li>
+<li>Assign the old dataset to the new object.</li>
+<li>Use the pipe operator <code>|&gt;</code> at the end of that line of code.</li>
+<li>Use the <code>pivot_wider()</code> function, specifying at least two arguments.</li>
+<li>The first argument, <code>names_from</code>, is to provide the name of the variable whose values are being converted into columns.</li>
+<li>The second argument, <code>values_from</code>, provides the values that will be used to populate the new columns.</li>
+</ol>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="pivot_wide.html#cb90-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb90-2"><a href="pivot_wide.html#cb90-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
+<span id="cb90-3"><a href="pivot_wide.html#cb90-3" tabindex="-1"></a>  </span>
+<span id="cb90-4"><a href="pivot_wide.html#cb90-4" tabindex="-1"></a>  <span class="co"># use pivot_wider()</span></span>
+<span id="cb90-5"><a href="pivot_wide.html#cb90-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb90-6"><a href="pivot_wide.html#cb90-6" tabindex="-1"></a>    </span>
+<span id="cb90-7"><a href="pivot_wide.html#cb90-7" tabindex="-1"></a>    <span class="co"># use `names_from` to specify the variable that is being turned into columns</span></span>
+<span id="cb90-8"><a href="pivot_wide.html#cb90-8" tabindex="-1"></a>    <span class="at">names_from =</span> some_variable,</span>
+<span id="cb90-9"><a href="pivot_wide.html#cb90-9" tabindex="-1"></a>    </span>
+<span id="cb90-10"><a href="pivot_wide.html#cb90-10" tabindex="-1"></a>    <span class="co"># use `values_from` to specify the variable that provides values for the columns</span></span>
+<span id="cb90-11"><a href="pivot_wide.html#cb90-11" tabindex="-1"></a>    <span class="at">values_from =</span> some_other_variable</span>
+<span id="cb90-12"><a href="pivot_wide.html#cb90-12" tabindex="-1"></a>  )</span></code></pre></div>
+<p>In the example below we perform a wide pivot on the <code>urban</code> dataset to make cities into the unit of analysis. Specifically, we will create separate columns for each type of political participation – voting and protests.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="pivot_wide.html#cb91-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb91-2"><a href="pivot_wide.html#cb91-2" tabindex="-1"></a>city_part <span class="ot">&lt;-</span> urban <span class="sc">|&gt;</span></span>
+<span id="cb91-3"><a href="pivot_wide.html#cb91-3" tabindex="-1"></a>  </span>
+<span id="cb91-4"><a href="pivot_wide.html#cb91-4" tabindex="-1"></a>  <span class="co"># use pivot_wider()</span></span>
+<span id="cb91-5"><a href="pivot_wide.html#cb91-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb91-6"><a href="pivot_wide.html#cb91-6" tabindex="-1"></a>    </span>
+<span id="cb91-7"><a href="pivot_wide.html#cb91-7" tabindex="-1"></a>    <span class="co"># use `names_from` to specify the variable that is being turned into columns</span></span>
+<span id="cb91-8"><a href="pivot_wide.html#cb91-8" tabindex="-1"></a>    <span class="at">names_from =</span> type,</span>
+<span id="cb91-9"><a href="pivot_wide.html#cb91-9" tabindex="-1"></a>    </span>
+<span id="cb91-10"><a href="pivot_wide.html#cb91-10" tabindex="-1"></a>    <span class="co"># use `values_from` to specify the variable that provides values for the columns</span></span>
+<span id="cb91-11"><a href="pivot_wide.html#cb91-11" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
+<span id="cb91-12"><a href="pivot_wide.html#cb91-12" tabindex="-1"></a>  )</span>
+<span id="cb91-13"><a href="pivot_wide.html#cb91-13" tabindex="-1"></a></span>
+<span id="cb91-14"><a href="pivot_wide.html#cb91-14" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb91-15"><a href="pivot_wide.html#cb91-15" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_part)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">city</th>
+<th align="right">voting</th>
+<th align="right">protests</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="right">43</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="right">78</td>
+<td align="right">29</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="right">37</td>
+<td align="right">52</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="troubleshooting-22" class="section level3 hasAnchor" number="3.12.3">
+<h3><span class="header-section-number">3.12.3</span> Troubleshooting<a href="pivot_wide.html#troubleshooting-22" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>In more complicated datasets, it will probably be necessary to use the <code>id_cols</code> argument in <code>pivot_wider()</code> to specify the variable that identifies all of the unique observations in a dataset.</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="transform_ord.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pivot_long.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,7 +523,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-processing.Rmd",
 "text": "Edit"
 },
 "history": {

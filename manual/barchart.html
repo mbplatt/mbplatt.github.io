@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.3 Make a Bar Chart | PSC 253 Minimal Manual</title>
+  <title>5.3 Make a Bar Chart | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.3 Make a Bar Chart | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="5.3 Make a Bar Chart | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.3 Make a Bar Chart | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="5.3 Make a Bar Chart | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2022-09-01" />
+<meta name="date" content="2024-07-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -261,39 +265,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="ordinal.html"><a href="ordinal.html#solution-18"><i class="fa fa-check"></i><b>3.6.2</b> Solution</a></li>
 <li class="chapter" data-level="3.6.3" data-path="ordinal.html"><a href="ordinal.html#troubleshooting-16"><i class="fa fa-check"></i><b>3.6.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="subset.html"><a href="subset.html"><i class="fa fa-check"></i><b>3.7</b> Create a Subset of Data</a>
+<li class="chapter" data-level="3.7" data-path="indicator.html"><a href="indicator.html"><i class="fa fa-check"></i><b>3.7</b> Create an Indicator/Dummy Variable</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="subset.html"><a href="subset.html#problem-20"><i class="fa fa-check"></i><b>3.7.1</b> Problem</a></li>
-<li class="chapter" data-level="3.7.2" data-path="subset.html"><a href="subset.html#solution---basic-1"><i class="fa fa-check"></i><b>3.7.2</b> Solution - Basic</a></li>
-<li class="chapter" data-level="3.7.3" data-path="subset.html"><a href="subset.html#solution---tidyverse-1"><i class="fa fa-check"></i><b>3.7.3</b> Solution - Tidyverse</a></li>
-<li class="chapter" data-level="3.7.4" data-path="subset.html"><a href="subset.html#troubleshooting-17"><i class="fa fa-check"></i><b>3.7.4</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.7.1" data-path="indicator.html"><a href="indicator.html#problem-20"><i class="fa fa-check"></i><b>3.7.1</b> Problem</a></li>
+<li class="chapter" data-level="3.7.2" data-path="indicator.html"><a href="indicator.html#solution-19"><i class="fa fa-check"></i><b>3.7.2</b> Solution</a></li>
+<li class="chapter" data-level="3.7.3" data-path="indicator.html"><a href="indicator.html#troubleshooting-17"><i class="fa fa-check"></i><b>3.7.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="sum.html"><a href="sum.html"><i class="fa fa-check"></i><b>3.8</b> Summarize Data Using Means</a>
+<li class="chapter" data-level="3.8" data-path="filter.html"><a href="filter.html"><i class="fa fa-check"></i><b>3.8</b> Filter your Data</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="sum.html"><a href="sum.html#problem-21"><i class="fa fa-check"></i><b>3.8.1</b> Problem</a></li>
-<li class="chapter" data-level="3.8.2" data-path="sum.html"><a href="sum.html#solution-19"><i class="fa fa-check"></i><b>3.8.2</b> Solution</a></li>
-<li class="chapter" data-level="3.8.3" data-path="sum.html"><a href="sum.html#troubleshooting-18"><i class="fa fa-check"></i><b>3.8.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="3.8.1" data-path="filter.html"><a href="filter.html#problem-21"><i class="fa fa-check"></i><b>3.8.1</b> Problem</a></li>
+<li class="chapter" data-level="3.8.2" data-path="filter.html"><a href="filter.html#solution-20"><i class="fa fa-check"></i><b>3.8.2</b> Solution</a></li>
+<li class="chapter" data-level="3.8.3" data-path="filter.html"><a href="filter.html#troubleshooting-18"><i class="fa fa-check"></i><b>3.8.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="sum.html"><a href="sum.html"><i class="fa fa-check"></i><b>3.9</b> Summarize Data Using Means</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="sum.html"><a href="sum.html#problem-22"><i class="fa fa-check"></i><b>3.9.1</b> Problem</a></li>
+<li class="chapter" data-level="3.9.2" data-path="sum.html"><a href="sum.html#solution-21"><i class="fa fa-check"></i><b>3.9.2</b> Solution</a></li>
+<li class="chapter" data-level="3.9.3" data-path="sum.html"><a href="sum.html#troubleshooting-19"><i class="fa fa-check"></i><b>3.9.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="transform_nom.html"><a href="transform_nom.html"><i class="fa fa-check"></i><b>3.10</b> Transform an interval variable into a nominal variable</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="transform_nom.html"><a href="transform_nom.html#problem-23"><i class="fa fa-check"></i><b>3.10.1</b> Problem</a></li>
+<li class="chapter" data-level="3.10.2" data-path="transform_nom.html"><a href="transform_nom.html#solution-22"><i class="fa fa-check"></i><b>3.10.2</b> Solution</a></li>
+<li class="chapter" data-level="3.10.3" data-path="transform_nom.html"><a href="transform_nom.html#troubleshooting-20"><i class="fa fa-check"></i><b>3.10.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="transform_ord.html"><a href="transform_ord.html"><i class="fa fa-check"></i><b>3.11</b> Transform an interval variable into an ordinal variable</a>
+<ul>
+<li class="chapter" data-level="3.11.1" data-path="transform_ord.html"><a href="transform_ord.html#problem-24"><i class="fa fa-check"></i><b>3.11.1</b> Problem</a></li>
+<li class="chapter" data-level="3.11.2" data-path="transform_ord.html"><a href="transform_ord.html#solution-23"><i class="fa fa-check"></i><b>3.11.2</b> Solution</a></li>
+<li class="chapter" data-level="3.11.3" data-path="transform_ord.html"><a href="transform_ord.html#troubleshooting-21"><i class="fa fa-check"></i><b>3.11.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="pivot_wide.html"><a href="pivot_wide.html"><i class="fa fa-check"></i><b>3.12</b> Pivot a Dataframe Wide</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="pivot_wide.html"><a href="pivot_wide.html#problem-25"><i class="fa fa-check"></i><b>3.12.1</b> Problem</a></li>
+<li class="chapter" data-level="3.12.2" data-path="pivot_wide.html"><a href="pivot_wide.html#solution-24"><i class="fa fa-check"></i><b>3.12.2</b> Solution</a></li>
+<li class="chapter" data-level="3.12.3" data-path="pivot_wide.html"><a href="pivot_wide.html#troubleshooting-22"><i class="fa fa-check"></i><b>3.12.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="pivot_long.html"><a href="pivot_long.html"><i class="fa fa-check"></i><b>3.13</b> Pivot a Dataframe Long</a>
+<ul>
+<li class="chapter" data-level="3.13.1" data-path="pivot_long.html"><a href="pivot_long.html#problem-26"><i class="fa fa-check"></i><b>3.13.1</b> Problem</a></li>
+<li class="chapter" data-level="3.13.2" data-path="pivot_long.html"><a href="pivot_long.html#solution-25"><i class="fa fa-check"></i><b>3.13.2</b> Solution</a></li>
+<li class="chapter" data-level="3.13.3" data-path="pivot_long.html"><a href="pivot_long.html#troubleshooting-23"><i class="fa fa-check"></i><b>3.13.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html"><i class="fa fa-check"></i><b>3.14</b> Creating a ‘Key’ Variable</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html#problem-27"><i class="fa fa-check"></i><b>3.14.1</b> Problem</a></li>
+<li class="chapter" data-level="3.14.2" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
+<li class="chapter" data-level="3.14.3" data-path="creating-a-key-variable.html"><a href="creating-a-key-variable.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="bivariate-comparisons.html"><a href="bivariate-comparisons.html"><i class="fa fa-check"></i><b>4</b> Bivariate Comparisons</a>
+<li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="crosstab.html"><a href="crosstab.html"><i class="fa fa-check"></i><b>4.1</b> Crosstab</a>
+<li class="chapter" data-level="4.1" data-path="subset.html"><a href="subset.html"><i class="fa fa-check"></i><b>4.1</b> Making Subsets of Data</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="crosstab.html"><a href="crosstab.html#problem-22"><i class="fa fa-check"></i><b>4.1.1</b> Problem</a></li>
-<li class="chapter" data-level="4.1.2" data-path="crosstab.html"><a href="crosstab.html#solution-20"><i class="fa fa-check"></i><b>4.1.2</b> Solution</a></li>
-<li class="chapter" data-level="4.1.3" data-path="crosstab.html"><a href="crosstab.html#troubleshooting-19"><i class="fa fa-check"></i><b>4.1.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="4.1.1" data-path="subset.html"><a href="subset.html#problem-28"><i class="fa fa-check"></i><b>4.1.1</b> Problem</a></li>
+<li class="chapter" data-level="4.1.2" data-path="subset.html"><a href="subset.html#solution-27"><i class="fa fa-check"></i><b>4.1.2</b> Solution</a></li>
+<li class="chapter" data-level="4.1.3" data-path="subset.html"><a href="subset.html#troubleshooting-25"><i class="fa fa-check"></i><b>4.1.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="compmeans.html"><a href="compmeans.html"><i class="fa fa-check"></i><b>4.2</b> Comparison of Means</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="compmeans.html"><a href="compmeans.html#problem-23"><i class="fa fa-check"></i><b>4.2.1</b> Problem</a></li>
-<li class="chapter" data-level="4.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-21"><i class="fa fa-check"></i><b>4.2.2</b> Solution</a></li>
-<li class="chapter" data-level="4.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-20"><i class="fa fa-check"></i><b>4.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>4.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5" data-path="simple-comparisons.html"><a href="simple-comparisons.html"><i class="fa fa-check"></i><b>5</b> Simple Comparisons</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="barchart.html"><a href="barchart.html#problem-24"><i class="fa fa-check"></i><b>4.3.1</b> Problem</a></li>
-<li class="chapter" data-level="4.3.2" data-path="barchart.html"><a href="barchart.html#solution-22"><i class="fa fa-check"></i><b>4.3.2</b> Solution</a></li>
-<li class="chapter" data-level="4.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-21"><i class="fa fa-check"></i><b>4.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.1" data-path="crosstab.html"><a href="crosstab.html"><i class="fa fa-check"></i><b>5.1</b> Crosstab</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="crosstab.html"><a href="crosstab.html#problem-29"><i class="fa fa-check"></i><b>5.1.1</b> Problem</a></li>
+<li class="chapter" data-level="5.1.2" data-path="crosstab.html"><a href="crosstab.html#solution-28"><i class="fa fa-check"></i><b>5.1.2</b> Solution</a></li>
+<li class="chapter" data-level="5.1.3" data-path="crosstab.html"><a href="crosstab.html#troubleshooting-26"><i class="fa fa-check"></i><b>5.1.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="compmeans.html"><a href="compmeans.html"><i class="fa fa-check"></i><b>5.2</b> Comparison of Means</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="compmeans.html"><a href="compmeans.html#problem-30"><i class="fa fa-check"></i><b>5.2.1</b> Problem</a></li>
+<li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-29"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
+<li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-27"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-31"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-30"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-28"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -316,16 +364,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="barchart" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Make a Bar Chart<a href="barchart.html#barchart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="problem-24" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Problem<a href="barchart.html#problem-24" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="barchart" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Make a Bar Chart<a href="barchart.html#barchart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="problem-31" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Problem<a href="barchart.html#problem-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).</p>
 </div>
-<div id="solution-22" class="section level3 hasAnchor" number="4.3.2">
-<h3><span class="header-section-number">4.3.2</span> Solution<a href="barchart.html#solution-22" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solution-30" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Solution<a href="barchart.html#solution-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Create a summary dataset to plot (see <a href="sum.html#sum">3.8</a>).</li>
+<li><a href="sum.html#sum">Create a summary dataset</a> to plot.</li>
 <li>Use <code>ggplot()</code> for the data and the mapping.</li>
 <li>The data is the summary dataset, <code>data = sum_data</code></li>
 <li>The mapping is <code>mapping = aes(x = independent, y = dependent)</code></li>
@@ -333,32 +381,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use a <code>+</code> at the end of the line of code.</li>
 <li>Use <code>geom_col()</code> to make the bar shapes.</li>
 </ol>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="barchart.html#cb92-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> sum_data, </span>
-<span id="cb92-2"><a href="barchart.html#cb92-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> independent, <span class="at">y =</span> dependent)) <span class="sc">+</span></span>
-<span id="cb92-3"><a href="barchart.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="barchart.html#cb107-1" tabindex="-1"></a><span class="co"># create a plot object set to `ggplot()`</span></span>
+<span id="cb107-2"><a href="barchart.html#cb107-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb107-3"><a href="barchart.html#cb107-3" tabindex="-1"></a>  </span>
+<span id="cb107-4"><a href="barchart.html#cb107-4" tabindex="-1"></a>  <span class="co"># specify the data as the name of your summary data</span></span>
+<span id="cb107-5"><a href="barchart.html#cb107-5" tabindex="-1"></a>  <span class="at">data =</span> sum_data,</span>
+<span id="cb107-6"><a href="barchart.html#cb107-6" tabindex="-1"></a>  </span>
+<span id="cb107-7"><a href="barchart.html#cb107-7" tabindex="-1"></a>  <span class="co"># specify the mapping</span></span>
+<span id="cb107-8"><a href="barchart.html#cb107-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb107-9"><a href="barchart.html#cb107-9" tabindex="-1"></a>    </span>
+<span id="cb107-10"><a href="barchart.html#cb107-10" tabindex="-1"></a>    <span class="co"># set x to the name of the independent variable</span></span>
+<span id="cb107-11"><a href="barchart.html#cb107-11" tabindex="-1"></a>    <span class="at">x =</span> independent,</span>
+<span id="cb107-12"><a href="barchart.html#cb107-12" tabindex="-1"></a>    </span>
+<span id="cb107-13"><a href="barchart.html#cb107-13" tabindex="-1"></a>    <span class="co"># set y to the name of the dependent variable</span></span>
+<span id="cb107-14"><a href="barchart.html#cb107-14" tabindex="-1"></a>    <span class="at">y =</span> dependent,</span>
+<span id="cb107-15"><a href="barchart.html#cb107-15" tabindex="-1"></a>    </span>
+<span id="cb107-16"><a href="barchart.html#cb107-16" tabindex="-1"></a>    <span class="co"># set `fill` to the name of the independent variable</span></span>
+<span id="cb107-17"><a href="barchart.html#cb107-17" tabindex="-1"></a>    <span class="at">fill =</span> independent)) <span class="sc">+</span></span>
+<span id="cb107-18"><a href="barchart.html#cb107-18" tabindex="-1"></a>  </span>
+<span id="cb107-19"><a href="barchart.html#cb107-19" tabindex="-1"></a>  <span class="co"># use `geom_col() to create the bars</span></span>
+<span id="cb107-20"><a href="barchart.html#cb107-20" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb107-21"><a href="barchart.html#cb107-21" tabindex="-1"></a></span>
+<span id="cb107-22"><a href="barchart.html#cb107-22" tabindex="-1"></a><span class="co"># call the plot using the name of your plot object</span></span>
+<span id="cb107-23"><a href="barchart.html#cb107-23" tabindex="-1"></a>p1</span></code></pre></div>
 <p>Plot the mean feelings towards Obama <code>obama_therm</code> by party identification <code>pid_x</code>.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="barchart.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the summary dataset</span></span>
-<span id="cb93-2"><a href="barchart.html#cb93-2" aria-hidden="true" tabindex="-1"></a>partymeans <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
-<span id="cb93-3"><a href="barchart.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pid_x) <span class="sc">%&gt;%</span></span>
-<span id="cb93-4"><a href="barchart.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average =</span> <span class="fu">wtd.mean</span>(obama_therm, <span class="at">na.rm =</span> T,</span>
-<span id="cb93-5"><a href="barchart.html#cb93-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">weights =</span> wt))</span>
-<span id="cb93-6"><a href="barchart.html#cb93-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-7"><a href="barchart.html#cb93-7" aria-hidden="true" tabindex="-1"></a><span class="co"># specify the data and mapping</span></span>
-<span id="cb93-8"><a href="barchart.html#cb93-8" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> partymeans,</span>
-<span id="cb93-9"><a href="barchart.html#cb93-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pid_x, <span class="at">y =</span> average)) <span class="sc">+</span></span>
-<span id="cb93-10"><a href="barchart.html#cb93-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb93-11"><a href="barchart.html#cb93-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add the bar shape</span></span>
-<span id="cb93-12"><a href="barchart.html#cb93-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
-<span id="cb93-13"><a href="barchart.html#cb93-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-14"><a href="barchart.html#cb93-14" aria-hidden="true" tabindex="-1"></a><span class="co"># print the plot</span></span>
-<span id="cb93-15"><a href="barchart.html#cb93-15" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div>
-<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="barchart.html#cb108-1" tabindex="-1"></a><span class="co"># create the summary dataset</span></span>
+<span id="cb108-2"><a href="barchart.html#cb108-2" tabindex="-1"></a><span class="co"># assign old data to a new data object</span></span>
+<span id="cb108-3"><a href="barchart.html#cb108-3" tabindex="-1"></a>partymeans <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
+<span id="cb108-4"><a href="barchart.html#cb108-4" tabindex="-1"></a>  </span>
+<span id="cb108-5"><a href="barchart.html#cb108-5" tabindex="-1"></a>  <span class="co"># use group_by() to group the data by partyid7</span></span>
+<span id="cb108-6"><a href="barchart.html#cb108-6" tabindex="-1"></a>  <span class="fu">group_by</span>(partyid7) <span class="sc">%&gt;%</span></span>
+<span id="cb108-7"><a href="barchart.html#cb108-7" tabindex="-1"></a>  </span>
+<span id="cb108-8"><a href="barchart.html#cb108-8" tabindex="-1"></a>  <span class="co"># calculate the means of ft.obama</span></span>
+<span id="cb108-9"><a href="barchart.html#cb108-9" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average =</span> <span class="fu">wtd.mean</span>(ft.obama, <span class="at">na.rm =</span> T,</span>
+<span id="cb108-10"><a href="barchart.html#cb108-10" tabindex="-1"></a>                               <span class="at">w =</span> wt))</span>
+<span id="cb108-11"><a href="barchart.html#cb108-11" tabindex="-1"></a></span>
+<span id="cb108-12"><a href="barchart.html#cb108-12" tabindex="-1"></a><span class="co"># create a plot object set to `ggplot()`</span></span>
+<span id="cb108-13"><a href="barchart.html#cb108-13" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb108-14"><a href="barchart.html#cb108-14" tabindex="-1"></a>  </span>
+<span id="cb108-15"><a href="barchart.html#cb108-15" tabindex="-1"></a>  <span class="co"># specify the data as the name of your summary data</span></span>
+<span id="cb108-16"><a href="barchart.html#cb108-16" tabindex="-1"></a>  <span class="at">data =</span> partymeans,</span>
+<span id="cb108-17"><a href="barchart.html#cb108-17" tabindex="-1"></a>  </span>
+<span id="cb108-18"><a href="barchart.html#cb108-18" tabindex="-1"></a>  <span class="co"># specify the mapping</span></span>
+<span id="cb108-19"><a href="barchart.html#cb108-19" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb108-20"><a href="barchart.html#cb108-20" tabindex="-1"></a>    </span>
+<span id="cb108-21"><a href="barchart.html#cb108-21" tabindex="-1"></a>    <span class="co"># set x to the name of the independent variable</span></span>
+<span id="cb108-22"><a href="barchart.html#cb108-22" tabindex="-1"></a>    <span class="at">x =</span> partyid7,</span>
+<span id="cb108-23"><a href="barchart.html#cb108-23" tabindex="-1"></a>    </span>
+<span id="cb108-24"><a href="barchart.html#cb108-24" tabindex="-1"></a>    <span class="co"># set y to the name of the dependent variable</span></span>
+<span id="cb108-25"><a href="barchart.html#cb108-25" tabindex="-1"></a>    <span class="at">y =</span> average,</span>
+<span id="cb108-26"><a href="barchart.html#cb108-26" tabindex="-1"></a>    </span>
+<span id="cb108-27"><a href="barchart.html#cb108-27" tabindex="-1"></a>    <span class="co"># set `fill` to the name of the independent variable</span></span>
+<span id="cb108-28"><a href="barchart.html#cb108-28" tabindex="-1"></a>    <span class="at">fill =</span> partyid7)) <span class="sc">+</span></span>
+<span id="cb108-29"><a href="barchart.html#cb108-29" tabindex="-1"></a>  </span>
+<span id="cb108-30"><a href="barchart.html#cb108-30" tabindex="-1"></a>  <span class="co"># use `geom_col() to create the bars</span></span>
+<span id="cb108-31"><a href="barchart.html#cb108-31" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb108-32"><a href="barchart.html#cb108-32" tabindex="-1"></a></span>
+<span id="cb108-33"><a href="barchart.html#cb108-33" tabindex="-1"></a><span class="co"># call the plot using the name of your plot object</span></span>
+<span id="cb108-34"><a href="barchart.html#cb108-34" tabindex="-1"></a>p1</span></code></pre></div>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 </div>
-<div id="troubleshooting-21" class="section level3 hasAnchor" number="4.3.3">
-<h3><span class="header-section-number">4.3.3</span> Troubleshooting<a href="barchart.html#troubleshooting-21" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="troubleshooting-28" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Troubleshooting<a href="barchart.html#troubleshooting-28" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Make sure that you use the summary dataset instead of the larger dataset.</li>
 <li>If there are errors in making the summary dataset, then there will be problems in the plot.</li>
+<li>Remember that the name of the dependent variable in the plot is the name that you created in the <code>summarise()</code> when creating the summary data.</li>
 <li>You need to load the <code>tidyverse</code> package.</li>
 </ul>
 

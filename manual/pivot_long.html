@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>PSC 253 Minimal Manual</title>
+  <title>3.13 Pivot a Dataframe Long | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="PSC 253 Minimal Manual" />
+  <meta property="og:title" content="3.13 Pivot a Dataframe Long | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="3.13 Pivot a Dataframe Long | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic.html"/>
+<link rel="prev" href="pivot_wide.html"/>
+<link rel="next" href="creating-a-key-variable.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -364,25 +364,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">PSC 253 Minimal Manual</h1>
-<p class="author"><em>Matthew B. Platt</em></p>
-<p class="date"><em>2024-07-25</em></p>
+<div id="pivot_long" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> Pivot a Dataframe Long<a href="pivot_long.html#pivot_long" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data that we collect out in the wild is not always organized around our chosen unit of analysis. Look at the data below:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="pivot_long.html#cb92-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(urban2)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">city</th>
+<th align="right">1981</th>
+<th align="right">1999</th>
+<th align="right">2003</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="right">43</td>
+<td align="right">45</td>
+<td align="right">47</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="right">78</td>
+<td align="right">81</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="right">37</td>
+<td align="right">47</td>
+<td align="right">57</td>
+</tr>
+</tbody>
+</table>
+<p>Here we have the voter turnout data for three cities in 1981, 1999, and 2003. The unit of analysis cities. In this case, we are interested in how cities perform over time, so we want the unit of analysis to be city-year instead of cities. Pivoting data is one way to reorganize a dataset so that the rows of the data match the unit of analysis. A “long” pivot is when we collapse the columns of a dataset into the values of a variable.</p>
+<div id="problem-26" class="section level3 hasAnchor" number="3.13.1">
+<h3><span class="header-section-number">3.13.1</span> Problem<a href="pivot_long.html#problem-26" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to do a “long” pivot that reorganizes your data such that a number of columns are collapsed into the values of two variables.</p>
 </div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This book is a supplement to the book, <a href="http://qss.princeton.press/">Quantitative Social Science: An Introduction</a>, by Kosuke Imai. It also relies heavily on the work of <a href="https://jrnold.github.io/qss-tidy/">Jeffrey Arnold</a>, who translated the Imai code into tidyverse code.</p>
-<p>This manual is also a supplement to the book <a href="https://us.sagepub.com/en-us/nam/an-r-companion-to-political-analysis/book244716">An R Companion to Political Analysis</a> by Philip Pollock III and Barry Edwards.</p>
-<p>I aspire for this text to act as a minimal manual for the course PSC 253 Scope and Methods in Political Science taught at Morehouse College. It is intended to cover all of the main analytical tasks that the course requires.</p>
-
+<div id="solution-25" class="section level3 hasAnchor" number="3.13.2">
+<h3><span class="header-section-number">3.13.2</span> Solution<a href="pivot_long.html#solution-25" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Create a new data object.</li>
+<li>Assign the old dataset to the new object.</li>
+<li>Use the pipe operator <code>|&gt;</code> at the end of that line of code.</li>
+<li>Use the <code>pivot_longer()</code> function, specifying at least three arguments.</li>
+<li>The first argument, <code>cols</code>, is to provide the name of the columns that are being collapsed.</li>
+<li>The second argument, <code>names_to</code>, provides the new name of the variable that will whose values will now be the names of the collapsed columns</li>
+<li>The third argument, <code>values_to</code>, provides the name of the new variable that inherits the values from the collapsed columns.</li>
+</ol>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="pivot_long.html#cb93-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb93-2"><a href="pivot_long.html#cb93-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
+<span id="cb93-3"><a href="pivot_long.html#cb93-3" tabindex="-1"></a>  </span>
+<span id="cb93-4"><a href="pivot_long.html#cb93-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
+<span id="cb93-5"><a href="pivot_long.html#cb93-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb93-6"><a href="pivot_long.html#cb93-6" tabindex="-1"></a>    </span>
+<span id="cb93-7"><a href="pivot_long.html#cb93-7" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
+<span id="cb93-8"><a href="pivot_long.html#cb93-8" tabindex="-1"></a>    <span class="at">cols =</span> first_column<span class="sc">:</span>last_column,</span>
+<span id="cb93-9"><a href="pivot_long.html#cb93-9" tabindex="-1"></a>    </span>
+<span id="cb93-10"><a href="pivot_long.html#cb93-10" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
+<span id="cb93-11"><a href="pivot_long.html#cb93-11" tabindex="-1"></a>    <span class="at">names_to =</span> variable_name,</span>
+<span id="cb93-12"><a href="pivot_long.html#cb93-12" tabindex="-1"></a>    </span>
+<span id="cb93-13"><a href="pivot_long.html#cb93-13" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
+<span id="cb93-14"><a href="pivot_long.html#cb93-14" tabindex="-1"></a>    <span class="at">values_to =</span> other_variable</span>
+<span id="cb93-15"><a href="pivot_long.html#cb93-15" tabindex="-1"></a>  )</span></code></pre></div>
+<p>In the example below we perform a long pivot on the <code>urban2</code> dataset to make city-year into the unit of analysis.Specifically, we will collapse the variable <code>1981</code>, <code>1999</code>, and <code>2003</code> into one new variable called <code>year</code>. The values will be placed in a variable called <code>turnout</code>.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="pivot_long.html#cb94-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb94-2"><a href="pivot_long.html#cb94-2" tabindex="-1"></a>city_year <span class="ot">&lt;-</span> urban2 <span class="sc">|&gt;</span></span>
+<span id="cb94-3"><a href="pivot_long.html#cb94-3" tabindex="-1"></a>  </span>
+<span id="cb94-4"><a href="pivot_long.html#cb94-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
+<span id="cb94-5"><a href="pivot_long.html#cb94-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb94-6"><a href="pivot_long.html#cb94-6" tabindex="-1"></a>    </span>
+<span id="cb94-7"><a href="pivot_long.html#cb94-7" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
+<span id="cb94-8"><a href="pivot_long.html#cb94-8" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">`</span><span class="at">1981</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2003</span><span class="st">`</span>,</span>
+<span id="cb94-9"><a href="pivot_long.html#cb94-9" tabindex="-1"></a>    </span>
+<span id="cb94-10"><a href="pivot_long.html#cb94-10" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
+<span id="cb94-11"><a href="pivot_long.html#cb94-11" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb94-12"><a href="pivot_long.html#cb94-12" tabindex="-1"></a>    </span>
+<span id="cb94-13"><a href="pivot_long.html#cb94-13" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
+<span id="cb94-14"><a href="pivot_long.html#cb94-14" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;turnout&quot;</span></span>
+<span id="cb94-15"><a href="pivot_long.html#cb94-15" tabindex="-1"></a>  )</span>
+<span id="cb94-16"><a href="pivot_long.html#cb94-16" tabindex="-1"></a></span>
+<span id="cb94-17"><a href="pivot_long.html#cb94-17" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb94-18"><a href="pivot_long.html#cb94-18" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_year)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">city</th>
+<th align="left">year</th>
+<th align="right">turnout</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="left">1981</td>
+<td align="right">43</td>
+</tr>
+<tr class="even">
+<td align="left">Atlanta</td>
+<td align="left">1999</td>
+<td align="right">45</td>
+</tr>
+<tr class="odd">
+<td align="left">Atlanta</td>
+<td align="left">2003</td>
+<td align="right">47</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="left">1981</td>
+<td align="right">78</td>
+</tr>
+<tr class="odd">
+<td align="left">Dover</td>
+<td align="left">1999</td>
+<td align="right">81</td>
+</tr>
+<tr class="even">
+<td align="left">Dover</td>
+<td align="left">2003</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="left">1981</td>
+<td align="right">37</td>
+</tr>
+<tr class="even">
+<td align="left">Rochester</td>
+<td align="left">1999</td>
+<td align="right">47</td>
+</tr>
+<tr class="odd">
+<td align="left">Rochester</td>
+<td align="left">2003</td>
+<td align="right">57</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="troubleshooting-23" class="section level3 hasAnchor" number="3.13.3">
+<h3><span class="header-section-number">3.13.3</span> Troubleshooting<a href="pivot_long.html#troubleshooting-23" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>The names of the columns can also be provided as a list using <code>c()</code>.</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pivot_wide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-a-key-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,7 +549,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-processing.Rmd",
 "text": "Edit"
 },
 "history": {
