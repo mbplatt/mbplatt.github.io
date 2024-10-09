@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -437,49 +437,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The first argument is the name of the dataset that you are merging with your new data object.</li>
 <li>Set the <code>by</code> argument equal to the name of your ‘key’ variable in quotation marks.</li>
 </ol>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="merge.html#cb51-1" tabindex="-1"></a><span class="co"># Assign the dataset to a new data object</span></span>
-<span id="cb51-2"><a href="merge.html#cb51-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
-<span id="cb51-3"><a href="merge.html#cb51-3" tabindex="-1"></a>  </span>
-<span id="cb51-4"><a href="merge.html#cb51-4" tabindex="-1"></a>  <span class="co"># Merge using the `left_join()` function</span></span>
-<span id="cb51-5"><a href="merge.html#cb51-5" tabindex="-1"></a>  <span class="fu">left_join</span>(other_data, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="merge.html#cb99-1" tabindex="-1"></a><span class="co"># Assign the dataset to a new data object</span></span>
+<span id="cb99-2"><a href="merge.html#cb99-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
+<span id="cb99-3"><a href="merge.html#cb99-3" tabindex="-1"></a>  </span>
+<span id="cb99-4"><a href="merge.html#cb99-4" tabindex="-1"></a>  <span class="co"># Merge using the `left_join()` function</span></span>
+<span id="cb99-5"><a href="merge.html#cb99-5" tabindex="-1"></a>  <span class="fu">left_join</span>(other_data, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>)</span></code></pre></div>
 <p>Below we will merge data on voter turnout for three cities across three years, <code>city_year</code>, with data on protest participation for three cities across three years, <code>urban3</code>. The ‘key’ to merge these data should be a combination of the name of the city and the year for the data.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="merge.html#cb52-1" tabindex="-1"></a><span class="co"># long pivot of `urban3`</span></span>
-<span id="cb52-2"><a href="merge.html#cb52-2" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
-<span id="cb52-3"><a href="merge.html#cb52-3" tabindex="-1"></a>protest_year <span class="ot">&lt;-</span> urban3 <span class="sc">|&gt;</span></span>
-<span id="cb52-4"><a href="merge.html#cb52-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
-<span id="cb52-5"><a href="merge.html#cb52-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb52-6"><a href="merge.html#cb52-6" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
-<span id="cb52-7"><a href="merge.html#cb52-7" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">`</span><span class="at">1981</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2003</span><span class="st">`</span>,</span>
-<span id="cb52-8"><a href="merge.html#cb52-8" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
-<span id="cb52-9"><a href="merge.html#cb52-9" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
-<span id="cb52-10"><a href="merge.html#cb52-10" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
-<span id="cb52-11"><a href="merge.html#cb52-11" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;protest&quot;</span></span>
-<span id="cb52-12"><a href="merge.html#cb52-12" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb52-13"><a href="merge.html#cb52-13" tabindex="-1"></a>  </span>
-<span id="cb52-14"><a href="merge.html#cb52-14" tabindex="-1"></a>  <span class="co"># create the &#39;key&#39; variable</span></span>
-<span id="cb52-15"><a href="merge.html#cb52-15" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
-<span id="cb52-16"><a href="merge.html#cb52-16" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
-<span id="cb52-17"><a href="merge.html#cb52-17" tabindex="-1"></a>    city,</span>
-<span id="cb52-18"><a href="merge.html#cb52-18" tabindex="-1"></a>    year,</span>
-<span id="cb52-19"><a href="merge.html#cb52-19" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
-<span id="cb52-20"><a href="merge.html#cb52-20" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
-<span id="cb52-21"><a href="merge.html#cb52-21" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
-<span id="cb52-22"><a href="merge.html#cb52-22" tabindex="-1"></a>  </span>
-<span id="cb52-23"><a href="merge.html#cb52-23" tabindex="-1"></a>  <span class="co"># select only the columns you want to merge</span></span>
-<span id="cb52-24"><a href="merge.html#cb52-24" tabindex="-1"></a>  <span class="fu">select</span>(key, protest)</span>
-<span id="cb52-25"><a href="merge.html#cb52-25" tabindex="-1"></a></span>
-<span id="cb52-26"><a href="merge.html#cb52-26" tabindex="-1"></a><span class="co"># city-year and protest_year</span></span>
-<span id="cb52-27"><a href="merge.html#cb52-27" tabindex="-1"></a><span class="co"># Assign the dataset to a new data object</span></span>
-<span id="cb52-28"><a href="merge.html#cb52-28" tabindex="-1"></a>participation <span class="ot">&lt;-</span> city_year <span class="sc">|&gt;</span></span>
-<span id="cb52-29"><a href="merge.html#cb52-29" tabindex="-1"></a>  </span>
-<span id="cb52-30"><a href="merge.html#cb52-30" tabindex="-1"></a>  <span class="co"># Merge using the `left_join()` function</span></span>
-<span id="cb52-31"><a href="merge.html#cb52-31" tabindex="-1"></a>  <span class="fu">left_join</span>(protest_year, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb52-32"><a href="merge.html#cb52-32" tabindex="-1"></a>  </span>
-<span id="cb52-33"><a href="merge.html#cb52-33" tabindex="-1"></a>  <span class="co"># relocate the &#39;key&#39; variable to the front</span></span>
-<span id="cb52-34"><a href="merge.html#cb52-34" tabindex="-1"></a>  <span class="fu">relocate</span>(key)</span>
-<span id="cb52-35"><a href="merge.html#cb52-35" tabindex="-1"></a></span>
-<span id="cb52-36"><a href="merge.html#cb52-36" tabindex="-1"></a><span class="co"># check our work</span></span>
-<span id="cb52-37"><a href="merge.html#cb52-37" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(participation)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="merge.html#cb100-1" tabindex="-1"></a><span class="co"># long pivot of `urban3`</span></span>
+<span id="cb100-2"><a href="merge.html#cb100-2" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb100-3"><a href="merge.html#cb100-3" tabindex="-1"></a>protest_year <span class="ot">&lt;-</span> urban3 <span class="sc">|&gt;</span></span>
+<span id="cb100-4"><a href="merge.html#cb100-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
+<span id="cb100-5"><a href="merge.html#cb100-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb100-6"><a href="merge.html#cb100-6" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
+<span id="cb100-7"><a href="merge.html#cb100-7" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">`</span><span class="at">1981</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2003</span><span class="st">`</span>,</span>
+<span id="cb100-8"><a href="merge.html#cb100-8" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
+<span id="cb100-9"><a href="merge.html#cb100-9" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb100-10"><a href="merge.html#cb100-10" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
+<span id="cb100-11"><a href="merge.html#cb100-11" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;protest&quot;</span></span>
+<span id="cb100-12"><a href="merge.html#cb100-12" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb100-13"><a href="merge.html#cb100-13" tabindex="-1"></a>  </span>
+<span id="cb100-14"><a href="merge.html#cb100-14" tabindex="-1"></a>  <span class="co"># create the &#39;key&#39; variable</span></span>
+<span id="cb100-15"><a href="merge.html#cb100-15" tabindex="-1"></a> <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
+<span id="cb100-16"><a href="merge.html#cb100-16" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
+<span id="cb100-17"><a href="merge.html#cb100-17" tabindex="-1"></a>    city,</span>
+<span id="cb100-18"><a href="merge.html#cb100-18" tabindex="-1"></a>    year,</span>
+<span id="cb100-19"><a href="merge.html#cb100-19" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
+<span id="cb100-20"><a href="merge.html#cb100-20" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
+<span id="cb100-21"><a href="merge.html#cb100-21" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb100-22"><a href="merge.html#cb100-22" tabindex="-1"></a>  </span>
+<span id="cb100-23"><a href="merge.html#cb100-23" tabindex="-1"></a>  <span class="co"># select only the columns you want to merge</span></span>
+<span id="cb100-24"><a href="merge.html#cb100-24" tabindex="-1"></a>  <span class="fu">select</span>(key, protest)</span>
+<span id="cb100-25"><a href="merge.html#cb100-25" tabindex="-1"></a></span>
+<span id="cb100-26"><a href="merge.html#cb100-26" tabindex="-1"></a><span class="co"># city-year and protest_year</span></span>
+<span id="cb100-27"><a href="merge.html#cb100-27" tabindex="-1"></a><span class="co"># Assign the dataset to a new data object</span></span>
+<span id="cb100-28"><a href="merge.html#cb100-28" tabindex="-1"></a>participation <span class="ot">&lt;-</span> city_year <span class="sc">|&gt;</span></span>
+<span id="cb100-29"><a href="merge.html#cb100-29" tabindex="-1"></a>  </span>
+<span id="cb100-30"><a href="merge.html#cb100-30" tabindex="-1"></a>  <span class="co"># Merge using the `left_join()` function</span></span>
+<span id="cb100-31"><a href="merge.html#cb100-31" tabindex="-1"></a>  <span class="fu">left_join</span>(protest_year, <span class="at">by =</span> <span class="st">&#39;key&#39;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb100-32"><a href="merge.html#cb100-32" tabindex="-1"></a>  </span>
+<span id="cb100-33"><a href="merge.html#cb100-33" tabindex="-1"></a>  <span class="co"># relocate the &#39;key&#39; variable to the front</span></span>
+<span id="cb100-34"><a href="merge.html#cb100-34" tabindex="-1"></a>  <span class="fu">relocate</span>(key)</span>
+<span id="cb100-35"><a href="merge.html#cb100-35" tabindex="-1"></a></span>
+<span id="cb100-36"><a href="merge.html#cb100-36" tabindex="-1"></a><span class="co"># check our work</span></span>
+<span id="cb100-37"><a href="merge.html#cb100-37" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(participation)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

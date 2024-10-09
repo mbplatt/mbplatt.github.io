@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-08-10" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,10 +313,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.14.2" data-path="key.html"><a href="key.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
 <li class="chapter" data-level="3.14.3" data-path="key.html"><a href="key.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
+<li class="chapter" data-level="3.15" data-path="merge.html"><a href="merge.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
 <ul>
-<li class="chapter" data-level="3.15.1" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
-<li class="chapter" data-level="3.15.2" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
+<li class="chapter" data-level="3.15.1" data-path="merge.html"><a href="merge.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
+<li class="chapter" data-level="3.15.2" data-path="merge.html"><a href="merge.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
@@ -390,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-38"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-35"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5.3" data-path="barchart2.html"><a href="barchart2.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart for Two Variables</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
-<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
-<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.3.1" data-path="barchart2.html"><a href="barchart2.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart2.html"><a href="barchart2.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart2.html"><a href="barchart2.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -439,56 +439,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the function <code>geom_bar()</code> to draw the bar. The function will not have any arguments.</li>
 <li>Call the plot object by typing its name.</li>
 </ol>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="barchart_nosurv.html#cb22-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
-<span id="cb22-2"><a href="barchart_nosurv.html#cb22-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb22-3"><a href="barchart_nosurv.html#cb22-3" tabindex="-1"></a>  </span>
-<span id="cb22-4"><a href="barchart_nosurv.html#cb22-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb22-5"><a href="barchart_nosurv.html#cb22-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
-<span id="cb22-6"><a href="barchart_nosurv.html#cb22-6" tabindex="-1"></a>  </span>
-<span id="cb22-7"><a href="barchart_nosurv.html#cb22-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
-<span id="cb22-8"><a href="barchart_nosurv.html#cb22-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb22-9"><a href="barchart_nosurv.html#cb22-9" tabindex="-1"></a>    </span>
-<span id="cb22-10"><a href="barchart_nosurv.html#cb22-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
-<span id="cb22-11"><a href="barchart_nosurv.html#cb22-11" tabindex="-1"></a>    <span class="at">x =</span> variable_name,</span>
-<span id="cb22-12"><a href="barchart_nosurv.html#cb22-12" tabindex="-1"></a>    </span>
-<span id="cb22-13"><a href="barchart_nosurv.html#cb22-13" tabindex="-1"></a>    <span class="co"># set `fill` to the name of the variable</span></span>
-<span id="cb22-14"><a href="barchart_nosurv.html#cb22-14" tabindex="-1"></a>    <span class="at">fill =</span> variable_name</span>
-<span id="cb22-15"><a href="barchart_nosurv.html#cb22-15" tabindex="-1"></a>  )</span>
-<span id="cb22-16"><a href="barchart_nosurv.html#cb22-16" tabindex="-1"></a>  </span>
-<span id="cb22-17"><a href="barchart_nosurv.html#cb22-17" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
-<span id="cb22-18"><a href="barchart_nosurv.html#cb22-18" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb22-19"><a href="barchart_nosurv.html#cb22-19" tabindex="-1"></a>  </span>
-<span id="cb22-20"><a href="barchart_nosurv.html#cb22-20" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
-<span id="cb22-21"><a href="barchart_nosurv.html#cb22-21" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb22-22"><a href="barchart_nosurv.html#cb22-22" tabindex="-1"></a></span>
-<span id="cb22-23"><a href="barchart_nosurv.html#cb22-23" tabindex="-1"></a><span class="co"># call the plot</span></span>
-<span id="cb22-24"><a href="barchart_nosurv.html#cb22-24" tabindex="-1"></a>p1</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="barchart_nosurv.html#cb122-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
+<span id="cb122-2"><a href="barchart_nosurv.html#cb122-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb122-3"><a href="barchart_nosurv.html#cb122-3" tabindex="-1"></a>  </span>
+<span id="cb122-4"><a href="barchart_nosurv.html#cb122-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb122-5"><a href="barchart_nosurv.html#cb122-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb122-6"><a href="barchart_nosurv.html#cb122-6" tabindex="-1"></a>  </span>
+<span id="cb122-7"><a href="barchart_nosurv.html#cb122-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
+<span id="cb122-8"><a href="barchart_nosurv.html#cb122-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb122-9"><a href="barchart_nosurv.html#cb122-9" tabindex="-1"></a>    </span>
+<span id="cb122-10"><a href="barchart_nosurv.html#cb122-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
+<span id="cb122-11"><a href="barchart_nosurv.html#cb122-11" tabindex="-1"></a>    <span class="at">x =</span> variable_name,</span>
+<span id="cb122-12"><a href="barchart_nosurv.html#cb122-12" tabindex="-1"></a>    </span>
+<span id="cb122-13"><a href="barchart_nosurv.html#cb122-13" tabindex="-1"></a>    <span class="co"># set `fill` to the name of the variable</span></span>
+<span id="cb122-14"><a href="barchart_nosurv.html#cb122-14" tabindex="-1"></a>    <span class="at">fill =</span> variable_name</span>
+<span id="cb122-15"><a href="barchart_nosurv.html#cb122-15" tabindex="-1"></a>  )</span>
+<span id="cb122-16"><a href="barchart_nosurv.html#cb122-16" tabindex="-1"></a>  </span>
+<span id="cb122-17"><a href="barchart_nosurv.html#cb122-17" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
+<span id="cb122-18"><a href="barchart_nosurv.html#cb122-18" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb122-19"><a href="barchart_nosurv.html#cb122-19" tabindex="-1"></a>  </span>
+<span id="cb122-20"><a href="barchart_nosurv.html#cb122-20" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
+<span id="cb122-21"><a href="barchart_nosurv.html#cb122-21" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb122-22"><a href="barchart_nosurv.html#cb122-22" tabindex="-1"></a></span>
+<span id="cb122-23"><a href="barchart_nosurv.html#cb122-23" tabindex="-1"></a><span class="co"># call the plot</span></span>
+<span id="cb122-24"><a href="barchart_nosurv.html#cb122-24" tabindex="-1"></a>p1</span></code></pre></div>
 <p>In the example below, we create a bar chart for the variable <code>gay.policy2</code>. The name of the dataset is <code>states</code>.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="barchart_nosurv.html#cb23-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
-<span id="cb23-2"><a href="barchart_nosurv.html#cb23-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb23-3"><a href="barchart_nosurv.html#cb23-3" tabindex="-1"></a>  </span>
-<span id="cb23-4"><a href="barchart_nosurv.html#cb23-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb23-5"><a href="barchart_nosurv.html#cb23-5" tabindex="-1"></a>  <span class="at">data =</span> states,</span>
-<span id="cb23-6"><a href="barchart_nosurv.html#cb23-6" tabindex="-1"></a>  </span>
-<span id="cb23-7"><a href="barchart_nosurv.html#cb23-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
-<span id="cb23-8"><a href="barchart_nosurv.html#cb23-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb23-9"><a href="barchart_nosurv.html#cb23-9" tabindex="-1"></a>    </span>
-<span id="cb23-10"><a href="barchart_nosurv.html#cb23-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
-<span id="cb23-11"><a href="barchart_nosurv.html#cb23-11" tabindex="-1"></a>    <span class="at">x =</span> gay.policy2,</span>
-<span id="cb23-12"><a href="barchart_nosurv.html#cb23-12" tabindex="-1"></a>    </span>
-<span id="cb23-13"><a href="barchart_nosurv.html#cb23-13" tabindex="-1"></a>    <span class="co"># set `fill` to the name of the variable</span></span>
-<span id="cb23-14"><a href="barchart_nosurv.html#cb23-14" tabindex="-1"></a>    <span class="at">fill =</span> gay.policy2</span>
-<span id="cb23-15"><a href="barchart_nosurv.html#cb23-15" tabindex="-1"></a>  )</span>
-<span id="cb23-16"><a href="barchart_nosurv.html#cb23-16" tabindex="-1"></a>  </span>
-<span id="cb23-17"><a href="barchart_nosurv.html#cb23-17" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
-<span id="cb23-18"><a href="barchart_nosurv.html#cb23-18" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb23-19"><a href="barchart_nosurv.html#cb23-19" tabindex="-1"></a>  </span>
-<span id="cb23-20"><a href="barchart_nosurv.html#cb23-20" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
-<span id="cb23-21"><a href="barchart_nosurv.html#cb23-21" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb23-22"><a href="barchart_nosurv.html#cb23-22" tabindex="-1"></a></span>
-<span id="cb23-23"><a href="barchart_nosurv.html#cb23-23" tabindex="-1"></a><span class="co"># call the plot</span></span>
-<span id="cb23-24"><a href="barchart_nosurv.html#cb23-24" tabindex="-1"></a>p1</span></code></pre></div>
-<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="barchart_nosurv.html#cb123-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
+<span id="cb123-2"><a href="barchart_nosurv.html#cb123-2" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb123-3"><a href="barchart_nosurv.html#cb123-3" tabindex="-1"></a>  </span>
+<span id="cb123-4"><a href="barchart_nosurv.html#cb123-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb123-5"><a href="barchart_nosurv.html#cb123-5" tabindex="-1"></a>  <span class="at">data =</span> states,</span>
+<span id="cb123-6"><a href="barchart_nosurv.html#cb123-6" tabindex="-1"></a>  </span>
+<span id="cb123-7"><a href="barchart_nosurv.html#cb123-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
+<span id="cb123-8"><a href="barchart_nosurv.html#cb123-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb123-9"><a href="barchart_nosurv.html#cb123-9" tabindex="-1"></a>    </span>
+<span id="cb123-10"><a href="barchart_nosurv.html#cb123-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
+<span id="cb123-11"><a href="barchart_nosurv.html#cb123-11" tabindex="-1"></a>    <span class="at">x =</span> gay.policy2,</span>
+<span id="cb123-12"><a href="barchart_nosurv.html#cb123-12" tabindex="-1"></a>    </span>
+<span id="cb123-13"><a href="barchart_nosurv.html#cb123-13" tabindex="-1"></a>    <span class="co"># set `fill` to the name of the variable</span></span>
+<span id="cb123-14"><a href="barchart_nosurv.html#cb123-14" tabindex="-1"></a>    <span class="at">fill =</span> gay.policy2</span>
+<span id="cb123-15"><a href="barchart_nosurv.html#cb123-15" tabindex="-1"></a>  )</span>
+<span id="cb123-16"><a href="barchart_nosurv.html#cb123-16" tabindex="-1"></a>  </span>
+<span id="cb123-17"><a href="barchart_nosurv.html#cb123-17" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
+<span id="cb123-18"><a href="barchart_nosurv.html#cb123-18" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb123-19"><a href="barchart_nosurv.html#cb123-19" tabindex="-1"></a>  </span>
+<span id="cb123-20"><a href="barchart_nosurv.html#cb123-20" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
+<span id="cb123-21"><a href="barchart_nosurv.html#cb123-21" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb123-22"><a href="barchart_nosurv.html#cb123-22" tabindex="-1"></a></span>
+<span id="cb123-23"><a href="barchart_nosurv.html#cb123-23" tabindex="-1"></a><span class="co"># call the plot</span></span>
+<span id="cb123-24"><a href="barchart_nosurv.html#cb123-24" tabindex="-1"></a>p1</span></code></pre></div>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 </div>
 <div id="troubleshooting-32" class="section level3 hasAnchor" number="4.8.3">
 <h3><span class="header-section-number">4.8.3</span> Troubleshooting<a href="barchart_nosurv.html#troubleshooting-32" class="anchor-section" aria-label="Anchor link to header"></a></h3>

@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -436,21 +436,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add a comma after the last variable listed and then press return.</li>
 <li>Set the argument <code>sep</code> equal to “-”.</li>
 </ol>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="key.html#cb47-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
-<span id="cb47-2"><a href="key.html#cb47-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
-<span id="cb47-3"><a href="key.html#cb47-3" tabindex="-1"></a>  </span>
-<span id="cb47-4"><a href="key.html#cb47-4" tabindex="-1"></a>  <span class="co"># use mutate to create `key` set to `paste()`</span></span>
-<span id="cb47-5"><a href="key.html#cb47-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
-<span id="cb47-6"><a href="key.html#cb47-6" tabindex="-1"></a>    </span>
-<span id="cb47-7"><a href="key.html#cb47-7" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
-<span id="cb47-8"><a href="key.html#cb47-8" tabindex="-1"></a>    first_variable,</span>
-<span id="cb47-9"><a href="key.html#cb47-9" tabindex="-1"></a>    second_variable,</span>
-<span id="cb47-10"><a href="key.html#cb47-10" tabindex="-1"></a>    </span>
-<span id="cb47-11"><a href="key.html#cb47-11" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
-<span id="cb47-12"><a href="key.html#cb47-12" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
-<span id="cb47-13"><a href="key.html#cb47-13" tabindex="-1"></a>  ))</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="key.html#cb95-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb95-2"><a href="key.html#cb95-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
+<span id="cb95-3"><a href="key.html#cb95-3" tabindex="-1"></a>  </span>
+<span id="cb95-4"><a href="key.html#cb95-4" tabindex="-1"></a>  <span class="co"># use mutate to create `key` set to `paste()`</span></span>
+<span id="cb95-5"><a href="key.html#cb95-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
+<span id="cb95-6"><a href="key.html#cb95-6" tabindex="-1"></a>    </span>
+<span id="cb95-7"><a href="key.html#cb95-7" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
+<span id="cb95-8"><a href="key.html#cb95-8" tabindex="-1"></a>    first_variable,</span>
+<span id="cb95-9"><a href="key.html#cb95-9" tabindex="-1"></a>    second_variable,</span>
+<span id="cb95-10"><a href="key.html#cb95-10" tabindex="-1"></a>    </span>
+<span id="cb95-11"><a href="key.html#cb95-11" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
+<span id="cb95-12"><a href="key.html#cb95-12" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
+<span id="cb95-13"><a href="key.html#cb95-13" tabindex="-1"></a>  ))</span></code></pre></div>
 <p>Look at the <code>city_year</code> data we created in the <a href="pivot_long.html#pivot_long">long pivot example</a>.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="key.html#cb48-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_year)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="key.html#cb96-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_year)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -508,23 +508,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>We can see that the combination of <code>city</code> and <code>year</code> are what would create a unique identifier for each observation in the dataset. The code below creates that key variable.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="key.html#cb49-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
-<span id="cb49-2"><a href="key.html#cb49-2" tabindex="-1"></a>city_year <span class="ot">&lt;-</span> city_year <span class="sc">|&gt;</span></span>
-<span id="cb49-3"><a href="key.html#cb49-3" tabindex="-1"></a>  </span>
-<span id="cb49-4"><a href="key.html#cb49-4" tabindex="-1"></a>  <span class="co"># use mutate to create `key` set to `paste()`</span></span>
-<span id="cb49-5"><a href="key.html#cb49-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
-<span id="cb49-6"><a href="key.html#cb49-6" tabindex="-1"></a>    </span>
-<span id="cb49-7"><a href="key.html#cb49-7" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
-<span id="cb49-8"><a href="key.html#cb49-8" tabindex="-1"></a>    city,</span>
-<span id="cb49-9"><a href="key.html#cb49-9" tabindex="-1"></a>    year,</span>
-<span id="cb49-10"><a href="key.html#cb49-10" tabindex="-1"></a>    </span>
-<span id="cb49-11"><a href="key.html#cb49-11" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
-<span id="cb49-12"><a href="key.html#cb49-12" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
-<span id="cb49-13"><a href="key.html#cb49-13" tabindex="-1"></a>  ))</span>
-<span id="cb49-14"><a href="key.html#cb49-14" tabindex="-1"></a></span>
-<span id="cb49-15"><a href="key.html#cb49-15" tabindex="-1"></a><span class="co"># check our work -- the number of unique values in `key` should equal the</span></span>
-<span id="cb49-16"><a href="key.html#cb49-16" tabindex="-1"></a><span class="co"># total number of observations</span></span>
-<span id="cb49-17"><a href="key.html#cb49-17" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(city_year<span class="sc">$</span>key)) <span class="sc">==</span> <span class="fu">nrow</span>(city_year)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="key.html#cb97-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb97-2"><a href="key.html#cb97-2" tabindex="-1"></a>city_year <span class="ot">&lt;-</span> city_year <span class="sc">|&gt;</span></span>
+<span id="cb97-3"><a href="key.html#cb97-3" tabindex="-1"></a>  </span>
+<span id="cb97-4"><a href="key.html#cb97-4" tabindex="-1"></a>  <span class="co"># use mutate to create `key` set to `paste()`</span></span>
+<span id="cb97-5"><a href="key.html#cb97-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">paste</span>(</span>
+<span id="cb97-6"><a href="key.html#cb97-6" tabindex="-1"></a>    </span>
+<span id="cb97-7"><a href="key.html#cb97-7" tabindex="-1"></a>    <span class="co"># list the variables that uniquely identify observations</span></span>
+<span id="cb97-8"><a href="key.html#cb97-8" tabindex="-1"></a>    city,</span>
+<span id="cb97-9"><a href="key.html#cb97-9" tabindex="-1"></a>    year,</span>
+<span id="cb97-10"><a href="key.html#cb97-10" tabindex="-1"></a>    </span>
+<span id="cb97-11"><a href="key.html#cb97-11" tabindex="-1"></a>    <span class="co"># set a value for the `sep` argument</span></span>
+<span id="cb97-12"><a href="key.html#cb97-12" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
+<span id="cb97-13"><a href="key.html#cb97-13" tabindex="-1"></a>  ))</span>
+<span id="cb97-14"><a href="key.html#cb97-14" tabindex="-1"></a></span>
+<span id="cb97-15"><a href="key.html#cb97-15" tabindex="-1"></a><span class="co"># check our work -- the number of unique values in `key` should equal the</span></span>
+<span id="cb97-16"><a href="key.html#cb97-16" tabindex="-1"></a><span class="co"># total number of observations</span></span>
+<span id="cb97-17"><a href="key.html#cb97-17" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(city_year<span class="sc">$</span>key)) <span class="sc">==</span> <span class="fu">nrow</span>(city_year)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="troubleshooting-24" class="section level3 hasAnchor" number="3.14.3">

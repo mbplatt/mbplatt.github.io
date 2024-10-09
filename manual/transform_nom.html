@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -436,29 +436,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the argument <code>labels =</code> to assign levels to the values of the variable.</li>
 <li>The levels should be provided as a list in <code>c()</code> with the names of the levels in quotation marks.</li>
 </ol>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="transform_nom.html#cb35-1" tabindex="-1"></a><span class="co"># assign the dataset to itself</span></span>
-<span id="cb35-2"><a href="transform_nom.html#cb35-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
-<span id="cb35-3"><a href="transform_nom.html#cb35-3" tabindex="-1"></a>  </span>
-<span id="cb35-4"><a href="transform_nom.html#cb35-4" tabindex="-1"></a>  <span class="co"># use mutate to create the nominal variable</span></span>
-<span id="cb35-5"><a href="transform_nom.html#cb35-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_nominal =</span> <span class="fu">factor</span>(</span>
-<span id="cb35-6"><a href="transform_nom.html#cb35-6" tabindex="-1"></a>    </span>
-<span id="cb35-7"><a href="transform_nom.html#cb35-7" tabindex="-1"></a>    <span class="co"># the criteria for determining high vs. low values</span></span>
-<span id="cb35-8"><a href="transform_nom.html#cb35-8" tabindex="-1"></a>    old_interval <span class="sc">&gt;</span> some_value,</span>
-<span id="cb35-9"><a href="transform_nom.html#cb35-9" tabindex="-1"></a>    </span>
-<span id="cb35-10"><a href="transform_nom.html#cb35-10" tabindex="-1"></a>    <span class="co"># assign the levels to the new variable</span></span>
-<span id="cb35-11"><a href="transform_nom.html#cb35-11" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;high&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="transform_nom.html#cb83-1" tabindex="-1"></a><span class="co"># assign the dataset to itself</span></span>
+<span id="cb83-2"><a href="transform_nom.html#cb83-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
+<span id="cb83-3"><a href="transform_nom.html#cb83-3" tabindex="-1"></a>  </span>
+<span id="cb83-4"><a href="transform_nom.html#cb83-4" tabindex="-1"></a>  <span class="co"># use mutate to create the nominal variable</span></span>
+<span id="cb83-5"><a href="transform_nom.html#cb83-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_nominal =</span> <span class="fu">factor</span>(</span>
+<span id="cb83-6"><a href="transform_nom.html#cb83-6" tabindex="-1"></a>    </span>
+<span id="cb83-7"><a href="transform_nom.html#cb83-7" tabindex="-1"></a>    <span class="co"># the criteria for determining high vs. low values</span></span>
+<span id="cb83-8"><a href="transform_nom.html#cb83-8" tabindex="-1"></a>    old_interval <span class="sc">&gt;</span> some_value,</span>
+<span id="cb83-9"><a href="transform_nom.html#cb83-9" tabindex="-1"></a>    </span>
+<span id="cb83-10"><a href="transform_nom.html#cb83-10" tabindex="-1"></a>    <span class="co"># assign the levels to the new variable</span></span>
+<span id="cb83-11"><a href="transform_nom.html#cb83-11" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;high&quot;</span>)))</span></code></pre></div>
 <p>In the example below we transform the Obama feeling thermometer, <code>ft.obama</code>, into a nominal variable, <code>high_obama</code>. The interval variable <code>ft.obama</code> ranges from 0 to 100, so we set 60 and above as the value for “high”.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="transform_nom.html#cb36-1" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">|&gt;</span></span>
-<span id="cb36-2"><a href="transform_nom.html#cb36-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">high_obama =</span> <span class="fu">factor</span>(ft.obama <span class="sc">&gt;</span> <span class="dv">60</span>,</span>
-<span id="cb36-3"><a href="transform_nom.html#cb36-3" tabindex="-1"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;cool Obama feelings&quot;</span>,</span>
-<span id="cb36-4"><a href="transform_nom.html#cb36-4" tabindex="-1"></a>                                        <span class="st">&quot;warm Obama feelings&quot;</span>)))</span>
-<span id="cb36-5"><a href="transform_nom.html#cb36-5" tabindex="-1"></a><span class="fu">freqC</span>(nes<span class="sc">$</span>high_obama, <span class="at">plot =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="transform_nom.html#cb84-1" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">|&gt;</span></span>
+<span id="cb84-2"><a href="transform_nom.html#cb84-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">high_obama =</span> <span class="fu">factor</span>(ft.obama <span class="sc">&gt;</span> <span class="dv">60</span>,</span>
+<span id="cb84-3"><a href="transform_nom.html#cb84-3" tabindex="-1"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;cool Obama feelings&quot;</span>,</span>
+<span id="cb84-4"><a href="transform_nom.html#cb84-4" tabindex="-1"></a>                                        <span class="st">&quot;warm Obama feelings&quot;</span>)))</span>
+<span id="cb84-5"><a href="transform_nom.html#cb84-5" tabindex="-1"></a><span class="fu">freqC</span>(nes<span class="sc">$</span>high_obama, <span class="at">plot =</span> F)</span></code></pre></div>
 <pre><code>## ===========================================================================
 ##           Describing Distribution of Values with Frequency Table
 ## ===========================================================================
 ## 
 ## 
-## Table: (\#tab:unnamed-chunk-22)Frequency Distribution of nes$high_obama
+## Table: (\#tab:unnamed-chunk-56)Frequency Distribution of nes$high_obama
 ## 
 ##                        Frequency   Percent
 ## --------------------  ----------  --------

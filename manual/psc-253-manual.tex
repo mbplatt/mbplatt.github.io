@@ -127,7 +127,7 @@
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2024-07-25}
+\date{2024-10-09}
 
 \begin{document}
 \maketitle
@@ -674,7 +674,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## here() starts at E:/OneDrive/R Code/PSC 253 Manual
+## here() starts at /Users/matthewplatt/Library/CloudStorage/OneDrive-Personal/R Code/PSC 253 Manual
 \end{verbatim}
 
 \begin{Shaded}
@@ -684,7 +684,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "E:/OneDrive/R Code/PSC 253 Manual/images"
+## [1] "/Users/matthewplatt/Library/CloudStorage/OneDrive-Personal/R Code/PSC 253 Manual/images"
 \end{verbatim}
 
 For example, we have a project folder named \texttt{hypothesis\_test\_lab}. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
@@ -2257,8 +2257,8 @@ Rochester & 2003 & 57\\
   The names of the columns can also be provided as a list using \texttt{c()}.
 \end{itemize}
 
-\hypertarget{creating-a-key-variable}{%
-\section{Creating a `Key' Variable}\label{creating-a-key-variable}}
+\hypertarget{key}{%
+\section{Creating a `Key' Variable}\label{key}}
 
 It is often helpful to have a variable that uniquely identifies each of your observations. This kind of `id' or `key' variable is particularly useful when pivoting or merging datasets.
 
@@ -2380,6 +2380,120 @@ We can see that the combination of \texttt{city} and \texttt{year} are what woul
   There is nothing special about using the dash, ``-'', as the separator. You can substitute another symbol if you prefer. Just make sure that the symbol is in quotation marks.
 \end{itemize}
 
+\hypertarget{merge}{%
+\section{Merge Multiple Datasets Together}\label{merge}}
+
+Data collection is rarely perfect. We often find that one dataset has some good potential dependent variables and a different dataset has good potential independent variables. In these circumstances, we need to merge the data together.
+
+\hypertarget{problem-28}{%
+\subsection{Problem}\label{problem-28}}
+
+You want to merge two datasets.
+
+\hypertarget{solution-27}{%
+\subsection{Solution}\label{solution-27}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identify the `key' variable that identifies the unique observations in both datasets. That is, each dataset should have the same `key' variable.
+\item
+  If a `key' variable does not already exist, then \protect\hyperlink{key}{create a key variable}.
+\item
+  For the secondary dataset, use \texttt{select()} to include only the variables that you need to merge. Remember that the `key' variable will be one of the variables that you select.
+\item
+  Create a new data object.
+\item
+  Assign the dataset that you want to keep all of the observations of to the new object.
+\item
+  Use the pipe operator \texttt{\textbar{}\textgreater{}} at the end of that line of code.
+\item
+  Use the \texttt{left\_join()} function to combine the datasets.
+\item
+  The first argument is the name of the dataset that you are merging with your new data object.
+\item
+  Set the \texttt{by} argument equal to the name of your `key' variable in quotation marks.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assign the dataset to a new data object}
+\NormalTok{new\_data }\OtherTok{\textless{}{-}}\NormalTok{ old\_data }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Merge using the \textasciigrave{}left\_join()\textasciigrave{} function}
+  \FunctionTok{left\_join}\NormalTok{(other\_data, }\AttributeTok{by =} \StringTok{\textquotesingle{}key\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Below we will merge data on voter turnout for three cities across three years, \texttt{city\_year}, with data on protest participation for three cities across three years, \texttt{urban3}. The `key' to merge these data should be a combination of the name of the city and the year for the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# long pivot of \textasciigrave{}urban3\textasciigrave{}}
+\CommentTok{\# assign the old dataset to a new object}
+\NormalTok{protest\_year }\OtherTok{\textless{}{-}}\NormalTok{ urban3 }\SpecialCharTok{|\textgreater{}}
+  \CommentTok{\# use pivot\_longer()}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \CommentTok{\# use \textasciigrave{}cols\textasciigrave{} to specify the variables that are being collapsed}
+    \AttributeTok{cols =} \StringTok{\textasciigrave{}}\AttributeTok{1981}\StringTok{\textasciigrave{}}\SpecialCharTok{:}\StringTok{\textasciigrave{}}\AttributeTok{2003}\StringTok{\textasciigrave{}}\NormalTok{,}
+    \CommentTok{\# use \textasciigrave{}names\_to\textasciigrave{} to specify the new variable that holds the column names}
+    \AttributeTok{names\_to =} \StringTok{"year"}\NormalTok{,}
+    \CommentTok{\# use \textasciigrave{}values\_to\textasciigrave{} to specify the variable that holds the new values}
+    \AttributeTok{values\_to =} \StringTok{"protest"}
+\NormalTok{  ) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# create the \textquotesingle{}key\textquotesingle{} variable}
+ \FunctionTok{mutate}\NormalTok{(}\AttributeTok{key =} \FunctionTok{paste}\NormalTok{(}
+    \CommentTok{\# list the variables that uniquely identify observations}
+\NormalTok{    city,}
+\NormalTok{    year,}
+    \CommentTok{\# set a value for the \textasciigrave{}sep\textasciigrave{} argument}
+    \AttributeTok{sep =} \StringTok{"{-}"}
+\NormalTok{  )) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# select only the columns you want to merge}
+  \FunctionTok{select}\NormalTok{(key, protest)}
+
+\CommentTok{\# city{-}year and protest\_year}
+\CommentTok{\# Assign the dataset to a new data object}
+\NormalTok{participation }\OtherTok{\textless{}{-}}\NormalTok{ city\_year }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# Merge using the \textasciigrave{}left\_join()\textasciigrave{} function}
+  \FunctionTok{left\_join}\NormalTok{(protest\_year, }\AttributeTok{by =} \StringTok{\textquotesingle{}key\textquotesingle{}}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  
+  \CommentTok{\# relocate the \textquotesingle{}key\textquotesingle{} variable to the front}
+  \FunctionTok{relocate}\NormalTok{(key)}
+
+\CommentTok{\# check our work}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(participation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|l|l|r|r}
+\hline
+key & city & year & turnout & protest\\
+\hline
+Atlanta-1981 & Atlanta & 1981 & 43 & 12\\
+\hline
+Atlanta-1999 & Atlanta & 1999 & 45 & 14\\
+\hline
+Atlanta-2003 & Atlanta & 2003 & 47 & 16\\
+\hline
+Dover-1981 & Dover & 1981 & 78 & 29\\
+\hline
+Dover-1999 & Dover & 1999 & 81 & 32\\
+\hline
+Dover-2003 & Dover & 2003 & 84 & 35\\
+\hline
+Rochester-1981 & Rochester & 1981 & 37 & 52\\
+\hline
+Rochester-1999 & Rochester & 1999 & 47 & 62\\
+\hline
+Rochester-2003 & Rochester & 2003 & 57 & 72\\
+\hline
+\end{tabular}
+
 \hypertarget{descriptive-statistics}{%
 \chapter{Descriptive Statistics}\label{descriptive-statistics}}
 
@@ -2388,13 +2502,13 @@ We use descriptive statistics to learn about an individual variable. More specif
 \hypertarget{subset}{%
 \section{Making Subsets of Data}\label{subset}}
 
-\hypertarget{problem-28}{%
-\subsection{Problem}\label{problem-28}}
+\hypertarget{problem-29}{%
+\subsection{Problem}\label{problem-29}}
 
 You want to create a smaller version of your dataset - a subset - using some criteria based on your variables.
 
-\hypertarget{solution-27}{%
-\subsection{Solution}\label{solution-27}}
+\hypertarget{solution-28}{%
+\subsection{Solution}\label{solution-28}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2409,32 +2523,26 @@ You want to create a smaller version of your dataset - a subset - using some cri
   The main arguments for the function are the data that is being subsetted, the criteria being used for the subset, and the columns of the original dataset that you want included in your subset.
 \item
   The criteria for the subset are specified using logical operators:
-\end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  \texttt{==} equal to
-\item
-  \texttt{\textgreater{}} greater than
-\item
-  \texttt{\textless{}} less than
-\item
-  \texttt{\textgreater{}=} greater than or equal to
-\item
-  \texttt{\textless{}=} less than or equal to
-\item
-  \texttt{!=} not equal to
-\item
-  \texttt{\textbar{}} or, if there are multiple criteria
-\item
-  \texttt{\&} and, if there are multiple criteria
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{==} equal to
+  \item
+    \texttt{\textgreater{}} greater than
+  \item
+    \texttt{\textless{}} less than
+  \item
+    \texttt{\textgreater{}=} greater than or equal to
+  \item
+    \texttt{\textless{}=} less than or equal to
+  \item
+    \texttt{!=} not equal to
+  \item
+    \texttt{\textbar{}} or, if there are multiple criteria
+  \item
+    \texttt{\&} and, if there are multiple criteria
+  \end{itemize}
 \item
   Generically, we would write something like the following:
 \end{enumerate}
@@ -2474,6 +2582,738 @@ In this example we will create a subset of the \texttt{nes} dataset based on the
   If the values of a variable are not numeric, then they will need to be in quotation marks: \texttt{variable\ ==\ "value"}.
 \item
   Remember that the dataset has already been specified as an argument, so you should not use \texttt{data\$variable} when writing the subset's criteria.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{frequency}{%
+\section{Making a Frequency Table}\label{frequency}}
+
+A frequency table shows the the number of observations that take on each value of a variable.
+
+\hypertarget{problem-30}{%
+\subsection{Problem}\label{problem-30}}
+
+You want to create a frequency table of a variable.
+
+\hypertarget{solution-29}{%
+\subsection{Solution}\label{solution-29}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use \texttt{freqC()} to make the table.
+\item
+  Set the \texttt{data} argument to the name of your dataset.
+\item
+  Set the argument \texttt{x} to the name of the variable that you want to make a frequency table of.
+\item
+  If you have survey data, then set the \texttt{w} argument to the name of the weights variable.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}freqC()\textasciigrave{}}
+\FunctionTok{freqC}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ variable\_name,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ weights\_name}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we create a frequency table of the variable \texttt{abortion.legal} found in the \texttt{nes} dataset. The weights for this data are named \texttt{wt}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}freqC()\textasciigrave{}}
+\FunctionTok{freqC}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ abortion.legal,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ wt}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##    Describing Distribution of Values with Frequency Table and Bar Chart
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-72}Frequency Distribution of abortion.legal (PRE: STD Abortion: self-placement), Weighted by wt
+## 
+##                                                                                     Frequency   Percent   Cum.Percent
+## ---------------------------------------------------------------------------------  ----------  --------  ------------
+## 1. By law, abortion should never be permitted                                          915.64     11.14         11.14
+## 2. The law should permit abortion only in case of rape, incest, or when the woma      2047.48     24.90         36.04
+## 3. The law should permit abortion other than for rape/incest/danger to woman but      1034.15     12.58         48.62
+## 4. By law, a woman should always be able to obtain an abortion as a matter of pe      3944.82     47.98         96.59
+## 5. Other {SPECIFY}                                                                     280.10      3.41        100.00
+## Total                                                                                 8222.20    100.00            NA
+\end{verbatim}
+
+\begin{verbatim}
+## One or more text labels for bars is long. Consider using rowlabs argument to abbreviate.
+\end{verbatim}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-72-1.pdf}
+
+\hypertarget{troubleshooting-26}{%
+\subsection{Troubleshooting}\label{troubleshooting-26}}
+
+\begin{itemize}
+\tightlist
+\item
+  Alternatively, you can ignore the \texttt{data} argument and specify \texttt{x} and \texttt{w} using the \texttt{data\$variable} notation.
+\item
+  Remember to use the weights for survey data. The frequency table will be incorrect otherwise.
+\item
+  There is also a function called \texttt{freq()} that uses different arguments. It is easy to inadvertently use that function. Make sure that you are using \texttt{freqC()}.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{mode}{%
+\section{Calculate the Mode}\label{mode}}
+
+The mode tells us the value of the variable that has the largest number of observations. We could glean this information from a frequency table, but it is more straightforward to have R calculate the mode directly.
+
+\hypertarget{problem-31}{%
+\subsection{Problem}\label{problem-31}}
+
+You want to calculate the mode of a variable.
+
+\hypertarget{solution-30}{%
+\subsection{Solution}\label{solution-30}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the function \texttt{wtd.mode()}.
+\item
+  Set the \texttt{data} argument to the name of your dataset.
+\item
+  Set the argument \texttt{x} to the name of the variable for which a mode is being calculated.
+\item
+  If you have survey data, then set the \texttt{w} argument to the name of the weights variable.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}wtd.mode()\textasciigrave{}}
+\FunctionTok{wtd.mode}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ variable\_name,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ weights\_name}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below, we calculate the mode of \texttt{abortion.legal} in the \texttt{nes} dataset. The name of the weight is \texttt{wt}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}wtd.mode()\textasciigrave{}}
+\FunctionTok{wtd.mode}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ abortion.legal,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ wt}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "4. By law, a woman should always be able to obtain an abortion as a matter of pe"
+\end{verbatim}
+
+\hypertarget{troubleshooting-27}{%
+\subsection{Troubleshooting}\label{troubleshooting-27}}
+
+\begin{itemize}
+\tightlist
+\item
+  Alternatively, you can ignore the \texttt{data} argument and specify \texttt{x} and \texttt{w} using the \texttt{data\$variable} notation.
+\item
+  Remember to use the weights for survey data. The mode could be incorrect otherwise.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{median}{%
+\section{Calculate the Median}\label{median}}
+
+The median tells us the value of the variable that splits the data in half.
+
+\hypertarget{problem-32}{%
+\subsection{Problem}\label{problem-32}}
+
+You want to calculate the median of a variable.
+
+\hypertarget{solution-31}{%
+\subsection{Solution}\label{solution-31}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the function \texttt{wtd.median()}.
+\item
+  Set the \texttt{data} argument to the name of your dataset.
+\item
+  Set the argument \texttt{x} to the name of the variable for which a mode is being calculated.
+\item
+  If you have survey data, then set the \texttt{w} argument to the name of the weights variable.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}wtd.median()\textasciigrave{}}
+\FunctionTok{wtd.median}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ variable\_name,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ weights\_name}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below, we calculate the median of \texttt{abortion.legal} in the \texttt{nes} dataset. The name of the weight is \texttt{wt}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}wtd.median()\textasciigrave{}}
+\FunctionTok{wtd.median}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ abortion.legal,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ wt}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "4. By law, a woman should always be able to obtain an abortion as a matter of pe"
+\end{verbatim}
+
+\hypertarget{troubleshooting-28}{%
+\subsection{Troubleshooting}\label{troubleshooting-28}}
+
+\begin{itemize}
+\tightlist
+\item
+  Alternatively, you can ignore the \texttt{data} argument and specify \texttt{x} and \texttt{w} using the \texttt{data\$variable} notation.
+\item
+  Remember to use the weights for survey data. The mode could be incorrect otherwise.
+\item
+  You can only calculate the median if the variable is ordinal or interval.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{mean}{%
+\section{Calculate the Mean}\label{mean}}
+
+The mean is total sum of values of a variable divided by the number of observations. This is what we typically think of when we use the term `average'.
+
+\hypertarget{problem-33}{%
+\subsection{Problem}\label{problem-33}}
+
+You want to calculate the mean of a variable.
+
+\hypertarget{solution-32}{%
+\subsection{Solution}\label{solution-32}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the function \texttt{wtd.mean()}.
+\item
+  Set the \texttt{data} argument to the name of your dataset.
+\item
+  Set the argument \texttt{x} to the name of the variable for which a mode is being calculated.
+\item
+  If you have survey data, then set the \texttt{w} argument to the name of the weights variable.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}wtd.mean()\textasciigrave{}}
+\FunctionTok{wtd.mean}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ variable\_name,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ weights\_name}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below, we calculate the mean of \texttt{ft.biden.post} in the \texttt{nes} dataset. The name of the weight is \texttt{wt}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}wtd.mean()\textasciigrave{}}
+\FunctionTok{wtd.mean}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ ft.biden.post,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ wt}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 52.307
+\end{verbatim}
+
+\hypertarget{troubleshooting-29}{%
+\subsection{Troubleshooting}\label{troubleshooting-29}}
+
+\begin{itemize}
+\tightlist
+\item
+  Alternatively, you can ignore the \texttt{data} argument and specify \texttt{x} and \texttt{w} using the \texttt{data\$variable} notation.
+\item
+  Remember to use the weights for survey data. The mode could be incorrect otherwise.
+\item
+  You can only calculate the mean if the variable is interval.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{describe}{%
+\section{Describe a Variable}\label{describe}}
+
+\hypertarget{problem-34}{%
+\subsection{Problem}\label{problem-34}}
+
+You want a general description of a variable.
+
+\hypertarget{solution-33}{%
+\subsection{Solution}\label{solution-33}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the function \texttt{describeC()}.
+\item
+  Set the \texttt{data} argument to the name of your dataset.
+\item
+  Set the argument \texttt{x} to the name of the variable for which a mode is being calculated.
+\item
+  If you have survey data, then set the \texttt{w} argument to the name of the weights variable.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}describeC()\textasciigrave{}}
+\FunctionTok{describeC}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ variable\_name,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ weights\_name}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below, we provide a description of \texttt{ft.biden.post} in the \texttt{nes} dataset. The name of the weight is \texttt{wt}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}describeC()\textasciigrave{}}
+\FunctionTok{describeC}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ ft.biden.post,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ wt}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##                           Descriptive Statistics
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-80}Descriptive Statistics for ft.biden.post, weighted by wt
+## 
+##                              ft.biden.post
+## --------------------------  --------------
+## Observed values                   7256.644
+## Missing values                    1023.356
+## Unique values                           64
+## Class                              numeric
+## Mean                                52.307
+## Median                                  60
+## Mode                                     0
+## Variance                           1268.51
+## Standard deviation                  35.616
+## Minimum                                  0
+## Maximum                                100
+## Range                                  100
+## First quartile (25%)                    15
+## Third quartile (75%)                    85
+## Interquartile range (IQR)               70
+## Skewness                            -0.222
+## Kurtosis                             1.553
+\end{verbatim}
+
+\hypertarget{troubleshooting-30}{%
+\subsection{Troubleshooting}\label{troubleshooting-30}}
+
+\begin{itemize}
+\tightlist
+\item
+  The function works with all levels of measurement, but it is most useful for interval variables.
+\item
+  Alternatively, you can ignore the \texttt{data} argument and specify \texttt{x} and \texttt{w} using the \texttt{data\$variable} notation.
+\item
+  Remember to use the weights for survey data. The mode could be incorrect otherwise.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{range}{%
+\section{Calculate the Range}\label{range}}
+
+The range of a variable tells you the lowest and highest value. This can only be calculated for interval variables.
+
+\hypertarget{problem-35}{%
+\subsection{Problem}\label{problem-35}}
+
+You want to calculate the range of an interval variable.
+
+\hypertarget{solution-34}{%
+\subsection{Solution}\label{solution-34}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the \texttt{range()} function.
+\item
+  The argument is the name of the variable that you want the range of using the format \texttt{data\$variable}.
+\item
+  Set the argument \texttt{na.rm} equal to True.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use the range() function}
+\FunctionTok{range}\NormalTok{(}
+  
+  \CommentTok{\# enter the name of the dataset and the name of the variable}
+\NormalTok{  dataset}\SpecialCharTok{$}\NormalTok{variable\_name,}
+  
+  \CommentTok{\# set na.rm=T}
+  \AttributeTok{na.rm =}\NormalTok{ T}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below, we find the range of the variable \texttt{ft.biden.post}. The dataset is called \texttt{nes}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use the range() function}
+\FunctionTok{range}\NormalTok{(}
+  
+  \CommentTok{\# enter the name of the dataset and the name of the variable}
+\NormalTok{  nes}\SpecialCharTok{$}\NormalTok{ft.biden.post,}
+  
+  \CommentTok{\# set na.rm=T}
+  \AttributeTok{na.rm =}\NormalTok{ T}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]   0 100
+\end{verbatim}
+
+\hypertarget{troubleshooting-31}{%
+\subsection{Troubleshooting}\label{troubleshooting-31}}
+
+\begin{itemize}
+\tightlist
+\item
+  No common mistakes identified.
+\end{itemize}
+
+\hypertarget{barchart_nosurv}{%
+\section{Make a Bar Chart of One Variable for non-Survey Data}\label{barchart_nosurv}}
+
+We can use a bar chart to visualize the dispersion for nominal or ordinal variables.
+
+\hypertarget{problem-36}{%
+\subsection{Problem}\label{problem-36}}
+
+You want to make a bar chart to visualize the dispersion of one variable when we do not have survey data.
+
+\hypertarget{solution-35}{%
+\subsection{Solution}\label{solution-35}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a plot object. I typically name my plots something simple like \texttt{p1}.
+\item
+  Assign the function \texttt{ggplot()} to the plot object.
+\item
+  Set the argument \texttt{data} to the name of your dataset.
+\item
+  Set the argument \texttt{mapping} to the function \texttt{aes()}.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Inside the \texttt{aes()} function, set the argument \texttt{x} to the name of your variable.
+  \item
+    Set the argument \texttt{fill} to the name of your variable.
+  \end{enumerate}
+\item
+  Make sure all the parentheses are closed and type a \texttt{+} sign.
+\item
+  Use the function \texttt{geom\_bar()} to draw the bar. The function will not have any arguments.
+\item
+  Call the plot object by typing its name.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign ggplot() to a new plot object}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set \textasciigrave{}mapping\textasciigrave{} to the function \textasciigrave{}aes()\textasciigrave{}}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set \textasciigrave{}x\textasciigrave{} to the name of the variable}
+    \AttributeTok{x =}\NormalTok{ variable\_name,}
+    
+    \CommentTok{\# set \textasciigrave{}fill\textasciigrave{} to the name of the variable}
+    \AttributeTok{fill =}\NormalTok{ variable\_name}
+\NormalTok{  )}
+  
+  \CommentTok{\# close parentheses and type a + sign}
+\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use the function \textasciigrave{}geom\_bar()\textasciigrave{}}
+  \FunctionTok{geom\_bar}\NormalTok{()}
+
+\CommentTok{\# call the plot}
+\NormalTok{p1}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below, we create a bar chart for the variable \texttt{gay.policy2}. The name of the dataset is \texttt{states}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign ggplot() to a new plot object}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ states,}
+  
+  \CommentTok{\# set \textasciigrave{}mapping\textasciigrave{} to the function \textasciigrave{}aes()\textasciigrave{}}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set \textasciigrave{}x\textasciigrave{} to the name of the variable}
+    \AttributeTok{x =}\NormalTok{ gay.policy2,}
+    
+    \CommentTok{\# set \textasciigrave{}fill\textasciigrave{} to the name of the variable}
+    \AttributeTok{fill =}\NormalTok{ gay.policy2}
+\NormalTok{  )}
+  
+  \CommentTok{\# close parentheses and type a + sign}
+\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use the function \textasciigrave{}geom\_bar()\textasciigrave{}}
+  \FunctionTok{geom\_bar}\NormalTok{()}
+
+\CommentTok{\# call the plot}
+\NormalTok{p1}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-84-1.pdf}
+
+\hypertarget{troubleshooting-32}{%
+\subsection{Troubleshooting}\label{troubleshooting-32}}
+
+\begin{itemize}
+\item
+  Make sure that all arguments are separated by a comma, and that you use a \texttt{+} sign to connect the \texttt{ggplot()} function to the \texttt{geom\_bar()} function.
+\item
+  Remember to call the plot. If you do not type the name of the plot object (\texttt{p1} in the example above), then R will not show what the plot looks like.
+\end{itemize}
+
+\hypertarget{histNoSurvey}{%
+\section{Make a Histogram (for non survey data)}\label{histNoSurvey}}
+
+We use histograms to visualize the dispersion of an interval variable.
+
+\hypertarget{problem-37}{%
+\subsection{Problem}\label{problem-37}}
+
+You want to make a histogram, and you do not have survey data.
+
+\hypertarget{solution-36}{%
+\subsection{Solution}\label{solution-36}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Assign the function \texttt{ggplot()} to a new plot object. A simple name like \texttt{p1} is fine.
+\item
+  Set the argument \texttt{data} to the name of your dataset.
+\item
+  Set the argument \texttt{mapping} to the function \texttt{aes()}.
+\item
+  Inside the \texttt{aes()} function, set the argument \texttt{x} to the name of your variable.
+\item
+  Make sure all the parentheses are closed and type a \texttt{+} sign after the last parenthesis.
+\item
+  Use the function \texttt{geom\_histogram()} to draw the histogram bars. The function will not have any arguments.
+\item
+  Call the plot object by typing its name.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign ggplot() to a new plot object}
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set \textasciigrave{}mapping\textasciigrave{} to the function \textasciigrave{}aes()\textasciigrave{}}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set \textasciigrave{}x\textasciigrave{} to the name of the variable}
+    \AttributeTok{x =}\NormalTok{ variable\_name}
+\NormalTok{  )}
+  
+  \CommentTok{\# close parentheses and type a + sign}
+\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use the function \textasciigrave{}geom\_bar()\textasciigrave{}}
+  \FunctionTok{geom\_histogram}\NormalTok{()}
+
+\CommentTok{\# call the plot}
+\NormalTok{p2}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we create a histogram of Biden's share of the vote in 2020, \texttt{biden2020}, which is found in the \texttt{states} dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign ggplot() to a new plot object}
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ states,}
+  
+  \CommentTok{\# set \textasciigrave{}mapping\textasciigrave{} to the function \textasciigrave{}aes()\textasciigrave{}}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set \textasciigrave{}x\textasciigrave{} to the name of the variable}
+    \AttributeTok{x =}\NormalTok{ biden2020}
+\NormalTok{  )}
+  
+  \CommentTok{\# close parentheses and type a + sign}
+\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use the function \textasciigrave{}geom\_bar()\textasciigrave{}}
+  \FunctionTok{geom\_histogram}\NormalTok{()}
+
+\CommentTok{\# call the plot}
+\NormalTok{p2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-86-1.pdf}
+
+\hypertarget{troubleshooting-33}{%
+\subsection{Troubleshooting}\label{troubleshooting-33}}
+
+\begin{itemize}
+\item
+  Make sure that all arguments are separated by a comma, and that you use a \texttt{+} sign to connect the \texttt{ggplot()} function to the \texttt{geom\_bar()} function.
+\item
+  Remember to call the plot. If you do not type the name of the plot object (\texttt{p1} in the example above), then R will not show what the plot looks like.
+\item
+  You can use the argument \texttt{binwidth} inside \texttt{geom\_histogram()} to control the size and number of bars that are drawn.
 \end{itemize}
 
 \hypertarget{simple-comparisons}{%
@@ -2482,13 +3322,13 @@ In this example we will create a subset of the \texttt{nes} dataset based on the
 \hypertarget{crosstab}{%
 \section{Crosstab}\label{crosstab}}
 
-\hypertarget{problem-29}{%
-\subsection{Problem}\label{problem-29}}
+\hypertarget{problem-38}{%
+\subsection{Problem}\label{problem-38}}
 
 You want to make a crosstab.
 
-\hypertarget{solution-28}{%
-\subsection{Solution}\label{solution-28}}
+\hypertarget{solution-37}{%
+\subsection{Solution}\label{solution-37}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2557,7 +3397,7 @@ In this example, we are making a crosstab where the dataset is `nes', the depend
 ## ===========================================================================
 ## 
 ## 
-## Table: \label{tab:unnamed-chunk-71}Cross-Tabulation of abortion.imp and partyid3, weighted by wt
+## Table: \label{tab:unnamed-chunk-89}Cross-Tabulation of abortion.imp and partyid3, weighted by wt
 ## 
 ##                              1. Democrat   2. Independent   3. Republican    Totals
 ## --------------------------  ------------  ---------------  --------------  --------
@@ -2575,8 +3415,8 @@ In this example, we are making a crosstab where the dataset is `nes', the depend
 ## __Count___                       2858.33          2769.44         2598.10   8225.87
 \end{verbatim}
 
-\hypertarget{troubleshooting-26}{%
-\subsection{Troubleshooting}\label{troubleshooting-26}}
+\hypertarget{troubleshooting-34}{%
+\subsection{Troubleshooting}\label{troubleshooting-34}}
 
 \begin{itemize}
 \tightlist
@@ -2593,13 +3433,13 @@ In this example, we are making a crosstab where the dataset is `nes', the depend
 \hypertarget{compmeans}{%
 \section{Comparison of Means}\label{compmeans}}
 
-\hypertarget{problem-30}{%
-\subsection{Problem}\label{problem-30}}
+\hypertarget{problem-39}{%
+\subsection{Problem}\label{problem-39}}
 
 You want to make a comparison of means table.
 
-\hypertarget{solution-29}{%
-\subsection{Solution}\label{solution-29}}
+\hypertarget{solution-38}{%
+\subsection{Solution}\label{solution-38}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2659,7 +3499,7 @@ Here is a comparison of means table for feelings towards Obama \texttt{ft.obama}
 ## ===========================================================================
 ## 
 ## 
-## Table: \label{tab:unnamed-chunk-73}Mean Values of ft.obama by partyid3, Weighted by wt
+## Table: \label{tab:unnamed-chunk-91}Mean Values of ft.obama by partyid3, Weighted by wt
 ## 
 ##                    Mean         N   St. Dev.
 ## ---------------  ------  --------  ---------
@@ -2669,8 +3509,8 @@ Here is a comparison of means table for feelings towards Obama \texttt{ft.obama}
 ## Total             60.53   8166.71      36.65
 \end{verbatim}
 
-\hypertarget{troubleshooting-27}{%
-\subsection{Troubleshooting}\label{troubleshooting-27}}
+\hypertarget{troubleshooting-35}{%
+\subsection{Troubleshooting}\label{troubleshooting-35}}
 
 \begin{itemize}
 \tightlist
@@ -2680,16 +3520,16 @@ Here is a comparison of means table for feelings towards Obama \texttt{ft.obama}
   You only need to specify the weights argument if you have survey data with survey weights.
 \end{itemize}
 
-\hypertarget{barchart}{%
-\section{Make a Bar Chart}\label{barchart}}
+\hypertarget{barchart2}{%
+\section{Make a Bar Chart for Two Variables}\label{barchart2}}
 
-\hypertarget{problem-31}{%
-\subsection{Problem}\label{problem-31}}
+\hypertarget{problem-40}{%
+\subsection{Problem}\label{problem-40}}
 
 Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
 
-\hypertarget{solution-30}{%
-\subsection{Solution}\label{solution-30}}
+\hypertarget{solution-39}{%
+\subsection{Solution}\label{solution-39}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2779,10 +3619,10 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-93-1.pdf}
 
-\hypertarget{troubleshooting-28}{%
-\subsection{Troubleshooting}\label{troubleshooting-28}}
+\hypertarget{troubleshooting-36}{%
+\subsection{Troubleshooting}\label{troubleshooting-36}}
 
 \begin{itemize}
 \tightlist

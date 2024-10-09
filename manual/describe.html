@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-08-10" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,10 +313,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.14.2" data-path="key.html"><a href="key.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
 <li class="chapter" data-level="3.14.3" data-path="key.html"><a href="key.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
+<li class="chapter" data-level="3.15" data-path="merge.html"><a href="merge.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
 <ul>
-<li class="chapter" data-level="3.15.1" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
-<li class="chapter" data-level="3.15.2" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
+<li class="chapter" data-level="3.15.1" data-path="merge.html"><a href="merge.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
+<li class="chapter" data-level="3.15.2" data-path="merge.html"><a href="merge.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
@@ -390,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-38"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-35"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5.3" data-path="barchart2.html"><a href="barchart2.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart for Two Variables</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
-<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
-<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.3.1" data-path="barchart2.html"><a href="barchart2.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart2.html"><a href="barchart2.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart2.html"><a href="barchart2.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -431,37 +431,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the argument <code>x</code> to the name of the variable for which a mode is being calculated.</li>
 <li>If you have survey data, then set the <code>w</code> argument to the name of the weights variable.</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="describe.html#cb16-1" tabindex="-1"></a><span class="co"># Use `describeC()`</span></span>
-<span id="cb16-2"><a href="describe.html#cb16-2" tabindex="-1"></a><span class="fu">describeC</span>(</span>
-<span id="cb16-3"><a href="describe.html#cb16-3" tabindex="-1"></a>  </span>
-<span id="cb16-4"><a href="describe.html#cb16-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb16-5"><a href="describe.html#cb16-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
-<span id="cb16-6"><a href="describe.html#cb16-6" tabindex="-1"></a>  </span>
-<span id="cb16-7"><a href="describe.html#cb16-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
-<span id="cb16-8"><a href="describe.html#cb16-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
-<span id="cb16-9"><a href="describe.html#cb16-9" tabindex="-1"></a>  </span>
-<span id="cb16-10"><a href="describe.html#cb16-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
-<span id="cb16-11"><a href="describe.html#cb16-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
-<span id="cb16-12"><a href="describe.html#cb16-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="describe.html#cb116-1" tabindex="-1"></a><span class="co"># Use `describeC()`</span></span>
+<span id="cb116-2"><a href="describe.html#cb116-2" tabindex="-1"></a><span class="fu">describeC</span>(</span>
+<span id="cb116-3"><a href="describe.html#cb116-3" tabindex="-1"></a>  </span>
+<span id="cb116-4"><a href="describe.html#cb116-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb116-5"><a href="describe.html#cb116-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb116-6"><a href="describe.html#cb116-6" tabindex="-1"></a>  </span>
+<span id="cb116-7"><a href="describe.html#cb116-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb116-8"><a href="describe.html#cb116-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
+<span id="cb116-9"><a href="describe.html#cb116-9" tabindex="-1"></a>  </span>
+<span id="cb116-10"><a href="describe.html#cb116-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb116-11"><a href="describe.html#cb116-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
+<span id="cb116-12"><a href="describe.html#cb116-12" tabindex="-1"></a>)</span></code></pre></div>
 <p>In the example below, we provide a description of <code>ft.biden.post</code> in the <code>nes</code> dataset. The name of the weight is <code>wt</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="describe.html#cb17-1" tabindex="-1"></a><span class="co"># Use `describeC()`</span></span>
-<span id="cb17-2"><a href="describe.html#cb17-2" tabindex="-1"></a><span class="fu">describeC</span>(</span>
-<span id="cb17-3"><a href="describe.html#cb17-3" tabindex="-1"></a>  </span>
-<span id="cb17-4"><a href="describe.html#cb17-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb17-5"><a href="describe.html#cb17-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
-<span id="cb17-6"><a href="describe.html#cb17-6" tabindex="-1"></a>  </span>
-<span id="cb17-7"><a href="describe.html#cb17-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
-<span id="cb17-8"><a href="describe.html#cb17-8" tabindex="-1"></a>  <span class="at">x =</span> ft.biden.post,</span>
-<span id="cb17-9"><a href="describe.html#cb17-9" tabindex="-1"></a>  </span>
-<span id="cb17-10"><a href="describe.html#cb17-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
-<span id="cb17-11"><a href="describe.html#cb17-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
-<span id="cb17-12"><a href="describe.html#cb17-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="describe.html#cb117-1" tabindex="-1"></a><span class="co"># Use `describeC()`</span></span>
+<span id="cb117-2"><a href="describe.html#cb117-2" tabindex="-1"></a><span class="fu">describeC</span>(</span>
+<span id="cb117-3"><a href="describe.html#cb117-3" tabindex="-1"></a>  </span>
+<span id="cb117-4"><a href="describe.html#cb117-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb117-5"><a href="describe.html#cb117-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
+<span id="cb117-6"><a href="describe.html#cb117-6" tabindex="-1"></a>  </span>
+<span id="cb117-7"><a href="describe.html#cb117-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb117-8"><a href="describe.html#cb117-8" tabindex="-1"></a>  <span class="at">x =</span> ft.biden.post,</span>
+<span id="cb117-9"><a href="describe.html#cb117-9" tabindex="-1"></a>  </span>
+<span id="cb117-10"><a href="describe.html#cb117-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb117-11"><a href="describe.html#cb117-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
+<span id="cb117-12"><a href="describe.html#cb117-12" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## ===========================================================================
 ##                           Descriptive Statistics
 ## ===========================================================================
 ## 
 ## 
-## Table: (\#tab:unnamed-chunk-12)Descriptive Statistics for ft.biden.post, weighted by wt
+## Table: (\#tab:unnamed-chunk-80)Descriptive Statistics for ft.biden.post, weighted by wt
 ## 
 ##                              ft.biden.post
 ## --------------------------  --------------

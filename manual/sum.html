@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -434,22 +434,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a name for the summary variable.</li>
 <li>Set the summary variable as being equal to the mean of the variable that you want to take the mean of.</li>
 </ol>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="sum.html#cb32-1" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> old_data <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="sum.html#cb32-2" tabindex="-1"></a>  <span class="fu">group_by</span>(group_variable) <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="sum.html#cb32-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">summary_variable =</span> <span class="fu">mean</span>(mean_variable))</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="sum.html#cb80-1" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> old_data <span class="sc">%&gt;%</span></span>
+<span id="cb80-2"><a href="sum.html#cb80-2" tabindex="-1"></a>  <span class="fu">group_by</span>(group_variable) <span class="sc">%&gt;%</span></span>
+<span id="cb80-3"><a href="sum.html#cb80-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">summary_variable =</span> <span class="fu">mean</span>(mean_variable))</span></code></pre></div>
 <p>Here we calculate the mean feelings towards Obama, <code>ft.obama</code>, by party identification, <code>partyid7</code>.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="sum.html#cb33-1" tabindex="-1"></a><span class="co"># assign old data to a new data object</span></span>
-<span id="cb33-2"><a href="sum.html#cb33-2" tabindex="-1"></a>partymeans <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
-<span id="cb33-3"><a href="sum.html#cb33-3" tabindex="-1"></a>  </span>
-<span id="cb33-4"><a href="sum.html#cb33-4" tabindex="-1"></a>  <span class="co"># use group_by() to group the data by partyid7</span></span>
-<span id="cb33-5"><a href="sum.html#cb33-5" tabindex="-1"></a>  <span class="fu">group_by</span>(partyid7) <span class="sc">%&gt;%</span></span>
-<span id="cb33-6"><a href="sum.html#cb33-6" tabindex="-1"></a>  </span>
-<span id="cb33-7"><a href="sum.html#cb33-7" tabindex="-1"></a>  <span class="co"># calculate the means of ft.obama</span></span>
-<span id="cb33-8"><a href="sum.html#cb33-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average =</span> <span class="fu">wtd.mean</span>(ft.obama, <span class="at">na.rm =</span> T,</span>
-<span id="cb33-9"><a href="sum.html#cb33-9" tabindex="-1"></a>                               <span class="at">w =</span> wt))</span>
-<span id="cb33-10"><a href="sum.html#cb33-10" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="sum.html#cb33-11" tabindex="-1"></a><span class="co"># show the summary dataset</span></span>
-<span id="cb33-12"><a href="sum.html#cb33-12" tabindex="-1"></a>partymeans</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="sum.html#cb81-1" tabindex="-1"></a><span class="co"># assign old data to a new data object</span></span>
+<span id="cb81-2"><a href="sum.html#cb81-2" tabindex="-1"></a>partymeans <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="sum.html#cb81-3" tabindex="-1"></a>  </span>
+<span id="cb81-4"><a href="sum.html#cb81-4" tabindex="-1"></a>  <span class="co"># use group_by() to group the data by partyid7</span></span>
+<span id="cb81-5"><a href="sum.html#cb81-5" tabindex="-1"></a>  <span class="fu">group_by</span>(partyid7) <span class="sc">%&gt;%</span></span>
+<span id="cb81-6"><a href="sum.html#cb81-6" tabindex="-1"></a>  </span>
+<span id="cb81-7"><a href="sum.html#cb81-7" tabindex="-1"></a>  <span class="co"># calculate the means of ft.obama</span></span>
+<span id="cb81-8"><a href="sum.html#cb81-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">average =</span> <span class="fu">wtd.mean</span>(ft.obama, <span class="at">na.rm =</span> T,</span>
+<span id="cb81-9"><a href="sum.html#cb81-9" tabindex="-1"></a>                               <span class="at">w =</span> wt))</span>
+<span id="cb81-10"><a href="sum.html#cb81-10" tabindex="-1"></a></span>
+<span id="cb81-11"><a href="sum.html#cb81-11" tabindex="-1"></a><span class="co"># show the summary dataset</span></span>
+<span id="cb81-12"><a href="sum.html#cb81-12" tabindex="-1"></a>partymeans</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 2
 ##   partyid7                      average
 ##   &lt;ord&gt;                           &lt;dbl&gt;

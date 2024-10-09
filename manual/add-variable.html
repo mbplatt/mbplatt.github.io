@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -431,10 +431,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>$</code> operator to create the variable in the data <code>data$new_variable_name</code>.</li>
 <li>Assign values to the new variable. Often we are assigning the new variable the values of the old variable as a preliminary step to some other kind of transformation/processing. <code>data$new_variable &lt;- data$old_variable</code>.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="add-variable.html#cb3-1" tabindex="-1"></a><span class="co"># assign an old variable to a new variable name</span></span>
-<span id="cb3-2"><a href="add-variable.html#cb3-2" tabindex="-1"></a>dataset<span class="sc">$</span>new_variable <span class="ot">&lt;-</span> dataset<span class="sc">$</span>old_variable</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="add-variable.html#cb51-1" tabindex="-1"></a><span class="co"># assign an old variable to a new variable name</span></span>
+<span id="cb51-2"><a href="add-variable.html#cb51-2" tabindex="-1"></a>dataset<span class="sc">$</span>new_variable <span class="ot">&lt;-</span> dataset<span class="sc">$</span>old_variable</span></code></pre></div>
 <p>Below we assign the values of the variable <code>ft.dem</code> to a new variable called <code>dem_therm</code>. The dataset is named “nes”.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="add-variable.html#cb4-1" tabindex="-1"></a>nes<span class="sc">$</span>dem_therm <span class="ot">&lt;-</span> nes<span class="sc">$</span>ft.dem</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="add-variable.html#cb52-1" tabindex="-1"></a>nes<span class="sc">$</span>dem_therm <span class="ot">&lt;-</span> nes<span class="sc">$</span>ft.dem</span></code></pre></div>
 </div>
 <div id="solution---tidyverse" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Solution - tidyverse<a href="add-variable.html#solution---tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -444,16 +444,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>mutate()</code> function.</li>
 <li>The argument for the function is setting the name of the new variable and then assigning it values using an equal sign.</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="add-variable.html#cb5-1" tabindex="-1"></a><span class="co"># use mutate to turn an old variable into a new variable</span></span>
-<span id="cb5-2"><a href="add-variable.html#cb5-2" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="add-variable.html#cb5-3" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="add-variable.html#cb5-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> old_variable)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="add-variable.html#cb53-1" tabindex="-1"></a><span class="co"># use mutate to turn an old variable into a new variable</span></span>
+<span id="cb53-2"><a href="add-variable.html#cb53-2" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="add-variable.html#cb53-3" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="add-variable.html#cb53-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> old_variable)</span></code></pre></div>
 <p>Below we assign the values of the variable <code>ft.dem</code> to a new variable called <code>dem_therm</code>. The dataset is named “nes”.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="add-variable.html#cb6-1" tabindex="-1"></a><span class="co"># assign data to itself</span></span>
-<span id="cb6-2"><a href="add-variable.html#cb6-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="add-variable.html#cb6-3" tabindex="-1"></a>  </span>
-<span id="cb6-4"><a href="add-variable.html#cb6-4" tabindex="-1"></a>  <span class="co"># use mutate() to assign values to the new variable</span></span>
-<span id="cb6-5"><a href="add-variable.html#cb6-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dem_therm =</span> ft.dem)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="add-variable.html#cb54-1" tabindex="-1"></a><span class="co"># assign data to itself</span></span>
+<span id="cb54-2"><a href="add-variable.html#cb54-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="add-variable.html#cb54-3" tabindex="-1"></a>  </span>
+<span id="cb54-4"><a href="add-variable.html#cb54-4" tabindex="-1"></a>  <span class="co"># use mutate() to assign values to the new variable</span></span>
+<span id="cb54-5"><a href="add-variable.html#cb54-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dem_therm =</span> ft.dem)</span></code></pre></div>
 </div>
 <div id="troubleshooting-12" class="section level3 hasAnchor" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Troubleshooting<a href="add-variable.html#troubleshooting-12" class="anchor-section" aria-label="Anchor link to header"></a></h3>

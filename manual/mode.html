@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-08-10" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,10 +313,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.14.2" data-path="key.html"><a href="key.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
 <li class="chapter" data-level="3.14.3" data-path="key.html"><a href="key.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
+<li class="chapter" data-level="3.15" data-path="merge.html"><a href="merge.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
 <ul>
-<li class="chapter" data-level="3.15.1" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
-<li class="chapter" data-level="3.15.2" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
+<li class="chapter" data-level="3.15.1" data-path="merge.html"><a href="merge.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
+<li class="chapter" data-level="3.15.2" data-path="merge.html"><a href="merge.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
@@ -390,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-38"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-35"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5.3" data-path="barchart2.html"><a href="barchart2.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart for Two Variables</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
-<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
-<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.3.1" data-path="barchart2.html"><a href="barchart2.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart2.html"><a href="barchart2.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart2.html"><a href="barchart2.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -432,31 +432,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the argument <code>x</code> to the name of the variable for which a mode is being calculated.</li>
 <li>If you have survey data, then set the <code>w</code> argument to the name of the weights variable.</li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="mode.html#cb7-1" tabindex="-1"></a><span class="co"># Use `wtd.mode()`</span></span>
-<span id="cb7-2"><a href="mode.html#cb7-2" tabindex="-1"></a><span class="fu">wtd.mode</span>(</span>
-<span id="cb7-3"><a href="mode.html#cb7-3" tabindex="-1"></a>  </span>
-<span id="cb7-4"><a href="mode.html#cb7-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb7-5"><a href="mode.html#cb7-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
-<span id="cb7-6"><a href="mode.html#cb7-6" tabindex="-1"></a>  </span>
-<span id="cb7-7"><a href="mode.html#cb7-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
-<span id="cb7-8"><a href="mode.html#cb7-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
-<span id="cb7-9"><a href="mode.html#cb7-9" tabindex="-1"></a>  </span>
-<span id="cb7-10"><a href="mode.html#cb7-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
-<span id="cb7-11"><a href="mode.html#cb7-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
-<span id="cb7-12"><a href="mode.html#cb7-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="mode.html#cb107-1" tabindex="-1"></a><span class="co"># Use `wtd.mode()`</span></span>
+<span id="cb107-2"><a href="mode.html#cb107-2" tabindex="-1"></a><span class="fu">wtd.mode</span>(</span>
+<span id="cb107-3"><a href="mode.html#cb107-3" tabindex="-1"></a>  </span>
+<span id="cb107-4"><a href="mode.html#cb107-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb107-5"><a href="mode.html#cb107-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb107-6"><a href="mode.html#cb107-6" tabindex="-1"></a>  </span>
+<span id="cb107-7"><a href="mode.html#cb107-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb107-8"><a href="mode.html#cb107-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
+<span id="cb107-9"><a href="mode.html#cb107-9" tabindex="-1"></a>  </span>
+<span id="cb107-10"><a href="mode.html#cb107-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb107-11"><a href="mode.html#cb107-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
+<span id="cb107-12"><a href="mode.html#cb107-12" tabindex="-1"></a>)</span></code></pre></div>
 <p>In the example below, we calculate the mode of <code>abortion.legal</code> in the <code>nes</code> dataset. The name of the weight is <code>wt</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="mode.html#cb8-1" tabindex="-1"></a><span class="co"># Use `wtd.mode()`</span></span>
-<span id="cb8-2"><a href="mode.html#cb8-2" tabindex="-1"></a><span class="fu">wtd.mode</span>(</span>
-<span id="cb8-3"><a href="mode.html#cb8-3" tabindex="-1"></a>  </span>
-<span id="cb8-4"><a href="mode.html#cb8-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb8-5"><a href="mode.html#cb8-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
-<span id="cb8-6"><a href="mode.html#cb8-6" tabindex="-1"></a>  </span>
-<span id="cb8-7"><a href="mode.html#cb8-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
-<span id="cb8-8"><a href="mode.html#cb8-8" tabindex="-1"></a>  <span class="at">x =</span> abortion.legal,</span>
-<span id="cb8-9"><a href="mode.html#cb8-9" tabindex="-1"></a>  </span>
-<span id="cb8-10"><a href="mode.html#cb8-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
-<span id="cb8-11"><a href="mode.html#cb8-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
-<span id="cb8-12"><a href="mode.html#cb8-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="mode.html#cb108-1" tabindex="-1"></a><span class="co"># Use `wtd.mode()`</span></span>
+<span id="cb108-2"><a href="mode.html#cb108-2" tabindex="-1"></a><span class="fu">wtd.mode</span>(</span>
+<span id="cb108-3"><a href="mode.html#cb108-3" tabindex="-1"></a>  </span>
+<span id="cb108-4"><a href="mode.html#cb108-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb108-5"><a href="mode.html#cb108-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
+<span id="cb108-6"><a href="mode.html#cb108-6" tabindex="-1"></a>  </span>
+<span id="cb108-7"><a href="mode.html#cb108-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb108-8"><a href="mode.html#cb108-8" tabindex="-1"></a>  <span class="at">x =</span> abortion.legal,</span>
+<span id="cb108-9"><a href="mode.html#cb108-9" tabindex="-1"></a>  </span>
+<span id="cb108-10"><a href="mode.html#cb108-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb108-11"><a href="mode.html#cb108-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
+<span id="cb108-12"><a href="mode.html#cb108-12" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## [1] &quot;4. By law, a woman should always be able to obtain an abortion as a matter of pe&quot;</code></pre>
 </div>
 <div id="troubleshooting-27" class="section level3 hasAnchor" number="4.3.3">

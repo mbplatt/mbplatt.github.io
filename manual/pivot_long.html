@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -420,7 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pivot_long" class="section level2 hasAnchor" number="3.13">
 <h2><span class="header-section-number">3.13</span> Pivot a Dataframe Long<a href="pivot_long.html#pivot_long" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data that we collect out in the wild is not always organized around our chosen unit of analysis. Look at the data below:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="pivot_long.html#cb44-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(urban2)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="pivot_long.html#cb92-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(urban2)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -467,40 +467,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The second argument, <code>names_to</code>, provides the new name of the variable that will whose values will now be the names of the collapsed columns</li>
 <li>The third argument, <code>values_to</code>, provides the name of the new variable that inherits the values from the collapsed columns.</li>
 </ol>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="pivot_long.html#cb45-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
-<span id="cb45-2"><a href="pivot_long.html#cb45-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a href="pivot_long.html#cb45-3" tabindex="-1"></a>  </span>
-<span id="cb45-4"><a href="pivot_long.html#cb45-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
-<span id="cb45-5"><a href="pivot_long.html#cb45-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb45-6"><a href="pivot_long.html#cb45-6" tabindex="-1"></a>    </span>
-<span id="cb45-7"><a href="pivot_long.html#cb45-7" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
-<span id="cb45-8"><a href="pivot_long.html#cb45-8" tabindex="-1"></a>    <span class="at">cols =</span> first_column<span class="sc">:</span>last_column,</span>
-<span id="cb45-9"><a href="pivot_long.html#cb45-9" tabindex="-1"></a>    </span>
-<span id="cb45-10"><a href="pivot_long.html#cb45-10" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
-<span id="cb45-11"><a href="pivot_long.html#cb45-11" tabindex="-1"></a>    <span class="at">names_to =</span> variable_name,</span>
-<span id="cb45-12"><a href="pivot_long.html#cb45-12" tabindex="-1"></a>    </span>
-<span id="cb45-13"><a href="pivot_long.html#cb45-13" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
-<span id="cb45-14"><a href="pivot_long.html#cb45-14" tabindex="-1"></a>    <span class="at">values_to =</span> other_variable</span>
-<span id="cb45-15"><a href="pivot_long.html#cb45-15" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="pivot_long.html#cb93-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb93-2"><a href="pivot_long.html#cb93-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
+<span id="cb93-3"><a href="pivot_long.html#cb93-3" tabindex="-1"></a>  </span>
+<span id="cb93-4"><a href="pivot_long.html#cb93-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
+<span id="cb93-5"><a href="pivot_long.html#cb93-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb93-6"><a href="pivot_long.html#cb93-6" tabindex="-1"></a>    </span>
+<span id="cb93-7"><a href="pivot_long.html#cb93-7" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
+<span id="cb93-8"><a href="pivot_long.html#cb93-8" tabindex="-1"></a>    <span class="at">cols =</span> first_column<span class="sc">:</span>last_column,</span>
+<span id="cb93-9"><a href="pivot_long.html#cb93-9" tabindex="-1"></a>    </span>
+<span id="cb93-10"><a href="pivot_long.html#cb93-10" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
+<span id="cb93-11"><a href="pivot_long.html#cb93-11" tabindex="-1"></a>    <span class="at">names_to =</span> variable_name,</span>
+<span id="cb93-12"><a href="pivot_long.html#cb93-12" tabindex="-1"></a>    </span>
+<span id="cb93-13"><a href="pivot_long.html#cb93-13" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
+<span id="cb93-14"><a href="pivot_long.html#cb93-14" tabindex="-1"></a>    <span class="at">values_to =</span> other_variable</span>
+<span id="cb93-15"><a href="pivot_long.html#cb93-15" tabindex="-1"></a>  )</span></code></pre></div>
 <p>In the example below we perform a long pivot on the <code>urban2</code> dataset to make city-year into the unit of analysis.Specifically, we will collapse the variable <code>1981</code>, <code>1999</code>, and <code>2003</code> into one new variable called <code>year</code>. The values will be placed in a variable called <code>turnout</code>.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="pivot_long.html#cb46-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
-<span id="cb46-2"><a href="pivot_long.html#cb46-2" tabindex="-1"></a>city_year <span class="ot">&lt;-</span> urban2 <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href="pivot_long.html#cb46-3" tabindex="-1"></a>  </span>
-<span id="cb46-4"><a href="pivot_long.html#cb46-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
-<span id="cb46-5"><a href="pivot_long.html#cb46-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb46-6"><a href="pivot_long.html#cb46-6" tabindex="-1"></a>    </span>
-<span id="cb46-7"><a href="pivot_long.html#cb46-7" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
-<span id="cb46-8"><a href="pivot_long.html#cb46-8" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">`</span><span class="at">1981</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2003</span><span class="st">`</span>,</span>
-<span id="cb46-9"><a href="pivot_long.html#cb46-9" tabindex="-1"></a>    </span>
-<span id="cb46-10"><a href="pivot_long.html#cb46-10" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
-<span id="cb46-11"><a href="pivot_long.html#cb46-11" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
-<span id="cb46-12"><a href="pivot_long.html#cb46-12" tabindex="-1"></a>    </span>
-<span id="cb46-13"><a href="pivot_long.html#cb46-13" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
-<span id="cb46-14"><a href="pivot_long.html#cb46-14" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;turnout&quot;</span></span>
-<span id="cb46-15"><a href="pivot_long.html#cb46-15" tabindex="-1"></a>  )</span>
-<span id="cb46-16"><a href="pivot_long.html#cb46-16" tabindex="-1"></a></span>
-<span id="cb46-17"><a href="pivot_long.html#cb46-17" tabindex="-1"></a><span class="co"># look at the data</span></span>
-<span id="cb46-18"><a href="pivot_long.html#cb46-18" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_year)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="pivot_long.html#cb94-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb94-2"><a href="pivot_long.html#cb94-2" tabindex="-1"></a>city_year <span class="ot">&lt;-</span> urban2 <span class="sc">|&gt;</span></span>
+<span id="cb94-3"><a href="pivot_long.html#cb94-3" tabindex="-1"></a>  </span>
+<span id="cb94-4"><a href="pivot_long.html#cb94-4" tabindex="-1"></a>  <span class="co"># use pivot_longer()</span></span>
+<span id="cb94-5"><a href="pivot_long.html#cb94-5" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb94-6"><a href="pivot_long.html#cb94-6" tabindex="-1"></a>    </span>
+<span id="cb94-7"><a href="pivot_long.html#cb94-7" tabindex="-1"></a>    <span class="co"># use `cols` to specify the variables that are being collapsed</span></span>
+<span id="cb94-8"><a href="pivot_long.html#cb94-8" tabindex="-1"></a>    <span class="at">cols =</span> <span class="st">`</span><span class="at">1981</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2003</span><span class="st">`</span>,</span>
+<span id="cb94-9"><a href="pivot_long.html#cb94-9" tabindex="-1"></a>    </span>
+<span id="cb94-10"><a href="pivot_long.html#cb94-10" tabindex="-1"></a>    <span class="co"># use `names_to` to specify the new variable that holds the column names</span></span>
+<span id="cb94-11"><a href="pivot_long.html#cb94-11" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb94-12"><a href="pivot_long.html#cb94-12" tabindex="-1"></a>    </span>
+<span id="cb94-13"><a href="pivot_long.html#cb94-13" tabindex="-1"></a>    <span class="co"># use `values_to` to specify the variable that holds the new values</span></span>
+<span id="cb94-14"><a href="pivot_long.html#cb94-14" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;turnout&quot;</span></span>
+<span id="cb94-15"><a href="pivot_long.html#cb94-15" tabindex="-1"></a>  )</span>
+<span id="cb94-16"><a href="pivot_long.html#cb94-16" tabindex="-1"></a></span>
+<span id="cb94-17"><a href="pivot_long.html#cb94-17" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb94-18"><a href="pivot_long.html#cb94-18" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_year)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

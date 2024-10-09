@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-08-10" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,10 +313,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.14.2" data-path="key.html"><a href="key.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
 <li class="chapter" data-level="3.14.3" data-path="key.html"><a href="key.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
+<li class="chapter" data-level="3.15" data-path="merge.html"><a href="merge.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
 <ul>
-<li class="chapter" data-level="3.15.1" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
-<li class="chapter" data-level="3.15.2" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
+<li class="chapter" data-level="3.15.1" data-path="merge.html"><a href="merge.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
+<li class="chapter" data-level="3.15.2" data-path="merge.html"><a href="merge.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
@@ -390,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-38"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-35"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5.3" data-path="barchart2.html"><a href="barchart2.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart for Two Variables</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
-<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
-<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.3.1" data-path="barchart2.html"><a href="barchart2.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart2.html"><a href="barchart2.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart2.html"><a href="barchart2.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -435,51 +435,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the function <code>geom_histogram()</code> to draw the histogram bars. The function will not have any arguments.</li>
 <li>Call the plot object by typing its name.</li>
 </ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="histNoSurvey.html#cb24-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
-<span id="cb24-2"><a href="histNoSurvey.html#cb24-2" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb24-3"><a href="histNoSurvey.html#cb24-3" tabindex="-1"></a>  </span>
-<span id="cb24-4"><a href="histNoSurvey.html#cb24-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb24-5"><a href="histNoSurvey.html#cb24-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
-<span id="cb24-6"><a href="histNoSurvey.html#cb24-6" tabindex="-1"></a>  </span>
-<span id="cb24-7"><a href="histNoSurvey.html#cb24-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
-<span id="cb24-8"><a href="histNoSurvey.html#cb24-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb24-9"><a href="histNoSurvey.html#cb24-9" tabindex="-1"></a>    </span>
-<span id="cb24-10"><a href="histNoSurvey.html#cb24-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
-<span id="cb24-11"><a href="histNoSurvey.html#cb24-11" tabindex="-1"></a>    <span class="at">x =</span> variable_name</span>
-<span id="cb24-12"><a href="histNoSurvey.html#cb24-12" tabindex="-1"></a>  )</span>
-<span id="cb24-13"><a href="histNoSurvey.html#cb24-13" tabindex="-1"></a>  </span>
-<span id="cb24-14"><a href="histNoSurvey.html#cb24-14" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
-<span id="cb24-15"><a href="histNoSurvey.html#cb24-15" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb24-16"><a href="histNoSurvey.html#cb24-16" tabindex="-1"></a>  </span>
-<span id="cb24-17"><a href="histNoSurvey.html#cb24-17" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
-<span id="cb24-18"><a href="histNoSurvey.html#cb24-18" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb24-19"><a href="histNoSurvey.html#cb24-19" tabindex="-1"></a></span>
-<span id="cb24-20"><a href="histNoSurvey.html#cb24-20" tabindex="-1"></a><span class="co"># call the plot</span></span>
-<span id="cb24-21"><a href="histNoSurvey.html#cb24-21" tabindex="-1"></a>p2</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="histNoSurvey.html#cb124-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
+<span id="cb124-2"><a href="histNoSurvey.html#cb124-2" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb124-3"><a href="histNoSurvey.html#cb124-3" tabindex="-1"></a>  </span>
+<span id="cb124-4"><a href="histNoSurvey.html#cb124-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb124-5"><a href="histNoSurvey.html#cb124-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb124-6"><a href="histNoSurvey.html#cb124-6" tabindex="-1"></a>  </span>
+<span id="cb124-7"><a href="histNoSurvey.html#cb124-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
+<span id="cb124-8"><a href="histNoSurvey.html#cb124-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb124-9"><a href="histNoSurvey.html#cb124-9" tabindex="-1"></a>    </span>
+<span id="cb124-10"><a href="histNoSurvey.html#cb124-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
+<span id="cb124-11"><a href="histNoSurvey.html#cb124-11" tabindex="-1"></a>    <span class="at">x =</span> variable_name</span>
+<span id="cb124-12"><a href="histNoSurvey.html#cb124-12" tabindex="-1"></a>  )</span>
+<span id="cb124-13"><a href="histNoSurvey.html#cb124-13" tabindex="-1"></a>  </span>
+<span id="cb124-14"><a href="histNoSurvey.html#cb124-14" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
+<span id="cb124-15"><a href="histNoSurvey.html#cb124-15" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb124-16"><a href="histNoSurvey.html#cb124-16" tabindex="-1"></a>  </span>
+<span id="cb124-17"><a href="histNoSurvey.html#cb124-17" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
+<span id="cb124-18"><a href="histNoSurvey.html#cb124-18" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb124-19"><a href="histNoSurvey.html#cb124-19" tabindex="-1"></a></span>
+<span id="cb124-20"><a href="histNoSurvey.html#cb124-20" tabindex="-1"></a><span class="co"># call the plot</span></span>
+<span id="cb124-21"><a href="histNoSurvey.html#cb124-21" tabindex="-1"></a>p2</span></code></pre></div>
 <p>In the example below we create a histogram of Biden’s share of the vote in 2020, <code>biden2020</code>, which is found in the <code>states</code> dataset.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="histNoSurvey.html#cb25-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
-<span id="cb25-2"><a href="histNoSurvey.html#cb25-2" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb25-3"><a href="histNoSurvey.html#cb25-3" tabindex="-1"></a>  </span>
-<span id="cb25-4"><a href="histNoSurvey.html#cb25-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb25-5"><a href="histNoSurvey.html#cb25-5" tabindex="-1"></a>  <span class="at">data =</span> states,</span>
-<span id="cb25-6"><a href="histNoSurvey.html#cb25-6" tabindex="-1"></a>  </span>
-<span id="cb25-7"><a href="histNoSurvey.html#cb25-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
-<span id="cb25-8"><a href="histNoSurvey.html#cb25-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb25-9"><a href="histNoSurvey.html#cb25-9" tabindex="-1"></a>    </span>
-<span id="cb25-10"><a href="histNoSurvey.html#cb25-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
-<span id="cb25-11"><a href="histNoSurvey.html#cb25-11" tabindex="-1"></a>    <span class="at">x =</span> biden2020</span>
-<span id="cb25-12"><a href="histNoSurvey.html#cb25-12" tabindex="-1"></a>  )</span>
-<span id="cb25-13"><a href="histNoSurvey.html#cb25-13" tabindex="-1"></a>  </span>
-<span id="cb25-14"><a href="histNoSurvey.html#cb25-14" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
-<span id="cb25-15"><a href="histNoSurvey.html#cb25-15" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb25-16"><a href="histNoSurvey.html#cb25-16" tabindex="-1"></a>  </span>
-<span id="cb25-17"><a href="histNoSurvey.html#cb25-17" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
-<span id="cb25-18"><a href="histNoSurvey.html#cb25-18" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb25-19"><a href="histNoSurvey.html#cb25-19" tabindex="-1"></a></span>
-<span id="cb25-20"><a href="histNoSurvey.html#cb25-20" tabindex="-1"></a><span class="co"># call the plot</span></span>
-<span id="cb25-21"><a href="histNoSurvey.html#cb25-21" tabindex="-1"></a>p2</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="histNoSurvey.html#cb125-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
+<span id="cb125-2"><a href="histNoSurvey.html#cb125-2" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb125-3"><a href="histNoSurvey.html#cb125-3" tabindex="-1"></a>  </span>
+<span id="cb125-4"><a href="histNoSurvey.html#cb125-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb125-5"><a href="histNoSurvey.html#cb125-5" tabindex="-1"></a>  <span class="at">data =</span> states,</span>
+<span id="cb125-6"><a href="histNoSurvey.html#cb125-6" tabindex="-1"></a>  </span>
+<span id="cb125-7"><a href="histNoSurvey.html#cb125-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
+<span id="cb125-8"><a href="histNoSurvey.html#cb125-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb125-9"><a href="histNoSurvey.html#cb125-9" tabindex="-1"></a>    </span>
+<span id="cb125-10"><a href="histNoSurvey.html#cb125-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
+<span id="cb125-11"><a href="histNoSurvey.html#cb125-11" tabindex="-1"></a>    <span class="at">x =</span> biden2020</span>
+<span id="cb125-12"><a href="histNoSurvey.html#cb125-12" tabindex="-1"></a>  )</span>
+<span id="cb125-13"><a href="histNoSurvey.html#cb125-13" tabindex="-1"></a>  </span>
+<span id="cb125-14"><a href="histNoSurvey.html#cb125-14" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
+<span id="cb125-15"><a href="histNoSurvey.html#cb125-15" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb125-16"><a href="histNoSurvey.html#cb125-16" tabindex="-1"></a>  </span>
+<span id="cb125-17"><a href="histNoSurvey.html#cb125-17" tabindex="-1"></a>  <span class="co"># use the function `geom_bar()`</span></span>
+<span id="cb125-18"><a href="histNoSurvey.html#cb125-18" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb125-19"><a href="histNoSurvey.html#cb125-19" tabindex="-1"></a></span>
+<span id="cb125-20"><a href="histNoSurvey.html#cb125-20" tabindex="-1"></a><span class="co"># call the plot</span></span>
+<span id="cb125-21"><a href="histNoSurvey.html#cb125-21" tabindex="-1"></a>p2</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 </div>
 <div id="troubleshooting-33" class="section level3 hasAnchor" number="4.9.3">
 <h3><span class="header-section-number">4.9.3</span> Troubleshooting<a href="histNoSurvey.html#troubleshooting-33" class="anchor-section" aria-label="Anchor link to header"></a></h3>

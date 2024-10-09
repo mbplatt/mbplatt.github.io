@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -429,17 +429,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You have already <a href="add-variable.html#add-variable">added a variable to a dataset</a></li>
 <li>Inside your <code>mutate()</code> function add, subtract, multiply, or divide variables by other variables or by constants.</li>
 </ol>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="additive.html#cb7-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
-<span id="cb7-2"><a href="additive.html#cb7-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> datasets <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="additive.html#cb7-3" tabindex="-1"></a>  </span>
-<span id="cb7-4"><a href="additive.html#cb7-4" tabindex="-1"></a>  <span class="co"># use mutate() with some arithmetic in the argument</span></span>
-<span id="cb7-5"><a href="additive.html#cb7-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> old_variable <span class="sc">+</span> some_number)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="additive.html#cb55-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb55-2"><a href="additive.html#cb55-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> datasets <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="additive.html#cb55-3" tabindex="-1"></a>  </span>
+<span id="cb55-4"><a href="additive.html#cb55-4" tabindex="-1"></a>  <span class="co"># use mutate() with some arithmetic in the argument</span></span>
+<span id="cb55-5"><a href="additive.html#cb55-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_variable =</span> old_variable <span class="sc">+</span> some_number)</span></code></pre></div>
 <p>Below we create a variable <code>avg_demfeel</code> that is the average feeling thermometer of <code>ft.obama</code>, <code>ft.dem</code>, and <code>ft.biden.pre</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="additive.html#cb8-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
-<span id="cb8-2"><a href="additive.html#cb8-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="additive.html#cb8-3" tabindex="-1"></a>  </span>
-<span id="cb8-4"><a href="additive.html#cb8-4" tabindex="-1"></a>  <span class="co"># use mutate() to add the three variables and divide to get the average</span></span>
-<span id="cb8-5"><a href="additive.html#cb8-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_demfeel =</span> (ft.obama <span class="sc">+</span> ft.dem <span class="sc">+</span> ft.biden.pre)<span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="additive.html#cb56-1" tabindex="-1"></a><span class="co"># assign dataset to itself</span></span>
+<span id="cb56-2"><a href="additive.html#cb56-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="additive.html#cb56-3" tabindex="-1"></a>  </span>
+<span id="cb56-4"><a href="additive.html#cb56-4" tabindex="-1"></a>  <span class="co"># use mutate() to add the three variables and divide to get the average</span></span>
+<span id="cb56-5"><a href="additive.html#cb56-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_demfeel =</span> (ft.obama <span class="sc">+</span> ft.dem <span class="sc">+</span> ft.biden.pre)<span class="sc">/</span><span class="dv">3</span>)</span></code></pre></div>
 </div>
 <div id="troubleshooting-13" class="section level3 hasAnchor" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> Troubleshooting<a href="additive.html#troubleshooting-13" class="anchor-section" aria-label="Anchor link to header"></a></h3>

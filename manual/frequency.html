@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-08-10" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -313,10 +313,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.14.2" data-path="key.html"><a href="key.html#solution-26"><i class="fa fa-check"></i><b>3.14.2</b> Solution</a></li>
 <li class="chapter" data-level="3.14.3" data-path="key.html"><a href="key.html#troubleshooting-24"><i class="fa fa-check"></i><b>3.14.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="3.15" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
+<li class="chapter" data-level="3.15" data-path="merge.html"><a href="merge.html"><i class="fa fa-check"></i><b>3.15</b> Merge Multiple Datasets Together</a>
 <ul>
-<li class="chapter" data-level="3.15.1" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
-<li class="chapter" data-level="3.15.2" data-path="merge-multiple-datasets-together.html"><a href="merge-multiple-datasets-together.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
+<li class="chapter" data-level="3.15.1" data-path="merge.html"><a href="merge.html#problem-28"><i class="fa fa-check"></i><b>3.15.1</b> Problem</a></li>
+<li class="chapter" data-level="3.15.2" data-path="merge.html"><a href="merge.html#solution-27"><i class="fa fa-check"></i><b>3.15.2</b> Solution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
@@ -390,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.2" data-path="compmeans.html"><a href="compmeans.html#solution-38"><i class="fa fa-check"></i><b>5.2.2</b> Solution</a></li>
 <li class="chapter" data-level="5.2.3" data-path="compmeans.html"><a href="compmeans.html#troubleshooting-35"><i class="fa fa-check"></i><b>5.2.3</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="barchart.html"><a href="barchart.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart</a>
+<li class="chapter" data-level="5.3" data-path="barchart2.html"><a href="barchart2.html"><i class="fa fa-check"></i><b>5.3</b> Make a Bar Chart for Two Variables</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="barchart.html"><a href="barchart.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
-<li class="chapter" data-level="5.3.2" data-path="barchart.html"><a href="barchart.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
-<li class="chapter" data-level="5.3.3" data-path="barchart.html"><a href="barchart.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="5.3.1" data-path="barchart2.html"><a href="barchart2.html#problem-40"><i class="fa fa-check"></i><b>5.3.1</b> Problem</a></li>
+<li class="chapter" data-level="5.3.2" data-path="barchart2.html"><a href="barchart2.html#solution-39"><i class="fa fa-check"></i><b>5.3.2</b> Solution</a></li>
+<li class="chapter" data-level="5.3.3" data-path="barchart2.html"><a href="barchart2.html#troubleshooting-36"><i class="fa fa-check"></i><b>5.3.3</b> Troubleshooting</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -432,37 +432,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the argument <code>x</code> to the name of the variable that you want to make a frequency table of.</li>
 <li>If you have survey data, then set the <code>w</code> argument to the name of the weights variable.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="frequency.html#cb3-1" tabindex="-1"></a><span class="co"># Use `freqC()`</span></span>
-<span id="cb3-2"><a href="frequency.html#cb3-2" tabindex="-1"></a><span class="fu">freqC</span>(</span>
-<span id="cb3-3"><a href="frequency.html#cb3-3" tabindex="-1"></a>  </span>
-<span id="cb3-4"><a href="frequency.html#cb3-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb3-5"><a href="frequency.html#cb3-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
-<span id="cb3-6"><a href="frequency.html#cb3-6" tabindex="-1"></a>  </span>
-<span id="cb3-7"><a href="frequency.html#cb3-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
-<span id="cb3-8"><a href="frequency.html#cb3-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
-<span id="cb3-9"><a href="frequency.html#cb3-9" tabindex="-1"></a>  </span>
-<span id="cb3-10"><a href="frequency.html#cb3-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
-<span id="cb3-11"><a href="frequency.html#cb3-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
-<span id="cb3-12"><a href="frequency.html#cb3-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="frequency.html#cb103-1" tabindex="-1"></a><span class="co"># Use `freqC()`</span></span>
+<span id="cb103-2"><a href="frequency.html#cb103-2" tabindex="-1"></a><span class="fu">freqC</span>(</span>
+<span id="cb103-3"><a href="frequency.html#cb103-3" tabindex="-1"></a>  </span>
+<span id="cb103-4"><a href="frequency.html#cb103-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb103-5"><a href="frequency.html#cb103-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb103-6"><a href="frequency.html#cb103-6" tabindex="-1"></a>  </span>
+<span id="cb103-7"><a href="frequency.html#cb103-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb103-8"><a href="frequency.html#cb103-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
+<span id="cb103-9"><a href="frequency.html#cb103-9" tabindex="-1"></a>  </span>
+<span id="cb103-10"><a href="frequency.html#cb103-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb103-11"><a href="frequency.html#cb103-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
+<span id="cb103-12"><a href="frequency.html#cb103-12" tabindex="-1"></a>)</span></code></pre></div>
 <p>In the example below we create a frequency table of the variable <code>abortion.legal</code> found in the <code>nes</code> dataset. The weights for this data are named <code>wt</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="frequency.html#cb4-1" tabindex="-1"></a><span class="co"># Use `freqC()`</span></span>
-<span id="cb4-2"><a href="frequency.html#cb4-2" tabindex="-1"></a><span class="fu">freqC</span>(</span>
-<span id="cb4-3"><a href="frequency.html#cb4-3" tabindex="-1"></a>  </span>
-<span id="cb4-4"><a href="frequency.html#cb4-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
-<span id="cb4-5"><a href="frequency.html#cb4-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
-<span id="cb4-6"><a href="frequency.html#cb4-6" tabindex="-1"></a>  </span>
-<span id="cb4-7"><a href="frequency.html#cb4-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
-<span id="cb4-8"><a href="frequency.html#cb4-8" tabindex="-1"></a>  <span class="at">x =</span> abortion.legal,</span>
-<span id="cb4-9"><a href="frequency.html#cb4-9" tabindex="-1"></a>  </span>
-<span id="cb4-10"><a href="frequency.html#cb4-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
-<span id="cb4-11"><a href="frequency.html#cb4-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
-<span id="cb4-12"><a href="frequency.html#cb4-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="frequency.html#cb104-1" tabindex="-1"></a><span class="co"># Use `freqC()`</span></span>
+<span id="cb104-2"><a href="frequency.html#cb104-2" tabindex="-1"></a><span class="fu">freqC</span>(</span>
+<span id="cb104-3"><a href="frequency.html#cb104-3" tabindex="-1"></a>  </span>
+<span id="cb104-4"><a href="frequency.html#cb104-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb104-5"><a href="frequency.html#cb104-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
+<span id="cb104-6"><a href="frequency.html#cb104-6" tabindex="-1"></a>  </span>
+<span id="cb104-7"><a href="frequency.html#cb104-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb104-8"><a href="frequency.html#cb104-8" tabindex="-1"></a>  <span class="at">x =</span> abortion.legal,</span>
+<span id="cb104-9"><a href="frequency.html#cb104-9" tabindex="-1"></a>  </span>
+<span id="cb104-10"><a href="frequency.html#cb104-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb104-11"><a href="frequency.html#cb104-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
+<span id="cb104-12"><a href="frequency.html#cb104-12" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## ===========================================================================
 ##    Describing Distribution of Values with Frequency Table and Bar Chart
 ## ===========================================================================
 ## 
 ## 
-## Table: (\#tab:unnamed-chunk-4)Frequency Distribution of abortion.legal (PRE: STD Abortion: self-placement), Weighted by wt
+## Table: (\#tab:unnamed-chunk-72)Frequency Distribution of abortion.legal (PRE: STD Abortion: self-placement), Weighted by wt
 ## 
 ##                                                                                     Frequency   Percent   Cum.Percent
 ## ---------------------------------------------------------------------------------  ----------  --------  ------------
@@ -473,7 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5. Other {SPECIFY}                                                                     280.10      3.41        100.00
 ## Total                                                                                 8222.20    100.00            NA</code></pre>
 <pre><code>## One or more text labels for bars is long. Consider using rowlabs argument to abbreviate.</code></pre>
-<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 </div>
 <div id="troubleshooting-26" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Troubleshooting<a href="frequency.html#troubleshooting-26" class="anchor-section" aria-label="Anchor link to header"></a></h3>

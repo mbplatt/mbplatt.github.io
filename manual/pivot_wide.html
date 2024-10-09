@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -420,7 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="pivot_wide" class="section level2 hasAnchor" number="3.12">
 <h2><span class="header-section-number">3.12</span> Pivot a Dataframe Wide<a href="pivot_wide.html#pivot_wide" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data that we collect out in the wild is not always organized around our chosen unit of analysis. Look at the data below:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="pivot_wide.html#cb41-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(urban)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="pivot_wide.html#cb89-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(urban)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -477,34 +477,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The first argument, <code>names_from</code>, is to provide the name of the variable whose values are being converted into columns.</li>
 <li>The second argument, <code>values_from</code>, provides the values that will be used to populate the new columns.</li>
 </ol>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="pivot_wide.html#cb42-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
-<span id="cb42-2"><a href="pivot_wide.html#cb42-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
-<span id="cb42-3"><a href="pivot_wide.html#cb42-3" tabindex="-1"></a>  </span>
-<span id="cb42-4"><a href="pivot_wide.html#cb42-4" tabindex="-1"></a>  <span class="co"># use pivot_wider()</span></span>
-<span id="cb42-5"><a href="pivot_wide.html#cb42-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb42-6"><a href="pivot_wide.html#cb42-6" tabindex="-1"></a>    </span>
-<span id="cb42-7"><a href="pivot_wide.html#cb42-7" tabindex="-1"></a>    <span class="co"># use `names_from` to specify the variable that is being turned into columns</span></span>
-<span id="cb42-8"><a href="pivot_wide.html#cb42-8" tabindex="-1"></a>    <span class="at">names_from =</span> some_variable,</span>
-<span id="cb42-9"><a href="pivot_wide.html#cb42-9" tabindex="-1"></a>    </span>
-<span id="cb42-10"><a href="pivot_wide.html#cb42-10" tabindex="-1"></a>    <span class="co"># use `values_from` to specify the variable that provides values for the columns</span></span>
-<span id="cb42-11"><a href="pivot_wide.html#cb42-11" tabindex="-1"></a>    <span class="at">values_from =</span> some_other_variable</span>
-<span id="cb42-12"><a href="pivot_wide.html#cb42-12" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="pivot_wide.html#cb90-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb90-2"><a href="pivot_wide.html#cb90-2" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> old_data <span class="sc">|&gt;</span></span>
+<span id="cb90-3"><a href="pivot_wide.html#cb90-3" tabindex="-1"></a>  </span>
+<span id="cb90-4"><a href="pivot_wide.html#cb90-4" tabindex="-1"></a>  <span class="co"># use pivot_wider()</span></span>
+<span id="cb90-5"><a href="pivot_wide.html#cb90-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb90-6"><a href="pivot_wide.html#cb90-6" tabindex="-1"></a>    </span>
+<span id="cb90-7"><a href="pivot_wide.html#cb90-7" tabindex="-1"></a>    <span class="co"># use `names_from` to specify the variable that is being turned into columns</span></span>
+<span id="cb90-8"><a href="pivot_wide.html#cb90-8" tabindex="-1"></a>    <span class="at">names_from =</span> some_variable,</span>
+<span id="cb90-9"><a href="pivot_wide.html#cb90-9" tabindex="-1"></a>    </span>
+<span id="cb90-10"><a href="pivot_wide.html#cb90-10" tabindex="-1"></a>    <span class="co"># use `values_from` to specify the variable that provides values for the columns</span></span>
+<span id="cb90-11"><a href="pivot_wide.html#cb90-11" tabindex="-1"></a>    <span class="at">values_from =</span> some_other_variable</span>
+<span id="cb90-12"><a href="pivot_wide.html#cb90-12" tabindex="-1"></a>  )</span></code></pre></div>
 <p>In the example below we perform a wide pivot on the <code>urban</code> dataset to make cities into the unit of analysis. Specifically, we will create separate columns for each type of political participation – voting and protests.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="pivot_wide.html#cb43-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
-<span id="cb43-2"><a href="pivot_wide.html#cb43-2" tabindex="-1"></a>city_part <span class="ot">&lt;-</span> urban <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a href="pivot_wide.html#cb43-3" tabindex="-1"></a>  </span>
-<span id="cb43-4"><a href="pivot_wide.html#cb43-4" tabindex="-1"></a>  <span class="co"># use pivot_wider()</span></span>
-<span id="cb43-5"><a href="pivot_wide.html#cb43-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb43-6"><a href="pivot_wide.html#cb43-6" tabindex="-1"></a>    </span>
-<span id="cb43-7"><a href="pivot_wide.html#cb43-7" tabindex="-1"></a>    <span class="co"># use `names_from` to specify the variable that is being turned into columns</span></span>
-<span id="cb43-8"><a href="pivot_wide.html#cb43-8" tabindex="-1"></a>    <span class="at">names_from =</span> type,</span>
-<span id="cb43-9"><a href="pivot_wide.html#cb43-9" tabindex="-1"></a>    </span>
-<span id="cb43-10"><a href="pivot_wide.html#cb43-10" tabindex="-1"></a>    <span class="co"># use `values_from` to specify the variable that provides values for the columns</span></span>
-<span id="cb43-11"><a href="pivot_wide.html#cb43-11" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
-<span id="cb43-12"><a href="pivot_wide.html#cb43-12" tabindex="-1"></a>  )</span>
-<span id="cb43-13"><a href="pivot_wide.html#cb43-13" tabindex="-1"></a></span>
-<span id="cb43-14"><a href="pivot_wide.html#cb43-14" tabindex="-1"></a><span class="co"># look at the data</span></span>
-<span id="cb43-15"><a href="pivot_wide.html#cb43-15" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_part)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="pivot_wide.html#cb91-1" tabindex="-1"></a><span class="co"># assign the old dataset to a new object</span></span>
+<span id="cb91-2"><a href="pivot_wide.html#cb91-2" tabindex="-1"></a>city_part <span class="ot">&lt;-</span> urban <span class="sc">|&gt;</span></span>
+<span id="cb91-3"><a href="pivot_wide.html#cb91-3" tabindex="-1"></a>  </span>
+<span id="cb91-4"><a href="pivot_wide.html#cb91-4" tabindex="-1"></a>  <span class="co"># use pivot_wider()</span></span>
+<span id="cb91-5"><a href="pivot_wide.html#cb91-5" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb91-6"><a href="pivot_wide.html#cb91-6" tabindex="-1"></a>    </span>
+<span id="cb91-7"><a href="pivot_wide.html#cb91-7" tabindex="-1"></a>    <span class="co"># use `names_from` to specify the variable that is being turned into columns</span></span>
+<span id="cb91-8"><a href="pivot_wide.html#cb91-8" tabindex="-1"></a>    <span class="at">names_from =</span> type,</span>
+<span id="cb91-9"><a href="pivot_wide.html#cb91-9" tabindex="-1"></a>    </span>
+<span id="cb91-10"><a href="pivot_wide.html#cb91-10" tabindex="-1"></a>    <span class="co"># use `values_from` to specify the variable that provides values for the columns</span></span>
+<span id="cb91-11"><a href="pivot_wide.html#cb91-11" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
+<span id="cb91-12"><a href="pivot_wide.html#cb91-12" tabindex="-1"></a>  )</span>
+<span id="cb91-13"><a href="pivot_wide.html#cb91-13" tabindex="-1"></a></span>
+<span id="cb91-14"><a href="pivot_wide.html#cb91-14" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb91-15"><a href="pivot_wide.html#cb91-15" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(city_part)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

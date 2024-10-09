@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew B. Platt" />
 
 
-<meta name="date" content="2024-10-04" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -433,26 +433,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a name for the indicator variable.</li>
 <li>Set the indicator variable as being equal to a numeric version of whether the old variable satisfies some criteria.</li>
 </ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="indicator.html#cb24-1" tabindex="-1"></a><span class="co"># assign the dataset to itself</span></span>
-<span id="cb24-2"><a href="indicator.html#cb24-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
-<span id="cb24-3"><a href="indicator.html#cb24-3" tabindex="-1"></a>  </span>
-<span id="cb24-4"><a href="indicator.html#cb24-4" tabindex="-1"></a>  <span class="co"># use mutate() to create the indicator variable</span></span>
-<span id="cb24-5"><a href="indicator.html#cb24-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indicator_variable =</span> <span class="fu">as.numeric</span>(some_criteria))</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="indicator.html#cb72-1" tabindex="-1"></a><span class="co"># assign the dataset to itself</span></span>
+<span id="cb72-2"><a href="indicator.html#cb72-2" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> dataset <span class="sc">|&gt;</span></span>
+<span id="cb72-3"><a href="indicator.html#cb72-3" tabindex="-1"></a>  </span>
+<span id="cb72-4"><a href="indicator.html#cb72-4" tabindex="-1"></a>  <span class="co"># use mutate() to create the indicator variable</span></span>
+<span id="cb72-5"><a href="indicator.html#cb72-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indicator_variable =</span> <span class="fu">as.numeric</span>(some_criteria))</span></code></pre></div>
 <p>Here we create an indicator variable called <code>biden_vote</code> that takes a value of 1 for all observations in which <code>presvote2020</code> was equal to Joe Biden.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="indicator.html#cb25-1" tabindex="-1"></a><span class="co"># assign the dataset to itself</span></span>
-<span id="cb25-2"><a href="indicator.html#cb25-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">|&gt;</span></span>
-<span id="cb25-3"><a href="indicator.html#cb25-3" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="indicator.html#cb25-4" tabindex="-1"></a>  <span class="co">#use mutate() to create the indicator variable</span></span>
-<span id="cb25-5"><a href="indicator.html#cb25-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">biden_vote =</span> <span class="fu">as.numeric</span>(presvote2020 <span class="sc">==</span> <span class="st">&quot;1. Joe Biden&quot;</span>))</span>
-<span id="cb25-6"><a href="indicator.html#cb25-6" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="indicator.html#cb25-7" tabindex="-1"></a><span class="co"># check the new variable</span></span>
-<span id="cb25-8"><a href="indicator.html#cb25-8" tabindex="-1"></a><span class="fu">freqC</span>(nes<span class="sc">$</span>biden_vote, <span class="at">plot =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="indicator.html#cb73-1" tabindex="-1"></a><span class="co"># assign the dataset to itself</span></span>
+<span id="cb73-2"><a href="indicator.html#cb73-2" tabindex="-1"></a>nes <span class="ot">&lt;-</span> nes <span class="sc">|&gt;</span></span>
+<span id="cb73-3"><a href="indicator.html#cb73-3" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="indicator.html#cb73-4" tabindex="-1"></a>  <span class="co">#use mutate() to create the indicator variable</span></span>
+<span id="cb73-5"><a href="indicator.html#cb73-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">biden_vote =</span> <span class="fu">as.numeric</span>(presvote2020 <span class="sc">==</span> <span class="st">&quot;1. Joe Biden&quot;</span>))</span>
+<span id="cb73-6"><a href="indicator.html#cb73-6" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="indicator.html#cb73-7" tabindex="-1"></a><span class="co"># check the new variable</span></span>
+<span id="cb73-8"><a href="indicator.html#cb73-8" tabindex="-1"></a><span class="fu">freqC</span>(nes<span class="sc">$</span>biden_vote, <span class="at">plot =</span> F)</span></code></pre></div>
 <pre><code>## ===========================================================================
 ##           Describing Distribution of Values with Frequency Table
 ## ===========================================================================
 ## 
 ## 
-## Table: (\#tab:unnamed-chunk-16)Frequency Distribution of nes$biden_vote
+## Table: (\#tab:unnamed-chunk-50)Frequency Distribution of nes$biden_vote
 ## 
 ##          Frequency   Percent
 ## ------  ----------  --------
