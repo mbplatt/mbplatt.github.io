@@ -127,7 +127,7 @@
 
 \title{PSC 253 Minimal Manual}
 \author{Matthew B. Platt}
-\date{2024-10-09}
+\date{2024-10-12}
 
 \begin{document}
 \maketitle
@@ -674,7 +674,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## here() starts at /Users/matthewplatt/Library/CloudStorage/OneDrive-Personal/R Code/PSC 253 Manual
+## here() starts at E:/OneDrive/R Code/PSC 253 Manual
 \end{verbatim}
 
 \begin{Shaded}
@@ -684,7 +684,7 @@ You want to create a file path relative to the project folder.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/Users/matthewplatt/Library/CloudStorage/OneDrive-Personal/R Code/PSC 253 Manual/images"
+## [1] "E:/OneDrive/R Code/PSC 253 Manual/images"
 \end{verbatim}
 
 For example, we have a project folder named \texttt{hypothesis\_test\_lab}. Figure \ref{fig:here-example} shows the inside of that project folder. There are three subfolders: Data, Documents, and Scripts. Inside the ``Data'' folder there are two more folders called \texttt{Analysis\_Data} and \texttt{Original\_Data}.
@@ -3262,7 +3262,7 @@ You want to make a histogram, and you do not have survey data.
   \CommentTok{\# close parentheses and type a + sign}
 \NormalTok{) }\SpecialCharTok{+}
   
-  \CommentTok{\# use the function \textasciigrave{}geom\_bar()\textasciigrave{}}
+  \CommentTok{\# use the function \textasciigrave{}geom\_histogram()\textasciigrave{}}
   \FunctionTok{geom\_histogram}\NormalTok{()}
 
 \CommentTok{\# call the plot}
@@ -3290,7 +3290,7 @@ In the example below we create a histogram of Biden's share of the vote in 2020,
   \CommentTok{\# close parentheses and type a + sign}
 \NormalTok{) }\SpecialCharTok{+}
   
-  \CommentTok{\# use the function \textasciigrave{}geom\_bar()\textasciigrave{}}
+  \CommentTok{\# use the function \textasciigrave{}geom\_histogram()\textasciigrave{}}
   \FunctionTok{geom\_histogram}\NormalTok{()}
 
 \CommentTok{\# call the plot}
@@ -3309,11 +3309,208 @@ In the example below we create a histogram of Biden's share of the vote in 2020,
 
 \begin{itemize}
 \item
-  Make sure that all arguments are separated by a comma, and that you use a \texttt{+} sign to connect the \texttt{ggplot()} function to the \texttt{geom\_bar()} function.
+  Make sure that all arguments are separated by a comma, and that you use a \texttt{+} sign to connect the \texttt{ggplot()} function to the \texttt{geom\_histogram()} function.
 \item
   Remember to call the plot. If you do not type the name of the plot object (\texttt{p1} in the example above), then R will not show what the plot looks like.
 \item
   You can use the argument \texttt{binwidth} inside \texttt{geom\_histogram()} to control the size and number of bars that are drawn.
+\end{itemize}
+
+\hypertarget{histSurvey}{%
+\section{Make a Histogram (for survey data)}\label{histSurvey}}
+
+We use histograms to visualize the dispersion of an interval variable.
+
+\hypertarget{problem-38}{%
+\subsection{Problem}\label{problem-38}}
+
+You want to make a histogram, and you do have survey data.
+
+\hypertarget{solution-37}{%
+\subsection{Solution}\label{solution-37}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the function \texttt{histC()}.
+\item
+  Set the \texttt{data} argument to the name of your dataset.
+\item
+  Set the argument \texttt{x} to the name of the variable for which a mode is being calculated.
+\item
+  If you have survey data, then set the \texttt{w} argument to the name of the weights variable.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}histC()\textasciigrave{}}
+\FunctionTok{histC}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ variable\_name,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ weights\_name}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we create a histogram of the feeling thermometer for Biden, \texttt{ft.biden.post}, which is found in the \texttt{nes} dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use \textasciigrave{}histC()\textasciigrave{}}
+\FunctionTok{histC}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ nes,}
+  
+  \CommentTok{\# set x to the name of the variable}
+  \AttributeTok{x =}\NormalTok{ ft.biden.post,}
+  
+  \CommentTok{\# set w to the weights (only for survey data)}
+  \AttributeTok{w =}\NormalTok{ wt}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ===========================================================================
+##    Describing Distribution of Values with Frequency Table and Histogram
+## ===========================================================================
+## 
+## 
+## Table: \label{tab:unnamed-chunk-88}Distribution of Binned Values of ft.biden.post, Weighted by wt
+## 
+##    Interval   Frequency   Percent   Cum. Percent
+## -----------  ----------  --------  -------------
+##    [0 - 10]     1488.88     20.52          20.52
+##   (10 - 20]      543.26      7.49          28.01
+##   (20 - 30]      456.12      6.29          34.30
+##   (30 - 40]      395.48      5.45          39.75
+##   (40 - 50]      507.50      6.99          46.74
+##   (50 - 60]      588.70      8.11          54.85
+##   (60 - 70]      875.94     12.07          66.92
+##   (70 - 80]      194.96      2.69          69.61
+##   (80 - 90]     1090.03     15.02          84.63
+##  (90 - 100]     1115.77     15.38         100.01
+##       Total     7256.64    100.00             NA
+\end{verbatim}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-88-1.pdf}
+
+\hypertarget{troubleshooting-34}{%
+\subsection{Troubleshooting}\label{troubleshooting-34}}
+
+\begin{itemize}
+\item
+  Alternatively, you can ignore the \texttt{data} argument and specify \texttt{x} and \texttt{w} using the \texttt{data\$variable} notation.
+\item
+  Remember to use the weights for survey data.
+\item
+  This function requires the \texttt{RCPA3} package.
+\end{itemize}
+
+\hypertarget{boxplot}{%
+\section{Make a Boxplot}\label{boxplot}}
+
+We can use a boxplot as an alternative way to visualize the dispersion of an interval variable.
+
+\hypertarget{problem-39}{%
+\subsection{Problem}\label{problem-39}}
+
+You want to make a boxplot.
+
+\hypertarget{solution-38}{%
+\subsection{Solution}\label{solution-38}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Assign the function \texttt{ggplot()} to a new plot object. A simple name like \texttt{p1} is fine.
+\item
+  Set the argument \texttt{data} to the name of your dataset.
+\item
+  Set the argument \texttt{mapping} to the function \texttt{aes()}.
+\item
+  Inside the \texttt{aes()} function, set the argument \texttt{y} to the name of your variable.
+\item
+  Make sure all the parentheses are closed and type a \texttt{+} sign after the last parenthesis.
+\item
+  Use the function \texttt{geom\_boxplot()} to draw the box shape. The function will not have any arguments.
+\item
+  Call the plot object by typing its name.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign ggplot() to a new plot object}
+\NormalTok{p3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ dataset,}
+  
+  \CommentTok{\# set \textasciigrave{}mapping\textasciigrave{} to the function \textasciigrave{}aes()\textasciigrave{}}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set \textasciigrave{}x\textasciigrave{} to the name of the variable}
+    \AttributeTok{x =}\NormalTok{ variable\_name}
+\NormalTok{  )}
+  
+  \CommentTok{\# close parentheses and type a + sign}
+\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use the function \textasciigrave{}geom\_boxplot()\textasciigrave{}}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}
+
+\CommentTok{\# call the plot}
+\NormalTok{p3}
+\end{Highlighting}
+\end{Shaded}
+
+In the example below we create a boxplot of Biden's share of the vote in 2020, \texttt{biden2020}, which is found in the \texttt{states} dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# assign ggplot() to a new plot object}
+\NormalTok{p3 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  
+  \CommentTok{\# set data to the name of the dataset}
+  \AttributeTok{data =}\NormalTok{ states,}
+  
+  \CommentTok{\# set \textasciigrave{}mapping\textasciigrave{} to the function \textasciigrave{}aes()\textasciigrave{}}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}
+    
+    \CommentTok{\# set \textasciigrave{}x\textasciigrave{} to the name of the variable}
+    \AttributeTok{x =}\NormalTok{ biden2020}
+\NormalTok{  )}
+  
+  \CommentTok{\# close parentheses and type a + sign}
+\NormalTok{) }\SpecialCharTok{+}
+  
+  \CommentTok{\# use the function \textasciigrave{}geom\_boxplot()\textasciigrave{}}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}
+
+\CommentTok{\# call the plot}
+\NormalTok{p3}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-90-1.pdf}
+
+\hypertarget{troubleshooting-35}{%
+\subsection{Troubleshooting}\label{troubleshooting-35}}
+
+\begin{itemize}
+\item
+  Make sure that all arguments are separated by a comma, and that you use a \texttt{+} sign to connect the \texttt{ggplot()} function to the \texttt{geom\_boxplot()} function.
+\item
+  Remember to call the plot. If you do not type the name of the plot object (\texttt{p3} in the example above), then R will not show what the plot looks like.
 \end{itemize}
 
 \hypertarget{simple-comparisons}{%
@@ -3322,13 +3519,13 @@ In the example below we create a histogram of Biden's share of the vote in 2020,
 \hypertarget{crosstab}{%
 \section{Crosstab}\label{crosstab}}
 
-\hypertarget{problem-38}{%
-\subsection{Problem}\label{problem-38}}
+\hypertarget{problem-40}{%
+\subsection{Problem}\label{problem-40}}
 
 You want to make a crosstab.
 
-\hypertarget{solution-37}{%
-\subsection{Solution}\label{solution-37}}
+\hypertarget{solution-39}{%
+\subsection{Solution}\label{solution-39}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3397,7 +3594,7 @@ In this example, we are making a crosstab where the dataset is `nes', the depend
 ## ===========================================================================
 ## 
 ## 
-## Table: \label{tab:unnamed-chunk-89}Cross-Tabulation of abortion.imp and partyid3, weighted by wt
+## Table: \label{tab:unnamed-chunk-93}Cross-Tabulation of abortion.imp and partyid3, weighted by wt
 ## 
 ##                              1. Democrat   2. Independent   3. Republican    Totals
 ## --------------------------  ------------  ---------------  --------------  --------
@@ -3415,8 +3612,8 @@ In this example, we are making a crosstab where the dataset is `nes', the depend
 ## __Count___                       2858.33          2769.44         2598.10   8225.87
 \end{verbatim}
 
-\hypertarget{troubleshooting-34}{%
-\subsection{Troubleshooting}\label{troubleshooting-34}}
+\hypertarget{troubleshooting-36}{%
+\subsection{Troubleshooting}\label{troubleshooting-36}}
 
 \begin{itemize}
 \tightlist
@@ -3433,13 +3630,13 @@ In this example, we are making a crosstab where the dataset is `nes', the depend
 \hypertarget{compmeans}{%
 \section{Comparison of Means}\label{compmeans}}
 
-\hypertarget{problem-39}{%
-\subsection{Problem}\label{problem-39}}
+\hypertarget{problem-41}{%
+\subsection{Problem}\label{problem-41}}
 
 You want to make a comparison of means table.
 
-\hypertarget{solution-38}{%
-\subsection{Solution}\label{solution-38}}
+\hypertarget{solution-40}{%
+\subsection{Solution}\label{solution-40}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3499,7 +3696,7 @@ Here is a comparison of means table for feelings towards Obama \texttt{ft.obama}
 ## ===========================================================================
 ## 
 ## 
-## Table: \label{tab:unnamed-chunk-91}Mean Values of ft.obama by partyid3, Weighted by wt
+## Table: \label{tab:unnamed-chunk-95}Mean Values of ft.obama by partyid3, Weighted by wt
 ## 
 ##                    Mean         N   St. Dev.
 ## ---------------  ------  --------  ---------
@@ -3509,8 +3706,8 @@ Here is a comparison of means table for feelings towards Obama \texttt{ft.obama}
 ## Total             60.53   8166.71      36.65
 \end{verbatim}
 
-\hypertarget{troubleshooting-35}{%
-\subsection{Troubleshooting}\label{troubleshooting-35}}
+\hypertarget{troubleshooting-37}{%
+\subsection{Troubleshooting}\label{troubleshooting-37}}
 
 \begin{itemize}
 \tightlist
@@ -3523,13 +3720,13 @@ Here is a comparison of means table for feelings towards Obama \texttt{ft.obama}
 \hypertarget{barchart2}{%
 \section{Make a Bar Chart for Two Variables}\label{barchart2}}
 
-\hypertarget{problem-40}{%
-\subsection{Problem}\label{problem-40}}
+\hypertarget{problem-42}{%
+\subsection{Problem}\label{problem-42}}
 
 Make a barchart that plots the mean of a dependent variable (Y) by an independent variable (X).
 
-\hypertarget{solution-39}{%
-\subsection{Solution}\label{solution-39}}
+\hypertarget{solution-41}{%
+\subsection{Solution}\label{solution-41}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3619,10 +3816,10 @@ Plot the mean feelings towards Obama \texttt{obama\_therm} by party identificati
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-93-1.pdf}
+\includegraphics{psc-253-manual_files/figure-latex/unnamed-chunk-97-1.pdf}
 
-\hypertarget{troubleshooting-36}{%
-\subsection{Troubleshooting}\label{troubleshooting-36}}
+\hypertarget{troubleshooting-38}{%
+\subsection{Troubleshooting}\label{troubleshooting-38}}
 
 \begin{itemize}
 \tightlist

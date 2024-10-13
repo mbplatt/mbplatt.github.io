@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.6 Installing a Package | PSC 253 Minimal Manual</title>
+  <title>4.10 Make a Histogram (for survey data) | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.6 Installing a Package | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="4.10 Make a Histogram (for survey data) | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.6 Installing a Package | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="4.10 Make a Histogram (for survey data) | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="project.html"/>
-<link rel="next" href="loadpack.html"/>
+<link rel="prev" href="histNoSurvey.html"/>
+<link rel="next" href="boxplot.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -429,39 +429,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="installpack" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Installing a Package<a href="installpack.html#installpack" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <em>package</em> is a specialized collection of R elements – datasets, functions, objects, etc. We will use various packages to help in our data analysis. Packages have to be installed and loaded before their elements can be accessed, so this section will teach you how to install a package.</p>
-<div id="problem-6" class="section level3 hasAnchor" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> Problem<a href="installpack.html#problem-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You want to install a package.</p>
+<div id="histSurvey" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Make a Histogram (for survey data)<a href="histSurvey.html#histSurvey" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We use histograms to visualize the dispersion of an interval variable.</p>
+<div id="problem-38" class="section level3 hasAnchor" number="4.10.1">
+<h3><span class="header-section-number">4.10.1</span> Problem<a href="histSurvey.html#problem-38" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to make a histogram, and you do have survey data.</p>
 </div>
-<div id="solution-6" class="section level3 hasAnchor" number="1.6.2">
-<h3><span class="header-section-number">1.6.2</span> Solution<a href="installpack.html#solution-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solution-37" class="section level3 hasAnchor" number="4.10.2">
+<h3><span class="header-section-number">4.10.2</span> Solution<a href="histSurvey.html#solution-37" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>You can type in the command <code>install.packages("packagename")</code>. Thus, to install the package named “here” we would type <code>install.packages("here")</code>.</li>
+<li>Use the function <code>histC()</code>.</li>
+<li>Set the <code>data</code> argument to the name of your dataset.</li>
+<li>Set the argument <code>x</code> to the name of the variable for which a mode is being calculated.</li>
+<li>If you have survey data, then set the <code>w</code> argument to the name of the weights variable.</li>
 </ol>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="installpack.html#cb38-1" tabindex="-1"></a><span class="co"># installing the RCPA3 package</span></span>
-<span id="cb38-2"><a href="installpack.html#cb38-2" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="installpack.html#cb38-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RCPA3&quot;</span>)</span></code></pre></div>
-<p>Alternatively, you can use the menu bar:</p>
-<ol style="list-style-type: decimal">
-<li>Click on “Tools” in the menu bar.</li>
-<li>select “Install Packages”</li>
-<li>A dialogue box will appear.</li>
-<li>Type in the name of the package you want.</li>
-<li>Click “Install”.</li>
-</ol>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="histSurvey.html#cb127-1" tabindex="-1"></a><span class="co"># Use `histC()`</span></span>
+<span id="cb127-2"><a href="histSurvey.html#cb127-2" tabindex="-1"></a><span class="fu">histC</span>(</span>
+<span id="cb127-3"><a href="histSurvey.html#cb127-3" tabindex="-1"></a>  </span>
+<span id="cb127-4"><a href="histSurvey.html#cb127-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb127-5"><a href="histSurvey.html#cb127-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb127-6"><a href="histSurvey.html#cb127-6" tabindex="-1"></a>  </span>
+<span id="cb127-7"><a href="histSurvey.html#cb127-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb127-8"><a href="histSurvey.html#cb127-8" tabindex="-1"></a>  <span class="at">x =</span> variable_name,</span>
+<span id="cb127-9"><a href="histSurvey.html#cb127-9" tabindex="-1"></a>  </span>
+<span id="cb127-10"><a href="histSurvey.html#cb127-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb127-11"><a href="histSurvey.html#cb127-11" tabindex="-1"></a>  <span class="at">w =</span> weights_name</span>
+<span id="cb127-12"><a href="histSurvey.html#cb127-12" tabindex="-1"></a>)</span></code></pre></div>
+<p>In the example below we create a histogram of the feeling thermometer for Biden, <code>ft.biden.post</code>, which is found in the <code>nes</code> dataset.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="histSurvey.html#cb128-1" tabindex="-1"></a><span class="co"># Use `histC()`</span></span>
+<span id="cb128-2"><a href="histSurvey.html#cb128-2" tabindex="-1"></a><span class="fu">histC</span>(</span>
+<span id="cb128-3"><a href="histSurvey.html#cb128-3" tabindex="-1"></a>  </span>
+<span id="cb128-4"><a href="histSurvey.html#cb128-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb128-5"><a href="histSurvey.html#cb128-5" tabindex="-1"></a>  <span class="at">data =</span> nes,</span>
+<span id="cb128-6"><a href="histSurvey.html#cb128-6" tabindex="-1"></a>  </span>
+<span id="cb128-7"><a href="histSurvey.html#cb128-7" tabindex="-1"></a>  <span class="co"># set x to the name of the variable</span></span>
+<span id="cb128-8"><a href="histSurvey.html#cb128-8" tabindex="-1"></a>  <span class="at">x =</span> ft.biden.post,</span>
+<span id="cb128-9"><a href="histSurvey.html#cb128-9" tabindex="-1"></a>  </span>
+<span id="cb128-10"><a href="histSurvey.html#cb128-10" tabindex="-1"></a>  <span class="co"># set w to the weights (only for survey data)</span></span>
+<span id="cb128-11"><a href="histSurvey.html#cb128-11" tabindex="-1"></a>  <span class="at">w =</span> wt</span>
+<span id="cb128-12"><a href="histSurvey.html#cb128-12" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## ===========================================================================
+##    Describing Distribution of Values with Frequency Table and Histogram
+## ===========================================================================
+## 
+## 
+## Table: (\#tab:unnamed-chunk-88)Distribution of Binned Values of ft.biden.post, Weighted by wt
+## 
+##    Interval   Frequency   Percent   Cum. Percent
+## -----------  ----------  --------  -------------
+##    [0 - 10]     1488.88     20.52          20.52
+##   (10 - 20]      543.26      7.49          28.01
+##   (20 - 30]      456.12      6.29          34.30
+##   (30 - 40]      395.48      5.45          39.75
+##   (40 - 50]      507.50      6.99          46.74
+##   (50 - 60]      588.70      8.11          54.85
+##   (60 - 70]      875.94     12.07          66.92
+##   (70 - 80]      194.96      2.69          69.61
+##   (80 - 90]     1090.03     15.02          84.63
+##  (90 - 100]     1115.77     15.38         100.01
+##       Total     7256.64    100.00             NA</code></pre>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 </div>
-<div id="troubleshooting-4" class="section level3 hasAnchor" number="1.6.3">
-<h3><span class="header-section-number">1.6.3</span> Troubleshooting<a href="installpack.html#troubleshooting-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="troubleshooting-34" class="section level3 hasAnchor" number="4.10.3">
+<h3><span class="header-section-number">4.10.3</span> Troubleshooting<a href="histSurvey.html#troubleshooting-34" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Some packages depend on the installation of other packages first. R will install these dependencies automatically, so it may take a while for your package to install. You know the installation is done when the console shows its arrow and blinking cursor.</li>
-<li>If you get a message asking you to install Rtools, then you can do so [here][<a href="https://cran.r-project.org/bin/windows/Rtools/" class="uri">https://cran.r-project.org/bin/windows/Rtools/</a>].</li>
-<li>If you get a message that says “exited with non-zero status”, then the package did not fully install. This could be due to one of the dependency packages not installing properly. Try to install that dependency package manually – <code>install.packages("dependencyname")</code>. Once the dependent package is installed, you can try to install the main package again.</li>
-<li>You will know that the package has been successfully installed if you are able to load the package.</li>
-<li>In rare occasions, a package may require a later edition of R than you have installed on your computer. The message will say something like “This package requires R 4.1.0 and you have R 3.1.0”. In that case, you will need to download and install the latest version of R before you can install the package.</li>
-<li>Remember to use quotation marks around the package name in <code>install.packages()</code>.</li>
+<li><p>Alternatively, you can ignore the <code>data</code> argument and specify <code>x</code> and <code>w</code> using the <code>data$variable</code> notation.</p></li>
+<li><p>Remember to use the weights for survey data.</p></li>
+<li><p>This function requires the <code>RCPA3</code> package.</p></li>
 </ul>
 </div>
 </div>
@@ -470,8 +505,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loadpack.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="histNoSurvey.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="boxplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -502,7 +537,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-basics.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-descriptive.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.6 Installing a Package | PSC 253 Minimal Manual</title>
+  <title>4.11 Make a Boxplot | PSC 253 Minimal Manual</title>
   <meta name="description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.6 Installing a Package | PSC 253 Minimal Manual" />
+  <meta property="og:title" content="4.11 Make a Boxplot | PSC 253 Minimal Manual" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.6 Installing a Package | PSC 253 Minimal Manual" />
+  <meta name="twitter:title" content="4.11 Make a Boxplot | PSC 253 Minimal Manual" />
   
   <meta name="twitter:description" content="This book is intended to help students who are enrolled in PSC 253 at Morehouse College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="project.html"/>
-<link rel="next" href="loadpack.html"/>
+<link rel="prev" href="histSurvey.html"/>
+<link rel="next" href="simple-comparisons.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -429,49 +429,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="installpack" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Installing a Package<a href="installpack.html#installpack" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <em>package</em> is a specialized collection of R elements – datasets, functions, objects, etc. We will use various packages to help in our data analysis. Packages have to be installed and loaded before their elements can be accessed, so this section will teach you how to install a package.</p>
-<div id="problem-6" class="section level3 hasAnchor" number="1.6.1">
-<h3><span class="header-section-number">1.6.1</span> Problem<a href="installpack.html#problem-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You want to install a package.</p>
+<div id="boxplot" class="section level2 hasAnchor" number="4.11">
+<h2><span class="header-section-number">4.11</span> Make a Boxplot<a href="boxplot.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use a boxplot as an alternative way to visualize the dispersion of an interval variable.</p>
+<div id="problem-39" class="section level3 hasAnchor" number="4.11.1">
+<h3><span class="header-section-number">4.11.1</span> Problem<a href="boxplot.html#problem-39" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You want to make a boxplot.</p>
 </div>
-<div id="solution-6" class="section level3 hasAnchor" number="1.6.2">
-<h3><span class="header-section-number">1.6.2</span> Solution<a href="installpack.html#solution-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="solution-38" class="section level3 hasAnchor" number="4.11.2">
+<h3><span class="header-section-number">4.11.2</span> Solution<a href="boxplot.html#solution-38" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>You can type in the command <code>install.packages("packagename")</code>. Thus, to install the package named “here” we would type <code>install.packages("here")</code>.</li>
+<li>Assign the function <code>ggplot()</code> to a new plot object. A simple name like <code>p1</code> is fine.</li>
+<li>Set the argument <code>data</code> to the name of your dataset.</li>
+<li>Set the argument <code>mapping</code> to the function <code>aes()</code>.</li>
+<li>Inside the <code>aes()</code> function, set the argument <code>y</code> to the name of your variable.</li>
+<li>Make sure all the parentheses are closed and type a <code>+</code> sign after the last parenthesis.</li>
+<li>Use the function <code>geom_boxplot()</code> to draw the box shape. The function will not have any arguments.</li>
+<li>Call the plot object by typing its name.</li>
 </ol>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="installpack.html#cb38-1" tabindex="-1"></a><span class="co"># installing the RCPA3 package</span></span>
-<span id="cb38-2"><a href="installpack.html#cb38-2" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="installpack.html#cb38-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;RCPA3&quot;</span>)</span></code></pre></div>
-<p>Alternatively, you can use the menu bar:</p>
-<ol style="list-style-type: decimal">
-<li>Click on “Tools” in the menu bar.</li>
-<li>select “Install Packages”</li>
-<li>A dialogue box will appear.</li>
-<li>Type in the name of the package you want.</li>
-<li>Click “Install”.</li>
-</ol>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="boxplot.html#cb130-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
+<span id="cb130-2"><a href="boxplot.html#cb130-2" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb130-3"><a href="boxplot.html#cb130-3" tabindex="-1"></a>  </span>
+<span id="cb130-4"><a href="boxplot.html#cb130-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb130-5"><a href="boxplot.html#cb130-5" tabindex="-1"></a>  <span class="at">data =</span> dataset,</span>
+<span id="cb130-6"><a href="boxplot.html#cb130-6" tabindex="-1"></a>  </span>
+<span id="cb130-7"><a href="boxplot.html#cb130-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
+<span id="cb130-8"><a href="boxplot.html#cb130-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb130-9"><a href="boxplot.html#cb130-9" tabindex="-1"></a>    </span>
+<span id="cb130-10"><a href="boxplot.html#cb130-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
+<span id="cb130-11"><a href="boxplot.html#cb130-11" tabindex="-1"></a>    <span class="at">x =</span> variable_name</span>
+<span id="cb130-12"><a href="boxplot.html#cb130-12" tabindex="-1"></a>  )</span>
+<span id="cb130-13"><a href="boxplot.html#cb130-13" tabindex="-1"></a>  </span>
+<span id="cb130-14"><a href="boxplot.html#cb130-14" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
+<span id="cb130-15"><a href="boxplot.html#cb130-15" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb130-16"><a href="boxplot.html#cb130-16" tabindex="-1"></a>  </span>
+<span id="cb130-17"><a href="boxplot.html#cb130-17" tabindex="-1"></a>  <span class="co"># use the function `geom_boxplot()`</span></span>
+<span id="cb130-18"><a href="boxplot.html#cb130-18" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb130-19"><a href="boxplot.html#cb130-19" tabindex="-1"></a></span>
+<span id="cb130-20"><a href="boxplot.html#cb130-20" tabindex="-1"></a><span class="co"># call the plot</span></span>
+<span id="cb130-21"><a href="boxplot.html#cb130-21" tabindex="-1"></a>p3</span></code></pre></div>
+<p>In the example below we create a boxplot of Biden’s share of the vote in 2020, <code>biden2020</code>, which is found in the <code>states</code> dataset.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="boxplot.html#cb131-1" tabindex="-1"></a><span class="co"># assign ggplot() to a new plot object</span></span>
+<span id="cb131-2"><a href="boxplot.html#cb131-2" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb131-3"><a href="boxplot.html#cb131-3" tabindex="-1"></a>  </span>
+<span id="cb131-4"><a href="boxplot.html#cb131-4" tabindex="-1"></a>  <span class="co"># set data to the name of the dataset</span></span>
+<span id="cb131-5"><a href="boxplot.html#cb131-5" tabindex="-1"></a>  <span class="at">data =</span> states,</span>
+<span id="cb131-6"><a href="boxplot.html#cb131-6" tabindex="-1"></a>  </span>
+<span id="cb131-7"><a href="boxplot.html#cb131-7" tabindex="-1"></a>  <span class="co"># set `mapping` to the function `aes()`</span></span>
+<span id="cb131-8"><a href="boxplot.html#cb131-8" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb131-9"><a href="boxplot.html#cb131-9" tabindex="-1"></a>    </span>
+<span id="cb131-10"><a href="boxplot.html#cb131-10" tabindex="-1"></a>    <span class="co"># set `x` to the name of the variable</span></span>
+<span id="cb131-11"><a href="boxplot.html#cb131-11" tabindex="-1"></a>    <span class="at">x =</span> biden2020</span>
+<span id="cb131-12"><a href="boxplot.html#cb131-12" tabindex="-1"></a>  )</span>
+<span id="cb131-13"><a href="boxplot.html#cb131-13" tabindex="-1"></a>  </span>
+<span id="cb131-14"><a href="boxplot.html#cb131-14" tabindex="-1"></a>  <span class="co"># close parentheses and type a + sign</span></span>
+<span id="cb131-15"><a href="boxplot.html#cb131-15" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb131-16"><a href="boxplot.html#cb131-16" tabindex="-1"></a>  </span>
+<span id="cb131-17"><a href="boxplot.html#cb131-17" tabindex="-1"></a>  <span class="co"># use the function `geom_boxplot()`</span></span>
+<span id="cb131-18"><a href="boxplot.html#cb131-18" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb131-19"><a href="boxplot.html#cb131-19" tabindex="-1"></a></span>
+<span id="cb131-20"><a href="boxplot.html#cb131-20" tabindex="-1"></a><span class="co"># call the plot</span></span>
+<span id="cb131-21"><a href="boxplot.html#cb131-21" tabindex="-1"></a>p3</span></code></pre></div>
+<p><img src="psc-253-manual_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 </div>
-<div id="troubleshooting-4" class="section level3 hasAnchor" number="1.6.3">
-<h3><span class="header-section-number">1.6.3</span> Troubleshooting<a href="installpack.html#troubleshooting-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="troubleshooting-35" class="section level3 hasAnchor" number="4.11.3">
+<h3><span class="header-section-number">4.11.3</span> Troubleshooting<a href="boxplot.html#troubleshooting-35" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>Some packages depend on the installation of other packages first. R will install these dependencies automatically, so it may take a while for your package to install. You know the installation is done when the console shows its arrow and blinking cursor.</li>
-<li>If you get a message asking you to install Rtools, then you can do so [here][<a href="https://cran.r-project.org/bin/windows/Rtools/" class="uri">https://cran.r-project.org/bin/windows/Rtools/</a>].</li>
-<li>If you get a message that says “exited with non-zero status”, then the package did not fully install. This could be due to one of the dependency packages not installing properly. Try to install that dependency package manually – <code>install.packages("dependencyname")</code>. Once the dependent package is installed, you can try to install the main package again.</li>
-<li>You will know that the package has been successfully installed if you are able to load the package.</li>
-<li>In rare occasions, a package may require a later edition of R than you have installed on your computer. The message will say something like “This package requires R 4.1.0 and you have R 3.1.0”. In that case, you will need to download and install the latest version of R before you can install the package.</li>
-<li>Remember to use quotation marks around the package name in <code>install.packages()</code>.</li>
+<li><p>Make sure that all arguments are separated by a comma, and that you use a <code>+</code> sign to connect the <code>ggplot()</code> function to the <code>geom_boxplot()</code> function.</p></li>
+<li><p>Remember to call the plot. If you do not type the name of the plot object (<code>p3</code> in the example above), then R will not show what the plot looks like.</p></li>
 </ul>
+
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="loadpack.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="histSurvey.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="simple-comparisons.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -502,7 +539,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-basics.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-descriptive.Rmd",
 "text": "Edit"
 },
 "history": {
